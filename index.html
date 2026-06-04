@@ -39,9 +39,13 @@
     <!-- ========== 第一部分：顶部导航 ========== -->
     <header class="site-header" aria-label="顶部导航">
       <a class="brand" href="#top" aria-label="柚喜饰界首页">
-        <img class="brand-logo-image" src="./assets/logo-yuxi-horizontal.svg" alt="柚喜饰界，柚木爱好者乐园" />
+        <img class="brand-mark-image" src="./assets/logo-yuxi-mark.svg" alt="" aria-hidden="true" />
+        <span class="brand-wording">
+          <strong>柚喜饰界</strong>
+          <small>柚木爱好者乐园</small>
+        </span>
       </a>
-      <nav class="main-nav" aria-label="主导航">
+      <nav class="main-nav desktop-nav" aria-label="主导航">
         <a href="#about">认识柚喜</a>
         <div class="nav-dropdown" data-dropdown>
           <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="knowledge-menu" data-dropdown-trigger>
@@ -56,31 +60,89 @@
             <a href="#knowledge-faq">常见问题</a>
           </div>
         </div>
-        <a href="#solutions">好物方案</a>
+        <div class="nav-dropdown" data-dropdown>
+          <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="solutions-menu" data-dropdown-trigger>
+            好物方案
+          </button>
+          <div class="nav-dropdown-menu" id="solutions-menu" data-dropdown-menu>
+            <a href="#solution-whole-decoration">柚木整装</a>
+            <a href="#solution-flooring">柚木地板</a>
+            <a href="#solution-outdoor">庭院户外</a>
+            <a href="#solution-tea-room">茶室会客</a>
+            <a href="#solution-furniture">家具好物</a>
+          </div>
+        </div>
         <a href="#vendors">推荐厂商</a>
         <a href="#wechat">社群交流</a>
       </nav>
       <button class="nav-cta js-scroll-wechat" type="button">添加柚喜顾问</button>
+      <button class="menu-toggle" type="button" aria-label="打开导航菜单" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="mobile-menu-shell" id="mobile-menu" data-mobile-menu aria-hidden="true">
+        <button class="mobile-menu-backdrop" type="button" aria-label="关闭导航菜单" data-menu-backdrop></button>
+        <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="移动端导航">
+          <div class="mobile-menu-head">
+            <a class="brand mobile-brand" href="#top" aria-label="柚喜饰界首页">
+              <img class="brand-mark-image" src="./assets/logo-yuxi-mark.svg" alt="" aria-hidden="true" />
+              <span class="brand-wording">
+                <strong>柚喜饰界</strong>
+                <small>柚木爱好者乐园</small>
+              </span>
+            </a>
+            <button class="mobile-menu-close" type="button" aria-label="关闭导航菜单" data-menu-close>×</button>
+          </div>
+          <nav class="mobile-nav" aria-label="移动端主导航">
+            <a href="#about">认识柚喜</a>
+            <details open>
+              <summary>柚木知识</summary>
+              <a href="#knowledge-intro">柚木入门</a>
+              <a href="#knowledge-buying">选购避坑</a>
+              <a href="#knowledge-craft">材质工艺</a>
+              <a href="#knowledge-space">空间应用</a>
+              <a href="#knowledge-care">保养维护</a>
+              <a href="#knowledge-faq">常见问题</a>
+            </details>
+            <details open>
+              <summary>好物方案</summary>
+              <a href="#solution-whole-decoration">柚木整装</a>
+              <a href="#solution-flooring">柚木地板</a>
+              <a href="#solution-outdoor">庭院户外</a>
+              <a href="#solution-tea-room">茶室会客</a>
+              <a href="#solution-furniture">家具好物</a>
+            </details>
+            <a href="#vendors">推荐厂商</a>
+            <a href="#wechat">社群交流</a>
+          </nav>
+          <button class="mobile-menu-cta js-scroll-wechat" type="button">添加柚喜顾问</button>
+        </div>
+      </div>
     </header>
 
     <main id="top">
       <!-- ========== 第二部分：Hero 主视觉 ========== -->
       <section class="hero" aria-labelledby="hero-title">
-        <!-- 当前使用开放授权图库素材，来源记录见 custom/image-source-log.md；上线前仍建议优先替换为甲方真实授权图片。 -->
-        <img class="hero-image" src="./assets/images/hero-teak-lifestyle.jpg" alt="木质露台与庭院生活方式场景" />
-        <div class="hero-shade"></div>
-        <div class="hero-content">
-          <p class="eyebrow">Teak Lifestyle & Trust Platform</p>
-          <h1 id="hero-title">柚喜饰界，<br />柚木爱好者乐园。</h1>
-          <p class="hero-hook">买柚木前，先来这里看一看。</p>
-          <p class="hero-copy">
-            从材质辨别、选购避坑、户外使用、日常养护，到好物挑选和推荐厂商观察点，我们把柚木相关问题整理成可读、可问、可继续交流的内容，帮助你更稳地判断，也让好柚木被更多人看见。
-          </p>
-          <div class="hero-actions" aria-label="首页主要操作">
-            <button class="btn btn-primary js-scroll-wechat" type="button">加入柚木爱好者社群</button>
-            <button class="btn btn-secondary js-scroll-target" type="button" data-scroll-target="#knowledge">了解柚木知识</button>
-            <button class="btn btn-ghost js-scroll-wechat" type="button">厂商合作咨询</button>
+        <div class="hero-inner">
+          <div class="hero-content">
+            <p class="eyebrow">Teak Lifestyle & Trust Platform</p>
+            <h1 id="hero-title">柚喜饰界，<br />柚木爱好者乐园。</h1>
+            <p class="hero-hook">买柚木前，先来这里看一看。</p>
+            <p class="hero-copy">
+              这里不是普通家具商城，而是围绕柚木知识、好物方案、柚木整装、柚木地板、推荐厂商和爱好者社群建立的柚木生活方式入口。想买柚木，先看懂；想做柚木，先被信任。
+            </p>
+            <div class="hero-actions" aria-label="首页主要操作">
+              <button class="btn btn-primary js-scroll-wechat" type="button">加入社群交流</button>
+              <button class="btn btn-secondary js-scroll-target" type="button" data-scroll-target="#solutions">查看好物方案</button>
+              <button class="btn btn-ghost js-scroll-target" type="button" data-scroll-target="#knowledge">了解柚木知识</button>
+            </div>
           </div>
+          <figure class="hero-media">
+            <!-- 当前使用开放授权图库素材，来源记录见 custom/image-source-log.md；上线前仍建议优先替换为甲方真实授权图片。 -->
+            <img class="hero-image" src="./assets/images/hero-teak-lifestyle.jpg" alt="木质露台与庭院生活方式场景" />
+            <figcaption>温润木色、自然光与慢生活场景，作为当前预览版视觉方向参考。</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -208,6 +270,13 @@
             <p>从家具单品，到柚木地板、柚木整装和整体空间应用，让柚木真正进入生活场景。</p>
           </div>
           <a class="view-all js-scroll-wechat" href="#wechat">咨询完整好物方案 <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="solution-tabs" aria-label="好物方案分类">
+          <button class="solution-tab is-active" type="button" data-solution-tab="#solution-whole-decoration">柚木整装</button>
+          <button class="solution-tab is-active" type="button" data-solution-tab="#solution-flooring">柚木地板</button>
+          <button class="solution-tab" type="button" data-solution-tab="#solution-outdoor">庭院户外</button>
+          <button class="solution-tab" type="button" data-solution-tab="#solution-tea-room">茶室会客</button>
+          <button class="solution-tab" type="button" data-solution-tab="#solution-furniture">家具好物</button>
         </div>
         <div class="solution-grid">
           <article class="goods-card solution-card highlight" id="solution-whole-decoration">
@@ -384,6 +453,7 @@
           <img class="qr-code-image" src="./assets/wecom-qr.jpg" alt="扫码添加柚喜顾问企业微信二维码" />
           <h3>扫码添加柚喜顾问</h3>
           <p class="qr-note">备注：柚木社群／选购咨询／整装地板／厂商合作</p>
+          <p class="qr-mobile-tip">手机端可长按识别，或截图后识别二维码。</p>
           <p>企业微信承接，审核后邀请入群。</p>
         </aside>
       </section>
