@@ -90,5 +90,9 @@
 本轮补齐了 `.nojekyll`、`404.html`、`robots.txt`、`sitemap.xml` 和 `custom/github-pages-guide.md`。当前 `robots.txt` 采用“公网预览，不主动收录”的策略。
 如果 GitHub 页面里暂时找不到 Pages 入口，请优先查看 `custom/github-pages-guide.md`，按仓库 `Settings -> Code and automation -> Pages` 路径开启，并确认 Folder 选择 `/ (root)`。
 
+## V1.3 GitHub Actions Pages 部署说明
+由于分支发布方式设置后公网地址仍返回 404，当前已准备 GitHub Actions Pages 部署方案。新增 `.github/workflows/pages.yml`，用于在推送 `master` 后自动打包静态站点并部署到 GitHub Pages。
+如采用该方式，请在仓库 `Settings -> Pages` 中将 Source 设为 `GitHub Actions`，并到 `Actions` 页面查看 `Deploy static site to GitHub Pages` 是否运行成功。
+
 ## 后续步骤
 确认首页方向 → 补充真实素材 → 替换上线内容 → 上线前检查 → 部署。

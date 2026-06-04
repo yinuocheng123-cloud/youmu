@@ -85,6 +85,9 @@
 - 确认发布前已备份当前可运行版本。
 
 ## GitHub Pages 预览检查
+- 确认 V1.3 GitHub Actions workflow `.github/workflows/pages.yml` 已存在。
+- 如果采用 Actions 发布，确认 `Settings -> Pages` 的 Source 为 `GitHub Actions`。
+- 确认仓库 `Actions` 页面中的 `Deploy static site to GitHub Pages` 最近一次运行成功。
 - 确认 GitHub Pages 是否已启用。
 - 确认发布来源为 `Deploy from a branch`。
 - 确认发布来源为 `master` 分支和 `/ (root)` 目录；这里的 `/ (root)` 表示仓库根目录，不是 `/root`。

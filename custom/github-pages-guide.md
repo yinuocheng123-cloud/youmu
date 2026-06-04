@@ -22,6 +22,24 @@
 
 ## 2. 推荐发布方式
 
+### V1.3 推荐：GitHub Actions 发布
+
+由于分支发布方式设置后公网地址仍返回 404，V1.3 已新增 GitHub Actions 部署文件：
+
+`/.github/workflows/pages.yml`
+
+该 workflow 会在推送到 `master` 分支时自动运行，也可以在 GitHub 的 `Actions` 页面手动运行。它会把当前静态站需要的文件打包到 `_site`，再通过 GitHub Pages 官方 Actions 发布。
+
+如使用 Actions 方式，请在仓库 `Settings -> Pages` 中确认：
+
+- Source：`GitHub Actions`
+
+然后进入仓库顶部 `Actions`，查看 `Deploy static site to GitHub Pages` 是否运行成功。成功后再访问：
+
+`https://yinuocheng123-cloud.github.io/youmu/`
+
+### 备选：分支发布
+
 建议使用 GitHub Pages 的分支发布方式：
 
 - Source：`Deploy from a branch`

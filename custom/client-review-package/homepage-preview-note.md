@@ -63,3 +63,5 @@ V1.1 已补齐首页内容，并优化点击路径。用户可以从认识品牌
 当前公网预览用于确认首页整体效果，不代表正式上线版本。正式上线前仍需统一确认真实图片、真实厂商、真实案例、二维码最终版、联系方式、备案信息和授权状态。
 
 GitHub Pages 手动开启步骤见 `custom/github-pages-guide.md`；发布目录请在 GitHub 界面选择 `/ (root)`，不要理解为 `/root` 路径。
+
+如果分支发布方式仍然 404，V1.3 已新增 GitHub Actions Pages 部署 workflow。推送后请到 GitHub 仓库 `Actions` 页面查看 `Deploy static site to GitHub Pages` 是否成功。

@@ -38,6 +38,8 @@
 
 如 GitHub 仓库页面暂时找不到 Pages 开启入口，请查看 `custom/github-pages-guide.md`；发布目录应选择 `/ (root)`，表示仓库根目录。
 
+如果分支发布方式保存后公网地址仍返回 404，V1.3 已补充 GitHub Actions Pages 部署方案。仓库推送后请到 `Actions` 页面查看 `Deploy static site to GitHub Pages` 是否运行成功，并在 `Settings -> Pages` 中确认 Source 为 `GitHub Actions`。
+
 ## 7. 本包文件说明
 - `logo-direction-note.md`：Logo 方向说明。
 - `homepage-preview-note.md`：首页预览版说明。
