@@ -460,6 +460,25 @@ button {
   padding-bottom: 28px;
 }
 
+.about-intro {
+  max-width: 880px;
+  margin-bottom: 24px;
+}
+
+.about-intro h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.about-intro p:last-child {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+}
+
 .value-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -823,6 +842,34 @@ button {
   border: 1px solid rgba(101, 112, 71, 0.18);
   border-radius: 999px;
   font-size: 12px;
+}
+
+.solution-points {
+  display: grid;
+  gap: 6px;
+  padding: 0;
+  margin: 14px 0 16px;
+  color: var(--muted);
+  list-style: none;
+  font-size: 13px;
+}
+
+.solution-points li {
+  position: relative;
+  padding-left: 16px;
+}
+
+.solution-points li::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--teak);
+  content: "•";
+}
+
+.solution-points strong {
+  color: var(--coffee-soft);
+  font-weight: 600;
 }
 
 .solution-card .pill-button {

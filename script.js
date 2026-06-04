@@ -6,7 +6,7 @@
   第一部分：读取页面元素与内容源
   第二部分：统一滚动函数
   第三部分：顶部知识下拉菜单
-  第四部分：绑定 CTA 点击行为
+  第四部分：绑定点击行为
 */
 
 // ========== 第一部分：读取页面元素与内容源 ==========
@@ -20,6 +20,17 @@ if (yuxiContent) {
 }
 
 // ========== 第二部分：统一滚动函数 ==========
+function scrollToTarget(selector) {
+  const target = document.querySelector(selector);
+
+  if (!target) {
+    return false;
+  }
+
+  target.scrollIntoView({ behavior: "smooth", block: "start" });
+  return true;
+}
+
 function scrollToWechat() {
   // 首页所有尚未接入详情页的 CTA，都先进入企业微信承接区，避免跳空或误导用户。
   wechatSection?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -67,14 +78,34 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-// ========== 第四部分：绑定 CTA 点击行为 ==========
+// ========== 第四部分：绑定点击行为 ==========
 document.addEventListener("click", (event) => {
-  const trigger = event.target.closest(".js-scroll-wechat");
+  const emptyLink = event.target.closest('a[href="#"], a[href=""], a[href="javascript:void(0)"]');
 
-  if (!trigger) {
+  if (emptyLink) {
+    event.preventDefault();
     return;
   }
 
-  event.preventDefault();
-  scrollToWechat();
+  const trigger = event.target.closest(".js-scroll-wechat");
+
+  if (trigger) {
+    event.preventDefault();
+    scrollToWechat();
+    dropdowns.forEach(closeDropdown);
+    return;
+  }
+
+  const targetTrigger = event.target.closest(".js-scroll-target");
+
+  if (targetTrigger) {
+    event.preventDefault();
+    const selector = targetTrigger.dataset.scrollTarget;
+
+    if (selector) {
+      scrollToTarget(selector);
+    }
+
+    dropdowns.forEach(closeDropdown);
+  }
 });
