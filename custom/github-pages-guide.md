@@ -22,13 +22,15 @@
 
 ## 2. 推荐发布方式
 
-### V1.3 推荐：GitHub Actions 发布
+### V1.5 正式保留：GitHub Actions 发布
 
 由于分支发布方式设置后公网地址仍返回 404，V1.3 已新增 GitHub Actions 部署文件：
 
 `/.github/workflows/pages.yml`
 
-该 workflow 会在推送到 `master` 分支时自动运行，也可以在 GitHub 的 `Actions` 页面手动运行。它会把当前静态站需要的文件打包到 `_site`，再通过 GitHub Pages 官方 Actions 发布。
+V1.5 已清理重复 workflow，正式 Pages 部署入口只保留 `pages.yml`。该 workflow 会在推送到 `master` 分支时自动运行，也可以在 GitHub 的 `Actions` 页面手动运行。它会把当前静态站需要的文件打包到 `_site`，再通过 GitHub Pages 官方 Actions 发布。
+
+`_site` 只包含公网运行必需文件：`index.html`、`styles.css`、`script.js`、`assets/`、`data/`、`404.html`、`robots.txt`、`sitemap.xml`、`.nojekyll`。`custom/` 文档、截图、项目记录、甲方预览包、`.github/` 和 `.git/` 不会进入正式发布 artifact。
 
 如使用 Actions 方式，请在仓库 `Settings -> Pages` 中确认：
 
@@ -38,9 +40,9 @@
 
 `https://yinuocheng123-cloud.github.io/youmu/`
 
-### 备选：分支发布
+### 历史备选：分支发布
 
-建议使用 GitHub Pages 的分支发布方式：
+分支发布曾作为早期备选方式保留说明。如当前采用 V1.5 清理后的正式链路，优先在 `Settings -> Pages` 中选择 `GitHub Actions`。只有在确实决定回退为分支发布时，再使用以下设置：
 
 - Source：`Deploy from a branch`
 - Branch：`master`
