@@ -88,6 +88,7 @@
 公网预览用于甲方确认整体效果，不代表正式上线版本。图片、真实厂商、真实案例、最终二维码、联系方式、备案信息和授权状态，仍需在正式上线前统一确认。
 
 本轮补齐了 `.nojekyll`、`404.html`、`robots.txt`、`sitemap.xml` 和 `custom/github-pages-guide.md`。当前 `robots.txt` 采用“公网预览，不主动收录”的策略。
+如果 GitHub 页面里暂时找不到 Pages 入口，请优先查看 `custom/github-pages-guide.md`，按仓库 `Settings -> Code and automation -> Pages` 路径开启，并确认 Folder 选择 `/ (root)`。
 
 ## 后续步骤
 确认首页方向 → 补充真实素材 → 替换上线内容 → 上线前检查 → 部署。

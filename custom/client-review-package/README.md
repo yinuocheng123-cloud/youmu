@@ -36,6 +36,8 @@
 
 该地址用于甲方确认首页整体效果，不代表正式上线版本。正式上线前仍需确认图片授权、真实厂商资料、最终二维码、联系方式、备案信息和是否允许搜索引擎收录。
 
+如 GitHub 仓库页面暂时找不到 Pages 开启入口，请查看 `custom/github-pages-guide.md`；发布目录应选择 `/ (root)`，表示仓库根目录。
+
 ## 7. 本包文件说明
 - `logo-direction-note.md`：Logo 方向说明。
 - `homepage-preview-note.md`：首页预览版说明。

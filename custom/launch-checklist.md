@@ -86,7 +86,9 @@
 
 ## GitHub Pages 预览检查
 - 确认 GitHub Pages 是否已启用。
-- 确认发布来源为 `master` 分支和 `root` 目录。
+- 确认发布来源为 `Deploy from a branch`。
+- 确认发布来源为 `master` 分支和 `/ (root)` 目录；这里的 `/ (root)` 表示仓库根目录，不是 `/root`。
+- 如果找不到 Pages，先确认当前账号是否有仓库 `Settings` 管理权限，再到 `Settings` 左侧 `Code and automation` 下查找 `Pages`。
 - 确认预览地址 `https://yinuocheng123-cloud.github.io/youmu/` 可访问。
 - 确认 `index.html` 位于仓库根目录。
 - 确认 CSS、JS、图片、SVG 和 favicon 均使用相对路径。
