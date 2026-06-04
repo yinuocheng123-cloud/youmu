@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">木作细节厂商图占位</title><desc id="desc">模拟师傅打磨柚木与木作细节。</desc>
+  <rect width="900" height="560" fill="#2a170d"/><path d="M0 332c230-90 488 22 900-116v344H0Z" fill="#8c542c"/>
+  <path d="M120 330c204-46 406-18 690-80" stroke="#d9ad74" stroke-width="12" opacity=".38" fill="none"/>
+  <path d="M470 120c94 0 168 54 168 122 0 76-88 132-202 110-74-14-122-58-116-114 6-62 70-118 150-118Z" fill="#ead6bf" opacity=".7"/>
+  <path d="M332 342h250c42 0 76 34 76 76H276c0-42 34-76 56-76Z" fill="#f3e2c9" opacity=".58"/>
+</svg>

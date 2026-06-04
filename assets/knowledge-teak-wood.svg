@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-labelledby="title desc">
+  <title id="title">真实柚木木纹知识图占位</title><desc id="desc">模拟真实柚木截面和木纹层次。</desc>
+  <defs><radialGradient id="r" cx=".45" cy=".5" r=".68"><stop stop-color="#d29a5b"/><stop offset=".42" stop-color="#9a5f31"/><stop offset="1" stop-color="#2b190f"/></radialGradient><filter id="g"><feGaussianBlur stdDeviation="1.6"/></filter></defs>
+  <rect width="900" height="620" fill="#2a170d"/>
+  <circle cx="420" cy="310" r="410" fill="url(#r)"/>
+  <g fill="none" stroke="#2b170d" stroke-opacity=".36" filter="url(#g)">
+    <ellipse cx="410" cy="304" rx="70" ry="58"/><ellipse cx="415" cy="308" rx="126" ry="98"/><ellipse cx="420" cy="310" rx="190" ry="148"/><ellipse cx="430" cy="316" rx="260" ry="202"/><ellipse cx="442" cy="320" rx="336" ry="260"/>
+  </g>
+  <path d="M0 480c170-86 328-20 492-70 120-36 214-130 408-90v300H0Z" fill="#170d08" opacity=".58"/>
+</svg>

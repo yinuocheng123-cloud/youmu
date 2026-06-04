@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">柚木庭院生活方式视觉占位</title>
+  <desc id="desc">用于首页 Hero 的高端柚木庭院氛围图，后续可替换为真实摄影图片。</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2b1b11"/><stop offset=".45" stop-color="#6f4a2a"/><stop offset="1" stop-color="#1f2719"/></linearGradient>
+    <radialGradient id="light" cx=".68" cy=".22" r=".55"><stop stop-color="#f0d5a4" stop-opacity=".58"/><stop offset=".55" stop-color="#9b6a3b" stop-opacity=".16"/><stop offset="1" stop-color="#111" stop-opacity="0"/></radialGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="14"/></filter>
+  </defs>
+  <rect width="1400" height="900" fill="url(#sky)"/>
+  <rect width="1400" height="900" fill="url(#light)"/>
+  <g opacity=".22" filter="url(#soft)"><circle cx="1080" cy="180" r="230" fill="#8b9a62"/><circle cx="900" cy="250" r="160" fill="#d4a66d"/></g>
+  <path d="M760 188c132 0 238 88 278 214 32 98 8 222-74 296H576c-74-78-96-192-58-298 43-120 140-212 242-212Z" fill="#22301e" opacity=".62"/>
+  <path d="M170 140h438v640H170z" fill="#1b1009" opacity=".44"/>
+  <path d="M650 154h74v626h-74zM806 154h68v626h-68zM1034 154h58v626h-58z" fill="#6d4324" opacity=".48"/>
+  <path d="M360 610h820v84H360z" fill="#8b552f"/>
+  <path d="M398 548h350c42 0 76 34 76 76H322c0-42 34-76 76-76Z" fill="#c9b08b"/>
+  <path d="M842 520h258c58 0 104 47 104 104H764c0-58 47-104 78-104Z" fill="#d8c5a6"/>
+  <path d="M445 500h154v68H445zM900 480h190v82H900z" fill="#a36b3a"/>
+  <path d="M410 692h820v36H410z" fill="#3a2215" opacity=".72"/>
+  <path d="M460 470c80 6 110 42 134 92M1050 448c-74 13-108 50-124 102" fill="none" stroke="#d4b17a" stroke-width="5" opacity=".45"/>
+  <rect x="0" y="0" width="1400" height="900" fill="#120b07" opacity=".14"/>
+</svg>

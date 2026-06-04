@@ -1,0 +1,385 @@
+<!--
+文件说明：该文件实现“柚喜饰界｜柚木爱好者乐园”官网首页 demo。
+功能说明：负责首页结构、内容模块、转化入口与静态占位资源承载。
+
+结构概览：
+  第一部分：页面元信息与资源引用
+  第二部分：顶部导航与 Hero 主视觉
+  第三部分：首页内容模块
+  第四部分：企业微信承接区与 Footer
+-->
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>柚喜饰界｜柚木爱好者乐园｜柚木知识、好物方案与推荐厂商平台</title>
+    <meta
+      name="description"
+      content="柚喜饰界是面向柚木爱好者、消费用户、柚木从业者和渠道伙伴的柚木知识平台、好物方案平台与企业微信社群入口，帮助用户看懂柚木、少踩坑，也帮助优质柚木厂商被更多人看见。"
+    />
+    <meta
+      name="keywords"
+      content="柚喜饰界, 柚木爱好者, 柚木知识, 好物方案, 柚木整装, 柚木地板, 柚木厂商, 推荐厂商, 柚木社群, 企业微信社群"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="柚喜饰界｜柚木爱好者乐园｜柚木知识、好物方案与推荐厂商平台" />
+    <meta
+      property="og:description"
+      content="柚喜饰界是面向柚木爱好者、消费用户、柚木从业者和渠道伙伴的柚木知识平台、好物方案平台与企业微信社群入口。"
+    />
+    <meta property="og:site_name" content="柚喜饰界" />
+    <meta property="og:locale" content="zh_CN" />
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- ========== 第一部分：顶部导航 ========== -->
+    <header class="site-header" aria-label="顶部导航">
+      <a class="brand" href="#top" aria-label="柚喜饰界首页">
+        <img class="brand-logo-image" src="./assets/logo-yuxi-horizontal.svg" alt="柚喜饰界，柚木爱好者乐园" />
+      </a>
+      <nav class="main-nav" aria-label="主导航">
+        <a href="#about">认识柚喜</a>
+        <div class="nav-dropdown" data-dropdown>
+          <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="knowledge-menu" data-dropdown-trigger>
+            柚木知识
+          </button>
+          <div class="nav-dropdown-menu" id="knowledge-menu" data-dropdown-menu>
+            <a href="#knowledge-starter">柚木入门</a>
+            <a href="#knowledge-buying">选购避坑</a>
+            <a href="#knowledge-craft">材质工艺</a>
+            <a href="#knowledge-space">空间应用</a>
+            <a href="#knowledge-care">保养维护</a>
+            <a href="#knowledge-faq">常见问题</a>
+          </div>
+        </div>
+        <a href="#goods">好物方案</a>
+        <a href="#merchants">推荐厂商</a>
+        <a href="#wechat">社群交流</a>
+      </nav>
+      <button class="nav-cta js-scroll-wechat" type="button">添加柚喜顾问</button>
+    </header>
+
+    <main id="top">
+      <!-- ========== 第二部分：Hero 主视觉 ========== -->
+      <section class="hero" aria-labelledby="hero-title">
+        <!-- 当前使用开放授权图库素材，来源记录见 custom/image-source-log.md；上线前仍建议优先替换为甲方真实授权图片。 -->
+        <img class="hero-image" src="./assets/images/hero-teak-lifestyle.jpg" alt="木质露台与庭院生活方式场景" />
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Teak Lifestyle & Trust Platform</p>
+          <h1 id="hero-title">柚喜饰界，<br />柚木爱好者乐园。</h1>
+          <p class="hero-hook">买柚木前，先来这里看一看。</p>
+          <p class="hero-copy">
+            从材质辨别、选购避坑、户外使用、日常养护，到好物挑选和推荐厂商观察点，我们把柚木相关问题整理成可读、可问、可继续交流的内容，帮助你更稳地判断，也让好柚木被更多人看见。
+          </p>
+          <div class="hero-actions" aria-label="首页主要操作">
+            <button class="btn btn-primary js-scroll-wechat" type="button">加入爱好者社群</button>
+            <button class="btn btn-secondary js-scroll-wechat" type="button">咨询柚木选购</button>
+            <button class="btn btn-ghost js-scroll-wechat" type="button">申请厂商合作</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== 第三部分：三大价值区 ========== -->
+      <section class="section value-section" id="about" aria-labelledby="value-title">
+        <h2 class="sr-only" id="value-title">柚喜饰界三大价值</h2>
+        <div class="value-grid">
+          <article class="value-card">
+            <span class="line-icon users-icon" aria-hidden="true"></span>
+            <div>
+              <h3>懂柚木的人，在这里交流</h3>
+              <p>围绕木纹、油性、结构、养护和空间搭配交流真实经验，让喜欢柚木的人有一个可以慢慢沉淀的地方。</p>
+            </div>
+          </article>
+          <article class="value-card">
+            <span class="line-icon shield-icon" aria-hidden="true"></span>
+            <div>
+              <h3>想买柚木的人，在这里少踩坑</h3>
+              <p>把常见坑点、材质判断、使用场景和沟通清单提前讲清楚，让选购从冲动变成有依据的判断。</p>
+            </div>
+          </article>
+          <article class="value-card">
+            <span class="line-icon trust-icon" aria-hidden="true"></span>
+            <div>
+              <h3>做柚木的人，在这里建立信任</h3>
+              <p>通过内容共创、工艺说明和样板展示方向建立信任，但不替代后续真实资料、授权和资质核验。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ========== 第四部分：柚木知识区 ========== -->
+      <section class="section" id="knowledge" aria-labelledby="knowledge-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="knowledge-title">柚木知识</h2>
+            <p>买柚木前，先把这些问题看明白。</p>
+            <button class="lead-magnet js-scroll-wechat" type="button">
+              添加柚喜顾问，领取《柚木选购避坑清单》。
+            </button>
+          </div>
+          <a class="view-all js-scroll-wechat" href="#wechat">查看全部 <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="knowledge-category-grid">
+          <article class="knowledge-topic-card feature" id="knowledge-starter">
+            <span class="topic-index">01</span>
+            <h3>柚木入门</h3>
+            <p>先搞清楚什么是柚木、为什么受欢迎、适合放在哪些空间，再决定自己到底需要哪一种柚木生活方式。</p>
+            <ul>
+              <li>什么是柚木</li>
+              <li>柚木为什么适合生活空间</li>
+              <li>庭院、阳台、茶室怎么入门</li>
+            </ul>
+            <button class="text-link js-scroll-wechat" type="button">问问入门问题</button>
+          </article>
+          <article class="knowledge-topic-card" id="knowledge-buying">
+            <span class="topic-index">02</span>
+            <h3>选购避坑</h3>
+            <p>真假柚木、价格差异、常见套路、买前要问什么，都用尽量直白的话拆开讲，帮你少被话术带着走。</p>
+            <ul>
+              <li>真假柚木怎么初步判断</li>
+              <li>为什么报价差很多</li>
+              <li>下单前必须问清的细节</li>
+            </ul>
+            <button class="text-link js-scroll-wechat" type="button">咨询选购避坑</button>
+          </article>
+          <article class="knowledge-topic-card" id="knowledge-craft">
+            <span class="topic-index">03</span>
+            <h3>材质工艺</h3>
+            <p>木纹、油性、拼接、烘干、结构、表面处理，这些不是冷知识，而是影响稳定性、触感和长期使用的关键。</p>
+            <ul>
+              <li>木纹与油性怎么看</li>
+              <li>拼板和结构有什么差别</li>
+              <li>表面处理会影响什么</li>
+            </ul>
+            <button class="text-link js-scroll-wechat" type="button">了解材质工艺</button>
+          </article>
+          <article class="knowledge-topic-card" id="knowledge-space">
+            <span class="topic-index">04</span>
+            <h3>空间应用</h3>
+            <p>庭院、阳台、茶室、会客厅、餐厅、民宿、会所，柚木进入空间后要看比例、光线、动线和使用频率。</p>
+            <ul>
+              <li>户外空间怎么用柚木</li>
+              <li>茶室会客如何保留温润感</li>
+              <li>地板、家具和墙面怎么协调</li>
+            </ul>
+            <button class="text-link js-scroll-wechat" type="button">交流空间应用</button>
+          </article>
+          <article class="knowledge-topic-card" id="knowledge-care">
+            <span class="topic-index">05</span>
+            <h3>保养维护</h3>
+            <p>清洁、防晒、防潮、上油、户外老化和日常护理，重点不是越勤快越好，而是别用错方法。</p>
+            <ul>
+              <li>日常清洁怎么做</li>
+              <li>户外风化要不要处理</li>
+              <li>上油和打磨的边界</li>
+            </ul>
+            <button class="text-link js-scroll-wechat" type="button">咨询保养维护</button>
+          </article>
+          <article class="knowledge-topic-card" id="knowledge-faq">
+            <span class="topic-index">06</span>
+            <h3>常见问题</h3>
+            <p>用 FAQ 方式回答用户真实会搜、真实会问的问题，后续可以持续沉淀成知识内容和社群答疑素材。</p>
+            <ul>
+              <li>柚木适合南方潮湿环境吗</li>
+              <li>柚木地板和普通木地板怎么比</li>
+              <li>整装空间是不是一定很贵</li>
+            </ul>
+            <button class="text-link js-scroll-wechat" type="button">提交我的问题</button>
+          </article>
+        </div>
+      </section>
+
+      <!-- ========== 第五部分：好物方案区 ========== -->
+      <section class="section" id="goods" aria-labelledby="goods-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="goods-title">柚木好物与空间方案</h2>
+            <p>从家具单品，到柚木地板、柚木整装和整体空间应用，让柚木真正进入生活场景。</p>
+          </div>
+          <a class="view-all js-scroll-wechat" href="#wechat">查看全部 <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="solution-grid">
+          <article class="goods-card solution-card highlight" id="solution-fitout">
+            <figure class="goods-image">
+              <img src="./assets/images/vendor-showroom-sample.jpg" alt="柚木空间整体方案样板方向" />
+            </figure>
+            <div class="goods-body">
+              <span class="solution-label">未来重点方向</span>
+              <h3>柚木整装方向</h3>
+              <p>不是把单件家具堆进空间，而是从地面、墙面、家具、软装和整体气质上考虑柚木的使用方式，适合庭院、茶室、会客厅、阳台、民宿、会所和私宅等空间。</p>
+              <div class="solution-tags" aria-label="柚木整装适用场景">
+                <span>庭院</span><span>茶室</span><span>会客厅</span><span>私宅</span>
+              </div>
+              <button class="pill-button js-scroll-wechat" type="button">咨询柚木空间方案</button>
+            </div>
+          </article>
+          <article class="goods-card solution-card highlight" id="solution-floor">
+            <figure class="goods-image">
+              <img src="./assets/images/knowledge-teak-grain.jpg" alt="柚木地板材质纹理应用参考" />
+            </figure>
+            <div class="goods-body">
+              <span class="solution-label">未来重点方向</span>
+              <h3>柚木地板选购咨询</h3>
+              <p>柚木地板不只是材料，而是进入柚木生活方式的基础入口。重点看木材稳定性、脚感、纹理、安装方式和适用空间。</p>
+              <div class="solution-tags" aria-label="柚木地板关注点">
+                <span>稳定性</span><span>脚感</span><span>纹理</span><span>安装</span>
+              </div>
+              <button class="pill-button js-scroll-wechat" type="button">咨询柚木地板</button>
+            </div>
+          </article>
+          <article class="goods-card solution-card" id="solution-outdoor">
+            <figure class="goods-image">
+              <img src="./assets/images/product-teak-chair.jpg" alt="庭院户外柚木应用参考" />
+            </figure>
+            <div class="goods-body">
+              <span class="solution-label muted">场景方案</span>
+              <h3>庭院户外柚木</h3>
+              <p>面向庭院、露台、阳台和户外休闲家具，重点看耐候性、结构稳定性、排水、防晒和长期使用感。</p>
+              <div class="solution-tags" aria-label="庭院户外关注点">
+                <span>耐候</span><span>排水</span><span>防晒</span>
+              </div>
+              <button class="pill-button js-scroll-wechat" type="button">了解户外方案</button>
+            </div>
+          </article>
+          <article class="goods-card solution-card" id="solution-tea-room">
+            <figure class="goods-image">
+              <img src="./assets/images/product-teak-table.jpg" alt="茶室会客柚木生活方式参考" />
+            </figure>
+            <div class="goods-body">
+              <span class="solution-label muted">场景方案</span>
+              <h3>茶室会客柚木</h3>
+              <p>围绕茶台、边几、会客椅、收纳柜和空间氛围，重点看温润感、比例、触感和现代东方生活气质。</p>
+              <div class="solution-tags" aria-label="茶室会客关注点">
+                <span>茶台</span><span>边几</span><span>氛围</span>
+              </div>
+              <button class="pill-button js-scroll-wechat" type="button">交流茶室方案</button>
+            </div>
+          </article>
+          <article class="goods-card solution-card" id="solution-furniture">
+            <figure class="goods-image">
+              <img src="./assets/images/product-teak-cabinet.jpg" alt="家具好物与木质边柜应用参考" />
+            </figure>
+            <div class="goods-body">
+              <span class="solution-label muted">好物入口</span>
+              <h3>家具好物</h3>
+              <p>餐桌椅、休闲椅、边柜和小件家具，重点看选材、结构、边角处理、坐感和真实使用场景。</p>
+              <div class="solution-tags" aria-label="家具好物关注点">
+                <span>选材</span><span>结构</span><span>坐感</span>
+              </div>
+              <button class="pill-button js-scroll-wechat" type="button">了解家具好物</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ========== 第六部分：推荐厂商区 ========== -->
+      <section class="section merchants-section" id="merchants" aria-labelledby="merchants-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="merchants-title">让优质柚木厂商，被更多人看见。</h2>
+            <p>柚喜饰界不做简单广告展示，而是通过产品、工艺、交付说明和用户反馈路径，帮助优质柚木厂商建立长期信任；当前仅展示样板方向，不代表真实厂商背书。</p>
+          </div>
+          <a class="view-all js-scroll-wechat" href="#wechat">查看全部 <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="merchant-grid">
+          <article class="merchant-card workshop">
+            <img src="./assets/images/vendor-workshop-sample.jpg" alt="木作工坊工具与工艺氛围样板图" />
+            <div class="merchant-overlay"></div>
+            <div class="merchant-badge">工坊工艺</div>
+            <p class="merchant-kicker">柚喜饰界内容共创展示</p>
+            <h3>柚木工坊样板位</h3>
+            <p>当前为展示方向样板，真实厂商需经资料确认、授权确认后再正式展示。</p>
+            <button class="merchant-link js-scroll-wechat" type="button">了解展示方向</button>
+          </article>
+          <article class="merchant-card studio">
+            <img src="./assets/images/vendor-showroom-sample.jpg" alt="木作材料与空间展示样板图" />
+            <div class="merchant-overlay"></div>
+            <div class="merchant-badge">整装方向</div>
+            <p class="merchant-kicker">柚喜饰界内容共创展示</p>
+            <h3>柚木整装样板位</h3>
+            <p>当前为展示方向样板，真实厂商需经资料确认、授权确认后再正式展示。</p>
+            <button class="merchant-link js-scroll-wechat" type="button">了解整装方向</button>
+          </article>
+          <article class="merchant-card heritage">
+            <img src="./assets/images/vendor-craft-sample.jpg" alt="木作打磨与手工处理样板图" />
+            <div class="merchant-overlay"></div>
+            <div class="merchant-badge">地板方向</div>
+            <p class="merchant-kicker">柚喜饰界内容共创展示</p>
+            <h3>柚木地板样板位</h3>
+            <p>当前为展示方向样板，真实厂商需经资料确认、授权确认后再正式展示。</p>
+            <button class="merchant-link js-scroll-wechat" type="button">了解地板方向</button>
+          </article>
+        </div>
+      </section>
+
+      <!-- ========== 第七部分：信任机制区 ========== -->
+      <section class="section trust-section" aria-labelledby="trust-title">
+        <h2 id="trust-title">我们如何推荐柚木厂商？</h2>
+        <div class="trust-grid">
+          <article><span>◎</span><h3>看真实产品</h3><p>优先看实物细节、结构照片和不同光线下的材质状态，减少只看效果图带来的误判。</p></article>
+          <article><span>▤</span><h3>看材料说明</h3><p>说明木材来源、等级、拼板方式和用料边界，把能确认和不能确认的内容分开写清。</p></article>
+          <article><span>✣</span><h3>看工艺细节</h3><p>关注连接结构、边角处理、打磨手感、表面处理和户外使用后的稳定性。</p></article>
+          <article><span>▧</span><h3>看交付案例</h3><p>用真实空间验证产品落地效果，但必须在授权和真实性确认后再公开展示。</p></article>
+          <article><span>◇</span><h3>看服务承诺</h3><p>把交期、运输、安装、售后、保养建议和问题处理方式提前讲清楚。</p></article>
+          <article><span>◌</span><h3>看用户反馈</h3><p>持续沉淀长期使用后的真实评价，避免只展示刚交付时的“漂亮瞬间”。</p></article>
+        </div>
+      </section>
+
+      <!-- ========== 第八部分：企业微信社群承接区 ========== -->
+      <section class="section wechat-section" id="wechat" aria-labelledby="wechat-title">
+        <div class="wechat-copy">
+          <p class="eyebrow dark">Enterprise WeChat Community</p>
+          <h2 id="wechat-title">添加柚喜顾问，加入企业微信社群</h2>
+          <p class="wechat-hook">买柚木前，先来这里问一问。</p>
+          <p>
+            这里不是广告群，而是一个交流柚木知识、选购经验、空间方案和厂商共创的企业微信入口。喜欢柚木、正在看柚木整装或柚木地板、正在做柚木的人，都可以先添加柚喜顾问，再按需求进入社群、咨询或合作沟通。
+          </p>
+          <ul class="benefits" aria-label="社群权益">
+            <li>我想了解柚木知识</li>
+            <li>我想咨询柚木整装／柚木地板</li>
+            <li>我是厂商，想参与展示或共创</li>
+            <li>选购避坑与空间应用答疑</li>
+            <li>好物方案与后续活动通知</li>
+          </ul>
+        </div>
+        <aside class="qr-panel" aria-label="企业微信二维码占位">
+          <!-- TODO: 替换为真实企业微信二维码图片，例如 assets/wecom-qr.png；当前优先使用 assets/wecom-qr.jpg。 -->
+          <img class="qr-brand-mark" src="./assets/logo-yuxi-mark.svg" alt="" aria-hidden="true" />
+          <img class="qr-code-image" src="./assets/wecom-qr.jpg" alt="扫码添加柚喜顾问企业微信二维码" />
+          <h3>扫码添加柚喜顾问</h3>
+          <p class="qr-note">备注：柚木社群／选购咨询／整装地板／厂商合作</p>
+          <p>企业微信承接，审核后邀请入群。</p>
+        </aside>
+      </section>
+    </main>
+
+    <!-- ========== 第九部分：底部 Footer ========== -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="brand footer-logo" aria-label="柚喜饰界">
+            <img class="brand-logo-image" src="./assets/logo-yuxi-horizontal.svg" alt="柚喜饰界，柚木爱好者乐园" />
+          </div>
+          <p class="footer-slogan">让柚木的美好，被更多人看见。</p>
+          <p>看懂柚木，连接好物，建立信任。</p>
+        </div>
+        <address class="footer-contact">
+          <span>电话：400-888-XXXX</span>
+          <span>邮箱：hello@yuxishi.com</span>
+          <span>地址：广东省中山市东升镇柚木产业园</span>
+        </address>
+        <div class="footer-qr">
+          <img class="mini-qr" src="./assets/official-account-qr.jpg" alt="公众号二维码" />
+          <span>关注公众号</span>
+        </div>
+      </div>
+      <div class="copyright">© 2024 柚喜饰界 版权所有</div>
+    </footer>
+
+    <script src="./data/site-content.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

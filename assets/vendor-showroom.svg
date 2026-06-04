@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">展厅空间厂商图占位</title><desc id="desc">模拟柚木展厅与庭院会客空间。</desc>
+  <rect width="900" height="560" fill="#342014"/><rect x="90" y="86" width="720" height="270" rx="18" fill="#ead9bf" opacity=".24"/>
+  <circle cx="716" cy="124" r="92" fill="#657047" opacity=".5"/>
+  <path d="M154 330h600v80H154z" fill="#a06536"/><path d="M220 256h180c46 0 84 38 84 84H154c0-46 38-84 66-84Z" fill="#d5bea1"/>
+  <path d="M538 244h150c46 0 84 38 84 84H500c0-48 38-84 38-84Z" fill="#c7ad8a"/><path d="M0 434h900v126H0z" fill="#130c07" opacity=".64"/>
+</svg>

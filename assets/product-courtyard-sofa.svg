@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">柚木庭院沙发组合图占位</title><desc id="desc">模拟露台庭院中的柚木沙发组合。</desc>
+  <rect width="900" height="560" fill="#ead8bd"/><circle cx="735" cy="96" r="128" fill="#6f7b4f" opacity=".5"/>
+  <path d="M120 330h660v76H120z" fill="#9a6032"/><path d="M170 246h322c60 0 108 48 108 108H92c0-60 48-108 78-108Z" fill="#d7c2a4"/>
+  <path d="M612 236h102c48 0 88 40 88 88v30H552c0-58 46-118 60-118Z" fill="#cbb393"/>
+  <path d="M160 406h38v84h-38zM720 406h38v84h-38z" fill="#5c341f"/><path d="M0 454h900v106H0z" fill="#332015" opacity=".72"/>
+</svg>

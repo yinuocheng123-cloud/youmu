@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">柚木实木边柜图占位</title><desc id="desc">模拟客厅陈设中的柚木边柜。</desc>
+  <rect width="900" height="560" fill="#efe0c8"/><rect x="160" y="228" width="580" height="190" rx="10" fill="#9b6132"/>
+  <path d="M182 250h150v150H182zM350 250h150v150H350zM518 250h200v150H518z" fill="#b77c42" opacity=".72"/>
+  <circle cx="312" cy="326" r="8" fill="#3d2416"/><circle cx="480" cy="326" r="8" fill="#3d2416"/><circle cx="620" cy="326" r="8" fill="#3d2416"/>
+  <path d="M262 178c22-44 82-44 104 0" fill="none" stroke="#657047" stroke-width="10"/><path d="M672 162h42v66h-42z" fill="#6f4a2a"/>
+  <path d="M0 438h900v122H0z" fill="#2a190f" opacity=".45"/>
+</svg>

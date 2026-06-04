@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">柚木实木餐桌椅图占位</title><desc id="desc">模拟家庭餐厅与茶空间中的柚木餐桌椅。</desc>
+  <rect width="900" height="560" fill="#f0dfc5"/><rect x="90" y="84" width="720" height="252" rx="20" fill="#c8a679" opacity=".38"/>
+  <path d="M160 316h590v70H160z" fill="#986033"/><path d="M220 386h34v108h-34zM702 386h34v108h-34z" fill="#4b2b19"/>
+  <path d="M120 260h120v70H120zM690 260h120v70H690z" fill="#8f572e" opacity=".9"/>
+  <circle cx="450" cy="250" r="18" fill="#efe1c8"/><path d="M0 438h900v122H0z" fill="#2a190f" opacity=".52"/>
+</svg>

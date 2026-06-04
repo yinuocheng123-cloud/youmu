@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">工坊工艺厂商图占位</title><desc id="desc">模拟柚木工坊、木料与工艺台。</desc>
+  <rect width="900" height="560" fill="#27170d"/><circle cx="700" cy="130" r="180" fill="#c39055" opacity=".28"/>
+  <path d="M96 350h708v88H96z" fill="#8f552d"/><path d="M160 160h260v180H160zM512 128h188v212H512z" fill="#56321d"/>
+  <path d="M190 210h190M190 258h190M540 186h136M540 238h136" stroke="#d1a26a" stroke-width="10" opacity=".42"/>
+  <path d="M0 420h900v140H0z" fill="#120b07" opacity=".7"/>
+</svg>

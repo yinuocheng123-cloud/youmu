@@ -1,0 +1,27 @@
+<!--
+文件说明：该文件提供“柚喜饰界”网站预览版喜字方向 Logo 深色背景版本。
+功能说明：用于深咖、黑咖、图片压暗背景等深色场景中的品牌小图标。
+
+结构概览：
+  第一部分：深咖透明感底板
+  第二部分：柔金色“喜”字方向图形
+  第三部分：微笑弧线细节
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">柚喜饰界深色背景喜字图标</title>
+  <desc id="desc">适合深色背景使用的暖金色喜字方向品牌图标。</desc>
+  <rect width="128" height="128" rx="24" fill="#3B2A1E"/>
+  <rect x="8" y="8" width="112" height="112" rx="20" fill="none" stroke="#C89A5B" stroke-opacity="0.44" stroke-width="2"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M35 25H93" stroke="#F6F1E6" stroke-width="9"/>
+    <path d="M64 18V42" stroke="#F6F1E6" stroke-width="9"/>
+    <path d="M42 43H86" stroke="#E7C48D" stroke-width="8"/>
+    <path d="M39 59H89" stroke="#F6F1E6" stroke-width="8"/>
+    <path d="M45 51V70M83 51V70" stroke="#F6F1E6" stroke-width="8"/>
+    <path d="M47 70Q64 77 81 70" stroke="#E7C48D" stroke-width="8"/>
+    <path d="M30 82H98" stroke="#F6F1E6" stroke-width="9"/>
+    <path d="M40 96H88" stroke="#F6F1E6" stroke-width="8"/>
+    <path d="M42 90V111M86 90V111" stroke="#F6F1E6" stroke-width="8"/>
+    <path d="M44 111Q64 119 84 111" stroke="#E7C48D" stroke-width="8"/>
+  </g>
+</svg>

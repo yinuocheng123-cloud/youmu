@@ -1,0 +1,25 @@
+<!--
+文件说明：该文件提供“柚喜饰界”网站预览版喜字方向 Logo 单色版本。
+功能说明：用于单色印刷、低色彩场景和后续物料延展。
+
+结构概览：
+  第一部分：透明画布
+  第二部分：单色“喜”字方向图形
+  第三部分：微笑弧线细节
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">柚喜饰界单色喜字图标</title>
+  <desc id="desc">单色喜字方向品牌图标，适合简化应用场景。</desc>
+  <g fill="none" stroke="#3B2A1E" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M35 25H93" stroke-width="9"/>
+    <path d="M64 18V42" stroke-width="9"/>
+    <path d="M42 43H86" stroke-width="8"/>
+    <path d="M39 59H89" stroke-width="8"/>
+    <path d="M45 51V70M83 51V70" stroke-width="8"/>
+    <path d="M47 70Q64 77 81 70" stroke-width="8"/>
+    <path d="M30 82H98" stroke-width="9"/>
+    <path d="M40 96H88" stroke-width="8"/>
+    <path d="M42 90V111M86 90V111" stroke-width="8"/>
+    <path d="M44 111Q64 119 84 111" stroke-width="8"/>
+  </g>
+</svg>
