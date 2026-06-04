@@ -29,7 +29,14 @@
 ## 5. 下一步流程
 确认方向 → 提供真实资料 → 替换真实内容 → 上线前检查 → 部署上线。
 
-## 6. 本包文件说明
+## 6. GitHub Pages 公网预览说明
+当前项目已进入 GitHub Pages 公网预览适配阶段，建议预览地址为：
+
+`https://yinuocheng123-cloud.github.io/youmu/`
+
+该地址用于甲方确认首页整体效果，不代表正式上线版本。正式上线前仍需确认图片授权、真实厂商资料、最终二维码、联系方式、备案信息和是否允许搜索引擎收录。
+
+## 7. 本包文件说明
 - `logo-direction-note.md`：Logo 方向说明。
 - `homepage-preview-note.md`：首页预览版说明。
 - `next-materials-needed.md`：下一步真实素材清单。

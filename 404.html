@@ -1,0 +1,93 @@
+<!--
+文件说明：该文件实现 GitHub Pages 预览阶段的 404 错误页。
+功能说明：在访问不存在页面时展示品牌提示，并提供返回首页的相对路径入口。
+
+结构概览：
+  第一部分：页面元信息与基础样式
+  第二部分：404 提示内容
+-->
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>页面没有找到｜柚喜饰界</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <style>
+      :root {
+        color-scheme: light;
+        --coffee: #21170f;
+        --teak: #9a6736;
+        --cream: #f7f1e8;
+        --olive: #657047;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        display: grid;
+        min-height: 100vh;
+        margin: 0;
+        place-items: center;
+        color: var(--coffee);
+        background:
+          linear-gradient(180deg, rgba(255, 250, 242, 0.94), rgba(247, 239, 226, 0.94)),
+          url("./assets/images/hero-teak-lifestyle.jpg") center / cover;
+        font-family: "Microsoft YaHei", serif;
+      }
+
+      main {
+        width: min(560px, calc(100% - 32px));
+        padding: 42px 32px;
+        text-align: center;
+        background: rgba(255, 250, 242, 0.94);
+        border: 1px solid rgba(154, 103, 54, 0.22);
+        border-radius: 8px;
+        box-shadow: 0 22px 60px rgba(43, 29, 15, 0.16);
+      }
+
+      img {
+        width: min(220px, 70vw);
+        height: auto;
+      }
+
+      h1 {
+        margin: 26px 0 10px;
+        font-size: clamp(28px, 7vw, 44px);
+        font-weight: 600;
+        line-height: 1.25;
+      }
+
+      p {
+        margin: 0;
+        color: #746658;
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        margin-top: 26px;
+        padding: 0 22px;
+        color: #fffaf2;
+        background: var(--olive);
+        border-radius: 6px;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 404 页使用相对路径，是为了在 /youmu/ 项目页子路径下也能正常返回首页。 -->
+    <main>
+      <img src="./assets/logo-yuxi-horizontal.svg" alt="柚喜饰界，柚木爱好者乐园" />
+      <h1>页面没有找到</h1>
+      <p>这个页面可能还没有发布，或链接已经调整。可以先回到首页继续预览。</p>
+      <a href="./index.html">返回首页</a>
+    </main>
+  </body>
+</html>

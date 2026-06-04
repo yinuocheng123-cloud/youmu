@@ -81,16 +81,17 @@
   // ========== 第二部分：站点基础信息 ==========
   const siteContent = {
     seo: {
-      title: "柚喜饰界｜柚木爱好者乐园｜柚木知识、好物方案与推荐厂商平台",
+      title: "柚喜饰界｜柚木爱好者乐园",
       description:
-        "柚喜饰界是面向柚木爱好者、消费用户、柚木从业者和渠道伙伴的柚木知识平台、好物方案平台与企业微信社群入口，帮助用户看懂柚木、少踩坑，也帮助优质柚木厂商被更多人看见。",
+        "柚喜饰界是围绕柚木知识、好物方案、柚木整装、柚木地板、推荐厂商和爱好者社群建立的柚木生活方式入口。",
       keywords:
-        "柚喜饰界, 柚木爱好者, 柚木知识, 好物方案, 柚木整装, 柚木地板, 柚木厂商, 推荐厂商, 柚木社群, 企业微信社群",
+        "柚喜饰界, 柚木爱好者, 柚木知识, 柚木好物, 柚木整装, 柚木地板, 推荐厂商, 柚木生活方式, 企业微信社群",
       openGraph: {
         title: "柚喜饰界｜柚木爱好者乐园",
         description:
-          "柚木知识、好物方案、推荐厂商展示与企业微信社群承接入口。",
-        image: "./assets/images/hero-teak-lifestyle.jpg",
+          "围绕柚木知识、好物方案、柚木整装、柚木地板、推荐厂商和爱好者社群建立的柚木生活方式入口。",
+        url: "https://yinuocheng123-cloud.github.io/youmu/",
+        image: "https://yinuocheng123-cloud.github.io/youmu/assets/images/hero-teak-lifestyle.jpg",
       },
       ...status.formalCopy,
     },
