@@ -77,6 +77,24 @@ function openMobileMenu() {
   document.body.classList.add("menu-open");
 }
 
+function closeMenuAndScroll(selector) {
+  const wasOpen = mobileMenu?.classList.contains("is-open");
+
+  closeMobileMenu();
+
+  if (!selector) {
+    return false;
+  }
+
+  // 移动端先解除 body 锁滚动，再滚动到锚点，避免菜单关闭动画影响最终位置。
+  if (wasOpen) {
+    window.requestAnimationFrame(() => scrollToTarget(selector));
+    return true;
+  }
+
+  return scrollToTarget(selector);
+}
+
 // ========== 第三部分：顶部知识下拉菜单 ==========
 function closeDropdown(dropdown) {
   dropdown.classList.remove("is-open");
@@ -162,9 +180,8 @@ document.addEventListener("click", (event) => {
 
   if (trigger) {
     event.preventDefault();
-    scrollToWechat();
     dropdowns.forEach(closeDropdown);
-    closeMobileMenu();
+    closeMenuAndScroll("#wechat");
     return;
   }
 
@@ -175,11 +192,10 @@ document.addEventListener("click", (event) => {
     const selector = targetTrigger.dataset.scrollTarget;
 
     if (selector) {
-      scrollToTarget(selector);
+      closeMenuAndScroll(selector);
     }
 
     dropdowns.forEach(closeDropdown);
-    closeMobileMenu();
     return;
   }
 
@@ -188,10 +204,10 @@ document.addEventListener("click", (event) => {
   if (anchor) {
     const selector = anchor.getAttribute("href");
 
-    if (selector && selector.length > 1 && scrollToTarget(selector)) {
+    if (selector && selector.length > 1 && document.querySelector(selector)) {
       event.preventDefault();
       dropdowns.forEach(closeDropdown);
-      closeMobileMenu();
+      closeMenuAndScroll(selector);
     }
   }
 });
