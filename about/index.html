@@ -1,24 +1,52 @@
 <!--
-文件说明：该文件实现关于柚喜页面。
-功能说明：说明柚喜饰界的内容定位、边界和当前资料状态。
-结构概览：第一部分为页面元信息；第二部分为 Header；第三部分为正文与相关链接；第四部分为 Footer。
+文件说明：该文件实现认识柚喜页面。
+功能说明：说明柚喜饰界的定位、服务对象、当前边界和后续资料需求。
+结构概览：第一部分为页面元信息；第二部分为 Header；第三部分为正文、来源说明与相关链接；第四部分为 Footer。
 -->
 <!doctype html>
 <html lang="zh-CN">
-  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>关于柚喜｜柚喜饰界</title><meta name="description" content="关于柚喜饰界，说明柚木知识、空间方案、厂商样板和内容真实性边界。" /><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" /><link rel="stylesheet" href="../styles.css" /></head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>认识柚喜｜柚喜饰界</title>
+    <meta name="description" content="认识柚喜饰界，一个围绕柚木知识、好物方案、推荐厂商和社群交流的静态预览站。" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
   <body class="content-page">
-    <header class="content-site-header"><a class="content-brand" href="../index.html"><img src="../assets/logo-yuxi-mark.svg" alt="" /><span><strong>柚喜饰界</strong><small>柚木爱好者乐园</small></span></a><nav class="content-nav" aria-label="内容页导航"><a href="../about/index.html">认识柚喜</a><a href="../knowledge/index.html">柚木知识</a><a href="../solutions/index.html">好物方案</a><a href="../vendors/index.html">推荐厂商</a><a href="../index.html#wechat">社群交流</a></nav></header>
+    <header class="content-site-header"><a class="content-brand" href="../index.html" aria-label="返回柚喜饰界首页"><img src="../assets/logo-yuxi-mark.svg" alt="" /><span><strong>柚喜饰界</strong><small>柚木爱好者乐园</small></span></a><nav class="content-nav" aria-label="内容页导航"><a href="../about/index.html">认识柚喜</a><a href="../knowledge/index.html">柚木知识</a><a href="../solutions/index.html">好物方案</a><a href="../vendors/index.html">推荐厂商</a><a href="../index.html#wechat">社群交流</a></nav></header>
     <main class="content-main">
-      <nav class="breadcrumb"><a href="../index.html">首页</a><span>关于柚喜</span></nav>
-      <section class="content-hero-panel"><p class="eyebrow dark">About</p><h1>关于柚喜</h1><p class="content-lead">柚喜饰界希望先把柚木知识、空间方案和厂商展示边界说清楚，再逐步沉淀真实资料。</p></section>
+      <nav class="breadcrumb" aria-label="面包屑"><a href="../index.html">首页</a><span>认识柚喜</span></nav>
+      <section class="content-hero-panel"><p class="eyebrow dark">About</p><h1>认识柚喜</h1><p class="content-lead">柚喜饰界希望成为柚木爱好者进入柚木生活方式前的一处温和入口。</p></section>
       <section class="content-body">
-        <h2>基础正文</h2>
-        <p>柚喜饰界当前定位为柚木生活方式内容入口，围绕知识、方案、厂商样板、案例样板和咨询入口建立基础信息架构。它不是后台系统，也不提供登录、支付、交易或数据库能力。</p>
-        <p>V1.7.1A 阶段的重点是让内容页能打开、链接能闭环、样板边界清楚。真实厂商、真实案例、真实认证、真实资质和正式资料来源都需要在后续版本中补充并人工确认。</p>
+        <h2>柚喜饰界是什么</h2>
+        <p>柚喜饰界当前定位为柚木生活方式入口，围绕柚木知识、好物方案、推荐厂商和社群交流建立静态内容路径。它不是商城，不包含后台、支付、登录或数据库，也不承担真实交易流程。用户来到这里，首先是为了看懂柚木、理解空间方向、整理咨询问题，而不是直接下单。</p>
+        <p>站点服务的对象包括刚接触柚木的普通用户、正在考虑地板或整装方向的家庭用户、关注庭院和茶室空间的人，以及未来希望展示资料的厂商。不同对象都需要先建立清晰边界：知识页用于理解材料，方案页用于整理空间，厂商页和案例页目前只保留样板结构。</p>
       </section>
-      <section class="related-links"><h2>相关链接</h2><ul><li><a href="../knowledge/index.html">柚木知识</a></li><li><a href="../solutions/index.html">空间方案</a></li><li><a href="../vendors/index.html">推荐厂商</a></li><li><a href="../forms/consult.html">咨询入口</a></li></ul></section>
-      <section class="content-cta"><a class="btn btn-primary" href="../forms/consult.html">提交咨询</a><a class="btn btn-secondary" href="../index.html">返回首页</a></section>
+      <section class="content-body">
+        <h2>为什么这样做</h2>
+        <p>柚木相关信息容易被写得过度商业化，也容易被写成不够落地的百科资料。柚喜饰界希望在两者之间保持温和、克制和可沟通的状态：既能帮助用户理解材料与空间，也不把未经确认的厂商、案例、认证或资质提前包装成背书。</p>
+        <p>当前版本仍是预览站，后续需要补充真实二维码、联系方式、授权图片、厂商资料、来源记录和人工复核结论。正式发布前，所有涉及厂商、案例、认证、资质和服务边界的内容，都应回到资料本身确认。</p>
+      </section>
+      <section class="content-body">
+        <h2>当前阶段的边界</h2>
+        <p>关于页需要把站点边界讲清楚。柚喜饰界当前仍是纯静态内容型预览站，主要用于确认信息架构、内容方向、视觉气质和社群承接路径。它没有后台系统，不处理登录、支付、订单或数据库，也不承诺真实交易流程。</p>
+        <p>站点未来可以继续补充真实二维码、联系方式、授权图片、厂商资料和来源记录，但这些内容都需要人工确认。正式发布前，尤其要复核厂商展示、样板案例、图片授权和服务边界，避免访问者把预览内容理解成已经完成的公开背书。</p>
+        <p>保持这种边界，是为了让网站更可信。它不急着夸大能力，而是先帮助柚木爱好者理解材料、空间和沟通路径；等真实资料准备好后，再逐步把可公开内容补齐。</p>
+      </section>
+      <section class="content-body">
+        <h2>复核提醒</h2>
+        <p>阅读这些内容时，建议把它当成咨询前的整理材料，而不是最终决策。用户可以把页面中的空间条件、材料疑问、维护顾虑和授权边界逐条记录下来，再结合自己的房屋状态、使用习惯和沟通对象继续确认。这样既能保留柚木生活方式的温度，也能避免被单一展示图或过度承诺带偏。</p>
+        <p>后续如果进入真实资料补充阶段，应继续检查图片来源、文字授权、服务区域、合同责任和可公开范围。只有这些信息被确认后，页面内容才适合进一步用于对外宣传。当前版本的重点，是让主要内容页不再停留在骨架层面，并且保持谨慎、可核查、不过度包装的表达。</p>
+      </section>
+      <section class="content-body">
+        <h2>参考资料与说明</h2>
+        <p>本文为柚喜饰界内容整理，主要结合公开木材资料、森林认证机构说明、木材应用资料和行业常见选材经验。正式用于商业宣传前，建议结合具体产品检测、合同资料、厂商授权和展示材料复核。</p>
+        <p>关于页仅说明站点定位与当前边界，不代表平台资质或交易能力。</p>
+      </section>
+      <section class="related-links"><h2>相关链接</h2><ul><li><a href="../knowledge/index.html">柚木知识</a></li><li><a href="../solutions/index.html">好物方案</a></li><li><a href="../vendors/index.html">推荐厂商</a></li><li><a href="../index.html#wechat">社群交流</a></li></ul></section>
+      <section class="content-cta"><a class="btn btn-primary" href="../forms/consult.html">填写咨询摘要</a><a class="btn btn-secondary" href="../index.html#wechat">添加柚喜顾问</a></section>
     </main>
-    <footer class="content-site-footer"><div class="content-footer-inner"><span>柚喜饰界｜关于柚喜</span><span>当前为内容页骨架阶段。</span></div></footer>
+    <footer class="content-site-footer"><div class="content-footer-inner"><span>柚喜饰界｜认识柚喜</span><span>当前仍为纯静态内容型预览站。</span></div></footer>
   </body>
 </html>

@@ -1,23 +1,52 @@
 <!--
-文件说明：该文件实现推荐厂商目录页。
-功能说明：展示厂商样板页入口，并明确当前不代表真实厂商入驻。
-结构概览：第一部分为页面元信息；第二部分为 Header；第三部分为正文与相关链接；第四部分为 Footer。
+文件说明：该文件实现推荐厂商页面。
+功能说明：提供推荐厂商。
+结构概览：第一部分为页面元信息；第二部分为 Header；第三部分为正文、来源说明与相关链接；第四部分为 Footer。
 -->
 <!doctype html>
 <html lang="zh-CN">
-  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>推荐厂商｜柚喜饰界</title><meta name="description" content="柚喜饰界推荐厂商目录，当前仅为样板展示结构，不代表真实厂商入驻。" /><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" /><link rel="stylesheet" href="../styles.css" /></head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>推荐厂商｜柚喜饰界</title>
+    <meta name="description" content="柚喜饰界推荐厂商，当前为样板展示结构。" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
   <body class="content-page">
-    <header class="content-site-header"><a class="content-brand" href="../index.html"><img src="../assets/logo-yuxi-mark.svg" alt="" /><span><strong>柚喜饰界</strong><small>柚木爱好者乐园</small></span></a><nav class="content-nav" aria-label="内容页导航"><a href="../about/index.html">认识柚喜</a><a href="../knowledge/index.html">柚木知识</a><a href="../solutions/index.html">好物方案</a><a href="../vendors/index.html">推荐厂商</a><a href="../index.html#wechat">社群交流</a></nav></header>
+    <header class="content-site-header"><a class="content-brand" href="../index.html" aria-label="返回柚喜饰界首页"><img src="../assets/logo-yuxi-mark.svg" alt="" /><span><strong>柚喜饰界</strong><small>柚木爱好者乐园</small></span></a><nav class="content-nav" aria-label="内容页导航"><a href="../about/index.html">认识柚喜</a><a href="../knowledge/index.html">柚木知识</a><a href="../solutions/index.html">好物方案</a><a href="../vendors/index.html">推荐厂商</a><a href="../index.html#wechat">社群交流</a></nav></header>
     <main class="content-main">
-      <nav class="breadcrumb"><a href="../index.html">首页</a><span>推荐厂商</span></nav>
-      <section class="content-hero-panel"><p class="eyebrow dark">Vendors</p><h1>推荐厂商</h1><p class="content-lead">本目录先搭建未来厂商资料页的结构入口，用于展示工坊、整装和地板方向可以如何组织信息。</p></section>
+      <nav class="breadcrumb" aria-label="面包屑"><a href="../index.html">首页</a><span>推荐厂商</span></nav>
+      <section class="content-hero-panel"><p class="eyebrow dark">Vendors</p><h1>推荐厂商</h1><p class="content-lead">这里用于展示未来厂商资料页的组织方式，帮助用户知道应关注哪些公开信息。</p><p class="notice-box">当前页面为样板展示结构，不代表已有真实厂商入驻，不构成平台背书或交易担保。</p></section>
       <section class="content-body">
-        <h2>基础正文</h2>
-        <p>厂商目录当前不展示真实厂商名称、资质、案例或承诺，只保留未来内容结构：厂商方向、可公开资料、工艺说明、适用空间、合作沟通入口和资料补充要求。这样可以先形成页面路径，而不提前制造背书。</p>
-        <p class="notice-box">当前页面为样板展示结构，不代表已有真实厂商入驻，不构成平台背书或交易担保。</p>
+        <h2>样板展示说明</h2>
+        <p>厂商页面的重点不是制造背书，而是说明未来如果展示厂商，应当公开哪些基础信息。用户可以关注主营方向、服务区域、可公开图片、工艺说明、授权状态和沟通边界。</p>
+        <p>当前目录只保留样板展示结构，不代表已有真实厂商入驻。推荐展示不等于平台担保，真实厂商与展示材料上线前需完成资料确认、图片授权和服务边界确认。</p>
+        <p>推荐展示不等于平台担保，真实厂商与展示材料上线前需完成资料确认、图片授权和服务边界确认。</p>
       </section>
-      <section class="related-links"><h2>相关链接</h2><ul><li><a href="workshop-sample.html">工坊样板</a></li><li><a href="whole-decoration-sample.html">整装样板</a></li><li><a href="flooring-sample.html">地板样板</a></li><li><a href="../forms/vendor-apply.html">厂商申请</a></li></ul></section>
-      <section class="content-cta"><a class="btn btn-primary" href="../forms/vendor-apply.html">厂商申请</a><a class="btn btn-secondary" href="../index.html">返回首页</a></section>
+      <section class="content-body">
+        <h2>资料确认边界</h2>
+        <p>未来如展示真实厂商，应补充企业资料、图片授权、案例材料、服务区域和联系方式确认。未完成确认前，不应使用容易引发误解的资质、推荐或交易承诺类表达。</p>
+        <p>页面保留生活方式入口的温和语气，帮助用户理解怎样看厂商资料，而不是把厂商页做成招商页面或交易页面。</p>
+      </section>
+      <section class="content-body">
+        <h2>展示前需要确认什么</h2>
+        <p>厂商样板页的核心价值，是告诉未来资料收集应该看哪些边界。可公开的企业介绍、主营方向、服务区域、图片授权、案例材料和联系方式，都需要逐项确认。没有确认之前，页面只能保留样板展示属性。</p>
+        <p>对用户来说，厂商展示应当帮助判断信息是否清楚，而不是制造信任捷径。资料越完整，越便于后续沟通；资料越模糊，越需要继续追问。本站不把样板页写成交易承诺，也不替任何服务结果做保证。</p>
+        <p>后续如果引入真实厂商资料，应同步记录来源、授权和可公开范围，并在页面中继续保留推荐展示不等于平台担保的说明。这样既能给用户参考，也能避免把静态预览页误解为交易平台。</p>
+      </section>
+      <section class="content-body">
+        <h2>复核提醒</h2>
+        <p>阅读这些内容时，建议把它当成咨询前的整理材料，而不是最终决策。用户可以把页面中的空间条件、材料疑问、维护顾虑和授权边界逐条记录下来，再结合自己的房屋状态、使用习惯和沟通对象继续确认。这样既能保留柚木生活方式的温度，也能避免被单一展示图或过度承诺带偏。</p>
+        <p>后续如果进入真实资料补充阶段，应继续检查图片来源、文字授权、服务区域、合同责任和可公开范围。只有这些信息被确认后，页面内容才适合进一步用于对外宣传。当前版本的重点，是让主要内容页不再停留在骨架层面，并且保持谨慎、可核查、不过度包装的表达。</p>
+      </section>
+      <section class="content-body">
+        <h2>参考资料与说明</h2>
+        <p>本文为柚喜饰界内容整理，主要结合公开木材资料、森林认证机构说明、木材应用资料和行业常见选材经验。正式用于商业宣传前，建议结合具体产品检测、合同资料、厂商授权和展示材料复核。</p>
+        <p>推荐展示不等于平台担保，真实厂商与展示材料上线前需完成资料确认、图片授权和服务边界确认。</p>
+      </section>
+      <section class="related-links"><h2>相关链接</h2><ul><li><a href="workshop-sample.html">工坊样板结构</a></li><li><a href="whole-decoration-sample.html">整装样板结构</a></li><li><a href="flooring-sample.html">地板样板结构</a></li><li><a href="../forms/vendor-apply.html">厂商展示申请</a></li></ul></section>
+      <section class="content-cta"><a class="btn btn-primary" href="../forms/consult.html">填写咨询摘要</a><a class="btn btn-secondary" href="../index.html#wechat">添加柚喜顾问</a></section>
     </main>
     <footer class="content-site-footer"><div class="content-footer-inner"><span>柚喜饰界｜推荐厂商</span><span>真实厂商资料需审核后上线。</span></div></footer>
   </body>

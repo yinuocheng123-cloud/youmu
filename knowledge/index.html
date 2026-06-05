@@ -1,7 +1,7 @@
 <!--
-文件说明：该文件实现柚木知识目录页。
+文件说明：该文件实现柚木知识页面。
 功能说明：提供柚木入门、选购、工艺、空间、保养和 FAQ 的内容入口。
-结构概览：第一部分为页面元信息；第二部分为 Header；第三部分为正文与相关链接；第四部分为 Footer。
+结构概览：第一部分为页面元信息；第二部分为 Header；第三部分为正文、来源说明与相关链接；第四部分为 Footer。
 -->
 <!doctype html>
 <html lang="zh-CN">
@@ -14,27 +14,39 @@
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="content-page">
-    <header class="content-site-header">
-      <a class="content-brand" href="../index.html" aria-label="返回柚喜饰界首页"><img src="../assets/logo-yuxi-mark.svg" alt="" /><span><strong>柚喜饰界</strong><small>柚木爱好者乐园</small></span></a>
-      <nav class="content-nav" aria-label="内容页导航"><a href="../about/index.html">认识柚喜</a><a href="../knowledge/index.html">柚木知识</a><a href="../solutions/index.html">好物方案</a><a href="../vendors/index.html">推荐厂商</a><a href="../index.html#wechat">社群交流</a></nav>
-    </header>
+    <header class="content-site-header"><a class="content-brand" href="../index.html" aria-label="返回柚喜饰界首页"><img src="../assets/logo-yuxi-mark.svg" alt="" /><span><strong>柚喜饰界</strong><small>柚木爱好者乐园</small></span></a><nav class="content-nav" aria-label="内容页导航"><a href="../about/index.html">认识柚喜</a><a href="../knowledge/index.html">柚木知识</a><a href="../solutions/index.html">好物方案</a><a href="../vendors/index.html">推荐厂商</a><a href="../index.html#wechat">社群交流</a></nav></header>
     <main class="content-main">
       <nav class="breadcrumb" aria-label="面包屑"><a href="../index.html">首页</a><span>柚木知识</span></nav>
-      <section class="content-hero-panel">
-        <p class="eyebrow dark">Knowledge</p>
-        <h1>柚木知识</h1>
-        <p class="content-lead">把柚木相关的基础判断先讲清楚，让用户在咨询空间方案、地板、家具或厂商前，先知道自己真正要问什么。</p>
+      <section class="content-hero-panel"><p class="eyebrow dark">Knowledge</p><h1>柚木知识</h1><p class="content-lead">先把基础判断讲清楚，再进入空间方案、厂商展示和社群沟通。</p></section>
+      <section class="content-body">
+        <h2>为什么先读知识</h2>
+        <p>柚木知识目录不是为了把网站做成百科资料站，而是为了帮助访问者在咨询前建立基本判断。很多用户看到柚木时，第一反应是关注颜色、纹理和空间氛围，但真正影响后续体验的，还包括使用环境、维护习惯、材料说明、加工方式和服务边界。把这些问题提前想清楚，后续和厂商或顾问沟通时会更有效率。</p>
+        <p>本目录把内容拆成入门、选购、材质工艺、空间应用、保养维护和常见问题六个方向。每个方向都对应一种常见困惑：不知道柚木适合什么、担心选购时听不懂、分不清工艺说法、想知道不同空间能不能用、担心维护麻烦，或者不知道咨询时该准备哪些信息。页面之间互相连接，但不会把文章、表单或案例重新抬成一级栏目。</p>
       </section>
       <section class="content-body">
-        <h2>基础说明</h2>
-        <p>本目录先作为内容骨架使用，覆盖柚木入门、选购避坑、材质工艺、空间应用、保养维护和常见问题六个方向。每个方向都只保留基础说明，后续正式扩写时需要补充可核实资料来源、图片授权、术语解释和人工复核结论。</p>
-        <p>当前页面不提供交易承诺，也不把样板内容写成最终判断。它的作用是帮助访问者快速进入对应主题，再通过咨询表单或首页企业微信入口补充具体需求。</p>
+        <h2>阅读方式</h2>
+        <p>建议从自己的使用场景开始阅读。如果你关注地板，就先看选购和材质工艺；如果你关注庭院或阳台，就重点看空间应用和保养维护；如果你只是刚接触柚木，可以先从入门和 FAQ 开始。每一页都尽量用生活语言解释判断路径，而不是把术语堆成清单。</p>
+        <p>当前内容仍属于静态预览阶段，主要用于恢复内容深度和可读性。正式发布前，需要继续补充来源记录、图片授权、术语校对和人工审核。涉及认证、资质、厂商能力或具体案例时，必须以真实资料为准，不能把通用知识写成平台背书。</p>
       </section>
-      <section class="related-links">
-        <h2>相关链接</h2>
-        <ul><li><a href="teak-basics.html">柚木入门</a></li><li><a href="teak-buying-guide.html">柚木选购避坑</a></li><li><a href="teak-material-craft.html">材质与工艺</a></li><li><a href="teak-space-use.html">空间应用</a></li><li><a href="teak-care.html">保养维护</a></li><li><a href="teak-faq.html">常见问题</a></li><li><a href="../articles/index.html">延伸阅读</a></li></ul></section>
-      <section class="content-cta"><a class="btn btn-primary" href="../forms/consult.html">提交咨询</a><a class="btn btn-secondary" href="../index.html">返回首页</a></section>
+      <section class="content-body">
+        <h2>阅读后的判断方式</h2>
+        <p>读完知识页后，最重要的不是马上得到唯一答案，而是形成自己的提问顺序。用户可以先把空间、用途、环境和维护接受度写下来，再看材料说明是否能回应这些条件。这样咨询时不会只被图片吸引，也不会把一个漂亮样板误认为适用于所有家庭。</p>
+        <p>柚木相关内容还需要区分通用材料知识和具体产品事实。通用知识可以帮助理解方向，但具体产品仍要看实际资料、合同说明、检测信息、授权图片和服务边界。页面恢复内容深度，是为了让普通用户更有判断力，而不是替任何服务方做结论。</p>
+        <p>如果后续继续扩写，建议每个知识页都保留生活化表达：从真实空间和日常使用讲起，再解释材料、工艺和维护。这样的阅读路径更适合柚木爱好者，也更符合本站作为生活方式入口的定位。</p>
+      </section>
+      <section class="content-body">
+        <h2>复核提醒</h2>
+        <p>阅读这些内容时，建议把它当成咨询前的整理材料，而不是最终决策。用户可以把页面中的空间条件、材料疑问、维护顾虑和授权边界逐条记录下来，再结合自己的房屋状态、使用习惯和沟通对象继续确认。这样既能保留柚木生活方式的温度，也能避免被单一展示图或过度承诺带偏。</p>
+        <p>后续如果进入真实资料补充阶段，应继续检查图片来源、文字授权、服务区域、合同责任和可公开范围。只有这些信息被确认后，页面内容才适合进一步用于对外宣传。当前版本的重点，是让主要内容页不再停留在骨架层面，并且保持谨慎、可核查、不过度包装的表达。</p>
+      </section>
+      <section class="content-body">
+        <h2>参考资料与说明</h2>
+        <p>本文为柚喜饰界内容整理，主要结合公开木材资料、森林认证机构说明、木材应用资料和行业常见选材经验。正式用于商业宣传前，建议结合具体产品检测、合同资料、厂商授权和展示材料复核。</p>
+        <p>页面内容用于帮助普通用户建立判断路径，不代表本平台或任何厂商已经获得 FSC、PEFC、CITES、IUCN 等认证，也不替代具体产品说明、施工合同或第三方检测报告。</p>
+      </section>
+      <section class="related-links"><h2>相关链接</h2><ul><li><a href="teak-basics.html">柚木入门</a></li><li><a href="teak-buying-guide.html">选购避坑</a></li><li><a href="teak-material-craft.html">材质工艺</a></li><li><a href="teak-space-use.html">空间应用</a></li><li><a href="teak-care.html">保养维护</a></li><li><a href="teak-faq.html">常见问题</a></li><li><a href="../articles/index.html">延伸阅读</a></li></ul></section>
+      <section class="content-cta"><a class="btn btn-primary" href="../forms/consult.html">填写咨询摘要</a><a class="btn btn-secondary" href="../index.html#wechat">添加柚喜顾问</a></section>
     </main>
-    <footer class="content-site-footer"><div class="content-footer-inner"><span>柚喜饰界｜柚木爱好者乐园</span><span>内容正式发布前需完成人工核实。</span></div></footer>
+    <footer class="content-site-footer"><div class="content-footer-inner"><span>柚喜饰界｜柚木知识</span><span>内容来源与术语说明仍需正式发布前人工复核。</span></div></footer>
   </body>
 </html>
