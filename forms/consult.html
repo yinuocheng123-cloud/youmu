@@ -1,32 +1,127 @@
 <!--
-文件说明：该文件实现静态咨询表单页。
-功能说明：提供用户需求收集骨架，不接入后台、登录、支付或数据库。
-结构概览：第一部分为页面元信息；第二部分为 Header；第三部分为说明与静态表单；第四部分为 Footer。
+文件说明：该文件实现“柚喜饰界”静态咨询表单页面。
+功能说明：提供可填写、可生成摘要、可复制的前端表单，不接入后台、登录、商城、支付或数据库。
+结构概览：第一部分为页面元信息；第二部分为 Header；第三部分为咨询说明与静态表单；第四部分为相关链接与 Footer。
 -->
 <!doctype html>
 <html lang="zh-CN">
-  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>咨询表单｜柚喜饰界</title><meta name="description" content="柚喜饰界静态咨询表单，用于收集柚木知识、空间方案、地板、厂商和案例相关需求。" /><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" /><link rel="stylesheet" href="../styles.css" /></head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>咨询表单｜柚喜饰界</title>
+    <meta name="description" content="柚喜饰界静态咨询表单，用于在浏览器内生成可复制的咨询摘要。" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../styles.css" />
+    <script src="./form.js" defer></script>
+  </head>
   <body class="content-page">
-    <header class="content-site-header"><a class="content-brand" href="../index.html"><img src="../assets/logo-yuxi-mark.svg" alt="" /><span><strong>柚喜饰界</strong><small>柚木爱好者乐园</small></span></a><nav class="content-nav"><a href="../knowledge/index.html">知识</a><a href="../solutions/index.html">方案</a><a href="../vendors/index.html">厂商</a><a href="../cases/index.html">案例</a><a href="../articles/index.html">文章</a><a href="../forms/consult.html">咨询</a><a href="../about/index.html">关于</a></nav></header>
+    <header class="content-site-header">
+      <a class="content-brand" href="../index.html">
+        <img src="../assets/logo-yuxi-mark.svg" alt="" />
+        <span><strong>柚喜饰界</strong><small>柚木爱好者乐园</small></span>
+      </a>
+      <nav class="content-nav">
+        <a href="../knowledge/index.html">知识</a>
+        <a href="../solutions/index.html">方案</a>
+        <a href="../vendors/index.html">厂商</a>
+        <a href="../cases/index.html">案例</a>
+        <a href="../articles/index.html">文章</a>
+        <a href="../forms/consult.html">咨询</a>
+        <a href="../about/index.html">关于</a>
+      </nav>
+    </header>
+
     <main class="content-main">
-      <nav class="breadcrumb"><a href="../index.html">首页</a><span>咨询表单</span></nav>
-      <section class="content-hero-panel"><p class="eyebrow dark">Consult</p><h1>咨询表单</h1><p class="content-lead">先把需求写清楚，再通过首页企业微信入口继续沟通。当前表单为静态骨架，不保存数据。</p></section>
-      <section class="content-body">
-        <h2>基础正文</h2>
-        <p>咨询前建议先说明关注方向，例如柚木知识、地板、整装、庭院户外、茶室会客、家具好物或厂商合作。也可以补充空间位置、使用频率、已有疑问和希望优先了解的内容。</p>
-        <p>本页不接入后台和数据库，提交按钮会回到首页企业微信区域。正式上线前，如需要真实收集信息，应补充隐私说明、数据存储方式和人工处理流程。</p>
+      <nav class="breadcrumb">
+        <a href="../index.html">首页</a>
+        <span>咨询表单</span>
+      </nav>
+
+      <section class="content-hero-panel">
+        <p class="eyebrow dark">Consult</p>
+        <h1>咨询表单</h1>
+        <p class="content-lead">把想了解的柚木方向、所在城市和使用空间先整理成一段清楚摘要，后续可复制保存，再通过页面提示方式继续沟通。</p>
       </section>
+
+      <section class="content-body">
+        <h2>填写说明</h2>
+        <p>本页适合整理柚木知识、柚木地板、柚木整装、庭院户外、茶室会客、推荐厂商等初步需求。页面不会保存信息，也不会自动发送给任何后台。</p>
+        <p class="form-note">当前为静态表单，不会自动提交到后台。请生成咨询摘要后复制保存，并添加微信或通过页面提示方式继续沟通。</p>
+      </section>
+
       <section class="form-panel">
-        <h2>静态需求表</h2>
-        <form class="simple-form" action="../index.html#wechat" method="get">
-          <label>称呼<input name="name" autocomplete="name" placeholder="例如：陈先生" /></label>
-          <label>关注方向<select name="topic"><option>柚木知识</option><option>柚木整装</option><option>柚木地板</option><option>庭院户外</option><option>茶室会客</option><option>厂商合作</option></select></label>
-          <label>需求说明<textarea name="message" placeholder="简单写下空间、用途或想先确认的问题。"></textarea></label>
-          <button class="btn btn-primary" type="submit">前往企业微信入口</button>
+        <h2>静态咨询信息</h2>
+        <form class="summary-form" data-summary-form="consult">
+          <div class="form-grid">
+            <label class="form-field">
+              <span>您想了解什么</span>
+              <select name="topic">
+                <option>柚木知识</option>
+                <option>柚木地板</option>
+                <option>柚木整装</option>
+                <option>庭院户外</option>
+                <option>茶室会客</option>
+                <option>推荐厂商</option>
+                <option>其他</option>
+              </select>
+            </label>
+            <label class="form-field">
+              <span>所在城市</span>
+              <input name="city" autocomplete="address-level2" placeholder="例如：杭州" />
+            </label>
+            <label class="form-field">
+              <span>预计使用空间</span>
+              <input name="space" placeholder="例如：客厅地板、庭院露台、茶室" />
+            </label>
+            <label class="form-field">
+              <span>联系方式</span>
+              <input name="contact" autocomplete="tel" placeholder="手机号、微信号或其他联系方式" />
+            </label>
+            <label class="form-field form-field-wide">
+              <span>大概需求描述</span>
+              <textarea name="description" placeholder="简单写下空间情况、想了解的问题、目前的顾虑或希望确认的内容。"></textarea>
+            </label>
+            <label class="form-field form-field-wide">
+              <span>是否愿意添加微信进一步沟通</span>
+              <select name="wechat">
+                <option>愿意添加微信沟通</option>
+                <option>暂时不添加微信</option>
+                <option>需要先了解更多信息</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-primary" type="button" data-generate-summary>生成咨询摘要</button>
+            <button class="btn btn-secondary" type="button" data-copy-summary>复制咨询摘要</button>
+            <button class="btn btn-ghost form-reset-button" type="button" data-clear-form>清空重填</button>
+          </div>
+
+          <label class="form-summary">
+            <span>咨询摘要</span>
+            <textarea data-summary-output readonly placeholder="生成后，咨询摘要会显示在这里。"></textarea>
+          </label>
+          <p class="copy-status" data-copy-status aria-live="polite"></p>
         </form>
       </section>
-      <section class="related-links"><h2>相关链接</h2><ul><li><a href="../knowledge/index.html">柚木知识</a></li><li><a href="../solutions/index.html">空间方案</a></li><li><a href="../forms/vendor-apply.html">厂商申请</a></li><li><a href="../index.html">返回首页</a></li></ul></section>
+
+      <section class="related-links">
+        <h2>相关链接</h2>
+        <ul>
+          <li><a href="../knowledge/index.html">柚木知识</a></li>
+          <li><a href="../solutions/index.html">空间方案</a></li>
+          <li><a href="../forms/vendor-apply.html">厂商申请</a></li>
+          <li><a href="../index.html#wechat">微信沟通入口</a></li>
+          <li><a href="../index.html">返回首页</a></li>
+        </ul>
+      </section>
     </main>
-    <footer class="content-site-footer"><div class="content-footer-inner"><span>柚喜饰界｜咨询表单</span><span>当前为静态表单骨架。</span></div></footer>
+
+    <footer class="content-site-footer">
+      <div class="content-footer-inner">
+        <span>柚喜饰界｜咨询表单</span>
+        <span>当前为静态摘要生成页，不代表真实提交接口。</span>
+      </div>
+    </footer>
   </body>
 </html>

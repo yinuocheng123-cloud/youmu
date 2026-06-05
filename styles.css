@@ -2459,6 +2459,103 @@ body {
   resize: vertical;
 }
 
+/* ========== V1.7.1B-1：静态表单摘要生成样式 ========== */
+.summary-form {
+  display: grid;
+  gap: 18px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.form-field,
+.form-summary {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  color: var(--coffee-soft);
+  font-weight: 600;
+}
+
+.form-field-wide,
+.form-summary {
+  grid-column: 1 / -1;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea,
+.form-summary textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  padding: 11px 12px;
+  color: var(--ink);
+  background: #fffaf2;
+  border: 1px solid rgba(154, 103, 54, 0.24);
+  border-radius: 7px;
+  font: inherit;
+  line-height: 1.55;
+}
+
+.form-field textarea,
+.form-summary textarea {
+  min-height: 132px;
+  resize: vertical;
+}
+
+.form-summary textarea {
+  min-height: 180px;
+  color: var(--coffee);
+  background:
+    linear-gradient(180deg, rgba(255, 250, 242, 0.98), rgba(247, 239, 226, 0.98)),
+    radial-gradient(circle at 100% 0%, rgba(101, 112, 71, 0.08), transparent 11rem);
+  white-space: pre-wrap;
+}
+
+.form-note {
+  margin: 16px 0 0 !important;
+  padding: 14px 16px;
+  color: var(--coffee-soft) !important;
+  background: rgba(101, 112, 71, 0.08);
+  border: 1px solid rgba(101, 112, 71, 0.2);
+  border-radius: 8px;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.form-actions .btn {
+  min-height: 48px;
+}
+
+.form-reset-button {
+  color: var(--coffee-soft);
+  background: rgba(255, 250, 242, 0.62);
+  border-color: rgba(154, 103, 54, 0.26);
+}
+
+.copy-status {
+  min-height: 24px;
+  margin: -6px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.copy-status[data-tone="success"] {
+  color: var(--olive-dark);
+}
+
+.copy-status[data-tone="warning"] {
+  color: var(--teak);
+}
+
 @media (max-width: 720px) {
   .content-site-header {
     align-items: flex-start;
@@ -2483,6 +2580,18 @@ body {
   }
 
   .content-cta .btn {
+    width: 100%;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    display: grid;
+  }
+
+  .form-actions .btn {
     width: 100%;
   }
 }
