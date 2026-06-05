@@ -1167,6 +1167,34 @@ button {
   font-style: normal;
 }
 
+.footer-link-groups {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  color: rgba(255, 250, 242, 0.72);
+}
+
+.footer-link-group {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  min-width: 0;
+}
+
+.footer-link-group strong {
+  color: #f1d8b7;
+  font-size: 13px;
+}
+
+.footer-link-group a {
+  color: rgba(255, 250, 242, 0.78);
+  font-size: 14px;
+}
+
+.footer-link-group a:hover {
+  color: #ffffff;
+}
+
 .footer-qr {
   display: grid;
   justify-items: center;
@@ -1225,7 +1253,8 @@ button {
   .solution-grid,
   .merchant-grid,
   .wechat-section,
-  .footer-inner {
+  .footer-inner,
+  .footer-link-groups {
     grid-template-columns: 1fr;
   }
 

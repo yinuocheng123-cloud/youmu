@@ -25,7 +25,7 @@
     "当前为首页好物方案场景示例，上线前需替换为真实产品、真实推荐理由、真实空间方案或真实供货资料。";
 
   const articleDirectionNote =
-    "当前摘要可作为正式内容方向，上线前建议补充完整文章、图片来源和发布审核。";
+    "当前摘要可作为正式内容方向，上线前建议补充完整内容、图片来源和发布审核。";
 
   // 这些字段用于区分“可作为方向保留的正式文案”和“上线前必须替换的占位资料”，避免 demo 内容被误当成真实资料发布。
   const status = {
@@ -429,7 +429,7 @@
       items: [
         { title: "产品方向清晰", description: "先看厂商是否能说清自己擅长工坊、整装、地板、户外或家具好物中的哪一类。", icon: "01", ...status.formalCopy },
         { title: "基础资料完整", description: "是否能提供真实图片、材料说明、工艺过程、适用空间和可公开的基础信息。", icon: "02", ...status.formalCopy },
-        { title: "愿意公开信息", description: "愿意把能公开和不能公开的内容讲清楚，避免用户把样板图误解成真实案例。", icon: "03", ...status.formalCopy },
+        { title: "愿意公开信息", description: "愿意把能公开和不能公开的内容讲清楚，避免用户把样板图误解成已发生的成交内容。", icon: "03", ...status.formalCopy },
         { title: "重视交付售后", description: "能说明沟通、生产、交付、安装、维护和售后边界，减少后续理解偏差。", icon: "04", ...status.formalCopy },
         { title: "适合被看见", description: "产品和服务方向适合进入柚木爱好者视野，而不是只做简单广告曝光。", icon: "05", ...status.formalCopy },
         { title: "参与内容共创", description: "愿意和平台一起把材料、工艺、空间应用和用户问题讲清楚，长期沉淀信任。", icon: "06", ...status.formalCopy },
