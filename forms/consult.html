@@ -1,0 +1,32 @@
+<!--
+文件说明：该文件实现静态咨询表单页。
+功能说明：提供用户需求收集骨架，不接入后台、登录、支付或数据库。
+结构概览：第一部分为页面元信息；第二部分为 Header；第三部分为说明与静态表单；第四部分为 Footer。
+-->
+<!doctype html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>咨询表单｜柚喜饰界</title><meta name="description" content="柚喜饰界静态咨询表单，用于收集柚木知识、空间方案、地板、厂商和案例相关需求。" /><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" /><link rel="stylesheet" href="../styles.css" /></head>
+  <body class="content-page">
+    <header class="content-site-header"><a class="content-brand" href="../index.html"><img src="../assets/logo-yuxi-mark.svg" alt="" /><span><strong>柚喜饰界</strong><small>柚木爱好者乐园</small></span></a><nav class="content-nav"><a href="../knowledge/index.html">知识</a><a href="../solutions/index.html">方案</a><a href="../vendors/index.html">厂商</a><a href="../cases/index.html">案例</a><a href="../articles/index.html">文章</a><a href="../forms/consult.html">咨询</a><a href="../about/index.html">关于</a></nav></header>
+    <main class="content-main">
+      <nav class="breadcrumb"><a href="../index.html">首页</a><span>咨询表单</span></nav>
+      <section class="content-hero-panel"><p class="eyebrow dark">Consult</p><h1>咨询表单</h1><p class="content-lead">先把需求写清楚，再通过首页企业微信入口继续沟通。当前表单为静态骨架，不保存数据。</p></section>
+      <section class="content-body">
+        <h2>基础正文</h2>
+        <p>咨询前建议先说明关注方向，例如柚木知识、地板、整装、庭院户外、茶室会客、家具好物或厂商合作。也可以补充空间位置、使用频率、已有疑问和希望优先了解的内容。</p>
+        <p>本页不接入后台和数据库，提交按钮会回到首页企业微信区域。正式上线前，如需要真实收集信息，应补充隐私说明、数据存储方式和人工处理流程。</p>
+      </section>
+      <section class="form-panel">
+        <h2>静态需求表</h2>
+        <form class="simple-form" action="../index.html#wechat" method="get">
+          <label>称呼<input name="name" autocomplete="name" placeholder="例如：陈先生" /></label>
+          <label>关注方向<select name="topic"><option>柚木知识</option><option>柚木整装</option><option>柚木地板</option><option>庭院户外</option><option>茶室会客</option><option>厂商合作</option></select></label>
+          <label>需求说明<textarea name="message" placeholder="简单写下空间、用途或想先确认的问题。"></textarea></label>
+          <button class="btn btn-primary" type="submit">前往企业微信入口</button>
+        </form>
+      </section>
+      <section class="related-links"><h2>相关链接</h2><ul><li><a href="../knowledge/index.html">柚木知识</a></li><li><a href="../solutions/index.html">空间方案</a></li><li><a href="../forms/vendor-apply.html">厂商申请</a></li><li><a href="../index.html">返回首页</a></li></ul></section>
+    </main>
+    <footer class="content-site-footer"><div class="content-footer-inner"><span>柚喜饰界｜咨询表单</span><span>当前为静态表单骨架。</span></div></footer>
+  </body>
+</html>

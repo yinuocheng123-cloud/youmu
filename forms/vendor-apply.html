@@ -1,0 +1,31 @@
+<!--
+文件说明：该文件实现静态厂商申请页。
+功能说明：提供厂商资料提交方向说明，不接入后台、登录、支付或数据库。
+结构概览：第一部分为页面元信息；第二部分为 Header；第三部分为说明与静态表单；第四部分为 Footer。
+-->
+<!doctype html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>厂商申请｜柚喜饰界</title><meta name="description" content="柚喜饰界静态厂商申请页，用于说明未来厂商资料提交方向。" /><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" /><link rel="stylesheet" href="../styles.css" /></head>
+  <body class="content-page">
+    <header class="content-site-header"><a class="content-brand" href="../index.html"><img src="../assets/logo-yuxi-mark.svg" alt="" /><span><strong>柚喜饰界</strong><small>柚木爱好者乐园</small></span></a><nav class="content-nav"><a href="../knowledge/index.html">知识</a><a href="../solutions/index.html">方案</a><a href="../vendors/index.html">厂商</a><a href="../cases/index.html">案例</a><a href="../articles/index.html">文章</a><a href="../forms/consult.html">咨询</a><a href="../about/index.html">关于</a></nav></header>
+    <main class="content-main">
+      <nav class="breadcrumb"><a href="../index.html">首页</a><span>厂商申请</span></nav>
+      <section class="content-hero-panel"><p class="eyebrow dark">Vendor Apply</p><h1>厂商申请</h1><p class="content-lead">厂商申请页先说明未来需要准备哪些公开资料，当前不代表已开放真实入驻流程。</p></section>
+      <section class="content-body">
+        <h2>基础正文</h2>
+        <p>未来厂商资料建议包含方向说明、可公开图片、工艺过程、适用空间、授权状态、联系方式和售后边界。平台展示前应先确认资料真实性、图片授权和是否适合公开发布。</p>
+        <p>当前页面只是静态骨架，不接入后台审核，不产生入驻结果，也不构成平台背书。真实流程上线前，需要补充隐私说明、审核标准、资料留存方式和人工确认机制。</p>
+      </section>
+      <section class="form-panel">
+        <h2>静态申请信息</h2>
+        <form class="simple-form" action="../index.html#wechat" method="get">
+          <label>厂商方向<select name="vendorType"><option>工坊工艺</option><option>柚木整装</option><option>柚木地板</option><option>家具好物</option><option>内容共创</option></select></label>
+          <label>公开资料情况<textarea name="materials" placeholder="可简单说明已有图片、工艺说明、授权状态和希望展示的方向。"></textarea></label>
+          <button class="btn btn-primary" type="submit">前往企业微信入口</button>
+        </form>
+      </section>
+      <section class="related-links"><h2>相关链接</h2><ul><li><a href="../vendors/index.html">推荐厂商</a></li><li><a href="../vendors/workshop-sample.html">工坊样板</a></li><li><a href="../articles/teak-vendor-selection.html">厂商选择文章</a></li><li><a href="../index.html">返回首页</a></li></ul></section>
+    </main>
+    <footer class="content-site-footer"><div class="content-footer-inner"><span>柚喜饰界｜厂商申请</span><span>当前不代表真实入驻流程。</span></div></footer>
+  </body>
+</html>

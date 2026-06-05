@@ -26,6 +26,7 @@ const ids = new Set(idMatches);
 
 const allowedExternalProtocols = /^(https?:|mailto:|tel:)/i;
 const allowedResourcePaths = /^\.\/(assets\/|styles\.css$)/i;
+const localPagePath = /^\.\/[A-Za-z0-9/_-]+\.html(?:#[A-Za-z0-9_-]+)?$/;
 
 // ========== 第三部分：执行链接规则检查 ==========
 const problems = [];
@@ -47,6 +48,24 @@ for (const href of hrefMatches) {
   }
 
   if (allowedExternalProtocols.test(href) || allowedResourcePaths.test(href)) {
+    continue;
+  }
+
+  if (localPagePath.test(href)) {
+    const cleanHref = href.split("#")[0];
+    const filePath = path.resolve(projectRoot, cleanHref);
+
+    if (!filePath.startsWith(projectRoot)) {
+      problems.push(`本地页面越界：${href}`);
+      continue;
+    }
+
+    try {
+      await fs.access(filePath);
+    } catch {
+      problems.push(`本地页面不存在：${href}`);
+    }
+
     continue;
   }
 
