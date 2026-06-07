@@ -1,56 +1,118 @@
 <!--
-文件说明：该文件实现柚木整装页面。
-功能说明：说明柚木整装方向的空间理解、咨询准备和边界表达。
-结构概览：第一部分为页面元信息；第二部分为 Header；第三部分为正文、来源说明与相关链接；第四部分为 Footer。
+文件说明：该文件实现柚木整装资料入口页。
+功能说明：围绕整装方向提供知识入口、判断提示、样板案例结构、会员站样板和咨询入口。
+结构概览：第一部分为页面元信息；第二部分为 Header；第三部分为资料入口、说明与 CTA；第四部分为 Footer。
 -->
 <!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>柚木整装｜柚喜饰界</title>
-    <meta name="description" content="柚木整装方案页，围绕整体空间气质、材料协调、资源对接和咨询引导展开。" />
+    <title>柚木整装 - 柚喜饰界</title>
+    <meta
+      name="description"
+      content="柚木整装资料入口页，围绕整体空间、木作搭配、样板案例结构、会员站样板和咨询入口展开。"
+    />
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="content-page">
-    <header class="content-site-header"><a class="content-brand" href="../index.html" aria-label="返回柚喜饰界首页"><img src="../assets/logo-yuxi-mark.svg" alt="" /><span><strong>柚喜饰界</strong><small>柚木爱好者乐园</small></span></a><nav class="content-nav" aria-label="内容页导航"><a href="../about/index.html">认识柚喜</a><a href="../knowledge/index.html">柚木知识</a><a href="../solutions/index.html">好物方案</a><a href="../vendors/index.html">推荐厂商</a><a href="../index.html#wechat">社群交流</a></nav></header>
+    <header class="content-site-header">
+      <a class="content-brand" href="../index.html" aria-label="返回柚喜饰界首页">
+        <img src="../assets/logo-yuxi-mark.svg" alt="" />
+        <span><strong>柚喜饰界</strong><small>柚木爱好者乐园</small></span>
+      </a>
+      <nav class="content-nav" aria-label="内容页导航">
+        <a href="../about/index.html">认识柚喜</a>
+        <a href="../knowledge/index.html">柚木知识</a>
+        <a href="../solutions/index.html">好物方案</a>
+        <a href="../vendors/index.html">推荐厂商</a>
+        <a href="../index.html#wechat">社群交流</a>
+      </nav>
+    </header>
     <main class="content-main">
-      <nav class="breadcrumb" aria-label="面包屑"><a href="../index.html">首页</a><a href="index.html">好物方案</a><span>柚木整装</span></nav>
-      <section class="content-hero-panel"><p class="eyebrow dark">Whole Decoration</p><h1>柚木整装</h1><p class="content-lead">关注整体空间气质、材料搭配、施工边界和后续维护。</p></section>
-      <section class="content-body">
-        <h2>为什么整装要先看空间</h2>
-        <p>柚木方案页不是装修公司式的交付承诺，也不是商品销售页。它更像一个空间理解入口，帮助用户在咨询前整理自己的生活场景、材料偏好、风格期待和资源对接问题。尤其是柚木整装与柚木地板两个方向，用户往往既关心氛围，也关心材料、施工、维护和后续沟通边界。</p>
-        <p>判断一个柚木空间方案时，不宜只看图片是否好看。更重要的是看它适合怎样的空间、需要哪些前置条件、材料和工艺如何表达、维护方式是否能接受，以及展示内容是否取得授权。页面中的方案说明只作为判断参考，不代表平台担保，也不构成具体服务承诺。</p>
-        <p>当前内容保持静态预览站定位，主要帮助用户从空间出发理解柚木。正式发布前，涉及真实服务能力、图片、案例、厂商信息和交付边界的内容，都需要进一步资料确认和授权确认。</p>
+      <nav class="breadcrumb" aria-label="面包屑">
+        <a href="../index.html">首页</a><a href="index.html">好物方案</a><span>柚木整装</span>
+      </nav>
+
+      <section class="content-hero-panel">
+        <p class="eyebrow dark">Whole Decoration Entry</p>
+        <h1>柚木整装资料入口</h1>
+        <p class="content-lead">先看空间关系和木作搭配，再看样板结构、会员站样板和咨询入口。</p>
       </section>
-      <section class="content-body">
-        <h2>柚木整装的沟通重点</h2>
-        <p>柚木整装不是把所有空间都铺满同一种木材，而是让柚木在地面、墙面、家具、收纳或局部装饰中承担合适角色。用户需要先说明房屋状态、空间用途、常住人数、采光条件和期望氛围，再讨论哪些位置适合使用柚木，哪些位置更适合与其他材料协调。</p>
-        <p>整装方向尤其需要克制表达。页面可以帮助用户理解风格、选材和资源对接，但不能写成装修公司式的全案承诺，也不能暗示平台已经能完成具体交付。真正进入实施阶段前，需要明确设计、材料、施工、安装、维护、售后和合同责任分别由谁承担。</p>
-        <p>咨询时建议准备户型图、现场照片、装修阶段、已有材料偏好和主要顾虑。对于茶室、会客区、书房或庭院连接空间，还可以补充生活习惯和收纳需求。这样后续沟通会更接近真实空间，而不是停留在图片风格上。</p>
+
+      <section class="related-links">
+        <h2>这页可以直接看什么</h2>
+        <ul>
+          <li><a href="../knowledge/teak-space-use.html">先看空间应用</a>：先判断柚木适不适合当前空间。</li>
+          <li><a href="../knowledge/teak-material-craft.html">再看材质与工艺</a>：理解木作搭配和表面处理边界。</li>
+          <li><a href="../cases/tea-room-teak-sample.html">查看样板案例结构</a>：看整装样板页通常会展示哪些信息。</li>
+          <li><a href="../vendors/whole-decoration-sample.html">查看相关会员站样板</a>：看整装方向会员站怎么表达资料。</li>
+          <li><a href="../forms/consult.html">填写咨询摘要</a>：把空间条件和沟通重点先整理出来。</li>
+        </ul>
       </section>
+
       <section class="content-body">
-        <h2>咨询前的空间复核</h2>
-        <p>方案页读完后，用户可以把需求整理成几类信息：空间在哪里、面积大概多少、目前处于什么装修阶段、采光和潮湿情况如何、希望柚木承担主材还是点缀角色。信息越具体，后续沟通越不容易变成空泛的风格讨论。</p>
-        <p>柚木整装和柚木地板虽然是主力方向，但它们仍然需要克制表达。整装关注空间关系，地板关注材料与安装边界，两者都需要真实资料、授权图片和服务说明支撑。页面只做理解与咨询引导，不把资源对接写成交付承诺。</p>
-        <p>当用户看到方案图、样板结构或好物分类会员站展示时，应继续追问资料是否可公开、图片是否有授权、服务区域是否清楚、维护说明是否具体。会员站资料可以作为判断参考，但不能替代用户与服务方之间的具体确认。</p>
-        <p>这种复核方式能帮助站点保持温和定位：它不是招商站，也不是商城，而是让柚木爱好者先把材料、空间和沟通路径看明白，再决定是否进入下一步咨询。</p>
+        <h2>先看懂</h2>
+        <p>
+          柚木整装关注的不是单一产品，而是它在地面、墙面、柜体、家具和过渡空间里的关系。进入整装方向前，先把自己要处理的是茶室、会客区、书房、庭院连接区，还是更完整的生活空间想清楚，后面的资料才有参照意义。索引页的作用，就是让你先找到这些判断入口，而不是被一篇栏目介绍困在最前面。
+        </p>
+        <p>
+          很多人一开始看到整装，会先被木色、光线和氛围打动，但真正影响后续使用感受的，往往是动线、采光、湿度、清洁方式、收纳需求和维护接受度。这些问题不提前说清楚，后面的资料阅读就很容易停留在抽象风格层面，无法形成真正可用的判断。
+        </p>
       </section>
+
       <section class="content-body">
-        <h2>复核提醒</h2>
-        <p>阅读这些内容时，建议把它当成咨询前的整理材料，而不是最终决策。用户可以把页面中的空间条件、材料疑问、维护顾虑和授权边界逐条记录下来，再结合自己的房屋状态、使用习惯和沟通对象继续确认。这样既能保留柚木生活方式的温度，也能避免被单一展示图或过度承诺带偏。</p>
-        <p>后续如果进入真实资料补充阶段，应继续检查图片来源、文字授权、服务区域、合同责任和可公开范围。只有这些信息被确认后，页面内容才适合进一步用于对外宣传。当前版本的重点，是让主要内容页不再停留在骨架层面，并且保持谨慎、可核查、不过度包装的表达。</p>
+        <h2>选购判断</h2>
+        <p>
+          看整装时不要只盯着一张效果图，而要看木作比例、采光、湿度、清洁方式和后续维护接受度。沟通时最好先说明户型、装修阶段、空间用途和已经确定的材料偏好，这样后续才不会把资料页误解成直接交付承诺。页面之所以改成资料入口页，就是希望把这些真正会影响决策的问题放到前面。
+        </p>
+        <p>
+          如果你继续看样板案例结构或会员站样板，建议重点核对三类信息。第一类是空间前提，比如户型、层高、采光、湿度和过道宽度；第二类是资料边界，比如图片是不是有授权、说明是不是对应真实服务范围、案例材料是不是说明了来源；第三类是沟通边界，比如谁负责设计、谁负责木作、谁负责安装、后续维护由谁解释。把这三类问题看清楚，比单纯追求“看起来高级”更有价值。
+        </p>
       </section>
+
       <section class="content-body">
-        <h2>参考资料与说明</h2>
-        <p>本文为柚喜饰界内容整理，主要结合公开木材资料、森林认证机构说明、木材应用资料和行业常见选材经验。正式用于商业宣传前，建议结合具体产品检测、合同资料、厂商授权和展示材料复核。</p>
-        <p>页面内容用于帮助普通用户建立判断路径，不代表本平台或任何厂商已经获得 FSC、PEFC、CITES、IUCN 等认证，也不替代具体产品说明、施工合同或第三方检测报告。</p>
+        <h2>样板案例结构与会员站入口</h2>
+        <p>
+          整装方向可以继续查看
+          <a href="../cases/tea-room-teak-sample.html">样板案例结构页</a>
+          和
+          <a href="../vendors/whole-decoration-sample.html">整装会员站样板页</a>
+          。前者用于看资料组织方式，后者用于看会员站展示逻辑，两者都不代表真实成交项目或平台背书。它们的作用是帮助你先看懂一个资料页应该把哪些信息讲出来，而不是替你完成最终结论。
+        </p>
+        <p>
+          这种处理方式也保留了后续迭代空间。等真实资料逐步补齐后，可以继续把现有入口换成更完整的展示内容；在资料还没有确认完整前，索引页先把结构搭好，反而比直接堆满未经核实的信息更稳妥。当前页面保留的是阅读路径，不是结果页面。
+        </p>
       </section>
-      <section class="related-links"><h2>整装相关会员站入口</h2><ul><li><a href="../vendors/index.html">按柚木好物分类查看会员站</a></li><li><a href="../vendors/whole-decoration-sample.html">查看柚木整装会员站样板</a></li><li><a href="../vendors/workshop-sample.html">查看柚木家具好物 / 柚木工坊会员站样板</a></li></ul></section>
-      <section class="related-links"><h2>相关链接</h2><ul><li><a href="flooring.html">柚木地板</a></li><li><a href="tea-room.html">茶室会客</a></li><li><a href="../cases/index.html">查看样板案例结构</a></li><li><a href="../forms/consult.html">填写咨询摘要</a></li><li><a href="../index.html">返回首页</a></li></ul></section>
-      <section class="content-cta"><a class="btn btn-primary" href="../forms/consult.html">填写咨询摘要</a><a class="btn btn-secondary" href="../index.html#wechat">添加柚喜顾问</a></section>
+
+      <section class="content-body">
+        <h2>咨询前建议先整理的资料</h2>
+        <p>
+          如果后面准备填写咨询摘要，建议先整理户型图、现场照片、装修进度、主要使用人群、希望柚木承担的角色，以及目前已经确定或排除的材料方向。对于茶室、会客区、庭院连接区或书房角落这类混合空间，还可以补充是否需要收纳、是否长期会客、是否存在潮湿问题，以及是否接受定期保养维护。这样整理后的信息会比单纯说“我想做柚木整装”更容易被理解。
+        </p>
+        <p>
+          当前页面保留的是索引逻辑，不负责替你做最终方案结论。它的价值在于把后续沟通需要的关键问题提前摆出来，让用户在进入更具体的资料前先有一张判断清单。只要这张清单清楚，后续无论是继续看样板结构、会员站样板，还是进入人工沟通，路径都会更顺。
+        </p>
+      </section>
+
+      <section class="content-body">
+        <h2>边界说明</h2>
+        <p>
+          当前页面是资料入口页，不承诺交付，也不构成交易担保。真实会员站上线前仍需完成企业资料确认、图片授权确认、联系方式确认、案例材料确认和服务边界确认。对用户来说，最重要的不是记住这几个词，而是明白这里所有内容都只是帮助你先组织判断，再决定是否继续沟通。
+        </p>
+      </section>
+
+      <section class="content-cta">
+        <a class="btn btn-primary" href="../forms/consult.html">填写咨询摘要</a>
+        <a class="btn btn-secondary" href="../index.html#wechat">添加柚喜顾问</a>
+      </section>
     </main>
-    <footer class="content-site-footer"><div class="content-footer-inner"><span>柚喜饰界｜好物方案</span><span>整装方向需结合具体空间和授权资料确认。</span></div></footer>
+    <footer class="content-site-footer">
+      <div class="content-footer-inner">
+        <span>柚喜饰界 - 柚木整装资料入口</span>
+        <span>整装资料用于帮助判断和整理需求，不替代后续资料核实与正式沟通。</span>
+      </div>
+    </footer>
   </body>
 </html>
