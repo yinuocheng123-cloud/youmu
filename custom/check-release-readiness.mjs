@@ -5,7 +5,7 @@
 结构概览：
   第一部分：导入依赖与检查范围
   第二部分：文件收集与文本预处理
-  第三部分：乱码、高风险词与占位词检查
+  第三部分：乱码、高风险词、占位词与入口路径检查
   第四部分：结果输出
 */
 
@@ -31,7 +31,7 @@ const checkEntries = [
 
 const textExtensions = new Set([".html", ".js"]);
 const repeatedQuestionPattern = /\?{6,}/;
-const garbledPatterns = [/閿熸枻鎷?/g, /锟/g];
+const garbledPatterns = [/閿熸枻鎷?/g, /锟/g, /鏌氬/g, /鐢宠/g, /绀剧兢/g];
 
 const riskTerms = [
   "平台认证",
@@ -59,6 +59,18 @@ const placeholderTerms = [
   "400-888-XXXX",
   "hello@yuxishi.com",
   "备案信息待补",
+];
+
+const consultEntryTerms = [
+  "填写咨询表单",
+  "提交咨询",
+  "生成咨询摘要",
+  "查看咨询表单",
+  "填写咨询摘要",
+  "咨询入口",
+  "在线提交",
+  "复制咨询摘要",
+  "咨询摘要表",
 ];
 
 const disclaimerAllowPhrases = [
@@ -137,7 +149,7 @@ function hasSafeDisclaimerContext(line, term) {
 
 const files = (await Promise.all(checkEntries.map(collectFiles))).flat().sort();
 
-// ========== 第三部分：乱码、高风险词与占位词检查 ==========
+// ========== 第三部分：乱码、高风险词、占位词与入口路径检查 ==========
 for (const file of files) {
   const ext = path.extname(file);
   const label = toPublicPath(file);
@@ -177,6 +189,39 @@ for (const file of files) {
 
       problems.push(`${label}:${index + 1}：发现明显占位内容“${term}”`);
     });
+  }
+
+  if (ext === ".html") {
+    const isSecondLevelHtml = label.includes("/");
+    const isBackupContactPage = label === "forms/consult.html";
+
+    if (isSecondLevelHtml) {
+      if (!visibleText.includes('href="../styles.css"')) {
+        problems.push(`${label}：二级页面未引用 ../styles.css`);
+      }
+
+      if (!visibleText.includes('src="../script.js"')) {
+        problems.push(`${label}：二级页面未引用 ../script.js，移动端导航可能失效`);
+      }
+
+      if (visibleText.includes('src="./script.js"') || visibleText.includes('src="script.js"')) {
+        problems.push(`${label}：二级页面疑似使用了错误的 script.js 相对路径`);
+      }
+    }
+
+    if (!isBackupContactPage && visibleText.includes("forms/consult.html")) {
+      problems.push(`${label}：前台仍存在普通用户咨询页链接 forms/consult.html`);
+    }
+
+    if (!isBackupContactPage) {
+      for (const term of consultEntryTerms) {
+        lines.forEach((line, index) => {
+          if (line.includes(term)) {
+            problems.push(`${label}:${index + 1}：发现普通用户咨询表入口文案“${term}”`);
+          }
+        });
+      }
+    }
   }
 }
 

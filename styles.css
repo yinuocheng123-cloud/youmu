@@ -2624,3 +2624,49 @@ body {
     width: 100%;
   }
 }
+
+/* ========== V1.8.3：内容页移动端导航接入 ========== */
+@media (max-width: 900px) {
+  .content-site-header {
+    position: sticky;
+    top: 10px;
+    z-index: 1000;
+    flex-direction: row;
+    align-items: center;
+    width: calc(100% - 24px);
+    min-height: 64px;
+    margin-top: 10px;
+    padding: 10px 58px 10px 12px;
+  }
+
+  .content-site-header .content-nav {
+    display: none;
+  }
+
+  .content-site-header .content-brand {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .content-site-header .content-brand span {
+    min-width: 0;
+  }
+
+  .content-site-header .content-brand strong,
+  .content-site-header .content-brand small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .content-menu-toggle {
+    display: grid;
+  }
+
+  .mobile-menu-head .content-brand {
+    color: var(--coffee);
+    background: rgba(255, 250, 242, 0.96);
+    border: 1px solid rgba(236, 210, 172, 0.58);
+    border-radius: 8px;
+  }
+}
