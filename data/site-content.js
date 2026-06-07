@@ -1,6 +1,6 @@
 /*
 文件说明：该文件集中维护“柚喜饰界｜柚木爱好者乐园”首页内容数据。
-功能说明：提供导航、Hero、栏目卡片、厂商会员站、展示判断、企业微信承接和 Footer 的统一内容源。
+功能说明：提供导航、Hero、栏目卡片、好物分类会员站、展示判断、企业微信承接和 Footer 的统一内容源。
 
 结构概览：
   第一部分：内容状态标注约定
@@ -19,7 +19,7 @@
     "当前为开放授权图库素材，已记录来源页面、平台与授权说明；正式上线前仍建议优先替换为甲方真实授权图片。";
 
   const demoVendorNote =
-    "当前为厂商会员站样板展示位，不代表真实厂商资料或合作关系，上线前需替换为真实会员站资料。";
+    "当前为好物分类会员站样板展示位，不代表真实厂商资料或合作关系，上线前需替换为真实会员站资料。";
 
   const demoProductNote =
     "当前为首页好物方案场景示例，上线前需替换为真实产品、真实推荐理由、真实空间方案或真实供货资料。";
@@ -83,13 +83,13 @@
     seo: {
       title: "柚喜饰界｜柚木爱好者乐园",
       description:
-        "柚喜饰界是围绕柚木知识、好物方案、柚木整装、柚木地板、厂商会员站和爱好者社群建立的柚木生活方式入口。",
+        "柚喜饰界是围绕柚木知识、好物方案、柚木整装、柚木地板、按好物分类展示的品牌或企业会员站和爱好者社群建立的柚木生活方式入口。",
       keywords:
         "柚喜饰界, 柚木爱好者, 柚木知识, 柚木好物, 柚木整装, 柚木地板, 推荐厂商, 柚木生活方式, 企业微信社群",
       openGraph: {
         title: "柚喜饰界｜柚木爱好者乐园",
         description:
-          "围绕柚木知识、好物方案、柚木整装、柚木地板、厂商会员站和爱好者社群建立的柚木生活方式入口。",
+          "围绕柚木知识、好物方案、柚木整装、柚木地板、按好物分类展示的品牌或企业会员站和爱好者社群建立的柚木生活方式入口。",
         url: "https://yinuocheng123-cloud.github.io/youmu/",
         image: "https://yinuocheng123-cloud.github.io/youmu/assets/images/hero-teak-lifestyle.jpg",
       },
@@ -153,7 +153,7 @@
       title: "柚喜饰界，柚木爱好者乐园。",
       hook: "买柚木前，先来这里看一看。",
       description:
-        "这里不是普通家具展示页，而是围绕柚木知识、好物方案、柚木整装、柚木地板、厂商会员站和爱好者社群建立的柚木生活方式入口。想买柚木，先看懂；想做柚木，先被信任。",
+        "这里不是普通家具展示页，而是围绕柚木知识、好物方案、柚木整装、柚木地板、按好物分类展示的品牌或企业会员站和爱好者社群建立的柚木生活方式入口。想买柚木，先看懂；想做柚木，先被信任。",
       image: {
         src: "./assets/images/hero-teak-lifestyle.jpg",
         alt: "木质露台与庭院生活方式场景",
@@ -170,7 +170,7 @@
       {
         title: "认识柚喜",
         description:
-          "柚喜饰界，是一个围绕柚木知识、柚木好物、柚木整装、柚木地板、厂商会员站和爱好者社群建立的柚木生活方式入口。我们不把网站做成普通家具展示页，而是先帮助用户看懂柚木，再根据需求连接合适的产品、空间方案和厂商资源。",
+          "柚喜饰界，是一个围绕柚木知识、柚木好物、柚木整装、柚木地板、按好物分类展示的品牌或企业会员站和爱好者社群建立的柚木生活方式入口。我们不把网站做成普通家具展示页，而是先帮助用户看懂柚木，再根据需求连接合适的产品、空间方案和会员站资料。",
         ...status.formalCopy,
       },
       {
@@ -380,18 +380,18 @@
       ...status.demoProduct,
     },
     vendors: {
-      title: "柚木厂商会员站",
+      title: "按柚木好物分类查看会员站",
       subtitle:
-        "每一个会员站，都是一个可被了解、可被检索、可被咨询的厂商数字主页。展示不等于担保，真实合作前仍需结合产品、合同、交付和售后进行确认。",
-      sharedLabel: "厂商会员站样板结构",
+        "这里不是简单的厂商名单，而是围绕柚木地板、柚木整装、庭院户外、茶室会客和家具好物等不同方向，展示对应品牌或企业会员站。展示不等于担保，真实合作前仍需结合产品、合同、交付和售后进行确认。",
+      sharedLabel: "好物分类会员站样板",
       items: [
         {
-          name: "柚木工坊会员站样板",
-          badge: "工坊工艺",
+          name: "柚木地板会员站样板",
+          badge: "地板方向",
           description: "当前为会员站样板结构，会员展示不等于平台担保，真实会员站上线前需完成企业资料确认、图片授权、联系方式确认、案例材料确认和服务边界确认。",
           image: {
-            src: "./assets/images/vendor-workshop-sample.jpg",
-            alt: "木作工坊工具与工艺氛围样板图",
+            src: "./assets/images/vendor-craft-sample.jpg",
+            alt: "柚木地板工艺与材料样板图",
             ...status.openStockImage,
           },
           action: "查看会员站样板",
@@ -406,32 +406,56 @@
             alt: "木作材料与空间展示样板图",
             ...status.openStockImage,
           },
-          action: "了解厂商会员展示",
+          action: "查看会员站样板",
           ...status.demoVendor,
         },
         {
-          name: "柚木地板会员站样板",
-          badge: "地板方向",
-          description: "当前为会员站样板结构，会员展示不等于平台担保，真实会员站上线前需完成企业资料确认、图片授权、联系方式确认、案例材料确认和服务边界确认。",
+          name: "庭院户外柚木会员站",
+          badge: "庭院户外",
+          description: "当前先保留分类说明和申请入口，后续再按真实授权资料补充会员站样板，不伪造真实企业页。",
           image: {
-            src: "./assets/images/vendor-craft-sample.jpg",
-            alt: "木作打磨与手工处理样板图",
+            src: "./assets/images/product-teak-chair.jpg",
+            alt: "庭院户外柚木场景参考图",
             ...status.openStockImage,
           },
-          action: "了解地板方向",
+          action: "查看分类说明",
+          ...status.demoVendor,
+        },
+        {
+          name: "茶室会客柚木会员站",
+          badge: "茶室会客",
+          description: "当前先保留分类说明和申请入口，后续再按真实授权资料补充会员站样板，不伪造真实企业页。",
+          image: {
+            src: "./assets/images/product-teak-table.jpg",
+            alt: "茶室会客柚木场景参考图",
+            ...status.openStockImage,
+          },
+          action: "查看分类说明",
+          ...status.demoVendor,
+        },
+        {
+          name: "柚木家具好物 / 柚木工坊会员站样板",
+          badge: "家具好物",
+          description: "当前为会员站样板结构，会员展示不等于平台担保，真实会员站上线前需完成企业资料确认、图片授权、联系方式确认、案例材料确认和服务边界确认。",
+          image: {
+            src: "./assets/images/vendor-workshop-sample.jpg",
+            alt: "柚木家具好物与工坊样板图",
+            ...status.openStockImage,
+          },
+          action: "查看会员站样板",
           ...status.demoVendor,
         },
       ],
       ...status.demoVendor,
     },
     standards: {
-      title: "用户如何看厂商会员站？",
+      title: "用户如何看好物分类会员站？",
       items: [
-        { title: "产品方向清晰", description: "先看会员站是否能说明自己偏向工坊、整装、地板、户外或家具好物中的哪一类。", icon: "01", ...status.formalCopy },
+        { title: "分类匹配清楚", description: "先看会员站是否能说明自己偏向地板、整装、庭院户外、茶室会客或家具好物中的哪一类。", icon: "01", ...status.formalCopy },
         { title: "基础资料完整", description: "是否能提供可公开的企业介绍、产品说明、服务区域、工艺过程和联系信息。", icon: "02", ...status.formalCopy },
         { title: "愿意公开信息", description: "图片、文字和案例材料是否说明来源与授权状态，避免把样板资料误解成真实成交内容。", icon: "03", ...status.formalCopy },
         { title: "重视交付售后", description: "能否说明沟通、生产、交付、安装、维护和售后边界，减少后续理解偏差。", icon: "04", ...status.formalCopy },
-        { title: "适合被看见", description: "会员站不是担保名单，用户仍应围绕产品、合同和交付责任继续确认。", icon: "05", ...status.formalCopy },
+        { title: "展示规则温和", description: "展示顺序会综合参考资料完整度、分类匹配度、内容更新、服务区域和合规状态，但不代表平台担保。", icon: "05", ...status.formalCopy },
         { title: "参与内容共创", description: "愿意把材料、工艺、空间应用和用户问题讲清楚，长期沉淀可查询的公开资料。", icon: "06", ...status.formalCopy },
       ],
       ...status.formalCopy,

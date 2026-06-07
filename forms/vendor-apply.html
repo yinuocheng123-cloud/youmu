@@ -1,5 +1,5 @@
 <!--
-文件说明：该文件实现“柚喜饰界”静态厂商会员站展示申请页面。
+文件说明：该文件实现“柚喜饰界”静态好物分类会员站申请页面。
 功能说明：提供可填写、可生成摘要、可复制的前端申请表，不接入后台、登录、商城、支付或数据库。
 结构概览：第一部分为页面元信息；第二部分为 Header；第三部分为申请说明与静态表单；第四部分为相关链接与 Footer。
 -->
@@ -8,8 +8,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>厂商会员站展示申请｜柚喜饰界</title>
-    <meta name="description" content="柚喜饰界静态厂商会员站展示申请表，用于在浏览器内生成可复制的厂商会员站展示申请摘要。" />
+    <title>申请建立好物分类会员站｜柚喜饰界</title>
+    <meta
+      name="description"
+      content="柚喜饰界静态好物分类会员站申请表，用于在浏览器内生成可复制的会员站展示申请摘要。"
+    />
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="../styles.css" />
     <script src="./form.js" defer></script>
@@ -26,18 +29,19 @@
     <main class="content-main">
       <nav class="breadcrumb">
         <a href="../index.html">首页</a>
-        <span>厂商会员站展示申请</span>
+        <span>申请建立好物分类会员站</span>
       </nav>
 
       <section class="content-hero-panel">
         <p class="eyebrow dark">Vendor Apply</p>
-        <h1>厂商会员站展示申请</h1>
+        <h1>申请建立好物分类会员站</h1>
         <p class="content-lead">先把企业方向、授权情况、案例材料和服务区域整理成一段清楚摘要，便于后续人工确认资料边界。</p>
       </section>
 
       <section class="content-body">
         <h2>填写说明</h2>
-        <p>本页只用于整理未来厂商会员站展示申请的基础信息。真实会员站展示前仍需完成企业资料确认、图片授权、案例材料确认、联系方式确认和服务边界确认。</p>
+        <p>本页只用于整理未来好物分类会员站展示申请的基础信息。真实会员站展示前仍需完成企业资料确认、图片授权、案例材料确认、联系方式确认和服务边界确认。</p>
+        <p>请根据企业实际主营方向选择适合的好物分类。平台后续会结合资料完整度、分类匹配度、授权确认和服务边界确认，决定展示方式。</p>
         <p class="form-note">当前为静态申请表，不会自动提交到后台。请生成申请摘要后复制保存，并添加微信或通过页面提示方式继续沟通。</p>
       </section>
 
@@ -99,13 +103,13 @@
           </div>
 
           <div class="form-actions">
-            <button class="btn btn-primary" type="button" data-generate-summary>生成厂商会员站展示申请摘要</button>
-            <button class="btn btn-secondary" type="button" data-copy-summary>复制厂商会员站展示申请摘要</button>
+            <button class="btn btn-primary" type="button" data-generate-summary>生成好物分类会员站申请摘要</button>
+            <button class="btn btn-secondary" type="button" data-copy-summary>复制好物分类会员站申请摘要</button>
             <button class="btn btn-ghost form-reset-button" type="button" data-clear-form>清空重填</button>
           </div>
 
           <label class="form-summary">
-            <span>厂商会员站展示申请摘要</span>
+            <span>好物分类会员站申请摘要</span>
             <textarea data-summary-output readonly placeholder="生成后，申请摘要会显示在这里。"></textarea>
           </label>
           <p class="copy-status" data-copy-status aria-live="polite"></p>
@@ -115,8 +119,8 @@
       <section class="related-links">
         <h2>相关链接</h2>
         <ul>
-          <li><a href="../vendors/index.html">厂商会员站</a></li>
-          <li><a href="../vendors/workshop-sample.html">柚木工坊会员站样板</a></li>
+          <li><a href="../vendors/index.html">按柚木好物分类查看会员站</a></li>
+          <li><a href="../vendors/workshop-sample.html">柚木家具好物 / 柚木工坊会员站样板</a></li>
           <li><a href="../articles/teak-vendor-selection.html">厂商选择文章</a></li>
           <li><a href="../forms/consult.html">咨询摘要表</a></li>
           <li><a href="../index.html">返回首页</a></li>
@@ -126,7 +130,7 @@
 
     <footer class="content-site-footer">
       <div class="content-footer-inner">
-        <span>柚喜饰界｜厂商会员站展示申请</span>
+        <span>柚喜饰界｜申请建立好物分类会员站</span>
         <span>提交申请不代表已经成为认证厂商，也不代表平台背书。真实展示需完成企业资料确认、图片授权、案例材料确认、联系方式确认和服务边界确认。</span>
       </div>
     </footer>
