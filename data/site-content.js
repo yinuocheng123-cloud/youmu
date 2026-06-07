@@ -482,21 +482,18 @@
     },
     footer: {
       contact: {
-        phone: { label: "电话", value: "400-888-XXXX", ...status.placeholderContact },
-        email: { label: "邮箱", value: "hello@yuxishi.com", ...status.placeholderContact },
+        phone: { label: "普通用户", value: "请通过社群交流区添加柚喜顾问", ...status.formalCopy },
+        email: { label: "品牌 / 企业", value: "请通过会员站申请页整理资料后继续沟通", ...status.formalCopy },
         address: {
-          label: "地址",
-          value: "广东省中山市东升镇柚木产业园",
-          ...status.placeholderContact,
+          label: "联系方式",
+          value: "正式电话、邮箱和地址将在人工确认后补充",
+          ...status.formalCopy,
         },
       },
       copyright: "© 2024 柚喜饰界 版权所有",
       filing: {
-        value: "备案信息待补",
-        isDemo: true,
-        replaceBeforeLaunch: true,
-        materialType: "contact",
-        replaceNote: "上线前需根据实际主体补充备案号、公安备案或删除不适用信息。",
+        value: "正式绑定自有域名前，将按实际情况补充备案信息。",
+        ...status.formalCopy,
       },
       officialAccountQr: {
         src: "./assets/official-account-qr.jpg",

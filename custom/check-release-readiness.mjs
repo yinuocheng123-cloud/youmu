@@ -77,6 +77,7 @@ const disclaimerAllowPhrases = [
   "不构成平台背书",
   "不构成认证",
   "不构成交易担保",
+  "不代表平台认证",
   "不是交易担保",
   "不是平台担保",
   "不等于平台担保",
@@ -139,6 +140,16 @@ function splitIntoLines(text) {
   return text.split("\n");
 }
 
+function expectedAssetPrefix(label) {
+  const depth = label.split("/").length - 1;
+
+  if (depth <= 0) {
+    return "./";
+  }
+
+  return "../".repeat(depth);
+}
+
 function hasSafeDisclaimerContext(line, term) {
   if (!line.includes(term)) {
     return false;
@@ -196,16 +207,23 @@ for (const file of files) {
     const isBackupContactPage = label === "forms/consult.html";
 
     if (isSecondLevelHtml) {
-      if (!visibleText.includes('href="../styles.css"')) {
-        problems.push(`${label}：二级页面未引用 ../styles.css`);
+      const prefix = expectedAssetPrefix(label);
+      const expectedStyles = `href="${prefix}styles.css"`;
+      const expectedScript = `src="${prefix}script.js"`;
+
+      if (!visibleText.includes(expectedStyles)) {
+        problems.push(`${label}：页面未按目录层级引用 ${prefix}styles.css`);
       }
 
-      if (!visibleText.includes('src="../script.js"')) {
-        problems.push(`${label}：二级页面未引用 ../script.js，移动端导航可能失效`);
+      if (!visibleText.includes(expectedScript)) {
+        problems.push(`${label}：页面未按目录层级引用 ${prefix}script.js，移动端导航可能失效`);
       }
 
-      if (visibleText.includes('src="./script.js"') || visibleText.includes('src="script.js"')) {
-        problems.push(`${label}：二级页面疑似使用了错误的 script.js 相对路径`);
+      if (
+        (prefix !== "./" && visibleText.includes('src="./script.js"')) ||
+        visibleText.includes('src="script.js"')
+      ) {
+        problems.push(`${label}：页面疑似使用了错误的 script.js 相对路径`);
       }
     }
 
