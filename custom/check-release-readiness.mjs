@@ -75,6 +75,18 @@ const consultEntryTerms = [
   "咨询摘要表",
 ];
 
+const mechanicalButtonTerms = [
+  "开始阅读",
+  "查看公开来源",
+  "查看资料",
+  "查看这一类",
+  "进入这个方向",
+  "阅读全文",
+  "了解更多",
+  "资料入口",
+  "内容入口",
+];
+
 const frontendPatchTerms = [
   "V1.10",
   "V1.9",
@@ -260,6 +272,14 @@ for (const file of files) {
         lines.forEach((line, index) => {
           if (line.includes(term)) {
             problems.push(`${label}:${index + 1}：发现普通用户咨询表入口文案“${term}”`);
+          }
+        });
+      }
+
+      for (const term of mechanicalButtonTerms) {
+        lines.forEach((line, index) => {
+          if (line.includes(term)) {
+            problems.push(`${label}:${index + 1}：发现内页机械按钮或入口文案“${term}”`);
           }
         });
       }
