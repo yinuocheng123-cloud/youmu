@@ -3548,3 +3548,207 @@ body {
     width: calc(100% - 28px);
   }
 }
+
+
+/* ========== V1.13B：好物方案生活场景专题 ========== */
+.solution-index-layout,
+.solution-topic-layout {
+  width: min(1040px, calc(100% - 48px));
+}
+
+.solution-index-hero,
+.solution-topic-hero {
+  background:
+    linear-gradient(135deg, rgba(255, 250, 242, 0.98), rgba(239, 216, 185, 0.92)),
+    radial-gradient(circle at 88% 20%, rgba(154, 103, 54, 0.15), transparent 17rem),
+    radial-gradient(circle at 8% 86%, rgba(101, 112, 71, 0.11), transparent 15rem);
+}
+
+.solution-editorial-section,
+.solution-topic-section {
+  margin-top: 24px;
+  padding: clamp(24px, 4vw, 36px);
+  background: rgba(255, 250, 242, 0.9);
+  border: 1px solid rgba(91, 63, 35, 0.14);
+  border-radius: 16px;
+  box-shadow: 0 16px 42px rgba(67, 45, 23, 0.07);
+}
+
+.solution-section-heading {
+  max-width: 780px;
+  margin-bottom: 20px;
+}
+
+.solution-section-heading h2,
+.solution-topic-section h2 {
+  margin: 0;
+  color: var(--coffee);
+  font-size: clamp(25px, 3vw, 36px);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.solution-section-heading p,
+.solution-topic-section > p,
+.solution-topic-section p {
+  color: var(--muted);
+  line-height: 1.86;
+}
+
+.solution-scene-list {
+  display: grid;
+  gap: 16px;
+}
+
+.solution-scene-card {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+  padding: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 250, 242, 0.96), rgba(247, 239, 226, 0.92)),
+    radial-gradient(circle at 100% 0%, rgba(154, 103, 54, 0.09), transparent 10rem);
+  border: 1px solid rgba(91, 63, 35, 0.13);
+  border-radius: 16px;
+}
+
+.solution-scene-mark {
+  display: grid;
+  min-height: 104px;
+  place-items: center;
+  color: #fffaf2;
+  background: linear-gradient(135deg, var(--coffee-soft), var(--teak));
+  border-radius: 14px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.solution-scene-card h3 {
+  margin: 0;
+  color: var(--coffee);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.32;
+}
+
+.solution-scene-card h3 a,
+.natural-link {
+  border-bottom: 1px solid rgba(72, 84, 54, 0.26);
+}
+
+.solution-scene-card p {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+.solution-scene-card ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 14px 0 0;
+  list-style: none;
+}
+
+.solution-scene-card li {
+  padding: 5px 10px;
+  color: var(--coffee-soft);
+  background: rgba(154, 103, 54, 0.08);
+  border: 1px solid rgba(154, 103, 54, 0.13);
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.natural-link {
+  display: inline-flex;
+  margin-top: 14px;
+  color: var(--olive-dark);
+  font-weight: 700;
+}
+
+.solution-guide-grid,
+.solution-judgement-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.solution-guide-block,
+.solution-judgement-grid article {
+  padding: 18px;
+  background: rgba(255, 250, 242, 0.66);
+  border: 1px solid rgba(101, 112, 71, 0.16);
+  border-radius: 12px;
+}
+
+.solution-guide-block h3,
+.solution-judgement-grid h3 {
+  margin: 0;
+  color: var(--coffee);
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.solution-guide-block p,
+.solution-judgement-grid p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.solution-topic-shell {
+  display: grid;
+  gap: 20px;
+}
+
+.solution-topic-hero {
+  display: grid;
+  gap: 16px;
+  padding: clamp(34px, 6vw, 62px);
+  border: 1px solid rgba(91, 63, 35, 0.14);
+  border-radius: 16px;
+  box-shadow: 0 16px 42px rgba(67, 45, 23, 0.07);
+}
+
+.solution-topic-hero h1 {
+  max-width: 760px;
+  margin: 0;
+  color: var(--coffee);
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 600;
+  line-height: 1.16;
+}
+
+.solution-topic-hero p {
+  max-width: 780px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.solution-topic-hero .btn {
+  width: fit-content;
+}
+
+.solution-topic-section p + p {
+  margin-top: 12px;
+}
+
+@media (max-width: 820px) {
+  .solution-index-layout,
+  .solution-topic-layout {
+    width: calc(100% - 28px);
+  }
+
+  .solution-scene-card,
+  .solution-guide-grid,
+  .solution-judgement-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .solution-scene-mark {
+    min-height: 82px;
+  }
+}

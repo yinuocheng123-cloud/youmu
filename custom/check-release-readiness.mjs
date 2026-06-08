@@ -103,6 +103,25 @@ const knowledgeEditorialTerms = [
   "填写咨询表单",
 ];
 
+const solutionEditorialTerms = [
+  "阅读提示",
+  "适合谁看",
+  "资料入口",
+  "内容入口",
+  "查看资料",
+  "进入这个方向",
+  "阅读全文",
+  "了解更多",
+  "样板结构",
+  "待补充说明",
+  "按阅读顺序",
+  "当前页面",
+  "本轮",
+  "版本",
+  "已扩展",
+  "已补充",
+];
+
 const frontendPatchTerms = [
   "V1.10",
   "V1.9",
@@ -281,6 +300,16 @@ for (const file of files) {
 
     if (!isBackupContactPage && visibleText.includes("forms/consult.html")) {
       problems.push(`${label}：前台仍存在普通用户咨询页链接 forms/consult.html`);
+    }
+
+    if (!isBackupContactPage && label.startsWith("solutions/")) {
+      for (const term of solutionEditorialTerms) {
+        lines.forEach((line, index) => {
+          if (line.includes(term)) {
+            problems.push(`${label}:${index + 1}：方案区前台仍存在机械表达“${term}”`);
+          }
+        });
+      }
     }
 
     if (!isBackupContactPage && label.startsWith("knowledge/")) {
