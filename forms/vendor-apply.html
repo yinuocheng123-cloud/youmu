@@ -1,137 +1,96 @@
-<!--
-文件说明：该文件实现“柚喜饰界”静态好物分类会员站申请页面。
-功能说明：提供可填写、可生成摘要、可复制的前端申请表，不接入后台、登录、商城、支付或数据库。
-结构概览：第一部分为页面元信息；第二部分为 Header；第三部分为申请说明与静态表单；第四部分为相关链接与 Footer。
--->
 <!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>申请建立好物分类会员站｜柚喜饰界</title>
-    <meta
-      name="description"
-      content="柚喜饰界静态好物分类会员站申请表，用于在浏览器内生成可复制的会员站展示申请摘要。"
-    />
+    <title>申请建立好物分类会员站 - 柚喜饰界</title>
+    <meta name="description" content="适合希望展示柚木地板、整装、户外、茶室或家具好物资料的品牌、企业和工坊。" />
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="../styles.css" />
     <script src="./form.js" defer></script>
   </head>
   <body class="content-page">
+
     <header class="content-site-header">
-      <a class="content-brand" href="../index.html">
+      <a class="content-brand" href="../index.html" aria-label="返回柚喜饰界首页">
         <img src="../assets/logo-yuxi-mark.svg" alt="" />
         <span><strong>柚喜饰界</strong><small>柚木爱好者乐园</small></span>
       </a>
-      <nav class="content-nav" aria-label="内容页导航"><a href="../about/index.html">认识柚喜</a><a href="../knowledge/index.html">柚木知识</a><a href="../solutions/index.html">好物方案</a><a href="../vendors/index.html">推荐厂商</a><a href="../index.html#wechat">社群交流</a></nav>
-    </header>
-
-    <main class="content-main">
-      <nav class="breadcrumb">
-        <a href="../index.html">首页</a>
-        <span>申请建立好物分类会员站</span>
+      <nav class="content-nav" aria-label="内容页导航">
+        <a href="../about/index.html">认识柚喜</a>
+        <a href="../knowledge/index.html">柚木知识</a>
+        <a href="../solutions/index.html">好物方案</a>
+        <a href="../vendors/index.html">推荐厂商</a>
+        <a href="../index.html#wechat">社群交流</a>
       </nav>
-
-      <section class="content-hero-panel">
+    </header>
+    <main class="content-main editorial-layout">
+      <nav class="breadcrumb" aria-label="面包屑"><a href="../index.html">首页</a><span>申请建立好物分类会员站</span></nav>
+      <section class="page-hero">
         <p class="eyebrow dark">Vendor Apply</p>
         <h1>申请建立好物分类会员站</h1>
-        <p class="content-lead">先把企业方向、授权情况、案例材料和服务区域整理成一段清楚摘要，便于后续人工确认资料边界。</p>
+        <p>适合希望展示柚木地板、整装、户外、茶室或家具好物资料的品牌、企业和工坊。</p>
+        <a class="btn btn-primary" href="#apply-form">开始整理资料</a>
       </section>
-
-      <section class="content-body">
-        <h2>填写说明</h2>
-        <p>本页只用于整理未来好物分类会员站展示申请的基础信息。真实会员站展示前仍需完成企业资料确认、图片授权、案例材料确认、联系方式确认和服务边界确认。</p>
-        <p>请根据企业实际主营方向选择适合的好物分类。平台后续会结合资料完整度、分类匹配度、授权确认和服务边界确认，决定展示方式。</p>
-        <p class="form-note">当前为静态申请表，不会自动提交到后台。请生成申请摘要后复制保存，并添加微信或通过页面提示方式继续沟通。</p>
+      <section class="category-section">
+        <div class="category-heading">
+          <h2>三步完成申请准备</h2>
+          <p>本页不会自动提交到后台，只帮助你把沟通材料整理成清楚摘要。</p>
+        </div>
+        <div class="featured-grid">
+          <article class="step-panel"><span>01</span><h3>选择好物分类</h3><p>先确认你更适合柚木地板、整装、户外、茶室还是家具好物方向。</p></article>
+          <article class="step-panel"><span>02</span><h3>填写企业资料</h3><p>整理企业名称、主营方向、服务区域、授权图片和案例材料情况。</p></article>
+          <article class="step-panel"><span>03</span><h3>生成申请摘要</h3><p>复制摘要后添加柚喜顾问，继续确认资料、授权和展示边界。</p></article>
+        </div>
       </section>
-
-      <section class="form-panel">
-        <h2>静态申请信息</h2>
+      <section class="soft-notice">
+        <h2>申请前请先了解</h2>
+        <p>提交申请不代表已经成为真实会员站，也不代表平台认证。真实展示前需要完成企业资料确认、图片授权、联系方式确认、案例材料确认和服务边界确认。</p>
+      </section>
+      <section class="form-panel apply-panel" id="apply-form">
+        <h2>填写申请资料</h2>
         <form class="summary-form" data-summary-form="vendor">
-          <div class="form-grid">
-            <label class="form-field">
-              <span>企业名称</span>
-              <input name="company" autocomplete="organization" placeholder="请填写企业或工作室名称" />
-            </label>
-            <label class="form-field">
-              <span>所在地区</span>
-              <input name="region" autocomplete="address-level2" placeholder="例如：广东佛山" />
-            </label>
-            <label class="form-field">
-              <span>主营方向</span>
-              <select name="business">
-                <option>柚木地板</option>
-                <option>柚木整装</option>
-                <option>柚木家具</option>
-                <option>户外柚木</option>
-                <option>柚木工坊</option>
-                <option>其他</option>
-              </select>
-            </label>
-            <label class="form-field">
-              <span>是否有真实图片授权</span>
-              <select name="imageAuth">
-                <option>已有可公开图片授权</option>
-                <option>有图片但需确认授权</option>
-                <option>暂时没有图片材料</option>
-              </select>
-            </label>
-            <label class="form-field">
-              <span>是否有案例材料</span>
-              <select name="caseMaterial">
-                <option>已有案例材料</option>
-                <option>有案例但需补充授权</option>
-                <option>暂时没有案例材料</option>
-              </select>
-            </label>
-            <label class="form-field">
-              <span>服务区域</span>
-              <input name="serviceArea" placeholder="例如：华东、华南、全国或指定城市" />
-            </label>
-            <label class="form-field">
-              <span>联系人</span>
-              <input name="contactPerson" autocomplete="name" placeholder="请填写联系人姓名或称呼" />
-            </label>
-            <label class="form-field">
-              <span>联系方式</span>
-              <input name="contact" autocomplete="tel" placeholder="手机号、微信号或其他联系方式" />
-            </label>
-            <label class="form-field form-field-wide">
-              <span>简要介绍</span>
-              <textarea name="intro" placeholder="简单介绍主营内容、服务经验、可公开材料情况和希望展示的方向。"></textarea>
-            </label>
+          <div class="form-section">
+            <h3>第一步：企业与分类</h3>
+            <div class="form-grid">
+              <label class="form-field"><span>企业名称</span><input name="company" autocomplete="organization" placeholder="请填写企业或工作室名称" /></label>
+              <label class="form-field"><span>所在地区</span><input name="region" autocomplete="address-level2" placeholder="例如：广东佛山" /></label>
+              <label class="form-field"><span>主营方向</span><select name="business"><option>柚木地板</option><option>柚木整装</option><option>柚木家具</option><option>户外柚木</option><option>柚木工坊</option><option>其他</option></select></label>
+              <label class="form-field"><span>服务区域</span><input name="serviceArea" placeholder="例如：华东、华南、全国或指定城市" /></label>
+            </div>
           </div>
-
-          <div class="form-actions">
-            <button class="btn btn-primary" type="button" data-generate-summary>生成好物分类会员站申请摘要</button>
-            <button class="btn btn-secondary" type="button" data-copy-summary>复制好物分类会员站申请摘要</button>
-            <button class="btn btn-ghost form-reset-button" type="button" data-clear-form>清空重填</button>
+          <div class="form-section">
+            <h3>第二步：授权与材料</h3>
+            <div class="form-grid">
+              <label class="form-field"><span>是否有真实图片授权</span><select name="imageAuth"><option>已有可公开图片授权</option><option>有图片但需确认授权</option><option>暂时没有图片材料</option></select></label>
+              <label class="form-field"><span>是否有案例材料</span><select name="caseMaterial"><option>已有案例材料</option><option>有案例但需补充授权</option><option>暂时没有案例材料</option></select></label>
+              <label class="form-field"><span>联系人</span><input name="contactPerson" autocomplete="name" placeholder="请填写联系人姓名或称呼" /></label>
+              <label class="form-field"><span>联系方式</span><input name="contact" autocomplete="tel" placeholder="手机号、微信号或其他联系方式" /></label>
+              <label class="form-field form-field-wide"><span>简要介绍</span><textarea name="intro" placeholder="简单介绍主营内容、服务经验、可公开材料情况和希望展示的方向。"></textarea></label>
+            </div>
           </div>
-
-          <label class="form-summary">
-            <span>好物分类会员站申请摘要</span>
-            <textarea data-summary-output readonly placeholder="生成后，申请摘要会显示在这里。"></textarea>
-          </label>
-          <p class="copy-status" data-copy-status aria-live="polite"></p>
+          <div class="form-section">
+            <h3>第三步：生成摘要</h3>
+            <div class="form-actions">
+              <button class="btn btn-primary" type="button" data-generate-summary>生成申请摘要</button>
+              <button class="btn btn-secondary" type="button" data-copy-summary>复制申请摘要</button>
+              <button class="btn btn-ghost form-reset-button" type="button" data-clear-form>清空重填</button>
+            </div>
+            <label class="form-summary"><span>申请摘要</span><textarea data-summary-output readonly placeholder="生成后，申请摘要会显示在这里。"></textarea></label>
+            <p class="copy-status" data-copy-status aria-live="polite"></p>
+          </div>
         </form>
       </section>
-
-      <section class="related-links">
-        <h2>相关链接</h2>
-        <ul>
-          <li><a href="../vendors/index.html">按柚木好物分类查看会员站</a></li>
-          <li><a href="../vendors/workshop-sample.html">柚木家具好物 / 柚木工坊会员站样板</a></li>
-          <li><a href="../articles/teak-vendor-selection.html">厂商选择文章</a></li>
-          <li><a href="../index.html#wechat">添加柚喜顾问</a></li>
-          <li><a href="../index.html">返回首页</a></li>
-        </ul>
+      <section class="content-cta">
+        <a class="btn btn-primary" href="../index.html#wechat">返回首页社群交流</a>
+        <a class="btn btn-secondary" href="../vendors/index.html">查看候选企业资料</a>
       </section>
     </main>
 
     <footer class="content-site-footer">
       <div class="content-footer-inner">
-        <span>柚喜饰界｜申请建立好物分类会员站</span>
-        <span>提交申请不代表已经成为认证厂商，也不代表平台背书。真实展示需完成企业资料确认、图片授权、案例材料确认、联系方式确认和服务边界确认。</span>
+        <span>柚喜饰界 - 申请建立好物分类会员站</span>
+        <span>静态申请页只用于整理摘要，真实展示仍需完成五项确认。</span>
       </div>
     </footer>
     <script src="../script.js"></script>

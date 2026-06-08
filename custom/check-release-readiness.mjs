@@ -75,6 +75,25 @@ const consultEntryTerms = [
   "咨询摘要表",
 ];
 
+const frontendPatchTerms = [
+  "V1.10",
+  "V1.9",
+  "已扩展",
+  "已补充",
+  "资料入口",
+  "内容入口",
+  "栏目介绍",
+  "页面内核",
+  "当前入口仍保留",
+  "本轮",
+  "样板结构参考",
+  "结构参考",
+  "待补充说明",
+  "公开资料来源记录",
+  "来源记录",
+  "上线阻塞项",
+];
+
 const disclaimerAllowPhrases = [
   "不构成平台背书",
   "不构成认证",
@@ -241,6 +260,14 @@ for (const file of files) {
         lines.forEach((line, index) => {
           if (line.includes(term)) {
             problems.push(`${label}:${index + 1}：发现普通用户咨询表入口文案“${term}”`);
+          }
+        });
+      }
+
+      for (const term of frontendPatchTerms) {
+        lines.forEach((line, index) => {
+          if (line.includes(term)) {
+            problems.push(`${label}:${index + 1}：发现前台补丁式或版本化表达“${term}”`);
           }
         });
       }
