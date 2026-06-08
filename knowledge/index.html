@@ -1,7 +1,7 @@
 <!--
-文件说明：该文件实现柚木知识索引页。
-功能说明：集中展示柚木入门、选购、材质、空间、保养和常见问答入口，并保留必要的阅读建议与边界说明。
-结构概览：第一部分为页面元信息；第二部分为 Header；第三部分为知识索引、延伸阅读、阅读建议与 CTA；第四部分为 Footer。
+文件说明：该文件为 V1.10 生成的静态内容页。
+功能说明：提供可公开预览的知识、好物或候选会员站资料入口。
+结构概览：第一部分为页面元信息；第二部分为 Header；第三部分为主体内容；第四部分为 Footer。
 -->
 <!doctype html>
 <html lang="zh-CN">
@@ -9,14 +9,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>柚木知识 - 柚喜饰界</title>
-    <meta
-      name="description"
-      content="柚喜饰界柚木知识索引页，从入门、选购、材质、空间到保养与问答，先把柚木看懂，再决定怎么选。"
-    />
+    <meta name="description" content="柚喜饰界 V1.10 柚木知识索引页，六类知识各提供五条以上可点击阅读入口。" />
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="content-page">
+
     <header class="content-site-header">
       <a class="content-brand" href="../index.html" aria-label="返回柚喜饰界首页">
         <img src="../assets/logo-yuxi-mark.svg" alt="" />
@@ -30,77 +28,100 @@
         <a href="../index.html#wechat">社群交流</a>
       </nav>
     </header>
+
     <main class="content-main">
       <nav class="breadcrumb" aria-label="面包屑"><a href="../index.html">首页</a><span>柚木知识</span></nav>
-
       <section class="content-hero-panel">
         <p class="eyebrow dark">Knowledge Index</p>
-        <h1>柚木知识</h1>
-        <p class="content-lead">从入门、选购、材质、空间到保养，先把柚木看懂，再决定怎么选。</p>
+        <h1>柚木知识内容索引</h1>
+        <p class="content-lead">V1.10 已把六类知识扩展为 30 条可点击内容入口，先看懂问题，再进入好物方案和候选会员站。</p>
       </section>
 
       <section class="related-links">
-        <h2>先看哪一类知识</h2>
+        <h2>柚木入门</h2>
+        <p>先理解柚木是什么、为什么被用于家居空间，以及买前应该先问哪些基础问题。</p>
         <ul>
-          <li><a href="teak-basics.html">柚木入门</a>：先看什么是柚木，为什么很多人会从这里开始关注。</li>
-          <li><a href="teak-buying-guide.html">选购避坑</a>：先把材质、工艺、服务和沟通边界看明白。</li>
-          <li><a href="teak-material-craft.html">材质与工艺</a>：从选材、干燥、拼接到表面处理逐项判断。</li>
-          <li><a href="teak-space-use.html">空间应用</a>：看柚木适合哪些空间，不同场景怎么搭配。</li>
-          <li><a href="teak-care.html">保养维护</a>：看日常清洁、防晒、防潮和户外维护要点。</li>
-          <li><a href="teak-faq.html">常见问答</a>：集中看用户反复会问到的基础问题。</li>
+          <li><a href="topics/what-is-teak.html">什么是柚木</a>：从树种、常见用途和材料特征入手，先建立最基础的柚木认知。</li>
+          <li><a href="topics/why-teak-for-home.html">柚木为什么适合家居空间</a>：把稳定性、触感、耐用性和空间气质放在一起看，而不是只看图片。</li>
+          <li><a href="topics/teak-vs-common-wood-basic.html">柚木和普通木材有什么不同</a>：用普通用户能理解的方式比较材料差异，不把差异写成绝对优劣。</li>
+          <li><a href="topics/teak-origin-basic.html">柚木常见产地与基础认知</a>：了解产地只是起点，不能把产地直接等同于最终品质。</li>
+          <li><a href="topics/before-buying-teak-basics.html">买柚木前应该先弄懂哪些基本问题</a>：在看品牌、报价或样板前，先整理空间、用途、维护和沟通问题。</li>
         </ul>
       </section>
 
       <section class="related-links">
-        <h2>延伸阅读</h2>
+        <h2>选购避坑</h2>
+        <p>围绕表达是否清楚、差异从哪里来、商家前期沟通该问什么，减少只看图下判断。</p>
         <ul>
-          <li><a href="../articles/index.html">进入延伸阅读目录</a>：继续看文章型内容，但不把文章重新放回一级导航。</li>
-          <li><a href="../articles/what-is-teak.html">什么是柚木</a>：适合刚接触柚木时先补背景。</li>
-          <li><a href="../articles/how-to-choose-teak-flooring.html">如何选择柚木地板</a>：适合已经开始看地板的人。</li>
-          <li><a href="../articles/teak-vs-common-wood.html">柚木与常见木材对比</a>：适合做横向判断时参考。</li>
+          <li><a href="topics/teak-buying-pitfalls.html">买柚木最容易踩的坑</a>：梳理只看颜色、只听口号、忽略维护和服务边界等常见误区。</li>
+          <li><a href="topics/clear-teak-description.html">怎么看柚木是不是表达清楚</a>：看页面是否讲清材料、结构、适用空间、维护和服务范围。</li>
+          <li><a href="topics/teak-price-difference.html">柚木价格差异到底看什么</a>：把价格差异放回材料、规格、工艺、服务和授权资料中理解。</li>
+          <li><a href="topics/not-only-color-photo.html">为什么不能只看颜色和图片</a>：解释颜色、光线、后期处理和表面状态对判断的影响。</li>
+          <li><a href="topics/questions-before-vendor.html">选柚木品牌或商家前要问哪些问题</a>：整理沟通前的基础问题清单，让后续交流更聚焦。</li>
         </ul>
       </section>
 
-      <section class="content-body">
-        <h2>阅读建议</h2>
-        <p>
-          这页已经不再把“栏目是做什么的”放在前面，而是直接把知识入口展开。你可以先按眼前的问题来读：刚入门就从入门和常见问答开始，已经在看产品就先读选购避坑和材质工艺，正在考虑空间落地就先读空间应用和保养维护。
-        </p>
-        <p>
-          如果你后面还会进入好物方案页或会员站页，建议先把自己关心的环境条件、空间位置、维护接受度和预算沟通方式记下来。这样继续往下看时，判断会更清楚，也不容易只被图片或单句话术带着走。
-        </p>
+      <section class="related-links">
+        <h2>材质与工艺</h2>
+        <p>从含油性、干燥、拼接、结构、表面处理和颜色变化理解柚木资料。</p>
+        <ul>
+          <li><a href="topics/teak-oil-stability.html">柚木含油性与稳定性怎么理解</a>：用普通用户能理解的方式解释含油性、耐用性和稳定性之间的关系。</li>
+          <li><a href="topics/teak-drying-process.html">干燥处理为什么重要</a>：说明干燥处理对后续开裂、变形和使用稳定性的影响。</li>
+          <li><a href="topics/teak-joinery-surface.html">拼接、结构和表面处理怎么看</a>：帮助用户理解单板、拼接、涂装和触感差异。</li>
+          <li><a href="topics/flooring-vs-furniture-craft.html">柚木地板和柚木家具的工艺差异</a>：比较地板与家具在结构、受力、安装和维护上的不同。</li>
+          <li><a href="topics/teak-color-change.html">柚木表面颜色变化是否正常</a>：解释氧化、日晒、清洁和维护对表面颜色的影响。</li>
+        </ul>
       </section>
 
-      <section class="content-body">
-        <h2>使用边界</h2>
-        <p>
-          这里的知识内容用于帮助普通用户建立判断路径，不代表平台认证，也不构成交易担保。后续如果进入会员站样板页、方案页或社群交流沟通，仍然要继续核实产品资料、图片授权、联系方式、案例材料和服务边界。
-        </p>
-        <p>
-          涉及真实品牌、真实企业、真实认证或真实案例时，必须以正式资料为准。当前知识页只负责把问题讲清楚，不替任何服务方下结论。
-        </p>
+      <section class="related-links">
+        <h2>空间应用</h2>
+        <p>把柚木放回整装、地板、庭院户外、茶室会客等空间中判断。</p>
+        <ul>
+          <li><a href="topics/teak-home-spaces.html">柚木适合哪些家居空间</a>：从客厅、餐厅、茶室、卧室、阳台和庭院等场景看适配逻辑。</li>
+          <li><a href="topics/whole-decoration-fit-home.html">柚木整装适合什么样的家</a>：说明整装场景中柚木更适合哪些风格、预算和沟通方式。</li>
+          <li><a href="topics/flooring-fit-space.html">柚木地板适合什么空间</a>：围绕脚感、维护、光线和使用强度判断地板适配。</li>
+          <li><a href="topics/outdoor-teak-judgement.html">庭院户外柚木怎么判断</a>：从日晒、雨水、通风、维护周期和结构安全看户外使用。</li>
+          <li><a href="topics/tea-room-teak-space.html">茶室会客空间为什么适合柚木</a>：说明柚木在茶桌、地面、柜体和会客氛围中的作用。</li>
+        </ul>
       </section>
 
-      <section class="content-body">
-        <h2>看完以后可以继续去哪</h2>
-        <p>
-          如果你已经知道自己更关心地板、整装、户外、茶室或家具好物，可以继续进入
-          <a href="../solutions/index.html">好物方案索引页</a>
-          ；如果你已经想看对应的品牌或企业会员站样板，可以继续进入
-          <a href="../vendors/index.html">推荐厂商入口页</a>
-          。
-        </p>
+      <section class="related-links">
+        <h2>保养维护</h2>
+        <p>围绕清洁、户外维护、颜色变化、防开裂和地板日常注意事项整理入口。</p>
+        <ul>
+          <li><a href="topics/teak-daily-cleaning.html">柚木日常怎么清洁</a>：整理日常清洁的温和原则和不建议使用的粗暴方式。</li>
+          <li><a href="topics/outdoor-teak-maintenance.html">柚木户外使用怎么维护</a>：说明户外日晒、雨水和自然变灰下的维护思路。</li>
+          <li><a href="topics/teak-aging-color.html">柚木变色是不是问题</a>：解释自然氧化、紫外线、清洁和油养对颜色的影响。</li>
+          <li><a href="topics/avoid-cracking-warping.html">柚木家具如何避免开裂和变形</a>：围绕湿度、日晒、受力和清洁方式说明日常注意。</li>
+          <li><a href="topics/teak-flooring-daily-care.html">柚木地板日常使用注意事项</a>：整理地板清洁、拖地、家具脚垫和局部维护重点。</li>
+        </ul>
       </section>
 
+      <section class="related-links">
+        <h2>常见问答</h2>
+        <p>集中回答用户反复会问到的价格、家庭使用、潮湿空间和品牌选择问题。</p>
+        <ul>
+          <li><a href="topics/is-teak-always-expensive.html">柚木一定贵吗</a>：用更完整的变量理解价格，不把贵或便宜写成绝对结论。</li>
+          <li><a href="topics/teak-kids-pets-home.html">柚木适合有孩子和宠物的家庭吗</a>：从耐用、清洁、安全边角和维护接受度看家庭场景。</li>
+          <li><a href="topics/teak-bathroom-balcony.html">柚木可以用在卫生间或阳台吗</a>：解释潮湿空间与半户外空间的判断边界。</li>
+          <li><a href="topics/teak-vs-walnut.html">柚木和黑胡桃木怎么选</a>：从风格、触感、维护和空间气质比较两类常见木材。</li>
+          <li><a href="topics/brand-or-factory.html">柚木产品选品牌还是选工厂</a>：帮助用户理解品牌、工厂、服务和资料完整度的关系。</li>
+        </ul>
+      </section>
+      <section class="content-body">
+        <h2>阅读边界</h2>
+        <p>这里的知识内容用于帮助普通用户建立判断路径，不代表平台认证，也不构成交易担保。涉及真实品牌、真实产品参数、真实案例或真实授权时，仍需以后续正式资料和人工核验为准。</p>
+      </section>
       <section class="content-cta">
         <a class="btn btn-primary" href="../index.html#wechat">添加柚喜顾问</a>
-        <a class="btn btn-secondary" href="../index.html#wechat">添加柚喜顾问</a>
+        <a class="btn btn-secondary" href="../solutions/index.html">继续看好物方案</a>
       </section>
     </main>
+
     <footer class="content-site-footer">
       <div class="content-footer-inner">
         <span>柚喜饰界 - 柚木知识</span>
-        <span>知识索引用于帮助阅读和判断，具体资料仍需正式沟通前人工复核。</span>
+        <span>知识索引用于帮助阅读和判断，具体资料仍需人工复核。</span>
       </div>
     </footer>
     <script src="../script.js"></script>
