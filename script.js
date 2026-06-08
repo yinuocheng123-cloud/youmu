@@ -21,8 +21,19 @@
     return Boolean(document.querySelector("#wechat"));
   }
 
+  function getHomeHref() {
+    const brand = document.querySelector(".content-brand, .brand");
+    const href = brand?.getAttribute("href");
+
+    if (href) {
+      return href;
+    }
+
+    return isHomeLikePage() ? "./index.html" : "../index.html";
+  }
+
   function getWechatHref() {
-    return isHomeLikePage() ? "#wechat" : "../index.html#wechat";
+    return isHomeLikePage() ? "#wechat" : `${getHomeHref()}#wechat`;
   }
 
   function getHeaderOffset() {
@@ -57,7 +68,7 @@
     clonedBrand.classList.add("mobile-brand");
 
     if (!clonedBrand.getAttribute("href")) {
-      clonedBrand.setAttribute("href", isHomeLikePage() ? "./index.html" : "../index.html");
+      clonedBrand.setAttribute("href", getHomeHref());
     }
 
     return clonedBrand;

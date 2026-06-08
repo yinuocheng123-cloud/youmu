@@ -167,6 +167,7 @@ const frontendPatchTerms = [
   "上线阻塞项",
   "版本",
   "预检",
+  "这里保留必要入口",
 ];
 
 const disclaimerAllowPhrases = [
