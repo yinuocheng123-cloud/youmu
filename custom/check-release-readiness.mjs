@@ -87,6 +87,22 @@ const mechanicalButtonTerms = [
   "内容入口",
 ];
 
+const knowledgeEditorialTerms = [
+  "阅读提示",
+  "适合谁看",
+  "资料入口",
+  "内容入口",
+  "当前入口",
+  "本轮",
+  "版本",
+  "已扩展",
+  "已补充",
+  "预检",
+  "上线阻塞项",
+  "咨询摘要表",
+  "填写咨询表单",
+];
+
 const frontendPatchTerms = [
   "V1.10",
   "V1.9",
@@ -265,6 +281,16 @@ for (const file of files) {
 
     if (!isBackupContactPage && visibleText.includes("forms/consult.html")) {
       problems.push(`${label}：前台仍存在普通用户咨询页链接 forms/consult.html`);
+    }
+
+    if (!isBackupContactPage && label.startsWith("knowledge/")) {
+      for (const term of knowledgeEditorialTerms) {
+        lines.forEach((line, index) => {
+          if (line.includes(term)) {
+            problems.push(`${label}:${index + 1}：知识区前台仍存在程序化或内部说明表达“${term}”`);
+          }
+        });
+      }
     }
 
     if (!isBackupContactPage) {
