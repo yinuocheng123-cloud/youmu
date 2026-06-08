@@ -4290,3 +4290,56 @@ body {
     width: calc(100% - 28px);
   }
 }
+
+/* ========== V1.14.1：公网验收细节修补 ========== */
+.project-showcase-panel,
+.vendor-direction-card,
+.apply-info-card {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.project-showcase-panel:hover,
+.vendor-direction-card:hover,
+.apply-info-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(154, 103, 54, 0.28);
+  box-shadow: 0 22px 58px rgba(67, 45, 23, 0.1);
+}
+
+.merchant-link,
+.natural-link,
+.text-link {
+  text-underline-offset: 0.22em;
+}
+
+.vendor-apply-form input:focus,
+.vendor-apply-form select:focus,
+.vendor-apply-form textarea:focus {
+  border-color: rgba(154, 103, 54, 0.7);
+  box-shadow: 0 0 0 4px rgba(154, 103, 54, 0.12);
+  outline: none;
+}
+
+.form-helper {
+  border-left: 3px solid rgba(154, 103, 54, 0.36);
+}
+
+@media (max-width: 720px) {
+  .project-showcase-panel,
+  .vendor-guide-section,
+  .vendor-library-section,
+  .vendor-apply-section {
+    border-radius: 18px;
+  }
+
+  .merchant-link,
+  .natural-link,
+  .text-link {
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
