@@ -122,6 +122,27 @@ const solutionEditorialTerms = [
   "已补充",
 ];
 
+const vendorEditorialTerms = [
+  "适合谁看",
+  "阅读提示",
+  "资料入口",
+  "内容入口",
+  "查看公开来源",
+  "公开资料候选｜待联系确认",
+  "是否已联系确认",
+  "是否已图片授权",
+  "是否为正式会员",
+  "当前入口",
+  "本轮",
+  "版本",
+  "已扩展",
+  "已补充",
+  "预检",
+  "上线阻塞项",
+  "页面内核",
+  "会员站展示规则说明",
+];
+
 const frontendPatchTerms = [
   "V1.10",
   "V1.9",
@@ -300,6 +321,16 @@ for (const file of files) {
 
     if (!isBackupContactPage && visibleText.includes("forms/consult.html")) {
       problems.push(`${label}：前台仍存在普通用户咨询页链接 forms/consult.html`);
+    }
+
+    if (!isBackupContactPage && label.startsWith("vendors/")) {
+      for (const term of vendorEditorialTerms) {
+        lines.forEach((line, index) => {
+          if (line.includes(term)) {
+            problems.push(`${label}:${index + 1}：厂商区前台仍存在机械表达“${term}”`);
+          }
+        });
+      }
     }
 
     if (!isBackupContactPage && label.startsWith("solutions/")) {
