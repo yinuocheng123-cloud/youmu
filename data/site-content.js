@@ -181,7 +181,7 @@
       },
       {
         title: "想买柚木的人，在这里少踩坑",
-        description: "把常见坑点、材质判断、使用场景和沟通清单提前讲清楚，让选购从冲动变成有依据的判断。",
+        description: "把常见坑点、材质判断、使用场景和交流要点提前讲清楚，让选购从冲动变成有依据的判断。",
         icon: "shield",
         ...status.formalCopy,
       },
@@ -483,7 +483,7 @@
     footer: {
       contact: {
         phone: { label: "普通用户", value: "请通过社群交流区添加柚喜顾问", ...status.formalCopy },
-        email: { label: "品牌 / 企业", value: "请通过推荐厂商申请页整理资料后继续沟通", ...status.formalCopy },
+        email: { label: "品牌 / 企业", value: "请通过推荐厂商申请页看清信息后继续沟通", ...status.formalCopy },
         address: {
           label: "联系方式",
           value: "正式电话、邮箱和地址将在人工确认后补充",

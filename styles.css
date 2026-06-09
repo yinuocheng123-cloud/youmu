@@ -4701,3 +4701,90 @@ h3,
     width: 100%;
   }
 }
+
+/* ========== V1.15.3C：文章案例展示与长说明清理 ========== */
+.article-card-grid,
+.case-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.article-card,
+.case-card {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  min-height: 230px;
+  padding: clamp(22px, 3vw, 30px);
+  color: inherit;
+  background:
+    linear-gradient(180deg, rgba(255, 250, 242, 0.94), rgba(246, 236, 220, 0.9)),
+    radial-gradient(circle at 100% 0%, rgba(154, 103, 54, 0.11), transparent 12rem);
+  border: 1px solid rgba(91, 63, 35, 0.14);
+  border-radius: 18px;
+  box-shadow: 0 16px 42px rgba(67, 45, 23, 0.07);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.article-card:hover,
+.case-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(154, 103, 54, 0.28);
+  box-shadow: 0 22px 58px rgba(67, 45, 23, 0.1);
+}
+
+.article-card span,
+.case-card span {
+  width: fit-content;
+  padding: 5px 10px;
+  color: var(--olive-dark);
+  background: rgba(101, 112, 71, 0.1);
+  border: 1px solid rgba(101, 112, 71, 0.18);
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.article-card h2,
+.case-card h2 {
+  margin: 4px 0 0;
+  color: var(--coffee);
+  font-size: clamp(24px, 3vw, 32px);
+  line-height: 1.2;
+}
+
+.article-card p,
+.case-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.78;
+}
+
+.article-section,
+.case-section {
+  max-width: 860px;
+}
+
+.article-boundary,
+.case-boundary {
+  max-width: 860px;
+  color: var(--muted);
+  background:
+    linear-gradient(135deg, rgba(101, 112, 71, 0.08), rgba(255, 250, 242, 0.9)),
+    rgba(255, 250, 242, 0.88);
+}
+
+@media (max-width: 980px) {
+  .article-card-grid,
+  .case-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .article-card-grid,
+  .case-card-grid {
+    grid-template-columns: 1fr;
+  }
+}

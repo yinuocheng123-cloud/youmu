@@ -35,6 +35,32 @@ const forbiddenToneWords = [
   "在线下单",
   "入驻成功",
 ];
+const forbiddenStructureWords = [
+  "下一步可以看",
+  "下一步可以把",
+  "读完后",
+  "读完本页后",
+  "先不要急着下结论",
+  "更稳妥的做法",
+  "逐项标记",
+  "整理资料",
+  "分成三栏",
+  "沟通清单",
+  "待确认事项",
+  "如何使用本页",
+  "本页可以帮助你",
+  "不要停留在阅读本身",
+  "用同一套问题去看",
+  "阅读正文",
+  "使用边界",
+  "延伸阅读的使用方式",
+  "复核提醒",
+  "案例展示框架",
+  "展示框架",
+  "样板说明",
+  "授权边界",
+  "展示框架的作用",
+];
 const garbledPatterns = [/\?{6,}/, /锟斤拷/, /�/, /鏌/, /鍜/, /鐭/, /妗/, /绋/, /闂/, /閿/];
 const allowedNoticePhrases = [
   "当前为样板案例，用于展示未来真实案例页的内容组织方式，非真实成交案例。真实案例上线前需取得图片、文字和客户授权。",
@@ -43,8 +69,8 @@ const allowedNoticePhrases = [
 const minChineseChars = {
   knowledgeDetail: 1200,
   solutionDetail: 1200,
-  articleDetail: 1200,
-  vendorOrCaseOrAbout: 800,
+  articleDetail: 650,
+  vendorOrCaseOrAbout: 350,
   index: 350,
 };
 
@@ -174,6 +200,12 @@ for (const file of htmlFiles) {
   for (const word of forbiddenToneWords) {
     if (toneText.includes(word)) {
       problems.push(`${publicPath}：发现禁止或高风险表达 ${word}`);
+    }
+  }
+
+  for (const word of forbiddenStructureWords) {
+    if (toneText.includes(word)) {
+      problems.push(`${publicPath}：发现说明书式结构或长说明表达 ${word}`);
     }
   }
 }
