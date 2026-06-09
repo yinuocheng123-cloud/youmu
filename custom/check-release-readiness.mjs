@@ -181,6 +181,11 @@ const frontendPatchTerms = [
   "平台背书",
   "页面按问题组织",
   "不会自动提交到后台",
+  "企业企业资料页",
+  "资料框架",
+  "资料待确认方向",
+  "后续按真实授权资料补充",
+  "候选会员站",
 ];
 
 const disclaimerAllowPhrases = [
@@ -188,13 +193,19 @@ const disclaimerAllowPhrases = [
   "不构成认证",
   "不构成交易担保",
   "不构成平台担保",
+  "也不构成交易担保",
   "不构成产品推荐、平台担保",
   "不构成购买承诺或平台担保",
   "不代表平台认证",
+  "不是平台认证",
+  "不是平台认证名单",
   "不代表平台担保",
   "不是交易担保",
+  "也不是交易担保",
   "不是平台担保",
   "不等于平台担保",
+  "不等于平台认证",
+  "不等于平台认证或交易担保",
   "推荐展示不等于平台担保",
   "不承担交易担保",
   "不代表已有真实厂商入驻",
@@ -279,6 +290,19 @@ function hasSafeDisclaimerContext(line, term) {
   return disclaimerAllowPhrases.some((phrase) => line.includes(phrase));
 }
 
+function collectNavBlocks(text) {
+  const blocks = [];
+  const navPattern = /<nav\b[^>]*class="[^"]*(?:main-nav|content-nav|mobile-nav)[^"]*"[\s\S]*?<\/nav>/g;
+  for (const match of text.matchAll(navPattern)) {
+    blocks.push(match[0]);
+  }
+  return blocks;
+}
+
+function stripTags(text) {
+  return text.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+}
+
 const files = (await Promise.all(checkEntries.map(collectFiles))).flat().sort();
 
 // ========== 第三部分：乱码、高风险词、占位词与入口路径检查 ==========
@@ -326,6 +350,14 @@ for (const file of files) {
   if (ext === ".html") {
     const isSecondLevelHtml = label.includes("/");
     const isBackupContactPage = label === "forms/consult.html";
+    const navBlocks = collectNavBlocks(visibleText);
+
+    for (const navBlock of navBlocks) {
+      const navText = stripTags(navBlock);
+      if (navText.includes("会员站")) {
+        problems.push(`${label}：主导航或移动导航仍使用“会员站”，应统一为“推荐厂商”`);
+      }
+    }
 
     if (isSecondLevelHtml) {
       const prefix = expectedAssetPrefix(label);

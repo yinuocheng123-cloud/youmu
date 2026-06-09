@@ -4343,3 +4343,33 @@ body {
     align-items: center;
   }
 }
+
+
+/* ========== V1.15：全站导航统一与推荐厂商收口 ========== */
+.content-nav,
+.main-nav {
+  align-items: center;
+  gap: clamp(12px, 2vw, 22px);
+}
+
+.content-nav a,
+.main-nav a {
+  white-space: nowrap;
+}
+
+.content-site-header {
+  min-height: 72px;
+}
+
+.vendor-guide-hero h1,
+.project-gallery-hero h1,
+.yuxi-brand-hero h1 {
+  letter-spacing: -0.04em;
+}
+
+@media (max-width: 920px) {
+  .content-nav,
+  .main-nav.desktop-nav {
+    display: none;
+  }
+}
