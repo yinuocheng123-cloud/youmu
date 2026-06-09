@@ -31,9 +31,9 @@ const requiredHomeTopicLinks = [
   ["户外空间怎么用柚木", "./knowledge/topics/outdoor-teak-judgement.html"],
   ["茶室会客如何保留温润感", "./knowledge/topics/tea-room-teak-space.html"],
   ["地板、家具和墙面怎么协调", "./knowledge/topics/whole-decoration-fit-home.html"],
-  ["日常清洁怎么做", "./knowledge/topics/teak-daily-cleaning.html"],
-  ["户外风化要不要处理", "./knowledge/topics/outdoor-teak-maintenance.html"],
-  ["上油和打磨的边界", "./knowledge/topics/teak-flooring-daily-care.html"],
+  ["日常清洁怎么做", "./knowledge/topics/teak-daily-cleaning.html#daily-cleaning"],
+  ["户外风化要不要处理", "./knowledge/topics/teak-daily-cleaning.html#outdoor-care"],
+  ["上油和打磨的边界", "./knowledge/topics/teak-daily-cleaning.html#oil-care"],
   ["柚木适合南方潮湿环境吗", "./knowledge/topics/teak-bathroom-balcony.html"],
   ["柚木地板和普通木地板怎么比", "./knowledge/topics/teak-vs-common-wood-basic.html"],
   ["整装空间是不是一定很贵", "./knowledge/topics/is-teak-always-expensive.html"],
@@ -53,6 +53,24 @@ async function pathExists(filePath) {
   } catch {
     return false;
   }
+}
+
+function splitHref(href) {
+  const [filePart, hashPart = ""] = href.split("#");
+  return {
+    filePart,
+    anchorId: hashPart ? decodeURIComponent(hashPart) : "",
+  };
+}
+
+async function hasAnchor(filePath, anchorId) {
+  if (!anchorId) {
+    return true;
+  }
+
+  const targetHtml = await fs.readFile(filePath, "utf8");
+  const idPattern = new RegExp(`\\sid=["']${escapeRegExp(anchorId)}["']`, "u");
+  return idPattern.test(targetHtml);
 }
 
 function hasExpectedAnchor(html, label, href) {
@@ -77,10 +95,16 @@ for (const [label, href] of requiredHomeTopicLinks) {
     continue;
   }
 
-  const targetPath = path.resolve(projectRoot, href.replace(/^\.\//, "").split("#")[0]);
+  const { filePart, anchorId } = splitHref(href);
+  const targetPath = path.resolve(projectRoot, filePart.replace(/^\.\//, ""));
 
   if (!(await pathExists(targetPath))) {
     problems.push(`index.html：首页知识条目“${label}”指向的页面不存在：${href}`);
+    continue;
+  }
+
+  if (!(await hasAnchor(targetPath, anchorId))) {
+    problems.push(`index.html：首页知识条目“${label}”指向的锚点不存在：${href}`);
   }
 }
 

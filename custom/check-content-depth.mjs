@@ -71,11 +71,19 @@ const allowedNoticePhrases = [
 
 const minChineseChars = {
   knowledgeDetail: 1200,
+  auxiliaryKnowledgeDetail: 320,
   solutionDetail: 1200,
   articleDetail: 650,
   vendorOrCaseOrAbout: 350,
   index: 350,
 };
+
+const auxiliaryKnowledgePages = new Set([
+  "knowledge/topics/teak-color-change.html",
+  "knowledge/topics/teak-aging-color.html",
+  "knowledge/topics/outdoor-teak-maintenance.html",
+  "knowledge/topics/teak-flooring-daily-care.html",
+]);
 
 const problems = [];
 
@@ -152,6 +160,10 @@ function requiredMinimum(publicPath) {
   }
 
   if (publicPath.startsWith("knowledge/")) {
+    if (auxiliaryKnowledgePages.has(publicPath)) {
+      return minChineseChars.auxiliaryKnowledgeDetail;
+    }
+
     return minChineseChars.knowledgeDetail;
   }
 

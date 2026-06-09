@@ -53,6 +53,7 @@ for (const href of hrefMatches) {
 
   if (localPagePath.test(href)) {
     const cleanHref = href.split("#")[0];
+    const anchorId = href.includes("#") ? decodeURIComponent(href.split("#")[1]) : "";
     const filePath = path.resolve(projectRoot, cleanHref);
 
     if (!filePath.startsWith(projectRoot)) {
@@ -64,6 +65,16 @@ for (const href of hrefMatches) {
       await fs.access(filePath);
     } catch {
       problems.push(`本地页面不存在：${href}`);
+      continue;
+    }
+
+    if (anchorId) {
+      const targetHtml = await fs.readFile(filePath, "utf8");
+      const targetIds = new Set([...targetHtml.matchAll(/\sid=["']([^"']+)["']/g)].map((match) => match[1]));
+
+      if (!targetIds.has(anchorId)) {
+        problems.push(`本地页面锚点不存在：${href}`);
+      }
     }
 
     continue;

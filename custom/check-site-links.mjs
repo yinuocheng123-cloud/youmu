@@ -103,8 +103,11 @@ function extractHrefs(html) {
 }
 
 function splitHref(href) {
-  const [withoutHash] = href.split("#");
-  return withoutHash;
+  const [withoutHash, hashPart = ""] = href.split("#");
+  return {
+    filePart: withoutHash,
+    anchorId: hashPart ? decodeURIComponent(hashPart) : "",
+  };
 }
 
 function isUnsafeLocalTarget(targetPath) {
@@ -112,7 +115,24 @@ function isUnsafeLocalTarget(targetPath) {
   return relative.startsWith("..") || path.isAbsolute(relative);
 }
 
-async function checkLocalHref(sourceFile, href) {
+function extractIds(html) {
+  return new Set([...html.matchAll(/\sid=["']([^"']+)["']/g)].map((match) => match[1]));
+}
+
+async function checkTargetAnchor(sourceLabel, href, targetPath, anchorId) {
+  if (!anchorId) {
+    return;
+  }
+
+  const targetHtml = await fs.readFile(targetPath, "utf8");
+  const targetIds = extractIds(targetHtml);
+
+  if (!targetIds.has(anchorId)) {
+    problems.push(`${sourceLabel} -> ${href}：目标页面缺少锚点 #${anchorId}`);
+  }
+}
+
+async function checkLocalHref(sourceFile, href, sourceHtml) {
   const sourceLabel = normalizeRelativePath(sourceFile);
 
   if (href.trim() !== href) {
@@ -125,7 +145,14 @@ async function checkLocalHref(sourceFile, href) {
   }
 
   if (href.startsWith("#")) {
+    const sourceIds = extractIds(sourceHtml);
+    const anchorId = decodeURIComponent(href.slice(1));
     checkedLocalLinks += 1;
+
+    if (!sourceIds.has(anchorId)) {
+      problems.push(`${sourceLabel} -> ${href}：当前页面缺少锚点 #${anchorId}`);
+    }
+
     return;
   }
 
@@ -133,14 +160,14 @@ async function checkLocalHref(sourceFile, href) {
     return;
   }
 
-  const cleanHref = splitHref(href);
+  const { filePart, anchorId } = splitHref(href);
 
-  if (!cleanHref) {
+  if (!filePart) {
     problems.push(`${sourceLabel} -> ${href}：带锚点链接缺少目标文件`);
     return;
   }
 
-  const targetPath = path.resolve(path.dirname(sourceFile), decodeURIComponent(cleanHref));
+  const targetPath = path.resolve(path.dirname(sourceFile), decodeURIComponent(filePart));
   checkedLocalLinks += 1;
 
   if (isUnsafeLocalTarget(targetPath)) {
@@ -150,7 +177,10 @@ async function checkLocalHref(sourceFile, href) {
 
   if (!(await pathExists(targetPath))) {
     problems.push(`${sourceLabel} -> ${href}：本地目标不存在`);
+    return;
   }
+
+  await checkTargetAnchor(sourceLabel, href, targetPath, anchorId);
 }
 
 for (const htmlFile of htmlFiles) {
@@ -158,7 +188,7 @@ for (const htmlFile of htmlFiles) {
   const hrefs = extractHrefs(html);
 
   for (const href of hrefs) {
-    await checkLocalHref(htmlFile, href);
+    await checkLocalHref(htmlFile, href, html);
   }
 }
 
