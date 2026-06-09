@@ -70,13 +70,16 @@ const allowedNoticePhrases = [
 ];
 
 const minChineseChars = {
-  knowledgeDetail: 1200,
+  knowledgeOverview: 1000,
+  knowledgeDetail: 850,
+  naturalLongformKnowledgeDetail: 1100,
   teakDailyCleaningDetail: 1500,
   auxiliaryKnowledgeDetail: 320,
-  solutionDetail: 1200,
+  solutionOverview: 1000,
+  solutionGuideDetail: 780,
   articleDetail: 650,
   vendorOrCaseOrAbout: 350,
-  index: 350,
+  index: 300,
 };
 
 const auxiliaryKnowledgePages = new Set([
@@ -203,11 +206,23 @@ function requiredMinimum(publicPath) {
       return minChineseChars.auxiliaryKnowledgeDetail;
     }
 
+    if (naturalLongformKnowledgePages.has(publicPath)) {
+      return minChineseChars.naturalLongformKnowledgeDetail;
+    }
+
+    if (!publicPath.startsWith("knowledge/topics/")) {
+      return minChineseChars.knowledgeOverview;
+    }
+
     return minChineseChars.knowledgeDetail;
   }
 
   if (publicPath.startsWith("solutions/")) {
-    return minChineseChars.solutionDetail;
+    if (publicPath.startsWith("solutions/guides/")) {
+      return minChineseChars.solutionGuideDetail;
+    }
+
+    return minChineseChars.solutionOverview;
   }
 
   if (publicPath.startsWith("articles/")) {

@@ -222,6 +222,8 @@ const frontendPatchTerms = [
   "企业企业资料页",
   "资料框架",
   "资料待确认方向",
+  "待确认",
+  "待补充",
   "后续按真实授权资料补充",
   "候选会员站",
   "下一步可以看",
@@ -244,10 +246,33 @@ const frontendPatchTerms = [
   "复核提醒",
   "案例样板结构",
   "案例展示框架",
+  "资料展示框架",
   "展示框架",
+  "样板结构",
+  "资料说明",
+  "资料边界",
   "样板说明",
   "授权边界",
   "展示框架的作用",
+  "站内企业会员资料页",
+  "会员站申请页",
+  "正式联系方式将在人工确认后补充",
+  "正式联系方式待补",
+  "人工核验",
+  "资料核验",
+  "核验人",
+  "核验日期",
+  "阅读底稿",
+  "授权后上线",
+  "真实资料确认后上线",
+  "当前预览版",
+  "预览版",
+  "建设期",
+  "公开资料候选",
+  "公开资料候选品牌",
+  "资料阅读",
+  "Vendor Member Site",
+  "Member Site",
 ];
 
 const dataSourceForbiddenTerms = [
@@ -283,11 +308,36 @@ const dataSourceForbiddenTerms = [
   "适合谁看",
   "资料框架",
   "资料待确认方向",
+  "待确认",
+  "待补充",
   "后续按真实授权资料补充",
   "候选会员站",
   "公开资料候选｜待联系确认",
   "咨询表单",
   "咨询摘要表",
+  "站内企业会员资料页",
+  "会员站申请页",
+  "正式联系方式将在人工确认后补充",
+  "正式联系方式待补",
+  "人工核验",
+  "资料核验",
+  "核验人",
+  "核验日期",
+  "阅读底稿",
+  "授权后上线",
+  "真实资料确认后上线",
+  "当前预览版",
+  "预览版",
+  "建设期",
+  "公开资料候选",
+  "公开资料候选品牌",
+  "资料说明",
+  "资料边界",
+  "资料展示框架",
+  "样板结构",
+  "资料阅读",
+  "Vendor Member Site",
+  "Member Site",
 ];
 
 const teakDailyCleaningForbiddenTerms = [
@@ -338,6 +388,7 @@ const disclaimerAllowPhrases = [
   "不等于平台担保",
   "不等于平台认证",
   "不等于平台认证或交易担保",
+  "不构成平台认证或交易担保",
   "推荐展示不等于平台担保",
   "不承担交易担保",
   "不代表已有真实厂商入驻",
@@ -360,12 +411,17 @@ function toPublicPath(filePath) {
   return path.relative(projectRoot, filePath).replaceAll(path.sep, "/");
 }
 
+function shouldCheckFile(filePath) {
+  const publicPath = toPublicPath(filePath);
+  return path.extname(filePath) === ".html" || publicPath === "data/site-content.js";
+}
+
 async function collectFiles(entry) {
   const absoluteEntry = path.join(projectRoot, entry);
   const stat = await fs.stat(absoluteEntry);
 
   if (stat.isFile()) {
-    return textExtensions.has(path.extname(absoluteEntry)) ? [absoluteEntry] : [];
+    return shouldCheckFile(absoluteEntry) ? [absoluteEntry] : [];
   }
 
   const files = [];
@@ -379,7 +435,7 @@ async function collectFiles(entry) {
       continue;
     }
 
-    if (child.isFile() && textExtensions.has(path.extname(child.name))) {
+    if (child.isFile() && shouldCheckFile(childPath)) {
       files.push(childPath);
     }
   }
