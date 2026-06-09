@@ -4678,7 +4678,9 @@ h3,
   }
 
   .nowrap-heading {
-    white-space: normal;
+    font-size: clamp(30px, 9vw, 34px);
+    letter-spacing: -0.04em;
+    white-space: nowrap;
   }
 
   .hero-actions {
