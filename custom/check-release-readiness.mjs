@@ -149,6 +149,23 @@ const vendorEditorialTerms = [
 ];
 
 const frontendPatchTerms = [
+  "从知识继续往哪里走",
+  "读完基础问题",
+  "继续看空间应用",
+  "进入推荐厂商板块了解企业资料如何整理和核对",
+  "企业资料如何整理和核对",
+  "企业资料如何核对",
+  "资料如何整理和核对",
+  "栏目承接",
+  "本栏目",
+  "当前页面",
+  "当前入口",
+  "页面内核",
+  "卡片本身",
+  "模板",
+  "注释",
+  "占位",
+  "好物方案",
   "V1.10",
   "V1.9",
   "已扩展",
@@ -186,6 +203,29 @@ const frontendPatchTerms = [
   "资料待确认方向",
   "后续按真实授权资料补充",
   "候选会员站",
+];
+
+const dataSourceForbiddenTerms = [
+  "好物方案",
+  "从知识继续往哪里走",
+  "企业资料如何整理和核对",
+  "资料如何整理和核对",
+  "栏目承接",
+  "本栏目",
+  "当前页面",
+  "当前入口",
+  "页面内核",
+  "资料入口",
+  "内容入口",
+  "阅读提示",
+  "适合谁看",
+  "资料框架",
+  "资料待确认方向",
+  "后续按真实授权资料补充",
+  "候选会员站",
+  "公开资料候选｜待联系确认",
+  "咨询表单",
+  "咨询摘要表",
 ];
 
 const disclaimerAllowPhrases = [
@@ -345,6 +385,16 @@ for (const file of files) {
 
       problems.push(`${label}:${index + 1}：发现明显占位内容“${term}”`);
     });
+  }
+
+  if (label === "data/site-content.js") {
+    for (const term of dataSourceForbiddenTerms) {
+      lines.forEach((line, index) => {
+        if (line.includes(term)) {
+          problems.push(`${label}:${index + 1}：数据源仍残留前台旧栏目或说明书式表达“${term}”`);
+        }
+      });
+    }
   }
 
   if (ext === ".html") {
