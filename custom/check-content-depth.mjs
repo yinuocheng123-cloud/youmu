@@ -18,7 +18,7 @@ const currentFile = fileURLToPath(import.meta.url);
 const projectRoot = path.resolve(path.dirname(currentFile), "..");
 
 const contentEntries = ["knowledge", "solutions", "articles", "vendors", "cases", "about"];
-const requiredNavLabelGroups = [["认识柚喜"], ["柚木知识"], ["好物方案"], ["推荐厂商", "会员站"], ["社群交流"]];
+const requiredNavLabelGroups = [["认识柚喜"], ["柚木知识"], ["柚木好物"], ["推荐厂商", "会员站"], ["社群交流"]];
 const forbiddenTopNavLabels = ["咨询表单", "厂商申请", "关于我们"];
 const forbiddenToneWords = [
   "厂家直销",

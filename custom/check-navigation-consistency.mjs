@@ -17,8 +17,8 @@ import { fileURLToPath } from "node:url";
 const currentFile = fileURLToPath(import.meta.url);
 const projectRoot = path.resolve(path.dirname(currentFile), "..");
 const publicEntries = ["index.html", "about", "knowledge", "solutions", "vendors", "forms", "articles", "cases"];
-const requiredLabels = ["首页", "认识柚喜", "柚木知识", "好物方案", "推荐厂商", "社群交流"];
-const dropdownLabels = ["认识柚喜", "柚木知识", "好物方案", "推荐厂商"];
+const requiredLabels = ["首页", "认识柚喜", "柚木知识", "柚木好物", "推荐厂商", "社群交流"];
+const dropdownLabels = ["认识柚喜", "柚木知识", "柚木好物", "推荐厂商"];
 const problems = [];
 
 // ========== 第二部分：文件收集与路径工具 ==========
