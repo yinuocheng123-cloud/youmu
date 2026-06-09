@@ -314,6 +314,12 @@ const teakOriginForbiddenTerms = [
   "阅读底稿",
 ];
 
+const naturalLongformArticlePaths = new Set([
+  "knowledge/topics/teak-daily-cleaning.html",
+  "knowledge/topics/teak-origin-basic.html",
+]);
+const naturalLongformForbiddenTerms = ["本篇目录", "保养主题目录", "文章内目录"];
+
 const disclaimerAllowPhrases = [
   "不构成平台背书",
   "不构成认证",
@@ -569,6 +575,16 @@ for (const file of files) {
         lines.forEach((line, index) => {
           if (line.includes(term)) {
             problems.push(`${label}:${index + 1}：产地基础文章仍存在内部阅读指导或核验话术“${term}”`);
+          }
+        });
+      }
+    }
+
+    if (naturalLongformArticlePaths.has(label)) {
+      for (const term of naturalLongformForbiddenTerms) {
+        lines.forEach((line, index) => {
+          if (line.includes(term)) {
+            problems.push(`${label}:${index + 1}：自然长文体知识文章不应出现目录式阅读结构“${term}”`);
           }
         });
       }

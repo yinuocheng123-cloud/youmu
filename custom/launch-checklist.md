@@ -251,3 +251,10 @@
 - 确认文章直接讲常见产地、天然林 / 人工林、等级、工艺和不同用途关注点。
 - 确认文章不再出现阅读指导、沟通清单、人工验收、核验日期或核验人等内部话术。
 - 确认发布预检和内容深度检查会拦截产地文章说明书化回退。
+## V1.15.3F-3 知识文章自然长文体复核
+
+- 确认 `knowledge/topics/teak-daily-cleaning.html` 不再依赖文章内目录、锚点列表或大量小节标题作为主要阅读体验。
+- 确认 `knowledge/topics/teak-origin-basic.html` 像完整产地基础文章，而不是小节拼装页。
+- 确认首页、知识首页和知识聚合页中的保养相关小问题可以指向同一篇保养主文章，不再指向 `teak-daily-cleaning.html#...`。
+- 确认旧辅助页仍可打开，避免旧链接 404，但不再作为保养主文档的主要跳转路径。
+- 确认 `node custom\check-content-depth.mjs`、`node custom\check-release-readiness.mjs`、`node custom\check-clickable-topic-items.mjs` 均通过。

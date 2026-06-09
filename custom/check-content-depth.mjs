@@ -87,8 +87,17 @@ const auxiliaryKnowledgePages = new Set([
 ]);
 
 const teakDailyCleaningPath = "knowledge/topics/teak-daily-cleaning.html";
-const requiredTeakDailyAnchors = ["daily-cleaning", "color-change", "outdoor-care", "oil-care", "water-stains", "care-responsibility"];
-const requiredTeakDailyTerms = ["日常清洁", "颜色变化", "户外柚木", "油养", "水渍", "保养边界"];
+const naturalLongformKnowledgePages = new Set([
+  "knowledge/topics/teak-daily-cleaning.html",
+  "knowledge/topics/teak-origin-basic.html",
+  "knowledge/topics/teak-price-difference.html",
+  "knowledge/topics/teak-authenticity-basic.html",
+  "knowledge/topics/teak-buying-pitfalls.html",
+  "knowledge/topics/what-is-teak.html",
+  "knowledge/topics/flooring-fit-space.html",
+  "knowledge/topics/brand-or-factory.html",
+]);
+const requiredTeakDailyTerms = ["日常清洁", "颜色变化", "户外", "油养", "水渍", "服务范围"];
 const forbiddenTeakDailyRelatedTargets = [
   "teak-color-change.html",
   "teak-aging-color.html",
@@ -97,12 +106,14 @@ const forbiddenTeakDailyRelatedTargets = [
 ];
 const teakOriginBasicPath = "knowledge/topics/teak-origin-basic.html";
 const requiredTeakOriginTerms = [
-  "常见产地",
+  "缅甸",
+  "泰国",
   "天然林",
   "人工林",
-  "产地不能替代等级和工艺",
-  "不同用途对产地",
-  "买之前应该看哪些资料",
+  "等级",
+  "干燥",
+  "不同用途",
+  "买之前",
 ];
 
 const problems = [];
@@ -168,6 +179,10 @@ function extractHeaderNav(html) {
 
 function countChineseChars(text) {
   return (text.match(/[\u4e00-\u9fff]/g) || []).length;
+}
+
+function countH2(html) {
+  return (html.match(/<h2\b/gi) || []).length;
 }
 
 function requiredMinimum(publicPath) {
@@ -249,12 +264,6 @@ for (const file of htmlFiles) {
   }
 
   if (publicPath === teakDailyCleaningPath) {
-    for (const anchorId of requiredTeakDailyAnchors) {
-      if (!html.includes(`id="${anchorId}"`) && !html.includes(`id='${anchorId}'`)) {
-        problems.push(`${publicPath}：保养主文章缺少必要锚点 #${anchorId}`);
-      }
-    }
-
     for (const term of requiredTeakDailyTerms) {
       if (!mainText.includes(term)) {
         problems.push(`${publicPath}：保养主文章缺少必要主题“${term}”`);
@@ -268,6 +277,17 @@ for (const file of htmlFiles) {
       if (relatedHtml.includes(target)) {
         problems.push(`${publicPath}：保养主文章底部不应把 ${target} 作为主要相关跳转`);
       }
+    }
+  }
+
+  if (naturalLongformKnowledgePages.has(publicPath)) {
+    if (html.includes("article-toc")) {
+      problems.push(`${publicPath}：自然长文体知识文章不应出现文章内目录`);
+    }
+
+    const h2Count = countH2(html);
+    if (h2Count > 1) {
+      problems.push(`${publicPath}：自然长文体知识文章 h2 数量 ${h2Count}，应只保留简洁相关内容标题`);
     }
   }
 
