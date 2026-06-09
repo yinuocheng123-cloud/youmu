@@ -290,6 +290,18 @@ const dataSourceForbiddenTerms = [
   "咨询摘要表",
 ];
 
+const teakDailyCleaningForbiddenTerms = [
+  "可以先放慢判断",
+  "把自己正在看的产品、空间或商家页面拿出来",
+  "整理成一小段文字",
+  "把信息按几个方面",
+  "已经确认、需要商家补充、自己仍然拿不准",
+  "这样看文章不会停留在阅读本身",
+  "带入后续交流要点",
+  "如果后续要对比多个页面",
+  "继续看",
+];
+
 const disclaimerAllowPhrases = [
   "不构成平台背书",
   "不构成认证",
@@ -525,6 +537,16 @@ for (const file of files) {
         lines.forEach((line, index) => {
           if (line.includes(term)) {
             problems.push(`${label}:${index + 1}：知识区前台仍存在程序化或内部说明表达“${term}”`);
+          }
+        });
+      }
+    }
+
+    if (label === "knowledge/topics/teak-daily-cleaning.html") {
+      for (const term of teakDailyCleaningForbiddenTerms) {
+        lines.forEach((line, index) => {
+          if (line.includes(term)) {
+            problems.push(`${label}:${index + 1}：保养主文档仍存在说明书式或拆分阅读表达“${term}”`);
           }
         });
       }

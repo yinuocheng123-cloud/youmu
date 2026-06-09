@@ -71,6 +71,7 @@ const allowedNoticePhrases = [
 
 const minChineseChars = {
   knowledgeDetail: 1200,
+  teakDailyCleaningDetail: 1500,
   auxiliaryKnowledgeDetail: 320,
   solutionDetail: 1200,
   articleDetail: 650,
@@ -84,6 +85,16 @@ const auxiliaryKnowledgePages = new Set([
   "knowledge/topics/outdoor-teak-maintenance.html",
   "knowledge/topics/teak-flooring-daily-care.html",
 ]);
+
+const teakDailyCleaningPath = "knowledge/topics/teak-daily-cleaning.html";
+const requiredTeakDailyAnchors = ["daily-cleaning", "color-change", "outdoor-care", "oil-care", "water-stains", "care-responsibility"];
+const requiredTeakDailyTerms = ["日常清洁", "颜色变化", "户外柚木", "油养", "水渍", "保养边界"];
+const forbiddenTeakDailyRelatedTargets = [
+  "teak-color-change.html",
+  "teak-aging-color.html",
+  "outdoor-teak-maintenance.html",
+  "teak-flooring-daily-care.html",
+];
 
 const problems = [];
 
@@ -160,6 +171,10 @@ function requiredMinimum(publicPath) {
   }
 
   if (publicPath.startsWith("knowledge/")) {
+    if (publicPath === teakDailyCleaningPath) {
+      return minChineseChars.teakDailyCleaningDetail;
+    }
+
     if (auxiliaryKnowledgePages.has(publicPath)) {
       return minChineseChars.auxiliaryKnowledgeDetail;
     }
@@ -221,6 +236,29 @@ for (const file of htmlFiles) {
   for (const word of forbiddenStructureWords) {
     if (toneText.includes(word)) {
       problems.push(`${publicPath}：发现说明书式结构或长说明表达 ${word}`);
+    }
+  }
+
+  if (publicPath === teakDailyCleaningPath) {
+    for (const anchorId of requiredTeakDailyAnchors) {
+      if (!html.includes(`id="${anchorId}"`) && !html.includes(`id='${anchorId}'`)) {
+        problems.push(`${publicPath}：保养主文章缺少必要锚点 #${anchorId}`);
+      }
+    }
+
+    for (const term of requiredTeakDailyTerms) {
+      if (!mainText.includes(term)) {
+        problems.push(`${publicPath}：保养主文章缺少必要主题“${term}”`);
+      }
+    }
+
+    const relatedMatch = html.match(/<section class="article-section article-related"[\s\S]*?<\/section>/i);
+    const relatedHtml = relatedMatch ? relatedMatch[0] : "";
+
+    for (const target of forbiddenTeakDailyRelatedTargets) {
+      if (relatedHtml.includes(target)) {
+        problems.push(`${publicPath}：保养主文章底部不应把 ${target} 作为主要相关跳转`);
+      }
     }
   }
 }
