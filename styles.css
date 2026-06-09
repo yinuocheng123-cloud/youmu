@@ -4487,6 +4487,10 @@ h3,
   white-space: nowrap;
 }
 
+.nowrap-heading {
+  white-space: nowrap;
+}
+
 .hero-hook {
   margin-top: 24px;
 }
@@ -4670,6 +4674,10 @@ h3,
   }
 
   .hero h1 span {
+    white-space: normal;
+  }
+
+  .nowrap-heading {
     white-space: normal;
   }
 
