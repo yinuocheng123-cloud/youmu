@@ -180,7 +180,9 @@ const frontendPatchTerms = [
   "模板",
   "注释",
   "占位",
+  "柚木柚木好物",
   "好物方案",
+  "进入方案目录",
   "V1.10",
   "V1.9",
   "已扩展",
@@ -245,7 +247,9 @@ const frontendPatchTerms = [
 ];
 
 const dataSourceForbiddenTerms = [
+  "柚木柚木好物",
   "好物方案",
+  "进入方案目录",
   "从知识继续往哪里走",
   "什么是推荐厂商",
   "推荐厂商不是简单名单",

@@ -60,6 +60,9 @@ const forbiddenStructureWords = [
   "样板说明",
   "授权边界",
   "展示框架的作用",
+  "柚木柚木好物",
+  "好物方案",
+  "进入方案目录",
 ];
 const garbledPatterns = [/\?{6,}/, /锟斤拷/, /�/, /鏌/, /鍜/, /鐭/, /妗/, /绋/, /闂/, /閿/];
 const allowedNoticePhrases = [

@@ -4788,3 +4788,468 @@ h3,
     grid-template-columns: 1fr;
   }
 }
+
+/* ========== V1.15.3D：公网视觉节奏与移动端体验最终收口 ========== */
+.global-site-header {
+  min-height: 74px;
+  align-items: center;
+}
+
+.global-site-header .brand,
+.global-site-header .nav-cta,
+.global-site-header .menu-toggle {
+  align-self: center;
+}
+
+.global-site-header .nav-dropdown-menu {
+  top: calc(100% + 14px);
+}
+
+.mobile-menu-shell {
+  overflow: hidden;
+}
+
+.mobile-menu-panel {
+  transform: translateX(0);
+}
+
+.hero {
+  padding: clamp(112px, 9vw, 136px) 0 clamp(66px, 6vw, 84px);
+}
+
+.hero-inner {
+  grid-template-columns: minmax(560px, 0.98fr) minmax(420px, 0.92fr);
+  align-items: stretch;
+  gap: clamp(36px, 4.2vw, 60px);
+}
+
+.hero-content,
+.hero-media {
+  min-height: clamp(510px, 41vw, 570px);
+}
+
+.hero-content {
+  justify-content: center;
+}
+
+.hero h1 {
+  max-width: 700px;
+  letter-spacing: -0.048em;
+}
+
+.hero h1 span {
+  overflow-wrap: normal;
+}
+
+.hero-copy {
+  line-height: 1.86;
+}
+
+.hero-actions {
+  align-items: stretch;
+}
+
+.hero-actions .btn {
+  flex: 0 0 auto;
+  min-width: max-content;
+}
+
+.section {
+  padding-block: clamp(48px, 6vw, 72px);
+}
+
+.section-heading,
+.category-heading,
+.knowledge-section-heading {
+  margin-bottom: clamp(22px, 3vw, 34px);
+}
+
+.section-heading h2,
+.category-heading h2,
+.knowledge-section-heading h2,
+.content-body h2,
+.related-links h2,
+.form-panel h2,
+.vendor-apply-section h2,
+.project-gallery-section h2,
+.article-section h2,
+.case-section h2,
+.solution-topic-section h2 {
+  letter-spacing: -0.025em;
+}
+
+.section-heading p,
+.category-heading p,
+.knowledge-section-heading p,
+.page-hero p,
+.content-lead,
+.article-hero p:last-child,
+.solution-topic-hero p {
+  line-height: 1.82;
+}
+
+.section-heading .view-all,
+.category-heading .view-all,
+.knowledge-section-heading .view-all {
+  min-height: 34px;
+  padding-bottom: 2px;
+}
+
+.knowledge-category-grid,
+.solution-grid,
+.merchant-grid,
+.vendor-direction-grid,
+.candidate-library-grid,
+.apply-info-grid,
+.article-card-grid,
+.case-card-grid {
+  gap: clamp(18px, 2.4vw, 26px);
+}
+
+.knowledge-topic-card,
+.goods-card,
+.merchant-card,
+.vendor-direction-card,
+.candidate-library-card,
+.apply-info-card,
+.article-card,
+.case-card,
+.project-showcase-panel,
+.content-body,
+.related-links,
+.content-cta,
+.form-panel,
+.vendor-guide-section,
+.vendor-library-section,
+.vendor-apply-section,
+.article-section,
+.article-note,
+.case-section,
+.case-boundary,
+.article-boundary,
+.solution-topic-section {
+  border-radius: 18px;
+}
+
+.knowledge-topic-card,
+.vendor-direction-card,
+.candidate-library-card,
+.apply-info-card,
+.article-card,
+.case-card {
+  padding: clamp(22px, 3vw, 32px);
+}
+
+.knowledge-topic-card p,
+.goods-body p,
+.merchant-card p,
+.trust-grid p,
+.vendor-direction-card p,
+.candidate-library-card p,
+.apply-info-card p,
+.article-card p,
+.case-card p,
+.content-body p,
+.project-showcase-copy p,
+.solution-topic-section p {
+  line-height: 1.84;
+}
+
+.knowledge-topic-card ul,
+.solution-points {
+  gap: 8px;
+}
+
+.solution-card .goods-body,
+.merchant-card {
+  min-height: 100%;
+}
+
+.goods-image {
+  min-height: clamp(220px, 22vw, 280px);
+}
+
+.trust-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 20px);
+}
+
+.trust-grid article {
+  min-height: 184px;
+}
+
+.page-hero,
+.content-hero-panel,
+.article-hero,
+.solution-topic-hero {
+  overflow: hidden;
+  border-radius: 22px;
+}
+
+.content-main,
+.article-layout,
+.solution-topic-layout,
+.vendor-guide-layout,
+.vendor-library-layout,
+.vendor-apply-layout,
+.project-gallery-layout,
+.yuxi-brand-layout {
+  margin-bottom: clamp(64px, 8vw, 96px);
+}
+
+.article-layout {
+  width: min(900px, calc(100% - 48px));
+}
+
+.article-shell,
+.solution-topic-shell {
+  gap: clamp(18px, 2.6vw, 28px);
+  min-width: 0;
+}
+
+.article-section,
+.article-note,
+.article-hero,
+.article-body,
+.case-section,
+.case-boundary,
+.article-boundary,
+.solution-topic-section {
+  min-width: 0;
+  max-width: 100%;
+  padding: clamp(24px, 4vw, 36px);
+}
+
+.article-section p,
+.article-note p,
+.case-section p,
+.case-boundary p,
+.article-boundary p {
+  font-size: 16.5px;
+}
+
+.article-table-wrap {
+  max-width: 100%;
+  min-width: 0;
+  margin-inline: -2px;
+  padding-bottom: 6px;
+  overflow-x: auto;
+  scrollbar-color: rgba(154, 103, 54, 0.42) rgba(154, 103, 54, 0.08);
+}
+
+.article-question-list {
+  gap: 12px 18px;
+}
+
+.article-related ul,
+.related-mini-grid,
+.related-links ul {
+  gap: 14px;
+}
+
+.project-showcase-panel {
+  align-items: stretch;
+}
+
+.project-showcase-copy {
+  display: grid;
+  align-content: center;
+}
+
+.yuxi-visual-card,
+.project-showcase-panel,
+.vendor-direction-card,
+.candidate-library-card,
+.apply-info-card,
+.article-card,
+.case-card {
+  min-width: 0;
+}
+
+.nowrap-heading {
+  max-width: 100%;
+}
+
+.vendor-apply-form .form-actions,
+.form-actions,
+.content-cta {
+  align-items: center;
+}
+
+.vendor-apply-form .form-actions .btn,
+.form-actions .btn,
+.content-cta .btn {
+  min-width: max-content;
+}
+
+.content-site-footer,
+.site-footer {
+  margin-top: clamp(48px, 7vw, 76px);
+}
+
+@media (max-width: 1180px) {
+  .hero-inner {
+    grid-template-columns: minmax(500px, 1fr) minmax(360px, 0.82fr);
+  }
+
+  .hero-actions {
+    gap: 12px;
+  }
+
+  .hero-actions .btn {
+    padding-inline: 18px;
+  }
+}
+
+@media (max-width: 980px) {
+  .hero {
+    padding-top: 108px;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content,
+  .hero-media {
+    min-height: auto;
+  }
+
+  .hero-media {
+    height: auto;
+  }
+
+  .hero-media .hero-image {
+    min-height: clamp(320px, 56vw, 460px);
+  }
+
+  .section-heading,
+  .category-heading,
+  .knowledge-section-heading {
+    gap: 12px;
+  }
+
+  .trust-grid,
+  .vendor-direction-grid,
+  .article-card-grid,
+  .case-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-showcase-copy {
+    align-content: start;
+  }
+}
+
+@media (max-width: 720px) {
+  .section,
+  .content-main,
+  .article-layout,
+  .solution-index-layout,
+  .solution-topic-layout,
+  .vendor-guide-layout,
+  .vendor-library-layout,
+  .vendor-apply-layout,
+  .project-gallery-layout,
+  .yuxi-brand-layout {
+    width: calc(100% - 28px);
+  }
+
+  .section {
+    padding-block: 40px;
+  }
+
+  .page-hero,
+  .content-hero-panel,
+  .article-hero,
+  .solution-topic-hero,
+  .vendor-guide-section,
+  .vendor-library-section,
+  .vendor-apply-section,
+  .project-gallery-section,
+  .yuxi-story-section {
+    border-radius: 18px;
+  }
+
+  .page-hero,
+  .content-hero-panel,
+  .article-hero,
+  .solution-topic-hero {
+    padding: 28px 22px;
+  }
+
+  .knowledge-category-grid,
+  .solution-grid,
+  .merchant-grid,
+  .trust-grid,
+  .vendor-direction-grid,
+  .candidate-library-grid,
+  .article-card-grid,
+  .case-card-grid,
+  .apply-info-grid,
+  .related-mini-grid,
+  .related-links ul,
+  .article-question-list {
+    grid-template-columns: 1fr;
+  }
+
+  .article-card,
+  .case-card,
+  .knowledge-topic-card,
+  .vendor-direction-card,
+  .candidate-library-card,
+  .apply-info-card {
+    min-height: auto;
+  }
+
+  .vendor-apply-form .form-actions,
+  .form-actions,
+  .content-cta {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .vendor-apply-form .form-actions .btn,
+  .form-actions .btn,
+  .content-cta .btn {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-content {
+    padding: 28px 20px;
+  }
+
+  .hero h1 {
+    font-size: clamp(32px, 8.9vw, 38px);
+    letter-spacing: -0.035em;
+  }
+
+  .hero h1 span,
+  .nowrap-heading {
+    white-space: normal;
+  }
+
+  .hero-copy,
+  .content-lead,
+  .article-hero p:last-child,
+  .solution-topic-hero p,
+  .page-hero p {
+    font-size: 16px;
+  }
+
+  .article-section,
+  .article-note,
+  .case-section,
+  .case-boundary,
+  .article-boundary,
+  .solution-topic-section,
+  .content-body,
+  .related-links,
+  .content-cta,
+  .form-panel {
+    padding: 22px 18px;
+  }
+}
