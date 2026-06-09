@@ -95,6 +95,15 @@ const forbiddenTeakDailyRelatedTargets = [
   "outdoor-teak-maintenance.html",
   "teak-flooring-daily-care.html",
 ];
+const teakOriginBasicPath = "knowledge/topics/teak-origin-basic.html";
+const requiredTeakOriginTerms = [
+  "常见产地",
+  "天然林",
+  "人工林",
+  "产地不能替代等级和工艺",
+  "不同用途对产地",
+  "买之前应该看哪些资料",
+];
 
 const problems = [];
 
@@ -258,6 +267,14 @@ for (const file of htmlFiles) {
     for (const target of forbiddenTeakDailyRelatedTargets) {
       if (relatedHtml.includes(target)) {
         problems.push(`${publicPath}：保养主文章底部不应把 ${target} 作为主要相关跳转`);
+      }
+    }
+  }
+
+  if (publicPath === teakOriginBasicPath) {
+    for (const term of requiredTeakOriginTerms) {
+      if (!mainText.includes(term)) {
+        problems.push(`${publicPath}：产地基础文章缺少必要主题“${term}”`);
       }
     }
   }

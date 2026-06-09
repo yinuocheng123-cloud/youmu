@@ -302,6 +302,18 @@ const teakDailyCleaningForbiddenTerms = [
   "继续看",
 ];
 
+const teakOriginForbiddenTerms = [
+  "先把问题放回真实场景",
+  "建立阅读顺序",
+  "样板页或社群沟通",
+  "沟通前的准备清单",
+  "人工验收",
+  "三类记录",
+  "核验日期",
+  "核验人",
+  "阅读底稿",
+];
+
 const disclaimerAllowPhrases = [
   "不构成平台背书",
   "不构成认证",
@@ -547,6 +559,16 @@ for (const file of files) {
         lines.forEach((line, index) => {
           if (line.includes(term)) {
             problems.push(`${label}:${index + 1}：保养主文档仍存在说明书式或拆分阅读表达“${term}”`);
+          }
+        });
+      }
+    }
+
+    if (label === "knowledge/topics/teak-origin-basic.html") {
+      for (const term of teakOriginForbiddenTerms) {
+        lines.forEach((line, index) => {
+          if (line.includes(term)) {
+            problems.push(`${label}:${index + 1}：产地基础文章仍存在内部阅读指导或核验话术“${term}”`);
           }
         });
       }
