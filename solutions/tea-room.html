@@ -10,12 +10,120 @@
   </head>
   <body class="content-page">
 
-    <header class="content-site-header">
-      <a class="content-brand" href="../index.html" aria-label="返回柚喜饰界首页">
-        <img src="../assets/logo-yuxi-mark.svg" alt="" />
-        <span><strong>柚喜饰界</strong><small>柚木爱好者乐园</small></span>
+        <header class="site-header global-site-header" aria-label="顶部导航">
+      <a class="brand" href="../index.html" aria-label="柚喜饰界首页">
+        <img class="brand-mark-image" src="../assets/logo-yuxi-mark.svg" alt="" aria-hidden="true" />
+        <span class="brand-wording">
+          <strong>柚喜饰界</strong>
+          <small>柚木爱好者乐园</small>
+        </span>
       </a>
-      <nav class="content-nav" aria-label="主导航"><a href="../index.html">首页</a><a href="../about/index.html">认识柚喜</a><a href="../knowledge/index.html">柚木知识</a><a href="../solutions/index.html">好物方案</a><a href="../vendors/index.html">推荐厂商</a><a href="../index.html#wechat">社群交流</a></nav>
+      <nav class="main-nav desktop-nav" aria-label="主导航">
+        <a class="nav-link" href="../index.html">首页</a>
+        <div class="nav-dropdown" data-dropdown>
+          <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="about-menu-1" data-dropdown-trigger>
+            认识柚喜
+          </button>
+          <div class="nav-dropdown-menu" id="about-menu-1" data-dropdown-menu>
+            <a href="../about/index.html">认识柚喜</a>
+            <a href="../about/index.html#purpose">网站目的</a>
+            <a href="../about/index.html#teak-culture">柚木文化</a>
+            <a href="../about/index.html#teak-application">柚木应用</a>
+          </div>
+        </div>
+        <div class="nav-dropdown" data-dropdown>
+          <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="knowledge-menu-1" data-dropdown-trigger>
+            柚木知识
+          </button>
+          <div class="nav-dropdown-menu" id="knowledge-menu-1" data-dropdown-menu>
+            <a href="../knowledge/index.html">柚木知识首页</a>
+            <a href="../knowledge/index.html#beginner-reading">新手必读</a>
+            <a href="../knowledge/index.html#buying-judgement">选购避坑</a>
+            <a href="../knowledge/index.html#use-and-care">使用与保养</a>
+            <a href="../knowledge/index.html#faq">常见问题</a>
+          </div>
+        </div>
+        <div class="nav-dropdown" data-dropdown>
+          <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="solutions-menu-1" data-dropdown-trigger>
+            好物方案
+          </button>
+          <div class="nav-dropdown-menu" id="solutions-menu-1" data-dropdown-menu>
+            <a href="../solutions/index.html">好物方案首页</a>
+            <a href="../solutions/whole-decoration.html">柚木整装</a>
+            <a href="../solutions/flooring.html">柚木地板</a>
+            <a href="../solutions/outdoor.html">庭院户外</a>
+            <a href="../solutions/tea-room.html">茶室会客</a>
+            <a href="../solutions/furniture.html">家具好物</a>
+          </div>
+        </div>
+        <div class="nav-dropdown" data-dropdown>
+          <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="vendors-menu-1" data-dropdown-trigger>
+            推荐厂商
+          </button>
+          <div class="nav-dropdown-menu" id="vendors-menu-1" data-dropdown-menu>
+            <a href="../vendors/index.html">推荐厂商首页</a>
+            <a href="../vendors/candidates/index.html">公开资料观察库</a>
+            <a href="../forms/vendor-apply.html">申请建立资料页</a>
+          </div>
+        </div>
+        <a class="nav-link" href="../index.html#wechat">社群交流</a>
+      </nav>
+      <a class="nav-cta" href="../index.html#wechat">添加柚喜顾问</a>
+      <button class="menu-toggle" type="button" aria-label="打开导航菜单" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="mobile-menu-shell" id="mobile-menu" data-mobile-menu aria-hidden="true">
+        <button class="mobile-menu-backdrop" type="button" aria-label="关闭导航菜单" data-menu-backdrop></button>
+        <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="移动端导航">
+          <div class="mobile-menu-head">
+            <a class="brand mobile-brand" href="../index.html" aria-label="柚喜饰界首页">
+              <img class="brand-mark-image" src="../assets/logo-yuxi-mark.svg" alt="" aria-hidden="true" />
+              <span class="brand-wording">
+                <strong>柚喜饰界</strong>
+                <small>柚木爱好者乐园</small>
+              </span>
+            </a>
+            <button class="mobile-menu-close" type="button" aria-label="关闭导航菜单" data-menu-close>×</button>
+          </div>
+          <nav class="mobile-nav" aria-label="移动端主导航">
+            <a href="../index.html">首页</a>
+            <details>
+              <summary>认识柚喜</summary>
+              <a href="../about/index.html">认识柚喜</a>
+              <a href="../about/index.html#purpose">网站目的</a>
+              <a href="../about/index.html#teak-culture">柚木文化</a>
+              <a href="../about/index.html#teak-application">柚木应用</a>
+            </details>
+            <details>
+              <summary>柚木知识</summary>
+              <a href="../knowledge/index.html">柚木知识首页</a>
+              <a href="../knowledge/index.html#beginner-reading">新手必读</a>
+              <a href="../knowledge/index.html#buying-judgement">选购避坑</a>
+              <a href="../knowledge/index.html#use-and-care">使用与保养</a>
+              <a href="../knowledge/index.html#faq">常见问题</a>
+            </details>
+            <details>
+              <summary>好物方案</summary>
+              <a href="../solutions/index.html">好物方案首页</a>
+              <a href="../solutions/whole-decoration.html">柚木整装</a>
+              <a href="../solutions/flooring.html">柚木地板</a>
+              <a href="../solutions/outdoor.html">庭院户外</a>
+              <a href="../solutions/tea-room.html">茶室会客</a>
+              <a href="../solutions/furniture.html">家具好物</a>
+            </details>
+            <details>
+              <summary>推荐厂商</summary>
+              <a href="../vendors/index.html">推荐厂商首页</a>
+              <a href="../vendors/candidates/index.html">公开资料观察库</a>
+              <a href="../forms/vendor-apply.html">申请建立资料页</a>
+            </details>
+            <a href="../index.html#wechat">社群交流</a>
+          </nav>
+          <a class="mobile-menu-cta" href="../index.html#wechat">添加柚喜顾问</a>
+        </div>
+      </div>
     </header>
 
                                     <main class="content-main solution-topic-layout">

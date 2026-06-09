@@ -359,6 +359,10 @@ for (const file of files) {
       }
     }
 
+    if (!visibleText.includes("data-dropdown") || !visibleText.includes("data-dropdown-menu")) {
+      problems.push(`${label}：公开页面缺少统一桌面下拉导航结构`);
+    }
+
     if (isSecondLevelHtml) {
       const prefix = expectedAssetPrefix(label);
       const expectedStyles = `href="${prefix}styles.css"`;

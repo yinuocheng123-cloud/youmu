@@ -4373,3 +4373,51 @@ body {
     display: none;
   }
 }
+
+/* ========== V1.15.1：全站导航下拉结构统一 ========== */
+.global-site-header {
+  z-index: 1000;
+}
+
+.global-site-header .main-nav {
+  gap: clamp(10px, 1.4vw, 18px);
+}
+
+.global-site-header .nav-link,
+.global-site-header .main-nav a {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.global-site-header .nav-dropdown-menu {
+  z-index: 1002;
+  width: 188px;
+}
+
+.content-page .content-main {
+  margin-top: 128px;
+}
+
+@media (max-width: 1080px) {
+  .global-site-header {
+    width: min(1180px, calc(100% - 24px));
+  }
+
+  .global-site-header .main-nav {
+    gap: 10px;
+  }
+
+  .global-site-header .nav-cta {
+    padding-inline: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .content-page .content-main {
+    margin-top: 108px;
+  }
+
+  .global-site-header .mobile-nav details {
+    margin: 0;
+  }
+}

@@ -95,9 +95,18 @@ function extractMainText(html) {
   return stripTags(mainMatch ? mainMatch[0] : html);
 }
 
-function extractContentNav(html) {
-  const navMatch = html.match(/<nav class="content-nav"[\s\S]*?<\/nav>/i);
-  return navMatch ? stripTags(navMatch[0]) : "";
+function extractHeaderNav(html) {
+  const headerMatch = html.match(/<header[\s\S]*?<\/header>/i);
+
+  if (!headerMatch) {
+    return "";
+  }
+
+  const headerHtml = headerMatch[0];
+  const desktopNavMatch = headerHtml.match(/<nav[^>]*class="[^"]*\bdesktop-nav\b[^"]*"[\s\S]*?<\/nav>/i);
+  const fallbackNavMatch = headerHtml.match(/<nav[\s\S]*?<\/nav>/i);
+
+  return stripTags(desktopNavMatch ? desktopNavMatch[0] : fallbackNavMatch ? fallbackNavMatch[0] : headerHtml);
 }
 
 function countChineseChars(text) {
@@ -135,7 +144,7 @@ for (const file of htmlFiles) {
   const publicPath = toPublicPath(file);
   const html = await fs.readFile(file, "utf8");
   const mainText = extractMainText(html);
-  const navText = extractContentNav(html);
+  const navText = extractHeaderNav(html);
   const toneText = allowedNoticePhrases.reduce((text, phrase) => text.replaceAll(phrase, ""), html);
   const chineseCount = countChineseChars(mainText);
   const minimum = requiredMinimum(publicPath);
