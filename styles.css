@@ -5363,3 +5363,176 @@ h3,
     padding: 22px 18px;
   }
 }
+
+/* ========== V1.15.3G：短标题单行与版式对齐收口 ========== */
+@media (min-width: 721px) {
+  .nowrap-heading,
+  .section-heading h2,
+  .knowledge-section-heading h2,
+  .category-heading > h2,
+  .yuxi-section-copy > .nowrap-heading,
+  .yuxi-story-section > .nowrap-heading,
+  .trust-section > h2 {
+    width: max-content;
+    max-width: 100%;
+    flex: 0 0 auto;
+    white-space: nowrap;
+    text-wrap: nowrap;
+  }
+
+  .yuxi-section-copy > .nowrap-heading,
+  .yuxi-story-section > .nowrap-heading {
+    font-size: clamp(28px, 3.1vw, 38px);
+    letter-spacing: -0.025em;
+  }
+
+  .category-heading h2.nowrap-heading {
+    font-size: clamp(27px, 3vw, 38px);
+    letter-spacing: -0.025em;
+  }
+
+  .section-heading h2,
+  .knowledge-section-heading h2 {
+    font-size: clamp(28px, 3.1vw, 38px);
+    letter-spacing: -0.025em;
+  }
+
+  .page-hero h1,
+  .article-hero h1,
+  .solution-topic-hero h1,
+  .vendor-guide-hero h1,
+  .project-gallery-hero h1,
+  .yuxi-brand-hero h1 {
+    max-width: min(920px, 100%);
+    text-wrap: balance;
+  }
+}
+
+.btn,
+.nav-cta,
+.mobile-menu-cta,
+.pill-button,
+.merchant-link,
+.view-all,
+.text-link,
+.natural-link {
+  min-height: 44px;
+  align-items: center;
+  vertical-align: bottom;
+}
+
+.hero-actions,
+.content-cta,
+.form-actions,
+.vendor-apply-form .form-actions {
+  align-items: stretch;
+}
+
+.hero-actions .btn,
+.content-cta .btn,
+.form-actions .btn,
+.vendor-apply-form .form-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  line-height: 1.12;
+}
+
+.section-heading,
+.category-heading,
+.knowledge-section-heading {
+  align-items: end;
+}
+
+.section-heading h2,
+.category-heading h2,
+.knowledge-section-heading h2,
+.trust-section h2,
+.apply-info-card h3,
+.vendor-direction-card h3,
+.candidate-library-card h3,
+.knowledge-feature-card h3,
+.solution-scene-card h3,
+.merchant-card h3 {
+  overflow-wrap: normal;
+  word-break: keep-all;
+}
+
+.section-heading .view-all,
+.category-heading .view-all,
+.knowledge-section-heading .view-all {
+  min-height: 42px;
+  padding-block: 8px;
+}
+
+.apply-info-card h3,
+.vendor-direction-card h3,
+.candidate-library-card h3,
+.knowledge-feature-card h3,
+.solution-scene-card h3 {
+  text-wrap: balance;
+}
+
+.form-actions {
+  gap: 12px;
+}
+
+@media (min-width: 981px) {
+  .hero-actions .btn {
+    min-width: 0;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    min-width: 156px;
+  }
+
+  .hero-actions .btn-ghost {
+    min-width: 148px;
+  }
+
+  .vendor-apply-form .form-actions {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .vendor-apply-form .form-actions .btn {
+    min-width: 132px;
+  }
+}
+
+@media (max-width: 720px) {
+  h1,
+  h2,
+  h3,
+  .hero h1,
+  .page-hero h1,
+  .article-hero h1,
+  .solution-topic-hero h1,
+  .section-heading h2,
+  .category-heading h2,
+  .knowledge-section-heading h2,
+  .trust-section h2 {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+
+  .nowrap-heading {
+    white-space: normal;
+    text-wrap: balance;
+  }
+
+  .section-heading,
+  .category-heading,
+  .knowledge-section-heading {
+    align-items: flex-start;
+  }
+
+  .btn,
+  .pill-button,
+  .view-all,
+  .merchant-link {
+    min-height: 46px;
+  }
+}
