@@ -179,6 +179,64 @@ const requiredGoodThingsDropdownLabels = [
 ];
 const forbiddenGoodThingsDropdownLabels = ["庭院户外", "茶室会客", "家具好物", "柚木茶室空间"];
 
+const goodsArchiveDir = "solutions/goods/";
+const requiredGoodsArchivePaths = [
+  "solutions/goods/teak-dining-table.html",
+  "solutions/goods/teak-tea-table.html",
+  "solutions/goods/teak-bookcase.html",
+  "solutions/goods/teak-bench.html",
+  "solutions/goods/teak-lounge-chair.html",
+  "solutions/goods/aged-teak-flooring.html",
+  "solutions/goods/sunroom-teak-floor.html",
+  "solutions/goods/seaside-teak-floor.html",
+  "solutions/goods/hotel-teak-floor.html",
+  "solutions/goods/reclaimed-teak-flooring.html",
+  "solutions/goods/teak-wall-panel.html",
+  "solutions/goods/teak-study-room.html",
+  "solutions/goods/teak-bedroom.html",
+  "solutions/goods/teak-living-room.html",
+  "solutions/goods/teak-villa-woodwork.html",
+  "solutions/goods/teak-garden-dining.html",
+  "solutions/goods/teak-outdoor-bench.html",
+  "solutions/goods/teak-yacht-deck.html",
+  "solutions/goods/teak-pool-deck.html",
+  "solutions/goods/teak-patio-furniture.html",
+  "solutions/goods/old-teak-door.html",
+  "solutions/goods/old-teak-window.html",
+  "solutions/goods/reclaimed-boat-teak.html",
+  "solutions/goods/old-teak-carving.html",
+  "solutions/goods/aged-teak-timber.html",
+  "solutions/goods/teak-pen.html",
+  "solutions/goods/teak-speaker.html",
+  "solutions/goods/teak-phone-stand.html",
+  "solutions/goods/teak-tray.html",
+  "solutions/goods/teak-incense-holder.html",
+];
+const requiredGoodsArchiveHeadings = [
+  "\u5bfc\u8bed",
+  "\u4e3a\u4ec0\u4e48\u503c\u5f97\u770b",
+  "\u6750\u8d28\u4e0e\u6c14\u8d28",
+  "\u9002\u5408\u4ec0\u4e48\u573a\u666f",
+  "\u600e\u4e48\u770b\u7ec6\u8282",
+  "\u516c\u5f00\u8d44\u6599\u89c2\u5bdf",
+  "\u76f8\u5173\u597d\u7269",
+  "\u5e95\u90e8\u7b80\u77ed\u8bf4\u660e",
+];
+const forbiddenGoodsArchiveTerms = [
+  "\u4ef7\u683c",
+  "\u5e93\u5b58",
+  "\u4e0b\u5355",
+  "\u8d2d\u4e70",
+  "\u7acb\u5373\u8d2d\u4e70",
+  "\u5e73\u53f0\u8ba4\u8bc1",
+  "\u5b98\u65b9\u63a8\u8350",
+  "\u4ea4\u6613\u62c5\u4fdd",
+  "\u6837\u677f",
+  "\u5360\u4f4d",
+  "\u5f85\u8865",
+  "\u5efa\u8bbe\u4e2d",
+];
+
 const problems = [];
 
 // ========== 第二部分：文件收集与正文提取 ==========
@@ -349,6 +407,10 @@ function requiredMinimum(publicPath) {
       return minChineseChars.solutionGuideDetail;
     }
 
+    if (publicPath.startsWith(goodsArchiveDir)) {
+      return 560;
+    }
+
     return minChineseChars.solutionOverview;
   }
 
@@ -362,6 +424,18 @@ function requiredMinimum(publicPath) {
 // ========== 第三部分：内容深度与口径规则检查 ==========
 const htmlFiles = (await Promise.all(contentEntries.map(collectHtmlFiles))).flat().sort();
 const htmlFileSet = new Set(htmlFiles.map(toPublicPath));
+const goodsArchivePages = htmlFiles.map(toPublicPath).filter((publicPath) => publicPath.startsWith(goodsArchiveDir));
+
+if (goodsArchivePages.length !== requiredGoodsArchivePaths.length) {
+  problems.push(`solutions/goods/ ??????????? ${goodsArchivePages.length}??? ${requiredGoodsArchivePaths.length}`);
+}
+
+for (const goodsPath of requiredGoodsArchivePaths) {
+  if (!htmlFileSet.has(goodsPath)) {
+    problems.push(`?? V1.18 ????? ${goodsPath}`);
+  }
+}
+
 
 for (const vendorPage of requiredVendorPages) {
   if (!htmlFileSet.has(vendorPage)) {
@@ -456,6 +530,53 @@ for (const file of htmlFiles) {
     for (const section of requiredVendorSections) {
       if (!mainText.includes(section)) {
         problems.push(`${publicPath}：推荐厂商资料页缺少必要栏目“${section}”`);
+      }
+    }
+  }
+
+  if (requiredGoodsArchivePaths.includes(publicPath)) {
+    const articleMatch = html.match(/<article class="goods-archive-article"[\s\S]*?<\/article>/i);
+    const articleHtml = articleMatch ? articleMatch[0] : "";
+    const paragraphCount = countMatches(articleHtml, /<p>/g);
+
+    if (!/<h1>[^<]+<\/h1>/i.test(html)) {
+      problems.push(`${publicPath}??????????? h1`);
+    }
+
+    if (!articleHtml) {
+      problems.push(`${publicPath}??????????????`);
+    }
+
+    if (paragraphCount < 5) {
+      problems.push(`${publicPath}??????????? ${paragraphCount}?????? 5 ?`);
+    }
+
+    for (const heading of requiredGoodsArchiveHeadings) {
+      if (!html.includes(`<h2>${heading}</h2>`)) {
+        problems.push(`${publicPath}?????????????${heading}?`);
+      }
+    }
+
+    if (!/class="goods-archive-visual woodgrain-block"/i.test(html)) {
+      problems.push(`${publicPath}??????????????`);
+    }
+
+    if (!/class="goods-archive-section goods-archive-source-box"/i.test(html)) {
+      problems.push(`${publicPath}???????????????`);
+    }
+
+    const relatedCount = countMatches(html, /class="goods-archive-related-card\b/g);
+    if (relatedCount < 3) {
+      problems.push(`${publicPath}??????? ${relatedCount}?????? 3 ?`);
+    }
+
+    if (/assets\/images\//i.test(articleHtml)) {
+      problems.push(`${publicPath}???????????????????`);
+    }
+
+    for (const term of forbiddenGoodsArchiveTerms) {
+      if (mainText.includes(term)) {
+        problems.push(`${publicPath}???????????${term}?`);
       }
     }
   }

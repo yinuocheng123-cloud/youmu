@@ -40,6 +40,38 @@ const requiredPublicPaths = [
   "vendors/xuelianhua-teak-furniture.html",
   "vendors/yixin-teak.html",
 ];
+const requiredGoodsArchivePaths = [
+  "solutions/goods/teak-dining-table.html",
+  "solutions/goods/teak-tea-table.html",
+  "solutions/goods/teak-bookcase.html",
+  "solutions/goods/teak-bench.html",
+  "solutions/goods/teak-lounge-chair.html",
+  "solutions/goods/aged-teak-flooring.html",
+  "solutions/goods/sunroom-teak-floor.html",
+  "solutions/goods/seaside-teak-floor.html",
+  "solutions/goods/hotel-teak-floor.html",
+  "solutions/goods/reclaimed-teak-flooring.html",
+  "solutions/goods/teak-wall-panel.html",
+  "solutions/goods/teak-study-room.html",
+  "solutions/goods/teak-bedroom.html",
+  "solutions/goods/teak-living-room.html",
+  "solutions/goods/teak-villa-woodwork.html",
+  "solutions/goods/teak-garden-dining.html",
+  "solutions/goods/teak-outdoor-bench.html",
+  "solutions/goods/teak-yacht-deck.html",
+  "solutions/goods/teak-pool-deck.html",
+  "solutions/goods/teak-patio-furniture.html",
+  "solutions/goods/old-teak-door.html",
+  "solutions/goods/old-teak-window.html",
+  "solutions/goods/reclaimed-boat-teak.html",
+  "solutions/goods/old-teak-carving.html",
+  "solutions/goods/aged-teak-timber.html",
+  "solutions/goods/teak-pen.html",
+  "solutions/goods/teak-speaker.html",
+  "solutions/goods/teak-phone-stand.html",
+  "solutions/goods/teak-tray.html",
+  "solutions/goods/teak-incense-holder.html",
+];
 
 const externalProtocolPattern = /^(https?:|mailto:|tel:)/i;
 const forbiddenSitemapFragments = [
@@ -110,6 +142,12 @@ const sitemapXml = await fs.readFile(sitemapPath, "utf8");
 for (const requiredPath of requiredPublicPaths) {
   if (!htmlFileSet.has(requiredPath)) {
     problems.push(`公开页面缺少必要页面 ${requiredPath}`);
+  }
+}
+
+for (const requiredPath of requiredGoodsArchivePaths) {
+  if (!htmlFileSet.has(requiredPath)) {
+    problems.push(`V1.18 好物档案页缺失 ${requiredPath}`);
   }
 }
 
@@ -259,6 +297,12 @@ for (const publicPath of htmlFileSet) {
 for (const requiredPath of requiredPublicPaths) {
   if (!sitemapPaths.has(requiredPath)) {
     problems.push(`sitemap.xml：缺少 V1.16.1 必要页面 ${requiredPath}`);
+  }
+}
+
+for (const requiredPath of requiredGoodsArchivePaths) {
+  if (!sitemapPaths.has(requiredPath)) {
+    problems.push(`sitemap.xml：缺少 V1.18 好物档案页 ${requiredPath}`);
   }
 }
 
