@@ -127,6 +127,9 @@ const requiredTeakOriginTerms = [
   "不同用途",
   "买之前",
 ];
+const goodThingsIndexPath = "solutions/index.html";
+const requiredGoodThingsCategories = ["柚木家具", "柚木地板", "柚木茶室", "柚木户外", "柚木收藏", "柚木文创"];
+const forbiddenGoodThingsIndexTerms = ["Teak Project Gallery", "五个应用场景", "好物方案", "进入方案目录", "购买", "价格", "库存"];
 
 const problems = [];
 
@@ -334,6 +337,20 @@ for (const file of htmlFiles) {
     for (const section of requiredVendorSections) {
       if (!mainText.includes(section)) {
         problems.push(`${publicPath}：推荐厂商资料页缺少必要栏目“${section}”`);
+      }
+    }
+  }
+
+  if (publicPath === goodThingsIndexPath) {
+    for (const category of requiredGoodThingsCategories) {
+      if (!mainText.includes(category)) {
+        problems.push(`${publicPath}：柚木好物页缺少 V1.17 生活方式精选分类“${category}”`);
+      }
+    }
+
+    for (const term of forbiddenGoodThingsIndexTerms) {
+      if (html.includes(term)) {
+        problems.push(`${publicPath}：柚木好物页仍存在旧方案页或交易化表达“${term}”`);
       }
     }
   }

@@ -416,6 +416,23 @@ const naturalLongformArticlePaths = new Set([
   "knowledge/topics/teak-origin-basic.html",
 ]);
 const naturalLongformForbiddenTerms = ["本篇目录", "保养主题目录", "文章内目录"];
+const goodThingsIndexPath = "solutions/index.html";
+const requiredGoodThingsCategories = ["柚木家具", "柚木地板", "柚木茶室", "柚木户外", "柚木收藏", "柚木文创"];
+const forbiddenGoodThingsIndexTerms = [
+  "Teak Project Gallery",
+  "五个应用场景",
+  "从整装、地板、庭院、茶室到家具好物",
+  "柚木不是孤立的产品标签",
+  "先看空间需要解决什么",
+  "再看材料和企业资料是否能支撑这个方向",
+  "从好物到推荐厂商",
+  "购买",
+  "价格",
+  "库存",
+  "平台认证",
+  "会员站",
+  "审核",
+];
 const requiredVendorPages = [
   "vendors/wachen-teak.html",
   "vendors/shanghai-zhuangxin-teak.html",
@@ -702,6 +719,27 @@ for (const file of files) {
             problems.push(`${label}:${index + 1}：方案区前台仍存在机械表达“${term}”`);
           }
         });
+      }
+    }
+
+    if (label === goodThingsIndexPath) {
+      for (const category of requiredGoodThingsCategories) {
+        if (!visibleText.includes(category)) {
+          problems.push(`${label}：柚木好物页缺少 V1.17 生活方式精选分类“${category}”`);
+        }
+      }
+
+      for (const term of forbiddenGoodThingsIndexTerms) {
+        lines.forEach((line, index) => {
+          if (line.includes(term) && !hasSafeDisclaimerContext(line, term)) {
+            problems.push(`${label}:${index + 1}：柚木好物页仍存在旧方案页或交易化表达“${term}”`);
+          }
+        });
+      }
+
+      const mainText = stripTags(visibleText);
+      if (/柚木好物[^。；\n]{0,30}方案/.test(mainText)) {
+        problems.push(`${label}：柚木好物页仍把栏目定义为“方案”口径`);
       }
     }
 
