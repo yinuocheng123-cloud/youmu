@@ -228,7 +228,6 @@ const frontendPatchTerms = [
   "结构参考",
   "待补充说明",
   "公开资料来源记录",
-  "来源记录",
   "上线阻塞项",
   "版本",
   "预检",
@@ -418,9 +417,23 @@ const naturalLongformArticlePaths = new Set([
 const naturalLongformForbiddenTerms = ["本篇目录", "保养主题目录", "文章内目录"];
 const goodThingsIndexPath = "solutions/index.html";
 const requiredGoodThingsCategories = ["柚木家具", "柚木地板", "柚木茶室", "柚木户外", "柚木收藏", "柚木文创"];
+const requiredGoodThingsSectionIds = [
+  "good-furniture",
+  "good-flooring",
+  "good-tea-room",
+  "good-outdoor",
+  "good-collection",
+  "good-creative",
+];
+const minimumGoodThingsItemsPerSection = 12;
+const minimumGoodThingsItemsTotal = 72;
 const forbiddenGoodThingsIndexTerms = [
   "Teak Project Gallery",
   "五个应用场景",
+  "方案目录",
+  "项目判断",
+  "资料框架",
+  "好物方案",
   "从整装、地板、庭院、茶室到家具好物",
   "柚木不是孤立的产品标签",
   "先看空间需要解决什么",
@@ -429,7 +442,11 @@ const forbiddenGoodThingsIndexTerms = [
   "购买",
   "价格",
   "库存",
+  "下单",
+  "立即购买",
   "平台认证",
+  "官方推荐",
+  "已认证",
   "会员站",
   "审核",
 ];
@@ -580,6 +597,10 @@ function stripTags(text) {
   return text.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 }
 
+function countMatches(text, pattern) {
+  return [...text.matchAll(pattern)].length;
+}
+
 const files = (await Promise.all(checkEntries.map(collectFiles))).flat().sort();
 const fileLabelSet = new Set(files.map(toPublicPath));
 
@@ -726,6 +747,35 @@ for (const file of files) {
       for (const category of requiredGoodThingsCategories) {
         if (!visibleText.includes(category)) {
           problems.push(`${label}：柚木好物页缺少 V1.17 生活方式精选分类“${category}”`);
+        }
+      }
+
+      const totalCardCount = countMatches(rawText, /class="good-item-card\b/g);
+      if (totalCardCount < minimumGoodThingsItemsTotal) {
+        problems.push(`${label}：柚木好物内容卡数量 ${totalCardCount}，少于要求的 ${minimumGoodThingsItemsTotal} 条`);
+      }
+
+      for (const sectionId of requiredGoodThingsSectionIds) {
+        if (!rawText.includes(`id="${sectionId}"`)) {
+          problems.push(`${label}：柚木好物页缺少内容分区 ${sectionId}`);
+          continue;
+        }
+
+        const sectionPattern = new RegExp(
+          `<section class="good-things-section good-things-stream-section" id="${sectionId}"[\\s\\S]*?<\\/section>`,
+          "i",
+        );
+        const sectionMatch = rawText.match(sectionPattern);
+        if (!sectionMatch) {
+          problems.push(`${label}：无法解析内容分区 ${sectionId}`);
+          continue;
+        }
+
+        const sectionCardCount = countMatches(sectionMatch[0], /class="good-item-card\b/g);
+        if (sectionCardCount < minimumGoodThingsItemsPerSection) {
+          problems.push(
+            `${label}：内容分区 ${sectionId} 仅有 ${sectionCardCount} 条好物卡，少于要求的 ${minimumGoodThingsItemsPerSection} 条`,
+          );
         }
       }
 

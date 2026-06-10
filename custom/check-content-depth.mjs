@@ -129,7 +129,35 @@ const requiredTeakOriginTerms = [
 ];
 const goodThingsIndexPath = "solutions/index.html";
 const requiredGoodThingsCategories = ["柚木家具", "柚木地板", "柚木茶室", "柚木户外", "柚木收藏", "柚木文创"];
-const forbiddenGoodThingsIndexTerms = ["Teak Project Gallery", "五个应用场景", "好物方案", "进入方案目录", "购买", "价格", "库存"];
+const requiredGoodThingsSectionIds = [
+  "good-furniture",
+  "good-flooring",
+  "good-tea-room",
+  "good-outdoor",
+  "good-collection",
+  "good-creative",
+];
+const minimumGoodThingsItemsPerSection = 12;
+const minimumGoodThingsItemsTotal = 72;
+const forbiddenGoodThingsIndexTerms = [
+  "Teak Project Gallery",
+  "五个应用场景",
+  "好物方案",
+  "方案目录",
+  "进入方案目录",
+  "项目判断",
+  "资料框架",
+  "购买",
+  "价格",
+  "库存",
+  "下单",
+  "立即购买",
+  "平台认证",
+  "官方推荐",
+  "已认证",
+  "会员站",
+  "审核",
+];
 
 const problems = [];
 
@@ -198,6 +226,10 @@ function countChineseChars(text) {
 
 function countH2(html) {
   return (html.match(/<h2\b/gi) || []).length;
+}
+
+function countMatches(text, pattern) {
+  return [...text.matchAll(pattern)].length;
 }
 
 function requiredMinimum(publicPath) {
@@ -345,6 +377,35 @@ for (const file of htmlFiles) {
     for (const category of requiredGoodThingsCategories) {
       if (!mainText.includes(category)) {
         problems.push(`${publicPath}：柚木好物页缺少 V1.17 生活方式精选分类“${category}”`);
+      }
+    }
+
+    const totalCardCount = countMatches(html, /class="good-item-card\b/g);
+    if (totalCardCount < minimumGoodThingsItemsTotal) {
+      problems.push(`${publicPath}：柚木好物内容卡数量 ${totalCardCount}，少于要求的 ${minimumGoodThingsItemsTotal} 条`);
+    }
+
+    for (const sectionId of requiredGoodThingsSectionIds) {
+      if (!html.includes(`id="${sectionId}"`)) {
+        problems.push(`${publicPath}：柚木好物页缺少内容分区 ${sectionId}`);
+        continue;
+      }
+
+      const sectionPattern = new RegExp(
+        `<section class="good-things-section good-things-stream-section" id="${sectionId}"[\\s\\S]*?<\\/section>`,
+        "i",
+      );
+      const sectionMatch = html.match(sectionPattern);
+      if (!sectionMatch) {
+        problems.push(`${publicPath}：无法解析内容分区 ${sectionId}`);
+        continue;
+      }
+
+      const sectionCardCount = countMatches(sectionMatch[0], /class="good-item-card\b/g);
+      if (sectionCardCount < minimumGoodThingsItemsPerSection) {
+        problems.push(
+          `${publicPath}：内容分区 ${sectionId} 仅有 ${sectionCardCount} 条好物卡，少于要求的 ${minimumGoodThingsItemsPerSection} 条`,
+        );
       }
     }
 
