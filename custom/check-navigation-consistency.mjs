@@ -1,11 +1,11 @@
 /*
 文件说明：该文件用于检查柚喜饰界公开页面的导航一致性。
-功能说明：扫描所有公开 HTML，确认主导航文案、桌面下拉、移动端菜单、脚本路径和不同目录层级的导航路径一致。
+功能说明：扫描公开 HTML 页面，确认主导航、柚木好物下拉、移动端菜单与脚本路径保持统一。
 
 结构概览：
   第一部分：导入依赖与检查范围
   第二部分：文件收集与路径工具
-  第三部分：Header、桌面导航、移动菜单与脚本路径检查
+  第三部分：Header、桌面导航与移动端菜单检查
   第四部分：结果输出
 */
 
@@ -19,6 +19,16 @@ const projectRoot = path.resolve(path.dirname(currentFile), "..");
 const publicEntries = ["index.html", "about", "knowledge", "solutions", "vendors", "forms", "articles", "cases", "cooperation"];
 const requiredLabels = ["首页", "认识柚喜", "柚木知识", "柚木好物", "推荐厂商", "社群交流"];
 const dropdownLabels = ["认识柚喜", "柚木知识", "柚木好物", "推荐厂商"];
+const requiredGoodThingsDropdownLabels = [
+  "柚木好物首页",
+  "柚木家具",
+  "柚木地板",
+  "柚木整装",
+  "柚木户外",
+  "柚木收藏",
+  "柚木文创",
+];
+const forbiddenGoodThingsDropdownLabels = ["庭院户外", "茶室会客", "家具好物", "柚木茶室空间"];
 const problems = [];
 
 // ========== 第二部分：文件收集与路径工具 ==========
@@ -90,7 +100,65 @@ function expectedMainHrefs(relativePath) {
   ];
 }
 
-// ========== 第三部分：Header、桌面导航、移动菜单与脚本路径检查 ==========
+function expectedGoodThingsDropdownHrefs(relativePath) {
+  const prefix = prefixFor(relativePath);
+  const baseHref = `${prefix}solutions/index.html`;
+  return [
+    baseHref,
+    `${baseHref}#good-furniture`,
+    `${baseHref}#good-flooring`,
+    `${baseHref}#good-whole-decoration`,
+    `${baseHref}#good-outdoor`,
+    `${baseHref}#good-collection`,
+    `${baseHref}#good-creative`,
+  ];
+}
+
+function extractGoodThingsDesktopMenu(header) {
+  return (
+    header.match(
+      /<button[^>]*aria-controls="solutions-menu-\d+"[^>]*>\s*柚木好物\s*<\/button>\s*<div class="nav-dropdown-menu" id="solutions-menu-\d+" data-dropdown-menu>([\s\S]*?)<\/div>/,
+    )?.[1] ?? ""
+  );
+}
+
+function extractGoodThingsMobileMenu(header) {
+  return header.match(/<details>\s*<summary>\s*柚木好物\s*<\/summary>([\s\S]*?)<\/details>/)?.[1] ?? "";
+}
+
+function checkGoodThingsMenu(relativePath, block, menuLabel) {
+  if (!block) {
+    problems.push(`${relativePath}：缺少${menuLabel}中的“柚木好物”下拉菜单内容`);
+    return;
+  }
+
+  const menuText = stripTags(block);
+  const hrefs = extractHrefs(block);
+
+  for (const label of requiredGoodThingsDropdownLabels) {
+    if (!menuText.includes(label)) {
+      problems.push(`${relativePath}：${menuLabel}“柚木好物”下拉缺少新分类“${label}”`);
+    }
+  }
+
+  for (const label of forbiddenGoodThingsDropdownLabels) {
+    if (menuText.includes(label)) {
+      problems.push(`${relativePath}：${menuLabel}“柚木好物”下拉仍包含旧口径“${label}”`);
+    }
+  }
+
+  if (menuText.includes("精选")) {
+    problems.push(`${relativePath}：${menuLabel}“柚木好物”下拉不应出现“精选”作为二级栏目名`);
+  }
+
+  for (const href of expectedGoodThingsDropdownHrefs(relativePath)) {
+    if (!hrefs.includes(href)) {
+      problems.push(`${relativePath}：${menuLabel}“柚木好物”下拉缺少路径 ${href}`);
+    }
+  }
+}
+
+// ========== 第三部分：Header、桌面导航与移动端菜单检查 ==========
 function checkHeader(relativePath, html) {
   const header = extractHeader(html);
   const headerText = stripTags(header);
@@ -155,6 +223,9 @@ function checkHeader(relativePath, html) {
   if (depth === 2 && !hrefs.includes("../../index.html")) {
     problems.push(`${relativePath}：三级页面首页路径应为 ../../index.html`);
   }
+
+  checkGoodThingsMenu(relativePath, extractGoodThingsDesktopMenu(header), "桌面端");
+  checkGoodThingsMenu(relativePath, extractGoodThingsMobileMenu(header), "移动端");
 }
 
 const htmlFiles = (await Promise.all(publicEntries.map(collectHtmlFiles))).flat().sort();

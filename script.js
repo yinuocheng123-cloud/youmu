@@ -36,6 +36,24 @@
     return isHomeLikePage() ? "#wechat" : `${getHomeHref()}#wechat`;
   }
 
+  const goodThingsNavItems = [
+    { label: "柚木好物首页", hash: "" },
+    { label: "柚木家具", hash: "#good-furniture" },
+    { label: "柚木地板", hash: "#good-flooring" },
+    { label: "柚木整装", hash: "#good-whole-decoration" },
+    { label: "柚木户外", hash: "#good-outdoor" },
+    { label: "柚木收藏", hash: "#good-collection" },
+    { label: "柚木文创", hash: "#good-creative" },
+  ];
+
+  function getSitePrefix() {
+    return getHomeHref().replace(/index\.html(?:#.*)?$/, "");
+  }
+
+  function getGoodThingsHref(hash = "") {
+    return `${getSitePrefix()}solutions/index.html${hash}`;
+  }
+
   function getHeaderOffset() {
     const header = document.querySelector(".site-header, .content-site-header");
     const headerHeight = header ? header.getBoundingClientRect().height : 0;
@@ -151,6 +169,45 @@
   }
 
   ensureContentMobileMenu();
+
+  function syncGoodThingsMenus() {
+    document.querySelectorAll("[data-dropdown]").forEach((dropdown) => {
+      const trigger = dropdown.querySelector("[data-dropdown-trigger]");
+      const menu = dropdown.querySelector("[data-dropdown-menu]");
+
+      if (!trigger || !menu || trigger.textContent.trim() !== "柚木好物") {
+        return;
+      }
+
+      menu.replaceChildren(
+        ...goodThingsNavItems.map((item) => {
+          const link = document.createElement("a");
+          link.href = getGoodThingsHref(item.hash);
+          link.textContent = item.label;
+          return link;
+        }),
+      );
+    });
+
+    document.querySelectorAll(".mobile-nav details").forEach((details) => {
+      const summary = details.querySelector("summary");
+
+      if (!summary || summary.textContent.trim() !== "柚木好物") {
+        return;
+      }
+
+      details.querySelectorAll("a").forEach((link) => link.remove());
+
+      goodThingsNavItems.forEach((item) => {
+        const link = document.createElement("a");
+        link.href = getGoodThingsHref(item.hash);
+        link.textContent = item.label;
+        details.appendChild(link);
+      });
+    });
+  }
+
+  syncGoodThingsMenus();
 
   const dropdowns = document.querySelectorAll("[data-dropdown]");
   const menuToggle = document.querySelector("[data-menu-toggle]");

@@ -168,6 +168,17 @@ const forbiddenGoodThingsIndexTerms = [
   "审核",
 ];
 
+const requiredGoodThingsDropdownLabels = [
+  "柚木好物首页",
+  "柚木家具",
+  "柚木地板",
+  "柚木整装",
+  "柚木户外",
+  "柚木收藏",
+  "柚木文创",
+];
+const forbiddenGoodThingsDropdownLabels = ["庭院户外", "茶室会客", "家具好物", "柚木茶室空间"];
+
 const problems = [];
 
 // ========== 第二部分：文件收集与正文提取 ==========
@@ -227,6 +238,69 @@ function extractHeaderNav(html) {
   const fallbackNavMatch = headerHtml.match(/<nav[\s\S]*?<\/nav>/i);
 
   return stripTags(desktopNavMatch ? desktopNavMatch[0] : fallbackNavMatch ? fallbackNavMatch[0] : headerHtml);
+}
+
+function extractHeaderHtml(html) {
+  return html.match(/<header[\s\S]*?<\/header>/i)?.[0] ?? "";
+}
+
+function extractGoodThingsDesktopMenu(text) {
+  return (
+    text.match(
+      /<button[^>]*aria-controls="solutions-menu-\d+"[^>]*>\s*柚木好物\s*<\/button>\s*<div class="nav-dropdown-menu" id="solutions-menu-\d+" data-dropdown-menu>([\s\S]*?)<\/div>/i,
+    )?.[1] ?? ""
+  );
+}
+
+function extractGoodThingsMobileMenu(text) {
+  return text.match(/<details>\s*<summary>\s*柚木好物\s*<\/summary>([\s\S]*?)<\/details>/i)?.[1] ?? "";
+}
+
+function expectedGoodThingsDropdownHrefs(publicPath) {
+  const depth = publicPath.split("/").length - 1;
+  const prefix = depth === 0 ? "./" : "../".repeat(depth);
+  const baseHref = `${prefix}solutions/index.html`;
+  return [
+    baseHref,
+    `${baseHref}#good-furniture`,
+    `${baseHref}#good-flooring`,
+    `${baseHref}#good-whole-decoration`,
+    `${baseHref}#good-outdoor`,
+    `${baseHref}#good-collection`,
+    `${baseHref}#good-creative`,
+  ];
+}
+
+function checkGoodThingsDropdown(publicPath, menuLabel, block) {
+  if (!block) {
+    problems.push(`${publicPath}：${menuLabel}缺少“柚木好物”下拉内容`);
+    return;
+  }
+
+  const menuText = stripTags(block);
+  const hrefs = [...block.matchAll(/\shref="([^"]+)"/g)].map((match) => match[1]);
+
+  for (const item of requiredGoodThingsDropdownLabels) {
+    if (!menuText.includes(item)) {
+      problems.push(`${publicPath}：${menuLabel}“柚木好物”下拉缺少“${item}”`);
+    }
+  }
+
+  for (const item of forbiddenGoodThingsDropdownLabels) {
+    if (menuText.includes(item)) {
+      problems.push(`${publicPath}：${menuLabel}“柚木好物”下拉仍出现旧项“${item}”`);
+    }
+  }
+
+  if (menuText.includes("精选")) {
+    problems.push(`${publicPath}：${menuLabel}“柚木好物”下拉不应出现“精选”作为二级栏目名`);
+  }
+
+  for (const href of expectedGoodThingsDropdownHrefs(publicPath)) {
+    if (!hrefs.includes(href)) {
+      problems.push(`${publicPath}：${menuLabel}“柚木好物”下拉缺少路径 ${href}`);
+    }
+  }
 }
 
 function countChineseChars(text) {
@@ -300,6 +374,7 @@ for (const file of htmlFiles) {
   const html = await fs.readFile(file, "utf8");
   const mainText = extractMainText(html);
   const navText = extractHeaderNav(html);
+  const headerHtml = extractHeaderHtml(html);
   const toneText = allowedNoticePhrases.reduce((text, phrase) => text.replaceAll(phrase, ""), html);
   const chineseCount = countChineseChars(mainText);
   const minimum = requiredMinimum(publicPath);
@@ -325,6 +400,9 @@ for (const file of htmlFiles) {
       problems.push(`${publicPath}：内容页主导航不应出现 ${label}`);
     }
   }
+
+  checkGoodThingsDropdown(publicPath, "桌面端", extractGoodThingsDesktopMenu(headerHtml));
+  checkGoodThingsDropdown(publicPath, "移动端", extractGoodThingsMobileMenu(headerHtml));
 
   for (const word of forbiddenToneWords) {
     if (toneText.includes(word)) {

@@ -459,6 +459,16 @@ const forbiddenGoodThingsIndexTerms = [
   "会员站",
   "审核",
 ];
+const requiredGoodThingsDropdownLabels = [
+  "柚木好物首页",
+  "柚木家具",
+  "柚木地板",
+  "柚木整装",
+  "柚木户外",
+  "柚木收藏",
+  "柚木文创",
+];
+const forbiddenGoodThingsDropdownLabels = ["庭院户外", "茶室会客", "家具好物", "柚木茶室空间"];
 const requiredVendorPages = [
   "vendors/wachen-teak.html",
   "vendors/shanghai-zhuangxin-teak.html",
@@ -602,6 +612,69 @@ function collectNavBlocks(text) {
   return blocks;
 }
 
+function extractHeaderBlock(text) {
+  return text.match(/<header[\s\S]*?<\/header>/i)?.[0] ?? "";
+}
+
+function extractGoodThingsDesktopMenu(text) {
+  return (
+    text.match(
+      /<button[^>]*aria-controls="solutions-menu-\d+"[^>]*>\s*柚木好物\s*<\/button>\s*<div class="nav-dropdown-menu" id="solutions-menu-\d+" data-dropdown-menu>([\s\S]*?)<\/div>/i,
+    )?.[1] ?? ""
+  );
+}
+
+function extractGoodThingsMobileMenu(text) {
+  return text.match(/<details>\s*<summary>\s*柚木好物\s*<\/summary>([\s\S]*?)<\/details>/i)?.[1] ?? "";
+}
+
+function expectedGoodThingsDropdownHrefs(publicPath) {
+  const depth = publicPath.split("/").length - 1;
+  const prefix = depth === 0 ? "./" : "../".repeat(depth);
+  const baseHref = `${prefix}solutions/index.html`;
+  return [
+    baseHref,
+    `${baseHref}#good-furniture`,
+    `${baseHref}#good-flooring`,
+    `${baseHref}#good-whole-decoration`,
+    `${baseHref}#good-outdoor`,
+    `${baseHref}#good-collection`,
+    `${baseHref}#good-creative`,
+  ];
+}
+
+function checkGoodThingsDropdown(label, menuLabel, block) {
+  if (!block) {
+    problems.push(`${label}：${menuLabel}缺少“柚木好物”下拉内容`);
+    return;
+  }
+
+  const menuText = stripTags(block);
+  const hrefs = [...block.matchAll(/\shref="([^"]+)"/g)].map((match) => match[1]);
+
+  for (const item of requiredGoodThingsDropdownLabels) {
+    if (!menuText.includes(item)) {
+      problems.push(`${label}：${menuLabel}“柚木好物”下拉缺少“${item}”`);
+    }
+  }
+
+  for (const item of forbiddenGoodThingsDropdownLabels) {
+    if (menuText.includes(item)) {
+      problems.push(`${label}：${menuLabel}“柚木好物”下拉仍出现旧项“${item}”`);
+    }
+  }
+
+  if (menuText.includes("精选")) {
+    problems.push(`${label}：${menuLabel}“柚木好物”下拉不应出现“精选”作为二级栏目名`);
+  }
+
+  for (const href of expectedGoodThingsDropdownHrefs(label)) {
+    if (!hrefs.includes(href)) {
+      problems.push(`${label}：${menuLabel}“柚木好物”下拉缺少路径 ${href}`);
+    }
+  }
+}
+
 function stripTags(text) {
   return text.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 }
@@ -675,6 +748,7 @@ for (const file of files) {
     const isSecondLevelHtml = label.includes("/");
     const isBackupContactPage = label === "forms/consult.html";
     const navBlocks = collectNavBlocks(visibleText);
+    const headerBlock = extractHeaderBlock(visibleText);
 
     for (const navBlock of navBlocks) {
       const navText = stripTags(navBlock);
@@ -682,6 +756,9 @@ for (const file of files) {
         problems.push(`${label}：主导航或移动导航仍使用“会员站”，应统一为“推荐厂商”`);
       }
     }
+
+    checkGoodThingsDropdown(label, "桌面端", extractGoodThingsDesktopMenu(headerBlock));
+    checkGoodThingsDropdown(label, "移动端", extractGoodThingsMobileMenu(headerBlock));
 
     if (!visibleText.includes("data-dropdown") || !visibleText.includes("data-dropdown-menu")) {
       problems.push(`${label}：公开页面缺少统一桌面下拉导航结构`);
