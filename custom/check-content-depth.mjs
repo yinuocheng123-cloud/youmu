@@ -128,11 +128,11 @@ const requiredTeakOriginTerms = [
   "买之前",
 ];
 const goodThingsIndexPath = "solutions/index.html";
-const requiredGoodThingsCategories = ["柚木家具", "柚木地板", "柚木茶室", "柚木户外", "柚木收藏", "柚木文创"];
+const requiredGoodThingsCategories = ["柚木家具", "柚木地板", "柚木整装", "柚木户外", "柚木收藏", "柚木文创"];
 const requiredGoodThingsSectionIds = [
   "good-furniture",
   "good-flooring",
-  "good-tea-room",
+  "good-whole-decoration",
   "good-outdoor",
   "good-collection",
   "good-creative",
@@ -141,12 +141,21 @@ const minimumGoodThingsItemsPerSection = 12;
 const minimumGoodThingsItemsTotal = 72;
 const forbiddenGoodThingsIndexTerms = [
   "Teak Project Gallery",
+  "柚木家具精选",
+  "柚木地板精选",
+  "柚木茶室精选",
+  "柚木户外精选",
+  "柚木收藏精选",
+  "柚木文创精选",
+  "精选库",
+  "精选内容流",
   "五个应用场景",
   "好物方案",
   "方案目录",
   "进入方案目录",
   "项目判断",
   "资料框架",
+  "good-tea-room",
   "购买",
   "价格",
   "库存",
@@ -376,8 +385,16 @@ for (const file of htmlFiles) {
   if (publicPath === goodThingsIndexPath) {
     for (const category of requiredGoodThingsCategories) {
       if (!mainText.includes(category)) {
-        problems.push(`${publicPath}：柚木好物页缺少 V1.17 生活方式精选分类“${category}”`);
+        problems.push(`${publicPath}：柚木好物页缺少 V1.17.2 二级分类“${category}”`);
       }
+    }
+
+    if (
+      /<section class="good-things-section good-things-stream-section" id="good-tea-room"/i.test(html)
+      || /<h2>柚木茶室<\/h2>/i.test(html)
+      || /href="#good-tea-room"/i.test(html)
+    ) {
+      problems.push(`${publicPath}：柚木茶室仍被当作六大主分类之一，未完成并入柚木整装`);
     }
 
     const totalCardCount = countMatches(html, /class="good-item-card\b/g);

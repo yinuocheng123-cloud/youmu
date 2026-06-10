@@ -5857,6 +5857,7 @@ h3,
   --good-accent: #6c4a1f;
 }
 
+.tone-whole-decoration,
 .tone-tearoom {
   --good-tone: rgba(101, 112, 71, 0.18);
   --good-glow: rgba(154, 103, 54, 0.14);

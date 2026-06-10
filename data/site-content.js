@@ -137,9 +137,9 @@
         children: [
           { label: "柚木整装", href: "#solution-whole-decoration" },
           { label: "柚木地板", href: "#solution-flooring" },
-          { label: "庭院户外", href: "#solution-outdoor" },
-          { label: "茶室会客", href: "#solution-tea-room" },
-          { label: "家具好物", href: "#solution-furniture" },
+          { label: "柚木户外", href: "#solution-outdoor" },
+          { label: "柚木茶室空间", href: "#solution-tea-room" },
+          { label: "柚木家具", href: "#solution-furniture" },
         ],
         ...status.formalCopy,
       },
@@ -170,7 +170,7 @@
       {
         title: "认识柚喜",
         description:
-        "柚喜饰界围绕柚木知识、柚木好物、推荐厂商和社群交流，帮助用户从认识材料开始，逐步发现柚木家具、地板、茶室、户外、收藏和文创内容。",
+        "柚喜饰界围绕柚木知识、柚木好物、推荐厂商和社群交流，帮助用户从认识材料开始，逐步发现柚木家具、柚木地板、柚木整装、柚木户外、柚木收藏和柚木文创内容。",
         ...status.formalCopy,
       },
       {
@@ -299,7 +299,7 @@
     },
     goods: {
       title: "柚木好物",
-      subtitle: "从家具、地板、茶室、户外、收藏到文创，发现柚木进入生活后的不同样子。",
+      subtitle: "从柚木家具、柚木地板、柚木整装、柚木户外、柚木收藏到柚木文创，发现柚木进入生活后的不同样子。",
       items: [
         {
           id: "furniture",
@@ -332,18 +332,18 @@
           ...status.demoProduct,
         },
         {
-          id: "tea-room",
-          title: "柚木茶柜",
-          subtitle: "适合茶室、会客和安静收纳场景",
-          description: "从开放格比例、抽屉进深到防尘处理，观察茶室木作如何形成温润秩序。",
+          id: "whole-decoration",
+          title: "柚木护墙板",
+          subtitle: "适合客厅、书房和茶室背景面",
+          description: "从拼缝节奏、墙角收口到整面上墙后的空间压迫感，观察柚木木作如何进入完整空间。",
           image: {
-            src: "./assets/images/product-teak-cabinet.jpg",
-            alt: "柚木茶柜与茶室收纳参考",
+            src: "./assets/images/vendor-craft-sample.jpg",
+            alt: "柚木护墙板与空间木作参考",
             ...status.openStockImage,
           },
-          tags: ["柚木茶室", "茶柜", "内容流"],
-          points: ["关注开放格比例", "关注抽屉进深", "关注防尘处理"],
-          action: "发现柚木茶柜",
+          tags: ["柚木整装", "护墙板", "内容流"],
+          points: ["关注拼缝节奏", "关注墙角收口", "关注整面上墙后的压迫感"],
+          action: "发现柚木护墙板",
           ...status.demoProduct,
         },
         {
@@ -397,7 +397,7 @@
     vendors: {
       title: "推荐厂商资料",
       subtitle:
-        "按柚木地板、柚木整装、庭院户外、茶室会客和家具好物，查看相关企业资料。",
+        "按柚木家具、柚木地板、柚木整装、柚木户外、柚木收藏和柚木文创，查看相关企业资料。",
       sharedLabel: "推荐厂商资料",
       items: [
         {
@@ -427,10 +427,10 @@
         {
           name: "臻藏柚木生活",
           badge: "柚木生活空间",
-          description: "关注整装、茶室、家具与生活场景表达。",
+          description: "关注整装、家具、收纳木作与整体生活场景表达。",
           image: {
             src: "./assets/images/product-teak-table.jpg",
-            alt: "茶室会客柚木场景参考图",
+            alt: "柚木生活空间与木作场景参考图",
             ...status.openStockImage,
           },
           action: "进入资料页",
@@ -450,11 +450,11 @@
         },
         {
           name: "雪莲花柚木家具",
-          badge: "家具好物",
+          badge: "柚木家具",
           description: "关注桌椅、柜体、边几、收纳和居家搭配。",
           image: {
             src: "./assets/images/vendor-workshop-sample.jpg",
-            alt: "柚木家具好物与工坊参考图",
+            alt: "柚木家具与工坊参考图",
             ...status.openStockImage,
           },
           action: "进入资料页",
@@ -466,7 +466,7 @@
           description: "关注材料、产品方向、空间应用和服务说明。",
           image: {
             src: "./assets/images/product-teak-chair.jpg",
-            alt: "庭院户外柚木场景参考图",
+            alt: "柚木户外场景参考图",
             ...status.openStockImage,
           },
           action: "进入资料页",
@@ -478,7 +478,7 @@
     standards: {
       title: "用户如何看好物分类企业资料页？",
       items: [
-        { title: "分类匹配清楚", description: "先看企业资料页是否能说明自己偏向地板、整装、庭院户外、茶室会客或家具好物中的哪一类。", icon: "01", ...status.formalCopy },
+        { title: "分类匹配清楚", description: "先看企业资料页是否能说明自己偏向柚木家具、柚木地板、柚木整装、柚木户外、柚木收藏或柚木文创中的哪一类。", icon: "01", ...status.formalCopy },
         { title: "基础资料完整", description: "是否能提供可公开的企业介绍、产品说明、服务区域、工艺过程和联系信息。", icon: "02", ...status.formalCopy },
         { title: "愿意公开信息", description: "图片、文字和案例材料是否说明来源与图片来源，避免把参考资料误解成真实成交内容。", icon: "03", ...status.formalCopy },
         { title: "重视交付售后", description: "能否说明沟通、生产、交付、安装、维护和售后说明，减少后续理解偏差。", icon: "04", ...status.formalCopy },
