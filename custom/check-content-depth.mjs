@@ -18,6 +18,15 @@ const currentFile = fileURLToPath(import.meta.url);
 const projectRoot = path.resolve(path.dirname(currentFile), "..");
 
 const contentEntries = ["knowledge", "solutions", "articles", "vendors", "cases", "about"];
+const requiredVendorPages = [
+  "vendors/wachen-teak.html",
+  "vendors/shanghai-zhuangxin-teak.html",
+  "vendors/zhenzang-teak-life.html",
+  "vendors/yuebaijia-teak-flooring.html",
+  "vendors/xuelianhua-teak-furniture.html",
+  "vendors/yixin-teak.html",
+];
+const requiredVendorSections = ["品牌方向", "适合关注", "公开资料看点", "仍需补充", "来源说明"];
 const requiredNavLabelGroups = [["认识柚喜"], ["柚木知识"], ["柚木好物"], ["推荐厂商"], ["社群交流"]];
 const forbiddenTopNavLabels = ["咨询表单", "厂商申请", "关于我们"];
 const forbiddenToneWords = [
@@ -234,6 +243,13 @@ function requiredMinimum(publicPath) {
 
 // ========== 第三部分：内容深度与口径规则检查 ==========
 const htmlFiles = (await Promise.all(contentEntries.map(collectHtmlFiles))).flat().sort();
+const htmlFileSet = new Set(htmlFiles.map(toPublicPath));
+
+for (const vendorPage of requiredVendorPages) {
+  if (!htmlFileSet.has(vendorPage)) {
+    problems.push(`缺少 V1.16.1 推荐厂商资料页 ${vendorPage}`);
+  }
+}
 
 for (const file of htmlFiles) {
   const publicPath = toPublicPath(file);
@@ -310,6 +326,14 @@ for (const file of htmlFiles) {
     for (const term of requiredTeakOriginTerms) {
       if (!mainText.includes(term)) {
         problems.push(`${publicPath}：产地基础文章缺少必要主题“${term}”`);
+      }
+    }
+  }
+
+  if (requiredVendorPages.includes(publicPath)) {
+    for (const section of requiredVendorSections) {
+      if (!mainText.includes(section)) {
+        problems.push(`${publicPath}：推荐厂商资料页缺少必要栏目“${section}”`);
       }
     }
   }

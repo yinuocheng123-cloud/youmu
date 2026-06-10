@@ -35,11 +35,15 @@ const repeatedQuestionPattern = /\?{6,}/;
 const garbledPatterns = [/閿熸枻鎷?/g, /锟/g, /鏌氬/g, /鐢宠/g, /绀剧兢/g];
 
 const riskTerms = [
+  "已认证",
   "平台认证",
   "官方推荐",
+  "平台背书",
   "交易担保",
+  "真实合作",
   "真实入驻",
   "已入驻",
+  "入驻企业",
   "正式会员",
   "成功案例",
   "客户案例",
@@ -47,10 +51,12 @@ const riskTerms = [
   "立即购买",
   "在线下单",
   "厂家直销",
+  "保证成交",
   "行业第一",
   "权威推荐",
   "平台担保",
   "正式入驻",
+  "审核通过",
 ];
 
 const placeholderTerms = [
@@ -410,6 +416,31 @@ const naturalLongformArticlePaths = new Set([
   "knowledge/topics/teak-origin-basic.html",
 ]);
 const naturalLongformForbiddenTerms = ["本篇目录", "保养主题目录", "文章内目录"];
+const requiredVendorPages = [
+  "vendors/wachen-teak.html",
+  "vendors/shanghai-zhuangxin-teak.html",
+  "vendors/zhenzang-teak-life.html",
+  "vendors/yuebaijia-teak-flooring.html",
+  "vendors/xuelianhua-teak-furniture.html",
+  "vendors/yixin-teak.html",
+];
+const vendorStrongFactTerms = [
+  "案例数量",
+  "工厂规模",
+  "认证资质",
+  "获奖信息",
+  "合作客户",
+  "厂家直销",
+  "保证成交",
+  "已认证",
+  "审核通过",
+];
+const fakeContactPatterns = [
+  /400-?888-?XXXX/i,
+  /hello@yuxishi\.com/i,
+  /1380{8}/,
+  /1[3-9]0{9}/,
+];
 
 const disclaimerAllowPhrases = [
   "不构成平台背书",
@@ -533,6 +564,13 @@ function stripTags(text) {
 }
 
 const files = (await Promise.all(checkEntries.map(collectFiles))).flat().sort();
+const fileLabelSet = new Set(files.map(toPublicPath));
+
+for (const vendorPage of requiredVendorPages) {
+  if (!fileLabelSet.has(vendorPage)) {
+    problems.push(`缺少 V1.16.1 推荐厂商资料页 ${vendorPage}`);
+  }
+}
 
 // ========== 第三部分：乱码、高风险词、占位词与入口路径检查 ==========
 for (const file of files) {
@@ -634,6 +672,26 @@ for (const file of files) {
             problems.push(`${label}:${index + 1}：厂商区前台仍存在机械表达“${term}”`);
           }
         });
+      }
+
+      if (requiredVendorPages.includes(label)) {
+        if (!visibleText.includes("来源说明") && !visibleText.includes("公开资料来源")) {
+          problems.push(`${label}：推荐厂商资料页缺少“来源说明”或“公开资料来源”`);
+        }
+
+        for (const term of vendorStrongFactTerms) {
+          lines.forEach((line, index) => {
+            if (line.includes(term) && !hasSafeDisclaimerContext(line, term)) {
+              problems.push(`${label}:${index + 1}：推荐厂商资料页存在未经来源支撑的强事实风险词“${term}”`);
+            }
+          });
+        }
+
+        for (const pattern of fakeContactPatterns) {
+          if (pattern.test(visibleText)) {
+            problems.push(`${label}：推荐厂商资料页存在疑似虚假联系方式 ${pattern}`);
+          }
+        }
       }
     }
 

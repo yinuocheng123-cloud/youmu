@@ -19,7 +19,7 @@
     "此处为开放授权图库素材，已记录来源页面、平台与授权说明。";
 
   const demoVendorNote =
-    "此处为推荐厂商资料展示方向，用于呈现不同企业类型的内容组织方式。";
+    "推荐厂商资料以企业公开资料或授权资料为准，未核到的内容不写成确定事实。";
 
   const demoProductNote =
     "此处为首页柚木好物场景示意，用于呈现不同生活场景中的柚木应用。";
@@ -380,69 +380,81 @@
       ...status.demoProduct,
     },
     vendors: {
-      title: "按柚木好物分类查看推荐厂商资料页",
+      title: "推荐厂商资料",
       subtitle:
         "按柚木地板、柚木整装、庭院户外、茶室会客和家具好物，查看相关企业资料。",
-      sharedLabel: "企业资料页方向入口",
+      sharedLabel: "推荐厂商资料",
       items: [
         {
-          name: "柚木地板企业资料页参考",
-          badge: "地板方向",
-          description: "关注地板规格、安装方式、服务区域和后续维护。",
+          name: "佤臣柚木",
+          badge: "柚木整装",
+          description: "关注全房柚木定制、木作空间和缅甸柚木应用方向。",
           image: {
             src: "./assets/images/vendor-craft-sample.jpg",
-            alt: "柚木地板工艺与材料参考图",
+            alt: "柚木整装工艺与材料参考图",
             ...status.openStockImage,
           },
-          action: "查看地板企业资料",
+          action: "进入资料页",
           ...status.demoVendor,
         },
         {
-          name: "柚木整装企业资料页参考",
-          badge: "整装方向",
-          description: "关注空间方案、木作配合、案例资料和交付能力。",
+          name: "上海庄信柚木",
+          badge: "资料线索",
+          description: "公开资料需进一步核对，先保留企业资料线索页。",
           image: {
             src: "./assets/images/vendor-showroom-sample.jpg",
             alt: "木作材料与空间展示参考图",
             ...status.openStockImage,
           },
-          action: "查看整装企业资料",
+          action: "进入资料页",
           ...status.demoVendor,
         },
         {
-          name: "庭院户外柚木企业资料页",
-          badge: "庭院户外",
-          description: "关注耐候材料、结构五金、户外使用和维护经验。",
-          image: {
-            src: "./assets/images/product-teak-chair.jpg",
-            alt: "庭院户外柚木场景参考图",
-            ...status.openStockImage,
-          },
-          action: "查看户外企业方向",
-          ...status.demoVendor,
-        },
-        {
-          name: "茶室会客柚木企业资料页",
-          badge: "茶室会客",
-          description: "关注茶桌、柜体、地面、灯光和空间气质。",
+          name: "臻藏柚木生活",
+          badge: "柚木生活空间",
+          description: "关注整装、茶室、家具与生活场景表达。",
           image: {
             src: "./assets/images/product-teak-table.jpg",
             alt: "茶室会客柚木场景参考图",
             ...status.openStockImage,
           },
-          action: "查看茶室企业方向",
+          action: "进入资料页",
           ...status.demoVendor,
         },
         {
-          name: "柚木家具好物企业",
+          name: "悦百家柚木地板",
+          badge: "柚木地板",
+          description: "关注地板材质、规格、安装和维护表达。",
+          image: {
+            src: "./assets/images/knowledge-teak-grain.jpg",
+            alt: "柚木地板纹理与材料参考图",
+            ...status.openStockImage,
+          },
+          action: "进入资料页",
+          ...status.demoVendor,
+        },
+        {
+          name: "雪莲花柚木家具",
           badge: "家具好物",
-          description: "关注桌椅、柜体、边几、收纳和日常使用细节。",
+          description: "关注桌椅、柜体、边几、收纳和居家搭配。",
           image: {
             src: "./assets/images/vendor-workshop-sample.jpg",
             alt: "柚木家具好物与工坊参考图",
             ...status.openStockImage,
           },
-          action: "查看家具企业资料",
+          action: "进入资料页",
+          ...status.demoVendor,
+        },
+        {
+          name: "壹信柚木",
+          badge: "综合方向",
+          description: "关注材料、产品方向、空间应用和服务说明。",
+          image: {
+            src: "./assets/images/product-teak-chair.jpg",
+            alt: "庭院户外柚木场景参考图",
+            ...status.openStockImage,
+          },
+          action: "进入资料页",
           ...status.demoVendor,
         },
       ],

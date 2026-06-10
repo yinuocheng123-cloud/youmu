@@ -31,6 +31,15 @@ const publicHtmlEntries = [
   "about",
   "cooperation",
 ];
+const requiredPublicPaths = [
+  "cooperation/index.html",
+  "vendors/wachen-teak.html",
+  "vendors/shanghai-zhuangxin-teak.html",
+  "vendors/zhenzang-teak-life.html",
+  "vendors/yuebaijia-teak-flooring.html",
+  "vendors/xuelianhua-teak-furniture.html",
+  "vendors/yixin-teak.html",
+];
 
 const externalProtocolPattern = /^(https?:|mailto:|tel:)/i;
 const forbiddenSitemapFragments = [
@@ -97,6 +106,12 @@ function normalizeRelativePath(filePath) {
 const htmlFiles = (await Promise.all(publicHtmlEntries.map(collectHtmlFiles))).flat().sort();
 const htmlFileSet = new Set(htmlFiles.map(normalizeRelativePath));
 const sitemapXml = await fs.readFile(sitemapPath, "utf8");
+
+for (const requiredPath of requiredPublicPaths) {
+  if (!htmlFileSet.has(requiredPath)) {
+    problems.push(`公开页面缺少必要页面 ${requiredPath}`);
+  }
+}
 
 // ========== 第三部分：HTML href 链接规则检查 ==========
 function extractHrefs(html) {
@@ -238,6 +253,12 @@ for (const url of sitemapUrls) {
 for (const publicPath of htmlFileSet) {
   if (!sitemapPaths.has(publicPath)) {
     problems.push(`sitemap.xml：缺少公开页面 ${publicPath}`);
+  }
+}
+
+for (const requiredPath of requiredPublicPaths) {
+  if (!sitemapPaths.has(requiredPath)) {
+    problems.push(`sitemap.xml：缺少 V1.16.1 必要页面 ${requiredPath}`);
   }
 }
 
