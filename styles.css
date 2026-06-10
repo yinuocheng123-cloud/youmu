@@ -2906,6 +2906,74 @@ body {
   }
 }
 
+/* ========== V1.16：正式上线冲刺页与厂商品牌馆 ========== */
+.cooperation-layout,
+.vendor-profile-layout {
+  width: min(1040px, calc(100% - 48px));
+}
+
+.cooperation-hero,
+.vendor-profile-hero {
+  background:
+    linear-gradient(135deg, rgba(255, 250, 242, 0.96), rgba(239, 222, 197, 0.92)),
+    radial-gradient(circle at 88% 12%, rgba(154, 103, 54, 0.16), transparent 18rem);
+}
+
+.cooperation-section,
+.featured-vendor-section,
+.vendor-profile-layout .vendor-guide-section {
+  background:
+    linear-gradient(180deg, rgba(255, 250, 242, 0.94), rgba(246, 236, 220, 0.9)),
+    radial-gradient(circle at 100% 0%, rgba(101, 112, 71, 0.1), transparent 12rem);
+}
+
+.featured-vendor-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.vendor-feature-card {
+  color: inherit;
+  text-decoration: none;
+}
+
+.vendor-feature-card .text-link {
+  width: fit-content;
+  margin-top: 10px;
+}
+
+.cooperation-benefits {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.vendor-profile-layout .vendor-direction-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.vendor-profile-layout .content-cta {
+  margin-top: 24px;
+}
+
+@media (max-width: 980px) {
+  .featured-vendor-grid,
+  .cooperation-benefits,
+  .vendor-profile-layout .vendor-direction-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .cooperation-layout,
+  .vendor-profile-layout {
+    width: calc(100% - 28px);
+  }
+
+  .featured-vendor-grid,
+  .cooperation-benefits,
+  .vendor-profile-layout .vendor-direction-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ========== V1.8.3：内容页移动端导航接入 ========== */
 @media (max-width: 900px) {
   .content-site-header {

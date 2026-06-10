@@ -68,7 +68,7 @@
       isDemo: true,
       replaceBeforeLaunch: true,
       materialType: "contact",
-      replaceNote: "联系方式以社群交流和企业资料提交入口承接。",
+      replaceNote: "联系方式以社群交流和企业合作页承接。",
     },
     providedQrReview: {
       isDemo: false,
@@ -249,7 +249,7 @@
           anchor: "#knowledge-faq",
           summary: "用 FAQ 方式回答用户真实搜索问题，后续适合做 GEO 内容沉淀。",
           topics: ["柚木适合南方潮湿环境吗", "柚木地板和普通木地板怎么比", "整装空间是不是一定很贵"],
-          ctaText: "提交我的问题",
+          ctaText: "带着问题交流",
           ...status.articleDirection,
         },
       ],
@@ -383,10 +383,10 @@
       title: "按柚木好物分类查看推荐厂商资料页",
       subtitle:
         "按柚木地板、柚木整装、庭院户外、茶室会客和家具好物，查看相关企业资料。",
-      sharedLabel: "企业资料页示例入口",
+      sharedLabel: "企业资料页方向入口",
       items: [
         {
-          name: "柚木地板企业资料页示例",
+          name: "柚木地板企业资料页参考",
           badge: "地板方向",
           description: "关注地板规格、安装方式、服务区域和后续维护。",
           image: {
@@ -398,7 +398,7 @@
           ...status.demoVendor,
         },
         {
-          name: "柚木整装企业资料页示例",
+          name: "柚木整装企业资料页参考",
           badge: "整装方向",
           description: "关注空间方案、木作配合、案例资料和交付能力。",
           image: {
@@ -483,7 +483,7 @@
     footer: {
       contact: {
         phone: { label: "普通用户", value: "请通过社群交流区添加柚喜顾问", ...status.formalCopy },
-        email: { label: "品牌 / 企业", value: "可通过推荐厂商申请入口提交资料", ...status.formalCopy },
+        email: { label: "品牌 / 企业", value: "可通过企业合作页整理资料", ...status.formalCopy },
         address: {
           label: "联系方式",
           value: "想了解柚木知识、好物应用或企业资料，可先通过社群交流沟通。",

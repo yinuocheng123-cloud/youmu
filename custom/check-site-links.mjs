@@ -29,6 +29,7 @@ const publicHtmlEntries = [
   "articles",
   "forms",
   "about",
+  "cooperation",
 ];
 
 const externalProtocolPattern = /^(https?:|mailto:|tel:)/i;
