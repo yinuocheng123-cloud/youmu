@@ -144,6 +144,10 @@ for (const relativePath of goodsFiles) {
   const related = html.match(/<section class="goods-related-section"[\s\S]*?<\/section>/i)?.[0] ?? "";
   const relatedCount = countMatches(related, /<a\b/g);
   if (relatedCount < 3) problems.push(`${relativePath}：相关好物链接 ${relatedCount} 个，少于 3 个`);
+
+  const sourceSection = html.match(/<section class="goods-source-section"[\s\S]*?<\/section>/i)?.[0] ?? "";
+  const sourceCount = countMatches(sourceSection, /href="https?:\/\//g);
+  if (sourceCount < 3) problems.push(`${relativePath}：延伸资料外部链接 ${sourceCount} 个，少于 3 个`);
 }
 
 // ========== 第四部分：结果输出 ==========
