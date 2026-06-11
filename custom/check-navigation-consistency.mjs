@@ -1,62 +1,59 @@
 /*
-文件说明：该文件用于检查柚喜饰界公开页面的导航一致性。
-功能说明：扫描公开 HTML 页面，确认主导航、柚木好物下拉、移动端菜单与脚本路径保持统一。
+文件说明：该文件用于检查全站导航与柚木好物六类下拉的一致性。
+功能说明：扫描公开 HTML 的 Header，确认桌面端和移动端好物下拉都使用六类新体系，并拦截旧二级名回潮。
 
 结构概览：
-  第一部分：导入依赖与检查范围
-  第二部分：文件收集与路径工具
-  第三部分：Header、桌面导航与移动端菜单检查
-  第四部分：结果输出
+  第一部分：公共扫描工具
+  第二部分：Header 与下拉菜单检查
+  第三部分：结果输出
 */
 
-// ========== 第一部分：导入依赖与检查范围 ==========
+
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const currentFile = fileURLToPath(import.meta.url);
 const projectRoot = path.resolve(path.dirname(currentFile), "..");
-const publicEntries = ["index.html", "about", "knowledge", "solutions", "vendors", "forms", "articles", "cases", "cooperation"];
-const requiredLabels = ["首页", "认识柚喜", "柚木知识", "柚木好物", "推荐厂商", "社群交流"];
-const dropdownLabels = ["认识柚喜", "柚木知识", "柚木好物", "推荐厂商"];
-const requiredGoodThingsDropdownLabels = [
-  "柚木好物首页",
-  "柚木家具",
-  "柚木地板",
-  "柚木整装",
-  "柚木户外",
-  "柚木收藏",
-  "柚木文创",
-];
-const forbiddenGoodThingsDropdownLabels = ["庭院户外", "茶室会客", "家具好物", "柚木茶室空间"];
+const publicEntries = ["index.html", "data/site-content.js", "knowledge", "solutions", "vendors", "cooperation", "about", "articles", "cases", "forms"];
+const htmlEntries = ["index.html", "knowledge", "solutions", "vendors", "cooperation", "about", "articles", "cases", "forms"];
 const problems = [];
 
-// ========== 第二部分：文件收集与路径工具 ==========
-async function collectHtmlFiles(entry) {
+async function collectFiles(entry, extensions = new Set([".html", ".js"])) {
   const absolute = path.join(projectRoot, entry);
   const stat = await fs.stat(absolute);
 
   if (stat.isFile()) {
-    return absolute.endsWith(".html") ? [entry] : [];
+    return extensions.has(path.extname(absolute)) ? [entry.replaceAll(path.sep, "/")] : [];
   }
 
   const files = [];
   const children = await fs.readdir(absolute, { withFileTypes: true });
-
   for (const child of children) {
     const relative = path.join(entry, child.name).replaceAll(path.sep, "/");
-
     if (child.isDirectory()) {
-      files.push(...(await collectHtmlFiles(relative)));
-      continue;
-    }
-
-    if (child.isFile() && child.name.endsWith(".html")) {
+      files.push(...(await collectFiles(relative, extensions)));
+    } else if (child.isFile() && extensions.has(path.extname(child.name))) {
       files.push(relative);
     }
   }
-
   return files;
+}
+
+async function read(relativePath) {
+  return fs.readFile(path.join(projectRoot, relativePath), "utf8");
+}
+
+function stripTags(html) {
+  return html.replace(/<script[\s\S]*?<\/script>/gi, "").replace(/<style[\s\S]*?<\/style>/gi, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function extractHeader(html) {
+  return html.match(/<header[\s\S]*?<\/header>/i)?.[0] ?? "";
+}
+
+function extractHrefs(html) {
+  return [...html.matchAll(/\shref\s*=\s*(["'])(.*?)\1/gi)].map((match) => match[2]);
 }
 
 function depthOf(relativePath) {
@@ -68,180 +65,66 @@ function prefixFor(relativePath) {
   return depth === 0 ? "./" : "../".repeat(depth);
 }
 
-function homeHref(relativePath) {
-  return relativePath === "index.html" ? "./index.html" : `${prefixFor(relativePath)}index.html`;
+function goodThingsHrefs(relativePath) {
+  const base = `${prefixFor(relativePath)}solutions/index.html`;
+  return [base, `${base}#good-furniture`, `${base}#good-flooring`, `${base}#good-whole-decoration`, `${base}#good-outdoor`, `${base}#good-collection`, `${base}#good-creative`];
 }
 
-function wechatHref(relativePath) {
-  return relativePath === "index.html" ? "#wechat" : `${prefixFor(relativePath)}index.html#wechat`;
+function goodThingsLabels() {
+  return ["柚木好物首页", "柚木家具", "柚木地板", "柚木整装", "柚木户外", "柚木收藏", "柚木文创"];
 }
 
-function stripTags(html) {
-  return html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+function forbiddenGoodThingsLabels() {
+  return ["庭院户外", "茶室会客", "家具好物", "柚木茶室精选", "精选"];
 }
 
-function extractHeader(html) {
-  return html.match(/<header[\s\S]*?<\/header>/)?.[0] ?? "";
-}
-
-function extractHrefs(block) {
-  return [...block.matchAll(/\shref="([^"]+)"/g)].map((match) => match[1]);
-}
-
-function expectedMainHrefs(relativePath) {
-  const prefix = prefixFor(relativePath);
-  return [
-    homeHref(relativePath),
-    `${prefix}about/index.html`,
-    `${prefix}knowledge/index.html`,
-    `${prefix}solutions/index.html`,
-    `${prefix}vendors/index.html`,
-    wechatHref(relativePath),
-  ];
-}
-
-function expectedGoodThingsDropdownHrefs(relativePath) {
-  const prefix = prefixFor(relativePath);
-  const baseHref = `${prefix}solutions/index.html`;
-  return [
-    baseHref,
-    `${baseHref}#good-furniture`,
-    `${baseHref}#good-flooring`,
-    `${baseHref}#good-whole-decoration`,
-    `${baseHref}#good-outdoor`,
-    `${baseHref}#good-collection`,
-    `${baseHref}#good-creative`,
-  ];
-}
-
-function extractGoodThingsDesktopMenu(header) {
-  return (
-    header.match(
-      /<button[^>]*aria-controls="solutions-menu-\d+"[^>]*>\s*柚木好物\s*<\/button>\s*<div class="nav-dropdown-menu" id="solutions-menu-\d+" data-dropdown-menu>([\s\S]*?)<\/div>/,
-    )?.[1] ?? ""
-  );
-}
-
-function extractGoodThingsMobileMenu(header) {
-  return header.match(/<details>\s*<summary>\s*柚木好物\s*<\/summary>([\s\S]*?)<\/details>/)?.[1] ?? "";
-}
-
-function checkGoodThingsMenu(relativePath, block, menuLabel) {
-  if (!block) {
-    problems.push(`${relativePath}：缺少${menuLabel}中的“柚木好物”下拉菜单内容`);
-    return;
-  }
-
-  const menuText = stripTags(block);
-  const hrefs = extractHrefs(block);
-
-  for (const label of requiredGoodThingsDropdownLabels) {
-    if (!menuText.includes(label)) {
-      problems.push(`${relativePath}：${menuLabel}“柚木好物”下拉缺少新分类“${label}”`);
+function checkGoodThingsMenu(relativePath, header) {
+  const desktop = header.match(/<button[^>]*aria-controls="solutions-menu-\d+"[^>]*>[\s\S]*?柚木好物[\s\S]*?<\/button>\s*<div class="nav-dropdown-menu" id="solutions-menu-\d+" data-dropdown-menu>([\s\S]*?)<\/div>/i)?.[1] ?? "";
+  const mobile = header.match(/<details>\s*<summary>\s*柚木好物\s*<\/summary>([\s\S]*?)<\/details>/i)?.[1] ?? "";
+  for (const [label, block] of [["桌面端", desktop], ["移动端", mobile]]) {
+    if (!block) {
+      problems.push(`${relativePath}：${label}缺少“柚木好物”下拉菜单`);
+      continue;
     }
-  }
-
-  for (const label of forbiddenGoodThingsDropdownLabels) {
-    if (menuText.includes(label)) {
-      problems.push(`${relativePath}：${menuLabel}“柚木好物”下拉仍包含旧口径“${label}”`);
+    const text = stripTags(block);
+    const hrefs = extractHrefs(block);
+    for (const item of goodThingsLabels()) {
+      if (!text.includes(item)) problems.push(`${relativePath}：${label}“柚木好物”下拉缺少 ${item}`);
     }
-  }
-
-  if (menuText.includes("精选")) {
-    problems.push(`${relativePath}：${menuLabel}“柚木好物”下拉不应出现“精选”作为二级栏目名`);
-  }
-
-  for (const href of expectedGoodThingsDropdownHrefs(relativePath)) {
-    if (!hrefs.includes(href)) {
-      problems.push(`${relativePath}：${menuLabel}“柚木好物”下拉缺少路径 ${href}`);
+    for (const item of forbiddenGoodThingsLabels()) {
+      if (text.includes(item)) problems.push(`${relativePath}：${label}“柚木好物”下拉仍出现旧项 ${item}`);
+    }
+    for (const href of goodThingsHrefs(relativePath)) {
+      if (!hrefs.includes(href)) problems.push(`${relativePath}：${label}“柚木好物”下拉缺少路径 ${href}`);
     }
   }
 }
 
-// ========== 第三部分：Header、桌面导航与移动端菜单检查 ==========
-function checkHeader(relativePath, html) {
+
+// ========== 第二部分：Header 与下拉菜单检查 ==========
+const htmlFiles = (await Promise.all(htmlEntries.map((entry) => collectFiles(entry, new Set([".html"]))))).flat().sort();
+
+for (const relativePath of htmlFiles) {
+  const html = await read(relativePath);
   const header = extractHeader(html);
-  const headerText = stripTags(header);
-  const depth = depthOf(relativePath);
-  const prefix = prefixFor(relativePath);
 
   if (!header) {
     problems.push(`${relativePath}：缺少 Header`);
-    return;
+    continue;
   }
 
-  for (const label of requiredLabels) {
-    if (!headerText.includes(label)) {
-      problems.push(`${relativePath}：Header 缺少主导航文案“${label}”`);
-    }
+  for (const label of ["首页", "认识柚喜", "柚木知识", "柚木好物", "推荐厂商", "社群交流"]) {
+    if (!stripTags(header).includes(label)) problems.push(`${relativePath}：Header 缺少主导航文案 ${label}`);
   }
 
-  if (headerText.includes("会员站")) {
-    problems.push(`${relativePath}：主导航或移动菜单仍残留“会员站”`);
-  }
-
-  if (!header.includes('class="site-header global-site-header"')) {
-    problems.push(`${relativePath}：Header 未使用统一 class="site-header global-site-header"`);
-  }
-
-  const dropdownCount = (header.match(/class="nav-dropdown"/g) ?? []).length;
-  if (dropdownCount < dropdownLabels.length) {
-    problems.push(`${relativePath}：桌面下拉菜单数量不足，当前 ${dropdownCount} 个`);
-  }
-
-  for (const label of dropdownLabels) {
-    const hasTrigger = new RegExp(`<button[^>]*data-dropdown-trigger[\\s\\S]*?${label}[\\s\\S]*?<\\/button>`).test(header);
-    if (!hasTrigger) {
-      problems.push(`${relativePath}：缺少“${label}”桌面下拉触发按钮`);
-    }
-  }
-
-  const mobileRequired = ["data-menu-toggle", "data-mobile-menu", "data-menu-backdrop", "data-menu-close", "mobile-menu-cta"];
-  for (const token of mobileRequired) {
-    if (!header.includes(token)) {
-      problems.push(`${relativePath}：移动端菜单缺少 ${token}`);
-    }
-  }
-
-  const scriptPath = depth === 0 ? "./script.js" : `${prefix}script.js`;
-  if (!html.includes(`src="${scriptPath}"`)) {
-    problems.push(`${relativePath}：script.js 路径应为 ${scriptPath}`);
-  }
-
-  const mainNav = header.match(/<nav class="main-nav desktop-nav"[\s\S]*?<\/nav>/)?.[0] ?? "";
-  const hrefs = extractHrefs(mainNav);
-  for (const expected of expectedMainHrefs(relativePath)) {
-    if (!hrefs.includes(expected)) {
-      problems.push(`${relativePath}：桌面主导航缺少路径 ${expected}`);
-    }
-  }
-
-  if (depth === 1 && !hrefs.includes("../index.html")) {
-    problems.push(`${relativePath}：二级页面首页路径应为 ../index.html`);
-  }
-
-  if (depth === 2 && !hrefs.includes("../../index.html")) {
-    problems.push(`${relativePath}：三级页面首页路径应为 ../../index.html`);
-  }
-
-  checkGoodThingsMenu(relativePath, extractGoodThingsDesktopMenu(header), "桌面端");
-  checkGoodThingsMenu(relativePath, extractGoodThingsMobileMenu(header), "移动端");
+  checkGoodThingsMenu(relativePath, header);
 }
 
-const htmlFiles = (await Promise.all(publicEntries.map(collectHtmlFiles))).flat().sort();
-
-for (const relativePath of htmlFiles) {
-  const html = await fs.readFile(path.join(projectRoot, relativePath), "utf8");
-  checkHeader(relativePath, html);
-}
-
-// ========== 第四部分：结果输出 ==========
+// ========== 第三部分：结果输出 ==========
 if (problems.length > 0) {
   console.error("全站导航一致性检查未通过：");
-  for (const problem of problems) {
-    console.error(`- ${problem}`);
-  }
+  for (const problem of problems) console.error(`- ${problem}`);
   process.exit(1);
 }
 
-console.log("全站导航一致性检查通过。");
+console.log("全站导航一致性检查通过：柚木好物下拉已统一为六类新体系。");

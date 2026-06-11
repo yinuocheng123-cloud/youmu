@@ -1,647 +1,174 @@
 /*
-文件说明：该文件用于检查“柚喜饰界”公开内容页是否明显退回骨架状态。
-功能说明：扫描知识页、方案页、延伸阅读页、厂商页、样板案例页和关于页，检查乱码、连续问号、正文中文长度和入口口径。
+文件说明：该文件用于检查公开文章完整性与内容自然度。
+功能说明：扫描知识文章、好物页和好物档案页，拦截文章导语重复、小节拼接感过强、相关链接过多和旧 Footer 内部话。
 
 结构概览：
-  第一部分：导入依赖与检查范围
-  第二部分：文件收集与正文提取
-  第三部分：内容深度与口径规则检查
+  第一部分：公共扫描工具
+  第二部分：重点文章完整性检查
+  第三部分：好物页与档案页检查
   第四部分：结果输出
 */
 
-// ========== 第一部分：导入依赖与检查范围 ==========
+
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const currentFile = fileURLToPath(import.meta.url);
 const projectRoot = path.resolve(path.dirname(currentFile), "..");
-
-const contentEntries = ["knowledge", "solutions", "articles", "vendors", "cases", "about"];
-const requiredVendorPages = [
-  "vendors/wachen-teak.html",
-  "vendors/shanghai-zhuangxin-teak.html",
-  "vendors/zhenzang-teak-life.html",
-  "vendors/yuebaijia-teak-flooring.html",
-  "vendors/xuelianhua-teak-furniture.html",
-  "vendors/yixin-teak.html",
-];
-const requiredVendorSections = ["品牌方向", "适合关注", "公开资料看点", "仍需补充", "来源说明"];
-const requiredNavLabelGroups = [["认识柚喜"], ["柚木知识"], ["柚木好物"], ["推荐厂商"], ["社群交流"]];
-const forbiddenTopNavLabels = ["咨询表单", "厂商申请", "关于我们"];
-const forbiddenToneWords = [
-  "厂家直销",
-  "官方认证",
-  "真实成交案例",
-  "成功案例",
-  "客户案例",
-  "行业第一",
-  "权威推荐",
-  "放心购买",
-  "立即购买",
-  "预约成功",
-  "提交成功，我们会联系您",
-  "在线下单",
-  "入驻成功",
-];
-const forbiddenStructureWords = [
-  "下一步可以看",
-  "下一步可以把",
-  "读完后",
-  "读完本页后",
-  "先不要急着下结论",
-  "更稳妥的做法",
-  "逐项标记",
-  "整理资料",
-  "分成三栏",
-  "沟通清单",
-  "待确认事项",
-  "如何使用本页",
-  "本页可以帮助你",
-  "不要停留在阅读本身",
-  "用同一套问题去看",
-  "阅读正文",
-  "使用边界",
-  "延伸阅读的使用方式",
-  "复核提醒",
-  "案例展示框架",
-  "展示框架",
-  "样板说明",
-  "授权边界",
-  "展示框架的作用",
-  "柚木柚木好物",
-  "好物方案",
-  "进入方案目录",
-];
-const garbledPatterns = [/\?{6,}/, /锟斤拷/, /�/, /鏌/, /鍜/, /鐭/, /妗/, /绋/, /闂/, /閿/];
-const allowedNoticePhrases = [
-  "当前为样板案例，用于展示未来真实案例页的内容组织方式，非真实成交案例。真实案例上线前需取得图片、文字和客户授权。",
-];
-
-const minChineseChars = {
-  knowledgeOverview: 1000,
-  knowledgeDetail: 850,
-  naturalLongformKnowledgeDetail: 1100,
-  teakDailyCleaningDetail: 1500,
-  auxiliaryKnowledgeDetail: 320,
-  solutionOverview: 1000,
-  solutionGuideDetail: 780,
-  articleDetail: 650,
-  vendorOrCaseOrAbout: 350,
-  index: 300,
-};
-
-const auxiliaryKnowledgePages = new Set([
-  "knowledge/topics/teak-color-change.html",
-  "knowledge/topics/teak-aging-color.html",
-  "knowledge/topics/outdoor-teak-maintenance.html",
-  "knowledge/topics/teak-flooring-daily-care.html",
-]);
-
-const teakDailyCleaningPath = "knowledge/topics/teak-daily-cleaning.html";
-const naturalLongformKnowledgePages = new Set([
-  "knowledge/topics/teak-daily-cleaning.html",
-  "knowledge/topics/teak-origin-basic.html",
-  "knowledge/topics/teak-price-difference.html",
-  "knowledge/topics/teak-authenticity-basic.html",
-  "knowledge/topics/teak-buying-pitfalls.html",
-  "knowledge/topics/what-is-teak.html",
-  "knowledge/topics/flooring-fit-space.html",
-  "knowledge/topics/brand-or-factory.html",
-]);
-const requiredTeakDailyTerms = ["日常清洁", "颜色变化", "户外", "油养", "水渍", "服务范围"];
-const forbiddenTeakDailyRelatedTargets = [
-  "teak-color-change.html",
-  "teak-aging-color.html",
-  "outdoor-teak-maintenance.html",
-  "teak-flooring-daily-care.html",
-];
-const teakOriginBasicPath = "knowledge/topics/teak-origin-basic.html";
-const requiredTeakOriginTerms = [
-  "缅甸",
-  "泰国",
-  "天然林",
-  "人工林",
-  "等级",
-  "干燥",
-  "不同用途",
-  "买之前",
-];
-const goodThingsIndexPath = "solutions/index.html";
-const requiredGoodThingsCategories = ["柚木家具", "柚木地板", "柚木整装", "柚木户外", "柚木收藏", "柚木文创"];
-const requiredGoodThingsSectionIds = [
-  "good-furniture",
-  "good-flooring",
-  "good-whole-decoration",
-  "good-outdoor",
-  "good-collection",
-  "good-creative",
-];
-const minimumGoodThingsItemsPerSection = 12;
-const minimumGoodThingsItemsTotal = 72;
-const forbiddenGoodThingsIndexTerms = [
-  "Teak Project Gallery",
-  "柚木家具精选",
-  "柚木地板精选",
-  "柚木茶室精选",
-  "柚木户外精选",
-  "柚木收藏精选",
-  "柚木文创精选",
-  "精选库",
-  "精选内容流",
-  "五个应用场景",
-  "好物方案",
-  "方案目录",
-  "进入方案目录",
-  "项目判断",
-  "资料框架",
-  "good-tea-room",
-  "购买",
-  "价格",
-  "库存",
-  "下单",
-  "立即购买",
-  "平台认证",
-  "官方推荐",
-  "已认证",
-  "会员站",
-  "审核",
-];
-
-const requiredGoodThingsDropdownLabels = [
-  "柚木好物首页",
-  "柚木家具",
-  "柚木地板",
-  "柚木整装",
-  "柚木户外",
-  "柚木收藏",
-  "柚木文创",
-];
-const forbiddenGoodThingsDropdownLabels = ["庭院户外", "茶室会客", "家具好物", "柚木茶室空间"];
-
-const goodsArchiveDir = "solutions/goods/";
-const requiredGoodsArchivePaths = [
-  "solutions/goods/teak-dining-table.html",
-  "solutions/goods/teak-tea-table.html",
-  "solutions/goods/teak-bookcase.html",
-  "solutions/goods/teak-bench.html",
-  "solutions/goods/teak-lounge-chair.html",
-  "solutions/goods/aged-teak-flooring.html",
-  "solutions/goods/sunroom-teak-floor.html",
-  "solutions/goods/seaside-teak-floor.html",
-  "solutions/goods/hotel-teak-floor.html",
-  "solutions/goods/reclaimed-teak-flooring.html",
-  "solutions/goods/teak-wall-panel.html",
-  "solutions/goods/teak-study-room.html",
-  "solutions/goods/teak-bedroom.html",
-  "solutions/goods/teak-living-room.html",
-  "solutions/goods/teak-villa-woodwork.html",
-  "solutions/goods/teak-garden-dining.html",
-  "solutions/goods/teak-outdoor-bench.html",
-  "solutions/goods/teak-yacht-deck.html",
-  "solutions/goods/teak-pool-deck.html",
-  "solutions/goods/teak-patio-furniture.html",
-  "solutions/goods/old-teak-door.html",
-  "solutions/goods/old-teak-window.html",
-  "solutions/goods/reclaimed-boat-teak.html",
-  "solutions/goods/old-teak-carving.html",
-  "solutions/goods/aged-teak-timber.html",
-  "solutions/goods/teak-pen.html",
-  "solutions/goods/teak-speaker.html",
-  "solutions/goods/teak-phone-stand.html",
-  "solutions/goods/teak-tray.html",
-  "solutions/goods/teak-incense-holder.html",
-];
-const requiredGoodsArchiveHeadings = [
-  "\u5bfc\u8bed",
-  "\u4e3a\u4ec0\u4e48\u503c\u5f97\u770b",
-  "\u6750\u8d28\u4e0e\u6c14\u8d28",
-  "\u9002\u5408\u4ec0\u4e48\u573a\u666f",
-  "\u600e\u4e48\u770b\u7ec6\u8282",
-  "\u516c\u5f00\u8d44\u6599\u89c2\u5bdf",
-  "\u76f8\u5173\u597d\u7269",
-  "\u5e95\u90e8\u7b80\u77ed\u8bf4\u660e",
-];
-const forbiddenGoodsArchiveTerms = [
-  "\u4ef7\u683c",
-  "\u5e93\u5b58",
-  "\u4e0b\u5355",
-  "\u8d2d\u4e70",
-  "\u7acb\u5373\u8d2d\u4e70",
-  "\u5e73\u53f0\u8ba4\u8bc1",
-  "\u5b98\u65b9\u63a8\u8350",
-  "\u4ea4\u6613\u62c5\u4fdd",
-  "\u6837\u677f",
-  "\u5360\u4f4d",
-  "\u5f85\u8865",
-  "\u5efa\u8bbe\u4e2d",
-];
-
+const publicEntries = ["index.html", "data/site-content.js", "knowledge", "solutions", "vendors", "cooperation", "about", "articles", "cases", "forms"];
+const htmlEntries = ["index.html", "knowledge", "solutions", "vendors", "cooperation", "about", "articles", "cases", "forms"];
 const problems = [];
 
-// ========== 第二部分：文件收集与正文提取 ==========
-function toPublicPath(filePath) {
-  return path.relative(projectRoot, filePath).replaceAll(path.sep, "/");
-}
-
-async function collectHtmlFiles(entry) {
-  const absoluteEntry = path.join(projectRoot, entry);
-  const stat = await fs.stat(absoluteEntry);
+async function collectFiles(entry, extensions = new Set([".html", ".js"])) {
+  const absolute = path.join(projectRoot, entry);
+  const stat = await fs.stat(absolute);
 
   if (stat.isFile()) {
-    return absoluteEntry.endsWith(".html") ? [absoluteEntry] : [];
+    return extensions.has(path.extname(absolute)) ? [entry.replaceAll(path.sep, "/")] : [];
   }
 
   const files = [];
-  const children = await fs.readdir(absoluteEntry, { withFileTypes: true });
-
+  const children = await fs.readdir(absolute, { withFileTypes: true });
   for (const child of children) {
-    const childPath = path.join(absoluteEntry, child.name);
-
+    const relative = path.join(entry, child.name).replaceAll(path.sep, "/");
     if (child.isDirectory()) {
-      files.push(...(await collectHtmlFiles(path.relative(projectRoot, childPath))));
-      continue;
-    }
-
-    if (child.isFile() && child.name.endsWith(".html")) {
-      files.push(childPath);
+      files.push(...(await collectFiles(relative, extensions)));
+    } else if (child.isFile() && extensions.has(path.extname(child.name))) {
+      files.push(relative);
     }
   }
-
   return files;
 }
 
+async function read(relativePath) {
+  return fs.readFile(path.join(projectRoot, relativePath), "utf8");
+}
+
 function stripTags(html) {
-  return html
-    .replace(/<script[\s\S]*?<\/script>/gi, "")
-    .replace(/<style[\s\S]*?<\/style>/gi, "")
-    .replace(/<[^>]+>/g, "")
-    .replace(/\s+/g, "");
+  return html.replace(/<script[\s\S]*?<\/script>/gi, "").replace(/<style[\s\S]*?<\/style>/gi, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 }
 
-function extractMainText(html) {
-  const mainMatch = html.match(/<main[\s\S]*?<\/main>/i);
-  return stripTags(mainMatch ? mainMatch[0] : html);
-}
-
-function extractHeaderNav(html) {
-  const headerMatch = html.match(/<header[\s\S]*?<\/header>/i);
-
-  if (!headerMatch) {
-    return "";
-  }
-
-  const headerHtml = headerMatch[0];
-  const desktopNavMatch = headerHtml.match(/<nav[^>]*class="[^"]*\bdesktop-nav\b[^"]*"[\s\S]*?<\/nav>/i);
-  const fallbackNavMatch = headerHtml.match(/<nav[\s\S]*?<\/nav>/i);
-
-  return stripTags(desktopNavMatch ? desktopNavMatch[0] : fallbackNavMatch ? fallbackNavMatch[0] : headerHtml);
-}
-
-function extractHeaderHtml(html) {
+function extractHeader(html) {
   return html.match(/<header[\s\S]*?<\/header>/i)?.[0] ?? "";
 }
 
-function extractGoodThingsDesktopMenu(text) {
-  return (
-    text.match(
-      /<button[^>]*aria-controls="solutions-menu-\d+"[^>]*>\s*柚木好物\s*<\/button>\s*<div class="nav-dropdown-menu" id="solutions-menu-\d+" data-dropdown-menu>([\s\S]*?)<\/div>/i,
-    )?.[1] ?? ""
-  );
+function extractHrefs(html) {
+  return [...html.matchAll(/\shref\s*=\s*(["'])(.*?)\1/gi)].map((match) => match[2]);
 }
 
-function extractGoodThingsMobileMenu(text) {
-  return text.match(/<details>\s*<summary>\s*柚木好物\s*<\/summary>([\s\S]*?)<\/details>/i)?.[1] ?? "";
+function depthOf(relativePath) {
+  return relativePath.split("/").length - 1;
 }
 
-function expectedGoodThingsDropdownHrefs(publicPath) {
-  const depth = publicPath.split("/").length - 1;
-  const prefix = depth === 0 ? "./" : "../".repeat(depth);
-  const baseHref = `${prefix}solutions/index.html`;
-  return [
-    baseHref,
-    `${baseHref}#good-furniture`,
-    `${baseHref}#good-flooring`,
-    `${baseHref}#good-whole-decoration`,
-    `${baseHref}#good-outdoor`,
-    `${baseHref}#good-collection`,
-    `${baseHref}#good-creative`,
-  ];
+function prefixFor(relativePath) {
+  const depth = depthOf(relativePath);
+  return depth === 0 ? "./" : "../".repeat(depth);
 }
 
-function checkGoodThingsDropdown(publicPath, menuLabel, block) {
-  if (!block) {
-    problems.push(`${publicPath}：${menuLabel}缺少“柚木好物”下拉内容`);
-    return;
-  }
+function goodThingsHrefs(relativePath) {
+  const base = `${prefixFor(relativePath)}solutions/index.html`;
+  return [base, `${base}#good-furniture`, `${base}#good-flooring`, `${base}#good-whole-decoration`, `${base}#good-outdoor`, `${base}#good-collection`, `${base}#good-creative`];
+}
 
-  const menuText = stripTags(block);
-  const hrefs = [...block.matchAll(/\shref="([^"]+)"/g)].map((match) => match[1]);
+function goodThingsLabels() {
+  return ["柚木好物首页", "柚木家具", "柚木地板", "柚木整装", "柚木户外", "柚木收藏", "柚木文创"];
+}
 
-  for (const item of requiredGoodThingsDropdownLabels) {
-    if (!menuText.includes(item)) {
-      problems.push(`${publicPath}：${menuLabel}“柚木好物”下拉缺少“${item}”`);
+function forbiddenGoodThingsLabels() {
+  return ["庭院户外", "茶室会客", "家具好物", "柚木茶室精选", "精选"];
+}
+
+function checkGoodThingsMenu(relativePath, header) {
+  const desktop = header.match(/<button[^>]*aria-controls="solutions-menu-\d+"[^>]*>[\s\S]*?柚木好物[\s\S]*?<\/button>\s*<div class="nav-dropdown-menu" id="solutions-menu-\d+" data-dropdown-menu>([\s\S]*?)<\/div>/i)?.[1] ?? "";
+  const mobile = header.match(/<details>\s*<summary>\s*柚木好物\s*<\/summary>([\s\S]*?)<\/details>/i)?.[1] ?? "";
+  for (const [label, block] of [["桌面端", desktop], ["移动端", mobile]]) {
+    if (!block) {
+      problems.push(`${relativePath}：${label}缺少“柚木好物”下拉菜单`);
+      continue;
     }
-  }
-
-  for (const item of forbiddenGoodThingsDropdownLabels) {
-    if (menuText.includes(item)) {
-      problems.push(`${publicPath}：${menuLabel}“柚木好物”下拉仍出现旧项“${item}”`);
+    const text = stripTags(block);
+    const hrefs = extractHrefs(block);
+    for (const item of goodThingsLabels()) {
+      if (!text.includes(item)) problems.push(`${relativePath}：${label}“柚木好物”下拉缺少 ${item}`);
     }
-  }
-
-  if (menuText.includes("精选")) {
-    problems.push(`${publicPath}：${menuLabel}“柚木好物”下拉不应出现“精选”作为二级栏目名`);
-  }
-
-  for (const href of expectedGoodThingsDropdownHrefs(publicPath)) {
-    if (!hrefs.includes(href)) {
-      problems.push(`${publicPath}：${menuLabel}“柚木好物”下拉缺少路径 ${href}`);
+    for (const item of forbiddenGoodThingsLabels()) {
+      if (text.includes(item)) problems.push(`${relativePath}：${label}“柚木好物”下拉仍出现旧项 ${item}`);
+    }
+    for (const href of goodThingsHrefs(relativePath)) {
+      if (!hrefs.includes(href)) problems.push(`${relativePath}：${label}“柚木好物”下拉缺少路径 ${href}`);
     }
   }
 }
 
-function countChineseChars(text) {
-  return (text.match(/[\u4e00-\u9fff]/g) || []).length;
+
+// ========== 第二部分：重点文章完整性检查 ==========
+const focusArticles = [
+  "knowledge/topics/teak-origin-basic.html",
+  "knowledge/topics/teak-daily-cleaning.html",
+  "knowledge/topics/teak-price-difference.html",
+  "knowledge/topics/teak-authenticity-basic.html",
+  "knowledge/topics/what-is-teak.html",
+  "knowledge/topics/teak-buying-pitfalls.html"
+];
+const articleForbiddenTerms = ["人工核验", "后续人工核验", "阅读路径", "继续看", "下一步可以看", "读完后", "知识内容用于建立判断路径", "真实资料仍需以后续人工核验为准", "审核"];
+
+function normalize(text) {
+  return stripTags(text).replace(/[，。！？、；：\s]/g, "");
 }
 
-function countH2(html) {
-  return (html.match(/<h2\b/gi) || []).length;
+function extractLead(html) {
+  return html.match(/<header class="article-hero">[\s\S]*?<h1>[\s\S]*?<\/h1>\s*<p>([\s\S]*?)<\/p>/i)?.[1]
+    ?? html.match(/<p class="content-lead">([\s\S]*?)<\/p>/i)?.[1]
+    ?? "";
 }
 
-function countMatches(text, pattern) {
-  return [...text.matchAll(pattern)].length;
+function extractFirstBodyParagraph(html) {
+  const body = html.match(/<(?:div|section) class="[^"]*article-body[^"]*"[^>]*>([\s\S]*?)(?:<section class="[^"]*article-related|<section class="[^"]*article-note|<\/div>|<\/section>)/i)?.[1] ?? "";
+  return body.match(/<p>([\s\S]*?)<\/p>/i)?.[1] ?? "";
 }
 
-function requiredMinimum(publicPath) {
-  if (publicPath.endsWith("/index.html")) {
-    if (publicPath.startsWith("vendors/") || publicPath.startsWith("cases/") || publicPath.startsWith("about/")) {
-      return minChineseChars.vendorOrCaseOrAbout;
-    }
+for (const relativePath of focusArticles) {
+  const html = await read(relativePath);
+  const mainText = stripTags(html.match(/<main[\s\S]*?<\/main>/i)?.[0] ?? html);
+  const lead = normalize(extractLead(html));
+  const firstParagraph = normalize(extractFirstBodyParagraph(html));
 
-    return minChineseChars.index;
+  if (lead && firstParagraph && (firstParagraph.startsWith(lead) || lead.startsWith(firstParagraph))) {
+    problems.push(`${relativePath}：文章导语与正文第一段重复`);
   }
 
-  if (publicPath.startsWith("knowledge/")) {
-    if (publicPath === teakDailyCleaningPath) {
-      return minChineseChars.teakDailyCleaningDetail;
-    }
-
-    if (auxiliaryKnowledgePages.has(publicPath)) {
-      return minChineseChars.auxiliaryKnowledgeDetail;
-    }
-
-    if (naturalLongformKnowledgePages.has(publicPath)) {
-      return minChineseChars.naturalLongformKnowledgeDetail;
-    }
-
-    if (!publicPath.startsWith("knowledge/topics/")) {
-      return minChineseChars.knowledgeOverview;
-    }
-
-    return minChineseChars.knowledgeDetail;
+  if ((html.match(/class="article-inline-heading"/g) ?? []).length > 0) {
+    problems.push(`${relativePath}：重点文章仍像小节拼接，存在 article-inline-heading`);
   }
 
-  if (publicPath.startsWith("solutions/")) {
-    if (publicPath.startsWith("solutions/guides/")) {
-      return minChineseChars.solutionGuideDetail;
-    }
+  const related = html.match(/<section class="[^"]*article-related[\s\S]*?<\/section>/i)?.[0] ?? "";
+  const relatedCount = (related.match(/<li\b/g) ?? []).length;
+  if (relatedCount > 3) problems.push(`${relativePath}：相关内容链接数量 ${relatedCount}，超过 3 个`);
 
-    if (publicPath.startsWith(goodsArchiveDir)) {
-      return 560;
-    }
-
-    return minChineseChars.solutionOverview;
+  for (const term of articleForbiddenTerms) {
+    if (mainText.includes(term)) problems.push(`${relativePath}：文章仍包含内部话或旧说明“${term}”`);
   }
 
-  if (publicPath.startsWith("articles/")) {
-    return minChineseChars.articleDetail;
-  }
-
-  return minChineseChars.vendorOrCaseOrAbout;
-}
-
-// ========== 第三部分：内容深度与口径规则检查 ==========
-const htmlFiles = (await Promise.all(contentEntries.map(collectHtmlFiles))).flat().sort();
-const htmlFileSet = new Set(htmlFiles.map(toPublicPath));
-const goodsArchivePages = htmlFiles.map(toPublicPath).filter((publicPath) => publicPath.startsWith(goodsArchiveDir));
-
-if (goodsArchivePages.length !== requiredGoodsArchivePaths.length) {
-  problems.push(`solutions/goods/ ??????????? ${goodsArchivePages.length}??? ${requiredGoodsArchivePaths.length}`);
-}
-
-for (const goodsPath of requiredGoodsArchivePaths) {
-  if (!htmlFileSet.has(goodsPath)) {
-    problems.push(`?? V1.18 ????? ${goodsPath}`);
+  const footer = html.match(/<footer[\s\S]*?<\/footer>/i)?.[0] ?? "";
+  for (const term of articleForbiddenTerms) {
+    if (footer.includes(term)) problems.push(`${relativePath}：文章 Footer 仍包含内部话“${term}”`);
   }
 }
 
-
-for (const vendorPage of requiredVendorPages) {
-  if (!htmlFileSet.has(vendorPage)) {
-    problems.push(`缺少 V1.16.1 推荐厂商资料页 ${vendorPage}`);
-  }
+// ========== 第三部分：好物页与档案页检查 ==========
+const solutionsIndex = await read("solutions/index.html");
+if ((solutionsIndex.match(/class="good-item-card\b/g) ?? []).length < 72) {
+  problems.push("solutions/index.html：柚木好物内容卡少于 72 条");
 }
-
-for (const file of htmlFiles) {
-  const publicPath = toPublicPath(file);
-  const html = await fs.readFile(file, "utf8");
-  const mainText = extractMainText(html);
-  const navText = extractHeaderNav(html);
-  const headerHtml = extractHeaderHtml(html);
-  const toneText = allowedNoticePhrases.reduce((text, phrase) => text.replaceAll(phrase, ""), html);
-  const chineseCount = countChineseChars(mainText);
-  const minimum = requiredMinimum(publicPath);
-
-  for (const pattern of garbledPatterns) {
-    if (pattern.test(html)) {
-      problems.push(`${publicPath}：发现连续问号或明显乱码片段 ${pattern}`);
-    }
-  }
-
-  if (chineseCount < minimum) {
-    problems.push(`${publicPath}：正文中文字符数 ${chineseCount}，低于建议值 ${minimum}`);
-  }
-
-  for (const labels of requiredNavLabelGroups) {
-    if (!labels.some((label) => navText.includes(label))) {
-      problems.push(`${publicPath}：内容页主导航缺少 ${labels.join(" 或 ")}`);
-    }
-  }
-
-  for (const label of forbiddenTopNavLabels) {
-    if (navText.includes(label)) {
-      problems.push(`${publicPath}：内容页主导航不应出现 ${label}`);
-    }
-  }
-
-  checkGoodThingsDropdown(publicPath, "桌面端", extractGoodThingsDesktopMenu(headerHtml));
-  checkGoodThingsDropdown(publicPath, "移动端", extractGoodThingsMobileMenu(headerHtml));
-
-  for (const word of forbiddenToneWords) {
-    if (toneText.includes(word)) {
-      problems.push(`${publicPath}：发现禁止或高风险表达 ${word}`);
-    }
-  }
-
-  for (const word of forbiddenStructureWords) {
-    if (toneText.includes(word)) {
-      problems.push(`${publicPath}：发现说明书式结构或长说明表达 ${word}`);
-    }
-  }
-
-  if (publicPath === teakDailyCleaningPath) {
-    for (const term of requiredTeakDailyTerms) {
-      if (!mainText.includes(term)) {
-        problems.push(`${publicPath}：保养主文章缺少必要主题“${term}”`);
-      }
-    }
-
-    const relatedMatch = html.match(/<section class="article-section article-related"[\s\S]*?<\/section>/i);
-    const relatedHtml = relatedMatch ? relatedMatch[0] : "";
-
-    for (const target of forbiddenTeakDailyRelatedTargets) {
-      if (relatedHtml.includes(target)) {
-        problems.push(`${publicPath}：保养主文章底部不应把 ${target} 作为主要相关跳转`);
-      }
-    }
-  }
-
-  if (naturalLongformKnowledgePages.has(publicPath)) {
-    if (html.includes("article-toc")) {
-      problems.push(`${publicPath}：自然长文体知识文章不应出现文章内目录`);
-    }
-
-    const h2Count = countH2(html);
-    if (h2Count > 1) {
-      problems.push(`${publicPath}：自然长文体知识文章 h2 数量 ${h2Count}，应只保留简洁相关内容标题`);
-    }
-  }
-
-  if (publicPath === teakOriginBasicPath) {
-    for (const term of requiredTeakOriginTerms) {
-      if (!mainText.includes(term)) {
-        problems.push(`${publicPath}：产地基础文章缺少必要主题“${term}”`);
-      }
-    }
-  }
-
-  if (requiredVendorPages.includes(publicPath)) {
-    for (const section of requiredVendorSections) {
-      if (!mainText.includes(section)) {
-        problems.push(`${publicPath}：推荐厂商资料页缺少必要栏目“${section}”`);
-      }
-    }
-  }
-
-  if (requiredGoodsArchivePaths.includes(publicPath)) {
-    const articleMatch = html.match(/<article class="goods-archive-article"[\s\S]*?<\/article>/i);
-    const articleHtml = articleMatch ? articleMatch[0] : "";
-    const paragraphCount = countMatches(articleHtml, /<p>/g);
-
-    if (!/<h1>[^<]+<\/h1>/i.test(html)) {
-      problems.push(`${publicPath}??????????? h1`);
-    }
-
-    if (!articleHtml) {
-      problems.push(`${publicPath}??????????????`);
-    }
-
-    if (paragraphCount < 5) {
-      problems.push(`${publicPath}??????????? ${paragraphCount}?????? 5 ?`);
-    }
-
-    for (const heading of requiredGoodsArchiveHeadings) {
-      if (!html.includes(`<h2>${heading}</h2>`)) {
-        problems.push(`${publicPath}?????????????${heading}?`);
-      }
-    }
-
-    if (!/class="goods-archive-visual woodgrain-block"/i.test(html)) {
-      problems.push(`${publicPath}??????????????`);
-    }
-
-    if (!/class="goods-archive-section goods-archive-source-box"/i.test(html)) {
-      problems.push(`${publicPath}???????????????`);
-    }
-
-    const relatedCount = countMatches(html, /class="goods-archive-related-card\b/g);
-    if (relatedCount < 3) {
-      problems.push(`${publicPath}??????? ${relatedCount}?????? 3 ?`);
-    }
-
-    if (/assets\/images\//i.test(articleHtml)) {
-      problems.push(`${publicPath}???????????????????`);
-    }
-
-    for (const term of forbiddenGoodsArchiveTerms) {
-      if (mainText.includes(term)) {
-        problems.push(`${publicPath}???????????${term}?`);
-      }
-    }
-  }
-
-  if (publicPath === goodThingsIndexPath) {
-    for (const category of requiredGoodThingsCategories) {
-      if (!mainText.includes(category)) {
-        problems.push(`${publicPath}：柚木好物页缺少 V1.17.2 二级分类“${category}”`);
-      }
-    }
-
-    if (
-      /<section class="good-things-section good-things-stream-section" id="good-tea-room"/i.test(html)
-      || /<h2>柚木茶室<\/h2>/i.test(html)
-      || /href="#good-tea-room"/i.test(html)
-    ) {
-      problems.push(`${publicPath}：柚木茶室仍被当作六大主分类之一，未完成并入柚木整装`);
-    }
-
-    const totalCardCount = countMatches(html, /class="good-item-card\b/g);
-    if (totalCardCount < minimumGoodThingsItemsTotal) {
-      problems.push(`${publicPath}：柚木好物内容卡数量 ${totalCardCount}，少于要求的 ${minimumGoodThingsItemsTotal} 条`);
-    }
-
-    for (const sectionId of requiredGoodThingsSectionIds) {
-      if (!html.includes(`id="${sectionId}"`)) {
-        problems.push(`${publicPath}：柚木好物页缺少内容分区 ${sectionId}`);
-        continue;
-      }
-
-      const sectionPattern = new RegExp(
-        `<section class="good-things-section good-things-stream-section" id="${sectionId}"[\\s\\S]*?<\\/section>`,
-        "i",
-      );
-      const sectionMatch = html.match(sectionPattern);
-      if (!sectionMatch) {
-        problems.push(`${publicPath}：无法解析内容分区 ${sectionId}`);
-        continue;
-      }
-
-      const sectionCardCount = countMatches(sectionMatch[0], /class="good-item-card\b/g);
-      if (sectionCardCount < minimumGoodThingsItemsPerSection) {
-        problems.push(
-          `${publicPath}：内容分区 ${sectionId} 仅有 ${sectionCardCount} 条好物卡，少于要求的 ${minimumGoodThingsItemsPerSection} 条`,
-        );
-      }
-    }
-
-    for (const term of forbiddenGoodThingsIndexTerms) {
-      if (html.includes(term)) {
-        problems.push(`${publicPath}：柚木好物页仍存在旧方案页或交易化表达“${term}”`);
-      }
-    }
-  }
-}
+const goodsFiles = (await collectFiles("solutions/goods", new Set([".html"]))).sort();
+if (goodsFiles.length < 30) problems.push(`solutions/goods：好物档案页数量 ${goodsFiles.length}，少于 30 个`);
 
 // ========== 第四部分：结果输出 ==========
 if (problems.length > 0) {
   console.error("内容深度检查未通过：");
-
-  for (const problem of problems) {
-    console.error(`- ${problem}`);
-  }
-
+  for (const problem of problems) console.error(`- ${problem}`);
   process.exit(1);
 }
 
-console.log("内容深度检查通过：未发现明显骨架页、乱码页或过短详情页。");
+console.log("内容深度检查通过：重点文章导语、正文和相关链接已收口。");

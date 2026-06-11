@@ -1,11 +1,11 @@
 /*
-文件说明：该文件用于检查首页知识条目是否保持真实可点击。
-功能说明：扫描首页柚木知识卡片中的关键条目，确认每个看起来像问题的条目都链接到已有知识页，避免前台出现“能看不能点”的假入口。
+文件说明：该文件用于检查首页柚木知识条目是否保持真实可点击。
+功能说明：扫描首页知识卡片中的列表项，确认每个看起来像知识问题的条目都包含有效链接，并拦截旧口径重新出现在首页知识模块。
 
 结构概览：
   第一部分：导入依赖与基础配置
-  第二部分：首页知识条目链接检查
-  第三部分：知识卡片列表结构检查
+  第二部分：首页知识模块链接检查
+  第三部分：旧口径回潮检查
   第四部分：结果输出
 */
 
@@ -17,35 +17,9 @@ import { fileURLToPath } from "node:url";
 const currentFile = fileURLToPath(import.meta.url);
 const projectRoot = path.resolve(path.dirname(currentFile), "..");
 const homePath = path.join(projectRoot, "index.html");
-
-const requiredHomeTopicLinks = [
-  ["什么是柚木", "./knowledge/topics/what-is-teak.html"],
-  ["柚木为什么适合生活空间", "./knowledge/topics/why-teak-for-home.html"],
-  ["庭院、阳台、茶室怎么入门", "./knowledge/topics/teak-home-spaces.html"],
-  ["真假柚木怎么初步判断", "./knowledge/topics/teak-authenticity-basic.html"],
-  ["为什么报价差很多", "./knowledge/topics/teak-price-difference.html"],
-  ["下单前必须问清的细节", "./knowledge/topics/questions-before-vendor.html"],
-  ["木纹与油性怎么看", "./knowledge/topics/teak-oil-stability.html"],
-  ["拼板和结构有什么差别", "./knowledge/topics/teak-joinery-surface.html"],
-  ["表面处理会影响什么", "./knowledge/topics/teak-joinery-surface.html"],
-  ["户外空间怎么用柚木", "./knowledge/topics/outdoor-teak-judgement.html"],
-  ["茶室会客如何保留温润感", "./knowledge/topics/tea-room-teak-space.html"],
-  ["地板、家具和墙面怎么协调", "./knowledge/topics/whole-decoration-fit-home.html"],
-  ["日常清洁怎么做", "./knowledge/topics/teak-daily-cleaning.html"],
-  ["户外风化要不要处理", "./knowledge/topics/teak-daily-cleaning.html"],
-  ["上油和打磨的边界", "./knowledge/topics/teak-daily-cleaning.html"],
-  ["柚木适合南方潮湿环境吗", "./knowledge/topics/teak-bathroom-balcony.html"],
-  ["柚木地板和普通木地板怎么比", "./knowledge/topics/teak-vs-common-wood-basic.html"],
-  ["整装空间是不是一定很贵", "./knowledge/topics/is-teak-always-expensive.html"],
-];
-
 const problems = [];
 
-// ========== 第二部分：首页知识条目链接检查 ==========
-function escapeRegExp(text) {
-  return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-
+// ========== 第二部分：首页知识模块链接检查 ==========
 async function pathExists(filePath) {
   try {
     await fs.access(filePath);
@@ -55,77 +29,78 @@ async function pathExists(filePath) {
   }
 }
 
-function splitHref(href) {
-  const [filePart, hashPart = ""] = href.split("#");
-  return {
-    filePart,
-    anchorId: hashPart ? decodeURIComponent(hashPart) : "",
-  };
+function idsOf(html) {
+  return new Set([...html.matchAll(/\sid=["']([^"']+)["']/g)].map((match) => match[1]));
 }
 
-async function hasAnchor(filePath, anchorId) {
-  if (!anchorId) {
-    return true;
-  }
-
-  const targetHtml = await fs.readFile(filePath, "utf8");
-  const idPattern = new RegExp(`\\sid=["']${escapeRegExp(anchorId)}["']`, "u");
-  return idPattern.test(targetHtml);
-}
-
-function hasExpectedAnchor(html, label, href) {
-  const pattern = new RegExp(`<a\\b[^>]*href=["']${escapeRegExp(href)}["'][^>]*>\\s*${escapeRegExp(label)}\\s*<\\/a>`, "u");
-  return pattern.test(html);
-}
-
-function hasBareListItem(html, label) {
-  const pattern = new RegExp(`<li>\\s*${escapeRegExp(label)}\\s*<\\/li>`, "u");
-  return pattern.test(html);
+function extractHref(block) {
+  return block.match(/\shref=["']([^"']+)["']/i)?.[1] ?? "";
 }
 
 const homeHtml = await fs.readFile(homePath, "utf8");
+const knowledgeSection = homeHtml.match(/<section class="section" id="knowledge"[\s\S]*?<\/section>/i)?.[0] ?? "";
 
-for (const [label, href] of requiredHomeTopicLinks) {
-  if (hasBareListItem(homeHtml, label)) {
-    problems.push(`index.html：首页知识条目“${label}”仍是静态 li，没有链接`);
-  }
+if (!knowledgeSection) {
+  problems.push("index.html：未找到首页柚木知识模块");
+} else {
+  const cardMatches = [...knowledgeSection.matchAll(/<article class="knowledge-topic-card[\s\S]*?<\/article>/gi)];
 
-  if (!hasExpectedAnchor(homeHtml, label, href)) {
-    problems.push(`index.html：首页知识条目“${label}”缺少目标链接 ${href}`);
-    continue;
-  }
+  for (const [cardIndex, cardMatch] of cardMatches.entries()) {
+    const listItemMatches = [...cardMatch[0].matchAll(/<li>([\s\S]*?)<\/li>/gi)];
 
-  const { filePart, anchorId } = splitHref(href);
-  const targetPath = path.resolve(projectRoot, filePart.replace(/^\.\//, ""));
+    for (const itemMatch of listItemMatches) {
+      const itemHtml = itemMatch[1];
+      const itemText = itemHtml.replace(/<[^>]+>/g, "").trim();
+      const href = extractHref(itemHtml);
 
-  if (!(await pathExists(targetPath))) {
-    problems.push(`index.html：首页知识条目“${label}”指向的页面不存在：${href}`);
-    continue;
-  }
+      if (!href) {
+        problems.push(`index.html：第 ${cardIndex + 1} 张知识卡存在不可点击条目“${itemText}”`);
+        continue;
+      }
 
-  if (!(await hasAnchor(targetPath, anchorId))) {
-    problems.push(`index.html：首页知识条目“${label}”指向的锚点不存在：${href}`);
+      if (!href.startsWith("./knowledge/")) {
+        problems.push(`index.html：知识条目“${itemText}”链接不在 knowledge 目录下：${href}`);
+        continue;
+      }
+
+      const [filePart, hashPart = ""] = href.split("#");
+      const targetPath = path.resolve(projectRoot, filePart.replace(/^\.\//, ""));
+
+      if (!targetPath.startsWith(projectRoot)) {
+        problems.push(`index.html：知识条目“${itemText}”链接越界：${href}`);
+        continue;
+      }
+
+      if (!(await pathExists(targetPath))) {
+        problems.push(`index.html：知识条目“${itemText}”指向不存在页面：${href}`);
+        continue;
+      }
+
+      if (hashPart) {
+        const targetHtml = await fs.readFile(targetPath, "utf8");
+        if (!idsOf(targetHtml).has(decodeURIComponent(hashPart))) {
+          problems.push(`index.html：知识条目“${itemText}”指向不存在锚点：${href}`);
+        }
+      }
+    }
   }
 }
 
-// ========== 第三部分：知识卡片列表结构检查 ==========
-const knowledgeSectionMatch = homeHtml.match(/<section class="section" id="knowledge"[\s\S]*?<\/section>/i);
+// ========== 第三部分：旧口径回潮检查 ==========
+const forbiddenHomeTopicTerms = [
+  "庭院户外",
+  "茶室会客",
+  "家具好物",
+  "下单",
+  "价格",
+  "阅读路径",
+  "继续看",
+  "下一步可以看",
+];
 
-if (!knowledgeSectionMatch) {
-  problems.push("index.html：未找到首页柚木知识模块");
-} else {
-  const knowledgeSectionHtml = knowledgeSectionMatch[0];
-  const cardMatches = [...knowledgeSectionHtml.matchAll(/<article class="knowledge-topic-card[\s\S]*?<\/article>/gi)];
-
-  for (const [index, match] of cardMatches.entries()) {
-    const cardHtml = match[0];
-    const listItemMatches = [...cardHtml.matchAll(/<li>([\s\S]*?)<\/li>/gi)];
-
-    for (const itemMatch of listItemMatches) {
-      if (!/<a\b[^>]*href=["'][^"']+["'][^>]*>/i.test(itemMatch[1])) {
-        problems.push(`index.html：首页第 ${index + 1} 张知识卡片存在不可点击条目：${itemMatch[1].replace(/<[^>]+>/g, "").trim()}`);
-      }
-    }
+for (const term of forbiddenHomeTopicTerms) {
+  if (knowledgeSection.includes(term)) {
+    problems.push(`index.html：首页柚木知识模块仍出现旧口径“${term}”`);
   }
 }
 
