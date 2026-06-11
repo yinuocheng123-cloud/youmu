@@ -1,14 +1,13 @@
 /*
 文件说明：该文件用于检查静态站点公开链接与 sitemap。
-功能说明：扫描公开 HTML 的 href 与 sitemap URL，确认没有空链接、断链、本地越界链接，也确认 sitemap 不包含 custom 文档。
+功能说明：扫描公开 HTML 的 href 与 sitemap URL，确认没有空链接、断链、本地越界链接，并确认 30 个好物文章页纳入公网链接体系。
 
 结构概览：
   第一部分：公共扫描工具
   第二部分：链接目标检查
-  第三部分：sitemap 检查
+  第三部分：sitemap 检查与好物页完整性检查
   第四部分：结果输出
 */
-
 
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -16,11 +15,11 @@ import { fileURLToPath } from "node:url";
 
 const currentFile = fileURLToPath(import.meta.url);
 const projectRoot = path.resolve(path.dirname(currentFile), "..");
-const publicEntries = ["index.html", "data/site-content.js", "knowledge", "solutions", "vendors", "cooperation", "about", "articles", "cases", "forms"];
 const htmlEntries = ["index.html", "knowledge", "solutions", "vendors", "cooperation", "about", "articles", "cases", "forms"];
 const problems = [];
 
-async function collectFiles(entry, extensions = new Set([".html", ".js"])) {
+// ========== 第一部分：公共扫描工具 ==========
+async function collectFiles(entry, extensions = new Set([".html"])) {
   const absolute = path.join(projectRoot, entry);
   const stat = await fs.stat(absolute);
 
@@ -45,68 +44,9 @@ async function read(relativePath) {
   return fs.readFile(path.join(projectRoot, relativePath), "utf8");
 }
 
-function stripTags(html) {
-  return html.replace(/<script[\s\S]*?<\/script>/gi, "").replace(/<style[\s\S]*?<\/style>/gi, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
-}
-
-function extractHeader(html) {
-  return html.match(/<header[\s\S]*?<\/header>/i)?.[0] ?? "";
-}
-
 function extractHrefs(html) {
   return [...html.matchAll(/\shref\s*=\s*(["'])(.*?)\1/gi)].map((match) => match[2]);
 }
-
-function depthOf(relativePath) {
-  return relativePath.split("/").length - 1;
-}
-
-function prefixFor(relativePath) {
-  const depth = depthOf(relativePath);
-  return depth === 0 ? "./" : "../".repeat(depth);
-}
-
-function goodThingsHrefs(relativePath) {
-  const base = `${prefixFor(relativePath)}solutions/index.html`;
-  return [base, `${base}#good-furniture`, `${base}#good-flooring`, `${base}#good-whole-decoration`, `${base}#good-outdoor`, `${base}#good-collection`, `${base}#good-creative`];
-}
-
-function goodThingsLabels() {
-  return ["柚木好物首页", "柚木家具", "柚木地板", "柚木整装", "柚木户外", "柚木收藏", "柚木文创"];
-}
-
-function forbiddenGoodThingsLabels() {
-  return ["庭院户外", "茶室会客", "家具好物", "柚木茶室精选", "精选"];
-}
-
-function checkGoodThingsMenu(relativePath, header) {
-  const desktop = header.match(/<button[^>]*aria-controls="solutions-menu-\d+"[^>]*>[\s\S]*?柚木好物[\s\S]*?<\/button>\s*<div class="nav-dropdown-menu" id="solutions-menu-\d+" data-dropdown-menu>([\s\S]*?)<\/div>/i)?.[1] ?? "";
-  const mobile = header.match(/<details>\s*<summary>\s*柚木好物\s*<\/summary>([\s\S]*?)<\/details>/i)?.[1] ?? "";
-  for (const [label, block] of [["桌面端", desktop], ["移动端", mobile]]) {
-    if (!block) {
-      problems.push(`${relativePath}：${label}缺少“柚木好物”下拉菜单`);
-      continue;
-    }
-    const text = stripTags(block);
-    const hrefs = extractHrefs(block);
-    for (const item of goodThingsLabels()) {
-      if (!text.includes(item)) problems.push(`${relativePath}：${label}“柚木好物”下拉缺少 ${item}`);
-    }
-    for (const item of forbiddenGoodThingsLabels()) {
-      if (text.includes(item)) problems.push(`${relativePath}：${label}“柚木好物”下拉仍出现旧项 ${item}`);
-    }
-    for (const href of goodThingsHrefs(relativePath)) {
-      if (!hrefs.includes(href)) problems.push(`${relativePath}：${label}“柚木好物”下拉缺少路径 ${href}`);
-    }
-  }
-}
-
-
-// ========== 第二部分：链接目标检查 ==========
-const siteBaseUrl = "https://yinuocheng123-cloud.github.io/youmu/";
-const htmlFiles = (await Promise.all(htmlEntries.map((entry) => collectFiles(entry, new Set([".html"]))))).flat().sort();
-const htmlFileSet = new Set(htmlFiles);
-let checkedLocalLinks = 0;
 
 function idsOf(html) {
   return new Set([...html.matchAll(/\sid=["']([^"']+)["']/g)].map((match) => match[1]));
@@ -120,6 +60,12 @@ async function exists(absolutePath) {
     return false;
   }
 }
+
+// ========== 第二部分：链接目标检查 ==========
+const siteBaseUrl = "https://yinuocheng123-cloud.github.io/youmu/";
+const htmlFiles = (await Promise.all(htmlEntries.map((entry) => collectFiles(entry, new Set([".html"]))))).flat().sort();
+const htmlFileSet = new Set(htmlFiles);
+let checkedLocalLinks = 0;
 
 for (const relativePath of htmlFiles) {
   const absolutePath = path.join(projectRoot, relativePath);
@@ -159,7 +105,7 @@ for (const relativePath of htmlFiles) {
   }
 }
 
-// ========== 第三部分：sitemap 检查 ==========
+// ========== 第三部分：sitemap 检查与好物页完整性检查 ==========
 const sitemapXml = await read("sitemap.xml");
 const sitemapUrls = [...sitemapXml.matchAll(/<loc>(.*?)<\/loc>/gi)].map((match) => match[1].trim());
 const sitemapPaths = new Set();
@@ -180,6 +126,13 @@ for (const url of sitemapUrls) {
 
 for (const publicPath of htmlFileSet) {
   if (!sitemapPaths.has(publicPath)) problems.push(`sitemap.xml：缺少公开页面 ${publicPath}`);
+}
+
+const goodsFiles = htmlFiles.filter((file) => file.startsWith("solutions/goods/"));
+if (goodsFiles.length !== 30) problems.push(`solutions/goods：公开好物文章页数量 ${goodsFiles.length}，应为 30 个`);
+
+for (const publicPath of goodsFiles) {
+  if (!sitemapPaths.has(publicPath)) problems.push(`sitemap.xml：缺少好物文章页 ${publicPath}`);
 }
 
 // ========== 第四部分：结果输出 ==========

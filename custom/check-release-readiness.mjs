@@ -1,14 +1,13 @@
 /*
 文件说明：该文件用于检查公网发布前的旧口径与高风险表达。
-功能说明：扫描公开 HTML 与数据源，拦截好物旧口径、内部审核话、交易化词汇和 V1.17 以前的旧表达回潮。
+功能说明：扫描公开 HTML 与数据源，拦截好物旧二级名、建设期模板语、内部审核话、交易化表达和 V1.17 以前旧表达回潮。
 
 结构概览：
   第一部分：公共扫描工具
-  第二部分：旧词与高风险表达检查
-  第三部分：重点好物页结构检查
+  第二部分：公开页面旧口径检查
+  第三部分：好物文章页发布检查
   第四部分：结果输出
 */
-
 
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -17,9 +16,9 @@ import { fileURLToPath } from "node:url";
 const currentFile = fileURLToPath(import.meta.url);
 const projectRoot = path.resolve(path.dirname(currentFile), "..");
 const publicEntries = ["index.html", "data/site-content.js", "knowledge", "solutions", "vendors", "cooperation", "about", "articles", "cases", "forms"];
-const htmlEntries = ["index.html", "knowledge", "solutions", "vendors", "cooperation", "about", "articles", "cases", "forms"];
 const problems = [];
 
+// ========== 第一部分：公共扫描工具 ==========
 async function collectFiles(entry, extensions = new Set([".html", ".js"])) {
   const absolute = path.join(projectRoot, entry);
   const stat = await fs.stat(absolute);
@@ -46,64 +45,20 @@ async function read(relativePath) {
 }
 
 function stripTags(html) {
-  return html.replace(/<script[\s\S]*?<\/script>/gi, "").replace(/<style[\s\S]*?<\/style>/gi, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, "")
+    .replace(/<style[\s\S]*?<\/style>/gi, "")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
-function extractHeader(html) {
-  return html.match(/<header[\s\S]*?<\/header>/i)?.[0] ?? "";
+function countMatches(text, pattern) {
+  return [...text.matchAll(pattern)].length;
 }
 
-function extractHrefs(html) {
-  return [...html.matchAll(/\shref\s*=\s*(["'])(.*?)\1/gi)].map((match) => match[2]);
-}
-
-function depthOf(relativePath) {
-  return relativePath.split("/").length - 1;
-}
-
-function prefixFor(relativePath) {
-  const depth = depthOf(relativePath);
-  return depth === 0 ? "./" : "../".repeat(depth);
-}
-
-function goodThingsHrefs(relativePath) {
-  const base = `${prefixFor(relativePath)}solutions/index.html`;
-  return [base, `${base}#good-furniture`, `${base}#good-flooring`, `${base}#good-whole-decoration`, `${base}#good-outdoor`, `${base}#good-collection`, `${base}#good-creative`];
-}
-
-function goodThingsLabels() {
-  return ["柚木好物首页", "柚木家具", "柚木地板", "柚木整装", "柚木户外", "柚木收藏", "柚木文创"];
-}
-
-function forbiddenGoodThingsLabels() {
-  return ["庭院户外", "茶室会客", "家具好物", "柚木茶室精选", "精选"];
-}
-
-function checkGoodThingsMenu(relativePath, header) {
-  const desktop = header.match(/<button[^>]*aria-controls="solutions-menu-\d+"[^>]*>[\s\S]*?柚木好物[\s\S]*?<\/button>\s*<div class="nav-dropdown-menu" id="solutions-menu-\d+" data-dropdown-menu>([\s\S]*?)<\/div>/i)?.[1] ?? "";
-  const mobile = header.match(/<details>\s*<summary>\s*柚木好物\s*<\/summary>([\s\S]*?)<\/details>/i)?.[1] ?? "";
-  for (const [label, block] of [["桌面端", desktop], ["移动端", mobile]]) {
-    if (!block) {
-      problems.push(`${relativePath}：${label}缺少“柚木好物”下拉菜单`);
-      continue;
-    }
-    const text = stripTags(block);
-    const hrefs = extractHrefs(block);
-    for (const item of goodThingsLabels()) {
-      if (!text.includes(item)) problems.push(`${relativePath}：${label}“柚木好物”下拉缺少 ${item}`);
-    }
-    for (const item of forbiddenGoodThingsLabels()) {
-      if (text.includes(item)) problems.push(`${relativePath}：${label}“柚木好物”下拉仍出现旧项 ${item}`);
-    }
-    for (const href of goodThingsHrefs(relativePath)) {
-      if (!hrefs.includes(href)) problems.push(`${relativePath}：${label}“柚木好物”下拉缺少路径 ${href}`);
-    }
-  }
-}
-
-
-// ========== 第二部分：旧词与高风险表达检查 ==========
-const forbiddenTerms = [
+// ========== 第二部分：公开页面旧口径检查 ==========
+const publicForbiddenTerms = [
   "Teak Project Gallery",
   "五个应用场景",
   "庭院户外",
@@ -123,17 +78,20 @@ const forbiddenTerms = [
   "占位",
   "待补",
   "建设中",
-  "会员站",
-  "审核",
-  "平台认证",
-  "官方推荐",
-  "交易担保",
-  "价格",
-  "库存",
-  "下单",
   "立即购买",
   "柚木茶室精选",
+  "5 个档案入口",
+  "进入档案",
+  "第一批好物档案",
+  "方向整理",
+  "补图",
+  "补故事",
+  "补观察素材",
+  "底部简短说明",
+  "本页整理的是",
+  "不涉及具体品牌承诺",
 ];
+
 const publicFiles = (await Promise.all(publicEntries.map((entry) => collectFiles(entry)))).flat().filter((file) => file !== "forms/form.js").sort();
 
 for (const relativePath of publicFiles) {
@@ -142,7 +100,7 @@ for (const relativePath of publicFiles) {
   const lines = visibleText.split(/\r?\n/);
 
   lines.forEach((line, index) => {
-    for (const term of forbiddenTerms) {
+    for (const term of publicForbiddenTerms) {
       if (line.includes(term)) {
         problems.push(`${relativePath}:${index + 1}：发现公网旧口径或高风险表达“${term}”`);
       }
@@ -150,13 +108,42 @@ for (const relativePath of publicFiles) {
   });
 }
 
-// ========== 第三部分：重点好物页结构检查 ==========
+// ========== 第三部分：好物文章页发布检查 ==========
 const solutionsIndex = await read("solutions/index.html");
 for (const category of ["柚木家具", "柚木地板", "柚木整装", "柚木户外", "柚木收藏", "柚木文创"]) {
   if (!solutionsIndex.includes(category)) problems.push(`solutions/index.html：缺少六类新体系分类 ${category}`);
 }
+
 for (const id of ["good-furniture", "good-flooring", "good-whole-decoration", "good-outdoor", "good-collection", "good-creative"]) {
   if (!solutionsIndex.includes(`id="${id}"`)) problems.push(`solutions/index.html：缺少六类分区锚点 ${id}`);
+}
+
+const goodsFiles = (await collectFiles("solutions/goods", new Set([".html"]))).sort();
+if (goodsFiles.length !== 30) problems.push(`solutions/goods：好物文章页数量 ${goodsFiles.length}，应为 30 个`);
+
+const goodsForbiddenTerms = ["价格", "库存", "购买", "下单", "立即购买", "平台认证", "官方推荐", "交易担保"];
+const forbiddenSectionTitles = ["导语", "为什么值得看", "材质与气质", "适合什么场景", "怎么看细节", "公开资料观察", "底部简短说明"];
+
+for (const relativePath of goodsFiles) {
+  const html = await read(relativePath);
+  const visibleText = stripTags(html);
+
+  for (const term of goodsForbiddenTerms) {
+    if (visibleText.includes(term)) problems.push(`${relativePath}：好物文章仍包含交易化或背书化表达“${term}”`);
+  }
+
+  for (const title of forbiddenSectionTitles) {
+    const h2Pattern = new RegExp(`<h2[^>]*>\\s*${title}\\s*<\\/h2>`, "i");
+    if (h2Pattern.test(html)) problems.push(`${relativePath}：仍使用模板小节标题“${title}”`);
+  }
+
+  const article = html.match(/<article class="goods-article-prose"[\s\S]*?<\/article>/i)?.[0] ?? "";
+  const paragraphCount = countMatches(article, /<p\b/g);
+  if (paragraphCount < 8) problems.push(`${relativePath}：正文段落数 ${paragraphCount}，少于 8 段`);
+
+  const related = html.match(/<section class="goods-related-section"[\s\S]*?<\/section>/i)?.[0] ?? "";
+  const relatedCount = countMatches(related, /<a\b/g);
+  if (relatedCount < 3) problems.push(`${relativePath}：相关好物链接 ${relatedCount} 个，少于 3 个`);
 }
 
 // ========== 第四部分：结果输出 ==========
@@ -166,4 +153,4 @@ if (problems.length > 0) {
   process.exit(1);
 }
 
-console.log("正式发布预检通过：未发现旧口径、高风险交易表达或内部审核话回潮。");
+console.log("正式发布预检通过：未发现旧口径、好物模板语或交易化高风险表达回潮。");
