@@ -1,6 +1,6 @@
 /*
 文件说明：该文件用于检查公开内容深度与好物文章完整性。
-功能说明：确认知识与好物内容具备可阅读深度，并拦截好物文章模板词、交易化表达和延伸资料缺失。
+功能说明：确认知识与好物内容具备可阅读深度，并拦截好物文章模板词、交易化表达、资料模块重复和外部链接缺失。
 
 结构概览：
   第一部分：公共扫描工具
@@ -73,6 +73,10 @@ const solutionsIndexForbiddenTerms = [
   "资料框架",
   "每一页都按内容阅读方式展开",
   "浏览更多",
+  "查看更多",
+  "档案",
+  "来源类型",
+  "观察重点",
 ];
 
 for (const term of solutionsIndexForbiddenTerms) {
@@ -96,9 +100,14 @@ const goodsForbiddenTerms = [
   "公开资料观察",
   "底部简短说明",
   "进入档案",
+  "查看档案",
+  "浏览更多",
+  "查看更多",
   "5 个档案入口",
   "本页整理的是",
   "不涉及具体品牌承诺",
+  "具体产品仍需",
+  "这些资料只作为阅读参考",
   "价格",
   "库存",
   "购买",
@@ -107,6 +116,8 @@ const goodsForbiddenTerms = [
   "平台认证",
   "官方推荐",
   "交易担保",
+  "交易承诺",
+  "平台背书",
 ];
 const representativeFiles = new Set([
   "solutions/goods/teak-tea-table.html",
@@ -126,8 +137,10 @@ const representativeForbiddenTerms = [
   "本页整理的是",
   "不涉及具体品牌承诺",
   "具体产品仍需",
+  "这些资料只作为阅读参考",
 ];
 const forbiddenSectionTitles = ["导语", "为什么值得看", "材质与气质", "适合什么场景", "怎么看细节", "公开资料观察", "底部简短说明"];
+const sourceIntros = [];
 
 for (const relativePath of goodsFiles) {
   const html = await read(relativePath);
@@ -156,18 +169,26 @@ for (const relativePath of goodsFiles) {
   if (paragraphCount < 8) problems.push(`${relativePath}：正文段落数 ${paragraphCount}，少于 8 段`);
 
   const relatedCount = countMatches(related, /<a\b/g);
-  if (relatedCount < 3) problems.push(`${relativePath}：相关好物链接 ${relatedCount} 个，少于 3 个`);
-  if (related && !related.includes("继续阅读")) problems.push(`${relativePath}：相关好物按钮文案未统一为“继续阅读”`);
+  if (relatedCount < 3) problems.push(`${relativePath}：站内关联链接 ${relatedCount} 个，少于 3 个`);
+  if (related && !related.includes("你可能还会喜欢")) problems.push(`${relativePath}：关联阅读模块标题未统一为“你可能还会喜欢”`);
+  if (related && !related.includes("继续阅读")) problems.push(`${relativePath}：关联阅读按钮文案未统一为“继续阅读”`);
 
   const sourceLinks = hrefsOf(sourceSection);
   const externalSourceLinks = sourceLinks.filter((href) => /^https?:\/\//i.test(href));
-  if (!sourceSection) problems.push(`${relativePath}：缺少延伸资料模块`);
-  if (externalSourceLinks.length < 3) problems.push(`${relativePath}：延伸资料外部链接 ${externalSourceLinks.length} 个，少于 3 个`);
+  if (!sourceSection) problems.push(`${relativePath}：缺少延伸阅读模块`);
+  if (sourceSection && !/<h2[^>]*>\s*延伸阅读\s*<\/h2>/i.test(sourceSection)) problems.push(`${relativePath}：外部资料模块标题未统一为“延伸阅读”`);
+  const sourceIntro = sourceSection.match(/<h2[^>]*>\s*延伸阅读\s*<\/h2>\s*<p>([\s\S]*?)<\/p>/i)?.[1]?.trim() ?? "";
+  if (!sourceIntro) problems.push(`${relativePath}：延伸阅读缺少说明段落`);
+  sourceIntros.push(sourceIntro);
+  if (externalSourceLinks.length < 3) problems.push(`${relativePath}：延伸阅读外部链接 ${externalSourceLinks.length} 个，少于 3 个`);
   for (const href of sourceLinks) {
-    if (!href.trim()) problems.push(`${relativePath}：延伸资料存在空链接`);
-    if (href.includes("custom/")) problems.push(`${relativePath}：延伸资料不允许引用 custom 内部文件 ${href}`);
+    if (!href.trim()) problems.push(`${relativePath}：延伸阅读存在空链接`);
+    if (href.includes("custom/")) problems.push(`${relativePath}：延伸阅读不允许引用 custom 内部文件 ${href}`);
+    if (/^[a-zA-Z]:[\\/]/.test(href)) problems.push(`${relativePath}：延伸阅读不允许引用本地绝对路径 ${href}`);
   }
 }
+
+if (new Set(sourceIntros).size < 20) problems.push(`solutions/goods：延伸阅读说明重复度过高，当前唯一说明 ${new Set(sourceIntros).size} 条`);
 
 // ========== 第四部分：结果输出 ==========
 if (problems.length > 0) {
@@ -176,4 +197,4 @@ if (problems.length > 0) {
   process.exit(1);
 }
 
-console.log("内容深度检查通过：好物首页、30 个好物文章页、代表文章和延伸资料模块均满足当前要求。");
+console.log("内容深度检查通过：好物首页、30 个好物文章页、代表文章和延伸阅读模块均满足当前要求。");

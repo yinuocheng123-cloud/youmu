@@ -1,12 +1,13 @@
 /*
 文件说明：该文件用于执行正式发布前的公开页面口径预检。
-功能说明：扫描公开 HTML 与数据源，拦截好物旧模板词、交易化表达、背书化表达和资料来源模块缺失。
+功能说明：扫描公开 HTML 与公开数据源，拦截旧模板词、交易化表达、背书化表达、好物旧二级名和资料来源模块缺失。
 
 结构概览：
   第一部分：路径与扫描工具
   第二部分：公开页面旧词与高风险表达检查
-  第三部分：柚木好物文章与延伸资料检查
-  第四部分：结果输出
+  第三部分：柚木好物文章与延伸阅读检查
+  第四部分：sitemap 好物页完整性检查
+  第五部分：结果输出
 */
 
 import fs from "node:fs/promises";
@@ -80,15 +81,35 @@ const publicForbiddenTerms = [
   "茶室会客",
   "家具好物",
   "好物方案",
+  "档案",
+  "进入档案",
+  "查看档案",
+  "第一批",
+  "5 个档案入口",
+  "内容流",
+  "方向卡片",
+  "来源类型",
+  "观察重点",
+  "公开资料观察",
+  "本页整理的是",
+  "不涉及具体品牌承诺",
+  "底部简短说明",
+  "补图",
+  "补故事",
+  "补观察素材",
   "资料框架",
+  "资料整理",
   "人工核验",
   "后续人工核验",
   "真实资料仍需以后续人工核验为准",
   "知识内容用于建立判断路径",
   "阅读路径",
+  "判断路径",
   "继续看",
   "下一步可以看",
   "读完后",
+  "浏览更多",
+  "查看更多",
   "样板",
   "占位",
   "待补",
@@ -97,24 +118,20 @@ const publicForbiddenTerms = [
   "审核",
   "平台认证",
   "官方推荐",
+  "交易担保",
+  "交易承诺",
+  "平台背书",
+  "价格",
+  "库存",
+  "购买",
+  "下单",
   "立即购买",
-  "进入档案",
-  "浏览更多",
-  "查看档案",
-  "第一批好物档案",
-  "方向卡片",
-  "内容流",
-  "5 个档案入口",
-  "方向整理",
-  "补图",
-  "补故事",
-  "补观察素材",
-  "底部简短说明",
-  "本页整理的是",
-  "不涉及具体品牌承诺",
 ];
 
-const publicFiles = (await Promise.all(publicEntries.map((entry) => collectFiles(entry)))).flat().filter((file) => file !== "forms/form.js").sort();
+const publicFiles = (await Promise.all(publicEntries.map((entry) => collectFiles(entry))))
+  .flat()
+  .filter((file) => file !== "forms/form.js")
+  .sort();
 
 for (const relativePath of publicFiles) {
   const text = await read(relativePath);
@@ -129,24 +146,23 @@ for (const relativePath of publicFiles) {
     }
   });
 
-  // 这里拦截的是明确交易化组合，而不是知识文章中“选购判断”一类自然语境。
   const visibleOnly = relativePath.endsWith(".html") ? stripTags(visibleText) : visibleText;
   const transactionPatterns = [
-    /价格\s*[:：]/,
-    /库存\s*[:：]/,
-    /购买链接/,
-    /购买入口/,
+    /加入购物车/,
     /在线下单/,
     /直接下单/,
     /下单入口/,
-    /加入购物车/,
+    /购买链接/,
+    /购买入口/,
+    /库存\s*[:：]/,
+    /价格\s*[:：]/,
   ];
   for (const pattern of transactionPatterns) {
     if (pattern.test(visibleOnly)) problems.push(`${relativePath}：发现交易化表达 ${pattern}`);
   }
 }
 
-// ========== 第三部分：柚木好物文章与延伸资料检查 ==========
+// ========== 第三部分：柚木好物文章与延伸阅读检查 ==========
 const solutionsIndex = await read("solutions/index.html");
 for (const category of ["柚木家具", "柚木地板", "柚木整装", "柚木户外", "柚木收藏", "柚木文创"]) {
   if (!solutionsIndex.includes(category)) problems.push(`solutions/index.html：缺少六类新体系分类 ${category}`);
@@ -159,23 +175,6 @@ for (const id of ["good-furniture", "good-flooring", "good-whole-decoration", "g
 const goodsFiles = (await collectFiles("solutions/goods", new Set([".html"]))).sort();
 if (goodsFiles.length !== 30) problems.push(`solutions/goods：好物文章页数量 ${goodsFiles.length}，应为 30 个`);
 
-const goodsForbiddenTerms = [
-  "底部简短说明",
-  "进入档案",
-  "查看档案",
-  "浏览更多",
-  "5 个档案入口",
-  "本页整理的是",
-  "不涉及具体品牌承诺",
-  "价格",
-  "库存",
-  "购买",
-  "下单",
-  "立即购买",
-  "平台认证",
-  "官方推荐",
-  "交易担保",
-];
 const forbiddenSectionTitles = ["导语", "为什么值得看", "材质与气质", "适合什么场景", "怎么看细节", "公开资料观察", "底部简短说明"];
 const featuredPages = new Set([
   "solutions/goods/teak-tea-table.html",
@@ -185,16 +184,29 @@ const featuredPages = new Set([
   "solutions/goods/old-teak-door.html",
   "solutions/goods/teak-tray.html",
 ]);
-const featuredForbiddenTerms = ["观察重点", "来源类型", "公开资料观察", "为什么值得看", "怎么看细节", "适合什么场景", "本页整理的是", "不涉及具体品牌承诺", "具体产品仍需"];
+const featuredForbiddenTerms = [
+  "观察重点",
+  "来源类型",
+  "公开资料观察",
+  "为什么值得看",
+  "怎么看细节",
+  "适合什么场景",
+  "本页整理的是",
+  "不涉及具体品牌承诺",
+  "具体产品仍需",
+  "这些资料只作为阅读参考",
+];
+const sourceIntros = [];
 
 for (const relativePath of goodsFiles) {
   const html = await read(relativePath);
   const visibleText = stripTags(html);
   const article = html.match(/<article class="goods-article-prose"[\s\S]*?<\/article>/i)?.[0] ?? "";
+  const related = html.match(/<section class="goods-related-section"[\s\S]*?<\/section>/i)?.[0] ?? "";
   const sourceSection = html.match(/<section class="goods-source-section"[\s\S]*?<\/section>/i)?.[0] ?? "";
 
-  for (const term of goodsForbiddenTerms) {
-    if (visibleText.includes(term)) problems.push(`${relativePath}：好物文章仍包含交易化、背书化或模板表达“${term}”`);
+  for (const term of publicForbiddenTerms) {
+    if (visibleText.includes(term)) problems.push(`${relativePath}：好物文章仍包含公开禁用词“${term}”`);
   }
 
   for (const title of forbiddenSectionTitles) {
@@ -212,29 +224,45 @@ for (const relativePath of goodsFiles) {
   const paragraphCount = countMatches(article, /<p\b/g);
   if (paragraphCount < 8) problems.push(`${relativePath}：正文段落数 ${paragraphCount}，少于 8 段`);
 
-  const related = html.match(/<section class="goods-related-section"[\s\S]*?<\/section>/i)?.[0] ?? "";
   const relatedCount = countMatches(related, /<a\b/g);
-  if (relatedCount < 3) problems.push(`${relativePath}：相关好物链接 ${relatedCount} 个，少于 3 个`);
+  if (relatedCount < 3) problems.push(`${relativePath}：站内关联链接 ${relatedCount} 个，少于 3 个`);
+  if (!related.includes("你可能还会喜欢")) problems.push(`${relativePath}：关联阅读模块标题未统一为“你可能还会喜欢”`);
+  if (related && !related.includes("继续阅读")) problems.push(`${relativePath}：关联阅读按钮文案未统一为“继续阅读”`);
 
   if (!sourceSection) {
-    problems.push(`${relativePath}：缺少延伸资料模块`);
+    problems.push(`${relativePath}：缺少延伸阅读模块`);
     continue;
   }
 
+  if (!/<h2[^>]*>\s*延伸阅读\s*<\/h2>/i.test(sourceSection)) problems.push(`${relativePath}：外部资料模块标题未统一为“延伸阅读”`);
+  const sourceIntro = sourceSection.match(/<h2[^>]*>\s*延伸阅读\s*<\/h2>\s*<p>([\s\S]*?)<\/p>/i)?.[1]?.trim() ?? "";
+  if (!sourceIntro) problems.push(`${relativePath}：延伸阅读缺少说明段落`);
+  sourceIntros.push(sourceIntro);
+
   const sourceHrefs = extractHrefs(sourceSection);
   const externalSourceCount = sourceHrefs.filter((href) => /^https?:\/\//i.test(href)).length;
-  if (externalSourceCount < 3) problems.push(`${relativePath}：延伸资料外部链接 ${externalSourceCount} 个，少于 3 个`);
+  if (externalSourceCount < 3) problems.push(`${relativePath}：延伸阅读外部链接 ${externalSourceCount} 个，少于 3 个`);
   for (const href of sourceHrefs) {
-    if (!href || href === "#") problems.push(`${relativePath}：延伸资料存在空链接`);
-    if (href.includes("custom/")) problems.push(`${relativePath}：延伸资料不允许引用 custom 内部文件 ${href}`);
+    if (!href || href === "#") problems.push(`${relativePath}：延伸阅读存在空链接`);
+    if (!/^https?:\/\//i.test(href)) problems.push(`${relativePath}：延伸阅读只能使用公开外部链接，当前为 ${href}`);
+    if (href.includes("custom/")) problems.push(`${relativePath}：延伸阅读不允许引用 custom 内部文件 ${href}`);
+    if (/^[a-zA-Z]:[\\/]/.test(href)) problems.push(`${relativePath}：延伸阅读不允许引用本地绝对路径 ${href}`);
   }
 }
 
-// ========== 第四部分：结果输出 ==========
+if (new Set(sourceIntros).size < 20) problems.push(`solutions/goods：延伸阅读说明重复度过高，当前唯一说明 ${new Set(sourceIntros).size} 条`);
+
+// ========== 第四部分：sitemap 好物页完整性检查 ==========
+const sitemapXml = await read("sitemap.xml");
+for (const relativePath of goodsFiles) {
+  if (!sitemapXml.includes(relativePath)) problems.push(`sitemap.xml：缺少好物文章页 ${relativePath}`);
+}
+
+// ========== 第五部分：结果输出 ==========
 if (problems.length > 0) {
   console.error("正式发布预检未通过：");
   for (const problem of problems) console.error(`- ${problem}`);
   process.exit(1);
 }
 
-console.log("正式发布预检通过：好物文章、延伸资料、旧口径和高风险表达均未发现阻塞问题。");
+console.log("正式发布预检通过：公开旧口径、好物文章、延伸阅读、sitemap 和高风险表达均未发现阻塞问题。");

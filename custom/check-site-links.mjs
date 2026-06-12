@@ -5,7 +5,7 @@
 结构概览：
   第一部分：公共扫描工具
   第二部分：公开页面链接目标检查
-  第三部分：好物延伸资料外链检查
+  第三部分：好物延伸阅读外链检查
   第四部分：sitemap 与好物页完整性检查
   第五部分：结果输出
 */
@@ -64,7 +64,9 @@ async function exists(absolutePath) {
 
 // ========== 第二部分：公开页面链接目标检查 ==========
 const siteBaseUrl = "https://yinuocheng123-cloud.github.io/youmu/";
-const htmlFiles = (await Promise.all(htmlEntries.map((entry) => collectFiles(entry, new Set([".html"]))))).flat().sort();
+const htmlFiles = (await Promise.all(htmlEntries.map((entry) => collectFiles(entry, new Set([".html"])))))
+  .flat()
+  .sort();
 const htmlFileSet = new Set(htmlFiles);
 let checkedLocalLinks = 0;
 
@@ -76,6 +78,10 @@ for (const relativePath of htmlFiles) {
   for (const href of extractHrefs(html)) {
     if (!href || href === "#" || href.toLowerCase() === "javascript:void(0)") {
       problems.push(`${relativePath}：存在空链接或无效链接 ${href || "(empty)"}`);
+      continue;
+    }
+    if (/^[a-zA-Z]:[\\/]/.test(href)) {
+      problems.push(`${relativePath}：不允许本地绝对路径链接 ${href}`);
       continue;
     }
     if (/^(https?:|mailto:|tel:)/i.test(href)) continue;
@@ -106,23 +112,24 @@ for (const relativePath of htmlFiles) {
   }
 }
 
-// ========== 第三部分：好物延伸资料外链检查 ==========
+// ========== 第三部分：好物延伸阅读外链检查 ==========
 const goodsFilesForSource = htmlFiles.filter((file) => file.startsWith("solutions/goods/"));
 for (const relativePath of goodsFilesForSource) {
   const html = await read(relativePath);
   const sourceSection = html.match(/<section class="goods-source-section"[\s\S]*?<\/section>/i)?.[0] ?? "";
   if (!sourceSection) {
-    problems.push(`${relativePath}：缺少延伸资料模块`);
+    problems.push(`${relativePath}：缺少延伸阅读模块`);
     continue;
   }
 
   const sourceHrefs = extractHrefs(sourceSection);
   const externalHrefs = sourceHrefs.filter((href) => /^https?:\/\//i.test(href));
-  if (externalHrefs.length < 3) problems.push(`${relativePath}：延伸资料外部链接少于 3 个`);
+  if (externalHrefs.length < 3) problems.push(`${relativePath}：延伸阅读外部链接少于 3 个`);
   for (const href of sourceHrefs) {
-    if (!href || href === "#") problems.push(`${relativePath}：延伸资料存在空链接`);
-    if (!/^https?:\/\//i.test(href)) problems.push(`${relativePath}：延伸资料必须使用公开外部链接，当前为 ${href}`);
-    if (href.includes("custom/")) problems.push(`${relativePath}：延伸资料不允许引用 custom 内部文件 ${href}`);
+    if (!href || href === "#") problems.push(`${relativePath}：延伸阅读存在空链接`);
+    if (!/^https?:\/\//i.test(href)) problems.push(`${relativePath}：延伸阅读必须使用公开外部链接，当前为 ${href}`);
+    if (href.includes("custom/")) problems.push(`${relativePath}：延伸阅读不允许引用 custom 内部文件 ${href}`);
+    if (/^[a-zA-Z]:[\\/]/.test(href)) problems.push(`${relativePath}：延伸阅读不允许引用本地绝对路径 ${href}`);
   }
 }
 
