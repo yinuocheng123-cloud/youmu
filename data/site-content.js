@@ -141,7 +141,7 @@
           { label: "柚木整装", href: "./solutions/index.html#good-whole-decoration" },
           { label: "柚木户外", href: "./solutions/index.html#good-outdoor" },
           { label: "柚木收藏", href: "./solutions/index.html#good-collection" },
-          { label: "柚木文创", href: "./solutions/index.html#good-creative" },
+          { label: "柚木文创", href: "./solutions/index.html#good-cultural" },
         ],
         ...status.formalCopy,
       },
