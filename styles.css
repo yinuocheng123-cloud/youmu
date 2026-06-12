@@ -6192,12 +6192,8 @@ h3,
 .goods-source-section {
   width: min(900px, 100%);
   margin: 0 auto;
-  padding: clamp(22px, 4vw, 32px);
-  border-radius: 26px;
-  border: 1px solid rgba(101, 112, 71, 0.16);
-  background:
-    linear-gradient(135deg, rgba(247, 242, 231, 0.96), rgba(232, 224, 205, 0.82)),
-    rgba(255, 250, 242, 0.92);
+  padding: clamp(22px, 4vw, 30px) 0 0;
+  border-top: 1px solid rgba(72, 46, 28, 0.14);
 }
 
 .goods-source-section h2 {
@@ -6206,31 +6202,38 @@ h3,
 }
 
 .goods-source-section > p {
-  max-width: 760px;
+  max-width: 820px;
   margin: 0 0 18px;
   color: var(--muted);
 }
 
 .goods-source-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  gap: 0;
+  border: 1px solid rgba(72, 46, 28, 0.1);
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(255, 250, 242, 0.58);
 }
 
 .goods-source-card {
   display: grid;
-  gap: 8px;
-  min-height: 142px;
-  padding: 16px;
-  border-radius: 20px;
-  border: 1px solid rgba(72, 46, 28, 0.08);
-  background: rgba(255, 255, 255, 0.52);
+  grid-template-columns: 112px minmax(0, 0.9fr) minmax(0, 1.4fr);
+  gap: 14px;
+  align-items: start;
+  min-height: 0;
+  padding: 15px 16px;
+  border-bottom: 1px solid rgba(72, 46, 28, 0.08);
+  background: rgba(255, 255, 255, 0.28);
   color: var(--coffee);
   text-decoration: none;
   transition:
-    transform 0.18s ease,
-    border-color 0.18s ease,
-    box-shadow 0.18s ease;
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.goods-source-card:last-child {
+  border-bottom: 0;
 }
 
 .goods-source-card span {
@@ -6244,7 +6247,7 @@ h3,
 }
 
 .goods-source-card strong {
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.42;
 }
 
@@ -6256,9 +6259,8 @@ h3,
 
 .goods-source-card:hover,
 .goods-source-card:focus-visible {
-  transform: translateY(-2px);
-  border-color: rgba(101, 112, 71, 0.24);
-  box-shadow: 0 16px 32px rgba(72, 46, 28, 0.08);
+  color: var(--coffee);
+  background: rgba(244, 233, 214, 0.44);
 }
 
 .goods-related-section h2 {
@@ -6375,8 +6377,7 @@ h3,
   .good-things-metrics,
   .goods-archive-list-grid,
   .goods-archive-related-grid,
-  .goods-related-grid,
-  .goods-source-grid {
+  .goods-related-grid {
     grid-template-columns: 1fr;
   }
 
@@ -6406,6 +6407,11 @@ h3,
   .goods-article-prose {
     font-size: 16px;
     line-height: 1.86;
+  }
+
+  .goods-source-card {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 
   .good-things-card {
