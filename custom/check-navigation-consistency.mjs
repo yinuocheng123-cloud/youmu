@@ -67,7 +67,7 @@ function prefixFor(relativePath) {
 
 function goodThingsHrefs(relativePath) {
   const base = `${prefixFor(relativePath)}solutions/index.html`;
-  return [base, `${base}#good-furniture`, `${base}#good-flooring`, `${base}#good-whole-decoration`, `${base}#good-outdoor`, `${base}#good-collection`, `${base}#good-creative`];
+  return [base, `${base}#good-furniture`, `${base}#good-flooring`, `${base}#good-whole-decoration`, `${base}#good-outdoor`, `${base}#good-collection`, `${base}#good-cultural`];
 }
 
 function goodThingsLabels() {
