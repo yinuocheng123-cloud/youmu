@@ -185,6 +185,9 @@ const featuredPages = new Set([
   "solutions/goods/teak-tray.html",
 ]);
 const featuredForbiddenTerms = [
+  "延伸资料",
+  "资料来源",
+  "参考资料",
   "观察重点",
   "来源类型",
   "公开资料观察",
@@ -222,7 +225,8 @@ for (const relativePath of goodsFiles) {
   }
 
   const paragraphCount = countMatches(article, /<p\b/g);
-  if (paragraphCount < 8) problems.push(`${relativePath}：正文段落数 ${paragraphCount}，少于 8 段`);
+  const requiredParagraphs = featuredPages.has(relativePath) ? 10 : 8;
+  if (paragraphCount < requiredParagraphs) problems.push(`${relativePath}：正文段落数 ${paragraphCount}，少于 ${requiredParagraphs} 段`);
 
   const relatedCount = countMatches(related, /<a\b/g);
   if (relatedCount < 3) problems.push(`${relativePath}：站内关联链接 ${relatedCount} 个，少于 3 个`);
@@ -234,9 +238,12 @@ for (const relativePath of goodsFiles) {
     continue;
   }
 
-  if (!/<h2[^>]*>\s*延伸阅读\s*<\/h2>/i.test(sourceSection)) problems.push(`${relativePath}：外部资料模块标题未统一为“延伸阅读”`);
-  const sourceIntro = sourceSection.match(/<h2[^>]*>\s*延伸阅读\s*<\/h2>\s*<p>([\s\S]*?)<\/p>/i)?.[1]?.trim() ?? "";
-  if (!sourceIntro) problems.push(`${relativePath}：延伸阅读缺少说明段落`);
+  const expectedSourceTitle = featuredPages.has(relativePath) ? "继续了解" : "延伸阅读";
+  const sourceTitlePattern = new RegExp(`<h2[^>]*>\\s*${expectedSourceTitle}\\s*<\\/h2>`, "i");
+  if (!sourceTitlePattern.test(sourceSection)) problems.push(`${relativePath}：外部阅读模块标题应为“${expectedSourceTitle}”`);
+  const sourceIntroPattern = new RegExp(`<h2[^>]*>\\s*${expectedSourceTitle}\\s*<\\/h2>\\s*<p>([\\s\\S]*?)<\\/p>`, "i");
+  const sourceIntro = sourceSection.match(sourceIntroPattern)?.[1]?.trim() ?? "";
+  if (!sourceIntro) problems.push(`${relativePath}：${expectedSourceTitle}缺少说明段落`);
   sourceIntros.push(sourceIntro);
 
   const sourceHrefs = extractHrefs(sourceSection);
