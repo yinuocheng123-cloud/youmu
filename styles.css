@@ -5951,16 +5951,28 @@ h3,
 }
 
 .good-section-summary {
-  padding: clamp(16px, 2.4vw, 22px);
-  background: rgba(255, 250, 242, 0.62);
-  border: 1px solid rgba(91, 63, 35, 0.1);
-  border-radius: 14px;
+  margin-top: 28px;
+  padding: 22px 24px;
+  background: rgba(255, 250, 240, 0.8);
+  border: 1px solid rgba(120, 96, 56, 0.18);
+  border-radius: 20px;
+}
+
+.good-section-reference + .good-section-summary {
+  margin-top: 28px;
+  padding-top: 22px;
+}
+
+.good-section-summary h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
 }
 
 .good-section-summary p {
   max-width: 760px;
   margin: 0;
   color: var(--muted);
+  line-height: 1.8;
 }
 
 .good-reference-list {

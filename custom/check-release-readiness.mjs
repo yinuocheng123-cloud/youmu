@@ -195,6 +195,9 @@ const goodsSectionRequirements = [
   { id: "good-cultural", label: "柚木文创", href: "#good-cultural" },
 ];
 
+const summaryCount = (solutionsIndex.match(/class="good-section-summary"/g) || []).length;
+if (summaryCount !== 6) problems.push(`solutions/index.html：good-section-summary 数量为 ${summaryCount}，应为 6`);
+
 for (const section of goodsSectionRequirements) {
   if (!solutionsIndex.includes(`href="${section.href}"`)) problems.push(`solutions/index.html：六类二级导航缺少 ${section.href}`);
 
@@ -207,6 +210,13 @@ for (const section of goodsSectionRequirements) {
   const sectionText = stripTags(sectionMatch[0]);
   for (const requiredLabel of ["代表文章", "更多内容", "相关参考"]) {
     if (!sectionText.includes(requiredLabel)) problems.push(`solutions/index.html：${section.label} 分区缺少“${requiredLabel}”`);
+  }
+
+  if (!sectionMatch[0].includes('class="good-section-summary"')) {
+    problems.push(`solutions/index.html：${section.label} 分区缺少底部 good-section-summary`);
+  }
+  if (!sectionMatch[0].includes(`<h3>${section.label}</h3>`)) {
+    problems.push(`solutions/index.html：${section.label} 分区底部说明块标题不正确`);
   }
 }
 
@@ -228,6 +238,7 @@ const forbiddenGoodCategoryIntroTerms = [
   "选择一个方向",
   "good-category-card",
   "good-category-more",
+  "good-section-summary",
   "更多内容",
   "柚木家具</",
   "柚木地板</",
