@@ -81,7 +81,13 @@ const publicForbiddenTerms = [
   "茶室会客",
   "家具好物",
   "好物方案",
+  "Teak Lifestyle Picks",
+  "这是柚木好物，不是商品销售页",
+  "先看生活里的样子",
+  "先按分类浏览",
+  "阅读线索会持续扩充",
   "值得细读的柚木好物",
+  "值得细读",
   "精选阅读",
   "第二入口",
   "精选",
@@ -180,15 +186,17 @@ for (const id of ["good-furniture", "good-flooring", "good-whole-decoration", "g
 }
 
 const goodsSectionRequirements = [
-  { id: "good-furniture", label: "柚木家具" },
-  { id: "good-flooring", label: "柚木地板" },
-  { id: "good-whole-decoration", label: "柚木整装" },
-  { id: "good-outdoor", label: "柚木户外" },
-  { id: "good-collection", label: "柚木收藏" },
-  { id: "good-cultural", label: "柚木文创" },
+  { id: "good-furniture", label: "柚木家具", href: "#good-furniture" },
+  { id: "good-flooring", label: "柚木地板", href: "#good-flooring" },
+  { id: "good-whole-decoration", label: "柚木整装", href: "#good-whole-decoration" },
+  { id: "good-outdoor", label: "柚木户外", href: "#good-outdoor" },
+  { id: "good-collection", label: "柚木收藏", href: "#good-collection" },
+  { id: "good-cultural", label: "柚木文创", href: "#good-cultural" },
 ];
 
 for (const section of goodsSectionRequirements) {
+  if (!solutionsIndex.includes(`href="${section.href}"`)) problems.push(`solutions/index.html：六类二级导航缺少 ${section.href}`);
+
   const sectionMatch = solutionsIndex.match(new RegExp(`<section[^>]+id="${section.id}"[\\s\\S]*?<\\/section>`, "i"));
   if (!sectionMatch) {
     problems.push(`solutions/index.html：缺少六类分区锚点 ${section.id}`);
