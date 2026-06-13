@@ -129,6 +129,27 @@ for (const requiredClass of ["good-category-panel", "is-active"]) {
   if (!solutionsIndex.includes(requiredClass)) problems.push(`solutions/index.html：缺少栏目切换类名 ${requiredClass}`);
 }
 
+const firstGoodPanelIndex = solutionsIndex.indexOf('class="good-things-section good-section good-category-panel');
+const goodCategoryIntro = firstGoodPanelIndex >= 0 ? solutionsIndex.slice(0, firstGoodPanelIndex) : solutionsIndex;
+const forbiddenGoodCategoryIntroTerms = [
+  "分类浏览",
+  "选择一个方向",
+  "good-category-card",
+  "good-category-more",
+  "更多内容",
+  "从茶桌、餐桌、书柜到收纳柜",
+  "从住宅地板到露台平台",
+  "从护墙板、柜体、木门到茶室空间",
+  "从庭院桌椅到户外平台",
+  "从老门板、老窗到船木桌面",
+  "从托盘、书签到台灯底座",
+];
+for (const term of forbiddenGoodCategoryIntroTerms) {
+  if (goodCategoryIntro.includes(term)) {
+    problems.push(`solutions/index.html: good things top entry still contains duplicated category intro content before the category panels: ${term}`);
+  }
+}
+
 if (scriptJs.includes("good-creative")) problems.push("script.js：仍包含旧文创锚点 good-creative");
 
 // ========== 第三部分：30 个好物文章页检查 ==========

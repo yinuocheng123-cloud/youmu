@@ -5582,12 +5582,8 @@ h3,
 }
 
 .good-category-nav {
-  margin-top: 18px;
-  padding: clamp(18px, 3vw, 28px);
-}
-
-.good-category-nav .category-heading {
-  margin-bottom: 16px;
+  margin-top: 14px;
+  padding: clamp(14px, 2.2vw, 20px);
 }
 
 .good-things-intro-panel,
