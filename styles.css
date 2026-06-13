@@ -5927,13 +5927,15 @@ h3,
 
 .good-section-primary,
 .good-section-more,
-.good-section-reference {
+.good-section-reference,
+.good-section-summary {
   display: grid;
   gap: 16px;
 }
 
 .good-section-primary + .good-section-more,
-.good-section-more + .good-section-reference {
+.good-section-more + .good-section-reference,
+.good-section-reference + .good-section-summary {
   margin-top: clamp(20px, 3vw, 30px);
   padding-top: clamp(14px, 2vw, 20px);
   border-top: 1px solid rgba(91, 63, 35, 0.1);
@@ -5941,10 +5943,24 @@ h3,
 
 .good-section-primary h3,
 .good-section-more h3,
-.good-section-reference h3 {
+.good-section-reference h3,
+.good-section-summary h3 {
   margin: 0;
   color: var(--coffee);
   font-size: clamp(20px, 2.4vw, 26px);
+}
+
+.good-section-summary {
+  padding: clamp(16px, 2.4vw, 22px);
+  background: rgba(255, 250, 242, 0.62);
+  border: 1px solid rgba(91, 63, 35, 0.1);
+  border-radius: 14px;
+}
+
+.good-section-summary p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--muted);
 }
 
 .good-reference-list {

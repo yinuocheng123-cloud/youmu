@@ -215,13 +215,26 @@ for (const requiredClass of ["good-category-panel", "is-active"]) {
 }
 
 const firstGoodPanelIndex = solutionsIndex.indexOf('class="good-things-section good-section good-category-panel');
-const goodCategoryIntro = firstGoodPanelIndex >= 0 ? solutionsIndex.slice(0, firstGoodPanelIndex) : solutionsIndex;
+const goodTabsIndex = solutionsIndex.indexOf('class="good-things-filter good-category-tabs"');
+const goodTabsEndIndex = goodTabsIndex >= 0 ? solutionsIndex.indexOf("</nav>", goodTabsIndex) : -1;
+const goodCategoryIntro =
+  goodTabsEndIndex >= 0 && firstGoodPanelIndex >= 0
+    ? solutionsIndex.slice(goodTabsEndIndex + "</nav>".length, firstGoodPanelIndex)
+    : firstGoodPanelIndex >= 0
+      ? solutionsIndex.slice(0, firstGoodPanelIndex)
+      : solutionsIndex;
 const forbiddenGoodCategoryIntroTerms = [
   "分类浏览",
   "选择一个方向",
   "good-category-card",
   "good-category-more",
   "更多内容",
+  "柚木家具</",
+  "柚木地板</",
+  "柚木整装</",
+  "柚木户外</",
+  "柚木收藏</",
+  "柚木文创</",
   "从茶桌、餐桌、书柜到收纳柜",
   "从住宅地板到露台平台",
   "从护墙板、柜体、木门到茶室空间",
