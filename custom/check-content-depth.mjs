@@ -64,8 +64,10 @@ function hrefsOf(html) {
 const solutionsIndex = await read("solutions/index.html");
 const solutionsIndexForbiddenTerms = [
   "值得细读的柚木好物",
+  "精选阅读",
   "第二入口",
   "精选",
+  "档案系统",
   "资料库",
   "阅读中心",
   "5 个档案入口",
@@ -90,6 +92,28 @@ for (const term of solutionsIndexForbiddenTerms) {
 
 for (const category of ["柚木家具", "柚木地板", "柚木整装", "柚木户外", "柚木收藏", "柚木文创"]) {
   if (!solutionsIndex.includes(category)) problems.push(`solutions/index.html：缺少六类体系分类 ${category}`);
+}
+
+const goodsSectionRequirements = [
+  { id: "good-furniture", label: "柚木家具" },
+  { id: "good-flooring", label: "柚木地板" },
+  { id: "good-whole-decoration", label: "柚木整装" },
+  { id: "good-outdoor", label: "柚木户外" },
+  { id: "good-collection", label: "柚木收藏" },
+  { id: "good-cultural", label: "柚木文创" },
+];
+
+for (const section of goodsSectionRequirements) {
+  const sectionMatch = solutionsIndex.match(new RegExp(`<section[^>]+id="${section.id}"[\\s\\S]*?<\\/section>`, "i"));
+  if (!sectionMatch) {
+    problems.push(`solutions/index.html：缺少六类分区锚点 ${section.id}`);
+    continue;
+  }
+
+  const sectionText = stripTags(sectionMatch[0]);
+  for (const requiredLabel of ["代表文章", "更多内容", "相关参考"]) {
+    if (!sectionText.includes(requiredLabel)) problems.push(`solutions/index.html：${section.label} 分区缺少“${requiredLabel}”`);
+  }
 }
 
 // ========== 第三部分：30 个好物文章页检查 ==========
