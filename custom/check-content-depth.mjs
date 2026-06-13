@@ -62,6 +62,7 @@ function hrefsOf(html) {
 
 // ========== 第二部分：好物首页旧模板词检查 ==========
 const solutionsIndex = await read("solutions/index.html");
+const scriptJs = await read("script.js");
 const solutionsIndexForbiddenTerms = [
   "Teak Lifestyle Picks",
   "这是柚木好物，不是商品销售页",
@@ -123,6 +124,12 @@ for (const section of goodsSectionRequirements) {
     if (!sectionText.includes(requiredLabel)) problems.push(`solutions/index.html：${section.label} 分区缺少“${requiredLabel}”`);
   }
 }
+
+for (const requiredClass of ["good-category-panel", "is-active"]) {
+  if (!solutionsIndex.includes(requiredClass)) problems.push(`solutions/index.html：缺少栏目切换类名 ${requiredClass}`);
+}
+
+if (scriptJs.includes("good-creative")) problems.push("script.js：仍包含旧文创锚点 good-creative");
 
 // ========== 第三部分：30 个好物文章页检查 ==========
 const goodsFiles = (await collectFiles("solutions/goods", new Set([".html"]))).sort();

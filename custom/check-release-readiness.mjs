@@ -177,6 +177,7 @@ for (const relativePath of publicFiles) {
 
 // ========== 第三部分：柚木好物文章与延伸阅读检查 ==========
 const solutionsIndex = await read("solutions/index.html");
+const scriptJs = await read("script.js");
 for (const category of ["柚木家具", "柚木地板", "柚木整装", "柚木户外", "柚木收藏", "柚木文创"]) {
   if (!solutionsIndex.includes(category)) problems.push(`solutions/index.html：缺少六类新体系分类 ${category}`);
 }
@@ -208,6 +209,12 @@ for (const section of goodsSectionRequirements) {
     if (!sectionText.includes(requiredLabel)) problems.push(`solutions/index.html：${section.label} 分区缺少“${requiredLabel}”`);
   }
 }
+
+for (const requiredClass of ["good-category-panel", "is-active"]) {
+  if (!solutionsIndex.includes(requiredClass)) problems.push(`solutions/index.html：缺少栏目切换类名 ${requiredClass}`);
+}
+
+if (scriptJs.includes("good-creative")) problems.push("script.js：仍包含旧文创锚点 good-creative");
 
 const goodsFiles = (await collectFiles("solutions/goods", new Set([".html"]))).sort();
 if (goodsFiles.length !== 30) problems.push(`solutions/goods：好物文章页数量 ${goodsFiles.length}，应为 30 个`);

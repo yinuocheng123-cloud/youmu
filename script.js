@@ -43,7 +43,7 @@
     { label: "柚木整装", hash: "#good-whole-decoration" },
     { label: "柚木户外", hash: "#good-outdoor" },
     { label: "柚木收藏", hash: "#good-collection" },
-    { label: "柚木文创", hash: "#good-creative" },
+    { label: "柚木文创", hash: "#good-cultural" },
   ];
 
   function getSitePrefix() {
@@ -215,6 +215,8 @@
   const mobileMenuClose = document.querySelector("[data-menu-close]");
   const mobileMenuBackdrop = document.querySelector("[data-menu-backdrop]");
   const solutionTabs = document.querySelectorAll("[data-solution-tab]");
+  const goodCategoryTabs = document.querySelectorAll("[data-good-category-tab]");
+  const goodCategoryPanels = document.querySelectorAll(".good-category-panel");
 
   // ========== 第三部分：移动端菜单与桌面下拉菜单 ==========
   function closeMobileMenu() {
@@ -306,6 +308,82 @@
 
     return scrollToTarget(selector);
   }
+
+  const goodCategoryHashes = new Set(
+    Array.from(goodCategoryPanels)
+      .map((panel) => `#${panel.id}`)
+      .filter((hash) => hash.length > 1),
+  );
+
+  function getGoodCategoryHash(hash = window.location.hash) {
+    return goodCategoryHashes.has(hash) ? hash : "#good-furniture";
+  }
+
+  function activateGoodCategory(hash, options = {}) {
+    const selector = getGoodCategoryHash(hash);
+
+    if (!goodCategoryPanels.length || !goodCategoryTabs.length) {
+      return false;
+    }
+
+    goodCategoryPanels.forEach((panel) => {
+      const isActive = `#${panel.id}` === selector;
+      panel.classList.toggle("is-active", isActive);
+      panel.setAttribute("aria-hidden", String(!isActive));
+    });
+
+    goodCategoryTabs.forEach((tab) => {
+      const isActive = tab.dataset.goodCategoryTab === selector;
+      tab.classList.toggle("is-active", isActive);
+      if (tab.classList.contains("good-category-tab")) {
+        tab.setAttribute("aria-current", isActive ? "true" : "false");
+      }
+    });
+
+    if (options.updateHash && window.location.hash !== selector) {
+      history.pushState(null, "", selector);
+    }
+
+    if (options.scroll) {
+      window.requestAnimationFrame(() => scrollToTarget(selector));
+    }
+
+    return true;
+  }
+
+  if (goodCategoryPanels.length) {
+    activateGoodCategory(window.location.hash);
+
+    if (goodCategoryHashes.has(window.location.hash)) {
+      window.requestAnimationFrame(() => scrollToTarget(window.location.hash));
+    }
+  }
+
+  goodCategoryTabs.forEach((tab) => {
+    tab.addEventListener("click", (event) => {
+      const selector = tab.dataset.goodCategoryTab;
+
+      if (!selector || !goodCategoryHashes.has(selector)) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopPropagation();
+      activateGoodCategory(selector, { updateHash: true, scroll: true });
+    });
+  });
+
+  window.addEventListener("hashchange", () => {
+    if (goodCategoryHashes.has(window.location.hash)) {
+      activateGoodCategory(window.location.hash, { scroll: false });
+    }
+  });
+
+  window.addEventListener("popstate", () => {
+    if (goodCategoryPanels.length) {
+      activateGoodCategory(window.location.hash, { scroll: false });
+    }
+  });
 
   solutionTabs.forEach((tab) => {
     tab.addEventListener("click", () => {
