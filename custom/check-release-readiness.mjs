@@ -81,6 +81,11 @@ const publicForbiddenTerms = [
   "茶室会客",
   "家具好物",
   "好物方案",
+  "值得细读的柚木好物",
+  "第二入口",
+  "精选",
+  "资料库",
+  "阅读中心",
   "档案",
   "进入档案",
   "查看档案",
@@ -238,7 +243,7 @@ for (const relativePath of goodsFiles) {
     continue;
   }
 
-  const expectedSourceTitle = featuredPages.has(relativePath) ? "继续了解" : "延伸阅读";
+  const expectedSourceTitle = "继续了解";
   const sourceTitlePattern = new RegExp(`<h2[^>]*>\\s*${expectedSourceTitle}\\s*<\\/h2>`, "i");
   if (!sourceTitlePattern.test(sourceSection)) problems.push(`${relativePath}：外部阅读模块标题应为“${expectedSourceTitle}”`);
   const sourceIntroPattern = new RegExp(`<h2[^>]*>\\s*${expectedSourceTitle}\\s*<\\/h2>\\s*<p>([\\s\\S]*?)<\\/p>`, "i");

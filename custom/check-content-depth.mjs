@@ -63,6 +63,11 @@ function hrefsOf(html) {
 // ========== 第二部分：好物首页旧模板词检查 ==========
 const solutionsIndex = await read("solutions/index.html");
 const solutionsIndexForbiddenTerms = [
+  "值得细读的柚木好物",
+  "第二入口",
+  "精选",
+  "资料库",
+  "阅读中心",
   "5 个档案入口",
   "进入档案",
   "查看档案",
@@ -180,7 +185,7 @@ for (const relativePath of goodsFiles) {
   const sourceLinks = hrefsOf(sourceSection);
   const externalSourceLinks = sourceLinks.filter((href) => /^https?:\/\//i.test(href));
   if (!sourceSection) problems.push(`${relativePath}：缺少延伸阅读模块`);
-  const expectedSourceTitle = representativeFiles.has(relativePath) ? "继续了解" : "延伸阅读";
+  const expectedSourceTitle = "继续了解";
   const sourceTitlePattern = new RegExp(`<h2[^>]*>\\s*${expectedSourceTitle}\\s*<\\/h2>`, "i");
   if (sourceSection && !sourceTitlePattern.test(sourceSection)) problems.push(`${relativePath}：外部阅读模块标题应为“${expectedSourceTitle}”`);
   const sourceIntroPattern = new RegExp(`<h2[^>]*>\\s*${expectedSourceTitle}\\s*<\\/h2>\\s*<p>([\\s\\S]*?)<\\/p>`, "i");
