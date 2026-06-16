@@ -6134,7 +6134,8 @@ h3,
 }
 
 .goods-archive-list-card,
-.goods-archive-related-card {
+.goods-archive-related-card,
+.good-category-note-card {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -6149,15 +6150,33 @@ h3,
 }
 
 .goods-archive-list-card h4,
-.goods-archive-related-card h3 {
+.goods-archive-related-card h3,
+.good-category-note-card h3 {
   margin: 0;
   color: var(--coffee);
   font-size: clamp(20px, 2.4vw, 24px);
 }
 
 .goods-archive-list-card p,
-.goods-archive-related-card p {
+.goods-archive-related-card p,
+.good-category-note-card p {
   margin: 0;
+}
+
+.good-category-note-card {
+  padding: 24px;
+  background: rgba(255, 250, 240, 0.78);
+  border: 1px solid rgba(120, 96, 56, 0.18);
+  box-shadow: 0 12px 28px rgba(72, 46, 28, 0.05);
+}
+
+.good-category-note-card h3 {
+  margin: 0 0 12px;
+  font-size: 26px;
+}
+
+.good-category-note-card p {
+  line-height: 1.8;
 }
 
 .goods-archive-list-link,

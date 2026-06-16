@@ -187,16 +187,16 @@ for (const id of ["good-furniture", "good-flooring", "good-whole-decoration", "g
 }
 
 const goodsSectionRequirements = [
-  { id: "good-furniture", label: "柚木家具", href: "#good-furniture" },
-  { id: "good-flooring", label: "柚木地板", href: "#good-flooring" },
-  { id: "good-whole-decoration", label: "柚木整装", href: "#good-whole-decoration" },
-  { id: "good-outdoor", label: "柚木户外", href: "#good-outdoor" },
-  { id: "good-collection", label: "柚木收藏", href: "#good-collection" },
-  { id: "good-cultural", label: "柚木文创", href: "#good-cultural" },
+  { id: "good-furniture", label: "柚木家具", href: "#good-furniture", summary: "从茶桌、餐桌、书柜到收纳柜" },
+  { id: "good-flooring", label: "柚木地板", href: "#good-flooring", summary: "从住宅地板到露台平台" },
+  { id: "good-whole-decoration", label: "柚木整装", href: "#good-whole-decoration", summary: "从护墙板、柜体、木门到茶室空间" },
+  { id: "good-outdoor", label: "柚木户外", href: "#good-outdoor", summary: "从庭院桌椅到户外平台" },
+  { id: "good-collection", label: "柚木收藏", href: "#good-collection", summary: "从老门板、老窗到船木桌面" },
+  { id: "good-cultural", label: "柚木文创", href: "#good-cultural", summary: "从托盘、书签到台灯底座" },
 ];
 
-const summaryCount = (solutionsIndex.match(/class="good-section-summary"/g) || []).length;
-if (summaryCount !== 6) problems.push(`solutions/index.html：good-section-summary 数量为 ${summaryCount}，应为 6`);
+const noteCardCount = (solutionsIndex.match(/class="good-category-note-card"/g) || []).length;
+if (noteCardCount !== 6) problems.push(`solutions/index.html：good-category-note-card 数量为 ${noteCardCount}，应为 6`);
 
 for (const section of goodsSectionRequirements) {
   if (!solutionsIndex.includes(`href="${section.href}"`)) problems.push(`solutions/index.html：六类二级导航缺少 ${section.href}`);
@@ -212,11 +212,20 @@ for (const section of goodsSectionRequirements) {
     if (!sectionText.includes(requiredLabel)) problems.push(`solutions/index.html：${section.label} 分区缺少“${requiredLabel}”`);
   }
 
-  if (!sectionMatch[0].includes('class="good-section-summary"')) {
-    problems.push(`solutions/index.html：${section.label} 分区缺少底部 good-section-summary`);
+  const sectionHtml = sectionMatch[0];
+  const noteCardIndex = sectionHtml.indexOf('class="good-category-note-card"');
+  const gridIndex = sectionHtml.indexOf('class="goods-archive-list-grid"');
+  const lastArticleIndex = sectionHtml.lastIndexOf("goods-archive-list-card");
+  const moreIndex = sectionHtml.indexOf('class="good-section-more"');
+
+  if (noteCardIndex < 0) {
+    problems.push(`solutions/index.html：${section.label} 分区缺少 good-category-note-card`);
   }
-  if (!sectionMatch[0].includes(`<h3>${section.label}</h3>`)) {
-    problems.push(`solutions/index.html：${section.label} 分区底部说明块标题不正确`);
+  if (!sectionHtml.includes(`<h3>${section.label}</h3>`) || !sectionHtml.includes(section.summary)) {
+    problems.push(`solutions/index.html：${section.label} 分区说明卡标题或说明文案不正确`);
+  }
+  if (!(gridIndex >= 0 && lastArticleIndex >= 0 && moreIndex >= 0 && gridIndex < lastArticleIndex && lastArticleIndex < noteCardIndex && noteCardIndex < moreIndex)) {
+    problems.push(`solutions/index.html：${section.label} 说明卡必须位于文章卡片 grid 内最后一个卡位，且在“更多内容”之前`);
   }
 }
 
@@ -238,6 +247,7 @@ const forbiddenGoodCategoryIntroTerms = [
   "选择一个方向",
   "good-category-card",
   "good-category-more",
+  "good-category-note-card",
   "good-section-summary",
   "更多内容",
   "柚木家具</",
