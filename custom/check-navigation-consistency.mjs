@@ -100,6 +100,33 @@ function checkGoodThingsMenu(relativePath, header) {
   }
 }
 
+function checkVendorSingleEntry(relativePath, header) {
+  const expectedHref = `${prefixFor(relativePath)}vendors/index.html`;
+  const headerText = stripTags(header);
+  const hrefs = extractHrefs(header);
+
+  if (header.includes("vendors-menu-")) {
+    problems.push(`${relativePath}：Header 推荐厂商不得继续使用桌面端下拉菜单 vendors-menu`);
+  }
+
+  if (/<details>\s*<summary>\s*推荐厂商\s*<\/summary>/i.test(header)) {
+    problems.push(`${relativePath}：Header 推荐厂商不得继续使用移动端 details 下拉`);
+  }
+
+  if (!headerText.includes("推荐厂商")) {
+    problems.push(`${relativePath}：Header 缺少推荐厂商单入口文案`);
+  }
+
+  if (!hrefs.includes(expectedHref)) {
+    problems.push(`${relativePath}：Header 推荐厂商单入口缺少路径 ${expectedHref}`);
+  }
+
+  const forbiddenVendorNavLabels = ["柚木地板厂商", "柚木家具厂商", "柚木整装厂商", "柚木户外厂商", "柚木收藏厂商", "柚木文创厂商", "厂商分类", "认证厂商", "官方推荐", "优选厂商分组"];
+  for (const label of forbiddenVendorNavLabels) {
+    if (headerText.includes(label)) problems.push(`${relativePath}：Header 推荐厂商出现不允许的分类或背书文案 ${label}`);
+  }
+}
+
 
 // ========== 第二部分：Header 与下拉菜单检查 ==========
 const htmlFiles = (await Promise.all(htmlEntries.map((entry) => collectFiles(entry, new Set([".html"]))))).flat().sort();
@@ -118,6 +145,7 @@ for (const relativePath of htmlFiles) {
   }
 
   checkGoodThingsMenu(relativePath, header);
+  checkVendorSingleEntry(relativePath, header);
 }
 
 // ========== 第三部分：结果输出 ==========

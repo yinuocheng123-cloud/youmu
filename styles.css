@@ -6540,6 +6540,177 @@ h3,
     rgba(255, 250, 242, 0.88);
 }
 
+/* ========== V1.21：推荐厂商企业资料库与标签筛选 ========== */
+.vendor-directory-section {
+  display: grid;
+  gap: 22px;
+}
+
+.vendor-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.vendor-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 8px 14px;
+  color: var(--coffee);
+  background: rgba(255, 250, 242, 0.72);
+  border: 1px solid rgba(91, 63, 35, 0.16);
+  border-radius: 999px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.vendor-filter-chip:hover,
+.vendor-filter-chip:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(101, 112, 71, 0.32);
+}
+
+.vendor-filter-chip.is-active {
+  color: #fffaf2;
+  background: var(--olive);
+  border-color: rgba(101, 112, 71, 0.72);
+}
+
+.vendor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.vendor-card {
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 250, 242, 0.98), rgba(248, 241, 228, 0.92)),
+    radial-gradient(circle at 100% 0%, rgba(101, 112, 71, 0.08), transparent 12rem);
+  border: 1px solid rgba(91, 63, 35, 0.14);
+  border-radius: 18px;
+  box-shadow: 0 14px 34px rgba(67, 45, 23, 0.07);
+}
+
+.vendor-card[hidden] {
+  display: none;
+}
+
+.vendor-card-head {
+  display: grid;
+  gap: 8px;
+}
+
+.vendor-card-kicker {
+  width: fit-content;
+  padding: 4px 10px;
+  color: var(--coffee-soft);
+  background: rgba(154, 103, 54, 0.08);
+  border: 1px solid rgba(154, 103, 54, 0.13);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.vendor-card h3 {
+  margin: 0;
+  color: var(--coffee);
+  font-size: 24px;
+  line-height: 1.28;
+}
+
+.vendor-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.78;
+}
+
+.vendor-meta {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.vendor-meta div {
+  display: grid;
+  grid-template-columns: 86px 1fr;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(91, 63, 35, 0.1);
+}
+
+.vendor-meta dt {
+  color: var(--coffee);
+  font-weight: 700;
+}
+
+.vendor-meta dd {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.vendor-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.vendor-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 10px;
+  color: var(--coffee-soft);
+  background: rgba(101, 112, 71, 0.08);
+  border: 1px solid rgba(101, 112, 71, 0.14);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.vendor-status {
+  color: var(--coffee);
+  font-weight: 700;
+}
+
+.vendor-card-link {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 9px 16px;
+  color: var(--coffee);
+  background: rgba(245, 239, 220, 0.86);
+  border: 1px solid rgba(120, 96, 56, 0.2);
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.vendor-card-link:hover,
+.vendor-card-link:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(101, 112, 71, 0.3);
+  background: rgba(238, 231, 207, 0.96);
+}
+
 .cooperation-content-grid {
   margin-bottom: 18px;
 }
@@ -6596,6 +6767,23 @@ h3,
   .good-things-filter-chip {
     width: 100%;
     justify-content: flex-start;
+  }
+
+  .vendor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vendor-filter-chip {
+    flex: 1 1 calc(50% - 10px);
+  }
+
+  .vendor-meta div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .vendor-card-link {
+    justify-self: stretch;
   }
 
   .goods-archive-group-head {

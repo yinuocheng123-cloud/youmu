@@ -153,6 +153,9 @@ for (const relativePath of publicFiles) {
 
   lines.forEach((line, index) => {
     for (const term of publicForbiddenTerms) {
+      if (relativePath === "vendors/index.html" && term === "待补" && (line.includes("资料待补充") || line.includes("待补充案例"))) {
+        continue;
+      }
       if (line.includes(term)) {
         problems.push(`${relativePath}:${index + 1}：发现公开旧口径或高风险表达“${term}”`);
       }
@@ -178,6 +181,56 @@ for (const relativePath of publicFiles) {
 // ========== 第三部分：柚木好物文章与延伸阅读检查 ==========
 const solutionsIndex = await read("solutions/index.html");
 const scriptJs = await read("script.js");
+const vendorsIndex = await read("vendors/index.html");
+
+const vendorForbiddenTerms = [
+  "官方认证",
+  "平台认证",
+  "交易担保",
+  "严选入驻",
+  "官方推荐",
+  "分类黄页",
+  "柚木地板厂商分类",
+  "柚木家具厂商分类",
+  "柚木整装厂商分类",
+  "品牌推荐",
+  "厂商分类",
+  "认证厂商",
+  "优选厂商分组",
+];
+for (const term of vendorForbiddenTerms) {
+  if (vendorsIndex.includes(term)) problems.push(`vendors/index.html：推荐厂商页出现不允许的分类或背书表达“${term}”`);
+}
+
+for (const className of ["vendor-filter", "vendor-filter-chip", "vendor-grid", "vendor-card", "vendor-tags", "vendor-tag", "vendor-meta", "vendor-status"]) {
+  if (!vendorsIndex.includes(className)) problems.push(`vendors/index.html：缺少推荐厂商会员资料库结构类名 ${className}`);
+}
+
+for (const tag of ["全部", "柚木地板", "柚木家具", "柚木整装", "柚木户外", "柚木收藏", "柚木文创", "源头工厂", "供应链", "品牌商", "空间服务", "材料供应", "案例资料"]) {
+  if (!vendorsIndex.includes(`data-vendor-filter="${tag}"`)) problems.push(`vendors/index.html：内部标签筛选缺少 ${tag}`);
+}
+
+const vendorCards = [...vendorsIndex.matchAll(/<article class="vendor-card" data-tags="([^"]+)">([\s\S]*?)<\/article>/g)];
+if (vendorCards.length < 6) problems.push(`vendors/index.html：企业卡片数量 ${vendorCards.length}，少于 6 个`);
+for (const [index, cardMatch] of vendorCards.entries()) {
+  const tags = cardMatch[1].trim().split(/\s+/).filter(Boolean);
+  const cardHtml = cardMatch[2];
+  if (tags.length < 2) problems.push(`vendors/index.html：第 ${index + 1} 张企业卡片主题标签少于 2 个`);
+  for (const required of ["主营方向", "所在区域", "企业类型", "资料状态", "查看资料"]) {
+    if (!cardHtml.includes(required)) problems.push(`vendors/index.html：第 ${index + 1} 张企业卡片缺少字段 ${required}`);
+  }
+  if (!cardHtml.includes('class="vendor-tags"') || !cardHtml.includes('class="vendor-tag"')) {
+    problems.push(`vendors/index.html：第 ${index + 1} 张企业卡片缺少可见主题标签`);
+  }
+}
+
+for (const forbiddenPath of ["vendors/flooring.html", "vendors/furniture.html", "vendors/whole-decoration.html"]) {
+  for (const relativePath of publicFiles) {
+    const text = await read(relativePath);
+    if (text.includes(forbiddenPath)) problems.push(`${relativePath}：不得新增或引用厂商分类 URL ${forbiddenPath}`);
+  }
+}
+
 for (const category of ["柚木家具", "柚木地板", "柚木整装", "柚木户外", "柚木收藏", "柚木文创"]) {
   if (!solutionsIndex.includes(category)) problems.push(`solutions/index.html：缺少六类新体系分类 ${category}`);
 }

@@ -217,6 +217,8 @@
   const solutionTabs = document.querySelectorAll("[data-solution-tab]");
   const goodCategoryTabs = document.querySelectorAll("[data-good-category-tab]");
   const goodCategoryPanels = document.querySelectorAll(".good-category-panel");
+  const vendorFilterChips = document.querySelectorAll("[data-vendor-filter]");
+  const vendorCards = document.querySelectorAll(".vendor-card[data-tags]");
 
   // ========== 第三部分：移动端菜单与桌面下拉菜单 ==========
   function closeMobileMenu() {
@@ -383,6 +385,36 @@
     if (goodCategoryPanels.length) {
       activateGoodCategory(window.location.hash, { scroll: false });
     }
+  });
+
+  function activateVendorFilter(tag) {
+    const activeTag = tag || "全部";
+
+    if (!vendorFilterChips.length || !vendorCards.length) {
+      return;
+    }
+
+    vendorFilterChips.forEach((chip) => {
+      const isActive = chip.dataset.vendorFilter === activeTag;
+      chip.classList.toggle("is-active", isActive);
+      chip.setAttribute("aria-pressed", String(isActive));
+    });
+
+    vendorCards.forEach((card) => {
+      const tags = card.dataset.tags?.split(/\s+/).filter(Boolean) ?? [];
+      const shouldShow = activeTag === "全部" || tags.includes(activeTag);
+      card.hidden = !shouldShow;
+    });
+  }
+
+  if (vendorFilterChips.length && vendorCards.length) {
+    activateVendorFilter("全部");
+  }
+
+  vendorFilterChips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      activateVendorFilter(chip.dataset.vendorFilter);
+    });
   });
 
   solutionTabs.forEach((tab) => {
