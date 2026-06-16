@@ -219,6 +219,7 @@
   const goodCategoryPanels = document.querySelectorAll(".good-category-panel");
   const vendorFilterChips = document.querySelectorAll("[data-vendor-filter]");
   const vendorCards = document.querySelectorAll(".vendor-card[data-tags]");
+  const vendorAllowedFilters = new Set(["全部", "柚木地板", "柚木家具", "柚木整装", "柚木户外", "柚木收藏", "柚木文创"]);
 
   // ========== 第三部分：移动端菜单与桌面下拉菜单 ==========
   function closeMobileMenu() {
@@ -388,7 +389,7 @@
   });
 
   function activateVendorFilter(tag) {
-    const activeTag = tag || "全部";
+    const activeTag = vendorAllowedFilters.has(tag) ? tag : "全部";
 
     if (!vendorFilterChips.length || !vendorCards.length) {
       return;

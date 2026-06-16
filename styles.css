@@ -6711,6 +6711,98 @@ h3,
   background: rgba(238, 231, 207, 0.96);
 }
 
+/* ========== V1.21.1：推荐厂商标签精简与紧凑版式 ========== */
+.vendor-brand-hall .vendor-guide-hero {
+  padding-top: clamp(28px, 5vw, 46px);
+  padding-bottom: clamp(26px, 4vw, 40px);
+}
+
+.vendor-brand-hall .vendor-guide-hero h1 {
+  margin-bottom: 10px;
+}
+
+.vendor-brand-hall .vendor-guide-hero p:not(.eyebrow) {
+  max-width: 720px;
+  margin-bottom: 16px;
+  line-height: 1.72;
+}
+
+.vendor-brand-hall .vendor-guide-section {
+  margin-top: 18px;
+  padding: clamp(20px, 3vw, 28px);
+}
+
+.vendor-directory-section {
+  gap: 16px;
+}
+
+.vendor-filter {
+  gap: 8px;
+}
+
+.vendor-filter-chip {
+  min-height: 34px;
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.vendor-grid {
+  gap: 14px;
+}
+
+.vendor-card {
+  gap: 12px;
+  padding: 20px;
+  border-radius: 14px;
+}
+
+.vendor-card-head {
+  gap: 6px;
+}
+
+.vendor-card-kicker {
+  padding: 3px 9px;
+  font-size: 12px;
+}
+
+.vendor-card h3 {
+  font-size: 22px;
+}
+
+.vendor-card p {
+  line-height: 1.68;
+}
+
+.vendor-meta {
+  gap: 8px;
+}
+
+.vendor-meta div {
+  grid-template-columns: 78px 1fr;
+  gap: 10px;
+  padding-top: 8px;
+}
+
+.vendor-meta dd {
+  line-height: 1.56;
+}
+
+.vendor-tags {
+  gap: 6px;
+}
+
+.vendor-tag {
+  min-height: 24px;
+  padding: 3px 9px;
+  font-size: 12px;
+}
+
+.vendor-card-link {
+  min-height: 34px;
+  padding: 7px 13px;
+  font-size: 14px;
+}
+
 .cooperation-content-grid {
   margin-bottom: 18px;
 }
@@ -6775,6 +6867,19 @@ h3,
 
   .vendor-filter-chip {
     flex: 1 1 calc(50% - 10px);
+  }
+
+  .vendor-brand-hall .vendor-guide-hero {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .vendor-brand-hall .vendor-guide-section {
+    padding: 18px;
+  }
+
+  .vendor-card {
+    padding: 18px;
   }
 
   .vendor-meta div {

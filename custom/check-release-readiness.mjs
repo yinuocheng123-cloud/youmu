@@ -197,6 +197,12 @@ const vendorForbiddenTerms = [
   "厂商分类",
   "认证厂商",
   "优选厂商分组",
+  "源头工厂",
+  "供应链",
+  "品牌商",
+  "空间服务",
+  "材料供应",
+  "案例资料",
 ];
 for (const term of vendorForbiddenTerms) {
   if (vendorsIndex.includes(term)) problems.push(`vendors/index.html：推荐厂商页出现不允许的分类或背书表达“${term}”`);
@@ -206,8 +212,17 @@ for (const className of ["vendor-filter", "vendor-filter-chip", "vendor-grid", "
   if (!vendorsIndex.includes(className)) problems.push(`vendors/index.html：缺少推荐厂商会员资料库结构类名 ${className}`);
 }
 
-for (const tag of ["全部", "柚木地板", "柚木家具", "柚木整装", "柚木户外", "柚木收藏", "柚木文创", "源头工厂", "供应链", "品牌商", "空间服务", "材料供应", "案例资料"]) {
+const allowedVendorFilterTags = ["全部", "柚木地板", "柚木家具", "柚木整装", "柚木户外", "柚木收藏", "柚木文创"];
+const vendorFilterBlock = vendorsIndex.match(/<div class="vendor-filter"[\s\S]*?<\/div>/i)?.[0] ?? "";
+const vendorFilterTags = [...vendorFilterBlock.matchAll(/data-vendor-filter="([^"]+)"/g)].map((match) => match[1]);
+for (const tag of allowedVendorFilterTags) {
   if (!vendorsIndex.includes(`data-vendor-filter="${tag}"`)) problems.push(`vendors/index.html：内部标签筛选缺少 ${tag}`);
+}
+for (const tag of vendorFilterTags) {
+  if (!allowedVendorFilterTags.includes(tag)) problems.push(`vendors/index.html：内部标签筛选出现不允许的企业属性标签 ${tag}`);
+}
+if (vendorFilterTags.length !== allowedVendorFilterTags.length) {
+  problems.push(`vendors/index.html：内部标签筛选数量为 ${vendorFilterTags.length}，应为 ${allowedVendorFilterTags.length}`);
 }
 
 const vendorCards = [...vendorsIndex.matchAll(/<article class="vendor-card" data-tags="([^"]+)">([\s\S]*?)<\/article>/g)];
@@ -215,12 +230,19 @@ if (vendorCards.length < 6) problems.push(`vendors/index.html：企业卡片数�
 for (const [index, cardMatch] of vendorCards.entries()) {
   const tags = cardMatch[1].trim().split(/\s+/).filter(Boolean);
   const cardHtml = cardMatch[2];
-  if (tags.length < 2) problems.push(`vendors/index.html：第 ${index + 1} 张企业卡片主题标签少于 2 个`);
+  if (tags.length < 1) problems.push(`vendors/index.html：第 ${index + 1} 张企业卡片至少需要 1 个应用方向标签`);
+  for (const tag of tags) {
+    if (!allowedVendorFilterTags.includes(tag)) problems.push(`vendors/index.html：第 ${index + 1} 张企业卡片 data-tags 出现不允许的标签 ${tag}`);
+  }
   for (const required of ["主营方向", "所在区域", "企业类型", "资料状态", "查看资料"]) {
     if (!cardHtml.includes(required)) problems.push(`vendors/index.html：第 ${index + 1} 张企业卡片缺少字段 ${required}`);
   }
   if (!cardHtml.includes('class="vendor-tags"') || !cardHtml.includes('class="vendor-tag"')) {
     problems.push(`vendors/index.html：第 ${index + 1} 张企业卡片缺少可见主题标签`);
+  }
+  const visibleTags = [...cardHtml.matchAll(/class="vendor-tag">([^<]+)<\/span>/g)].map((match) => match[1]);
+  for (const tag of visibleTags) {
+    if (!allowedVendorFilterTags.includes(tag)) problems.push(`vendors/index.html：第 ${index + 1} 张企业卡片出现不允许的可见标签 ${tag}`);
   }
 }
 

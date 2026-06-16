@@ -121,7 +121,7 @@ function checkVendorSingleEntry(relativePath, header) {
     problems.push(`${relativePath}：Header 推荐厂商单入口缺少路径 ${expectedHref}`);
   }
 
-  const forbiddenVendorNavLabels = ["柚木地板厂商", "柚木家具厂商", "柚木整装厂商", "柚木户外厂商", "柚木收藏厂商", "柚木文创厂商", "厂商分类", "认证厂商", "官方推荐", "优选厂商分组"];
+  const forbiddenVendorNavLabels = ["柚木地板厂商", "柚木家具厂商", "柚木整装厂商", "柚木户外厂商", "柚木收藏厂商", "柚木文创厂商", "厂商分类", "认证厂商", "官方推荐", "优选厂商分组", "源头工厂", "供应链", "品牌商", "空间服务", "材料供应", "案例资料"];
   for (const label of forbiddenVendorNavLabels) {
     if (headerText.includes(label)) problems.push(`${relativePath}：Header 推荐厂商出现不允许的分类或背书文案 ${label}`);
   }
