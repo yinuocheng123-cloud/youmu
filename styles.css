@@ -6803,6 +6803,88 @@ h3,
   font-size: 14px;
 }
 
+/* ========== V1.22：社群交流区客户咨询入口表达 ========== */
+.wechat-section {
+  grid-template-columns: minmax(0, 1.18fr) minmax(300px, 380px);
+  gap: clamp(28px, 4vw, 48px);
+}
+
+.wechat-copy .eyebrow {
+  letter-spacing: 0.18em;
+}
+
+.wechat-section h2 {
+  max-width: 780px;
+  font-size: clamp(34px, 5vw, 58px);
+  line-height: 1.14;
+}
+
+.wechat-hook {
+  margin-top: 16px !important;
+  color: #fff4df !important;
+  font-size: clamp(22px, 2.4vw, 32px) !important;
+}
+
+.wechat-copy > p:not(.eyebrow):not(.wechat-hook) {
+  max-width: 820px;
+  line-height: 1.88;
+}
+
+.benefits {
+  gap: 14px 22px;
+  margin-top: 26px;
+}
+
+.benefits li {
+  font-weight: 700;
+}
+
+.qr-panel {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: clamp(22px, 3vw, 30px);
+}
+
+.qr-panel h3 {
+  color: var(--coffee);
+  font-size: clamp(22px, 2.4vw, 28px);
+}
+
+.qr-note {
+  max-width: 360px;
+  color: var(--coffee) !important;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.qr-panel p {
+  max-width: 390px;
+  line-height: 1.72;
+}
+
+.qr-boundary {
+  margin-top: 8px !important;
+  padding-top: 12px;
+  color: var(--muted) !important;
+  border-top: 1px solid rgba(91, 63, 35, 0.12);
+  font-size: 14px;
+}
+
+@media (max-width: 760px) {
+  .wechat-section h2 {
+    font-size: clamp(32px, 10vw, 44px);
+  }
+
+  .wechat-hook {
+    font-size: 22px !important;
+  }
+
+  .qr-panel {
+    padding: 20px 16px;
+  }
+}
+
 .cooperation-content-grid {
   margin-bottom: 18px;
 }

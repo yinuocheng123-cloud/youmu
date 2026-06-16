@@ -182,6 +182,7 @@ for (const relativePath of publicFiles) {
 const solutionsIndex = await read("solutions/index.html");
 const scriptJs = await read("script.js");
 const vendorsIndex = await read("vendors/index.html");
+const homeIndex = await read("index.html");
 
 const vendorForbiddenTerms = [
   "官方认证",
@@ -206,6 +207,15 @@ const vendorForbiddenTerms = [
 ];
 for (const term of vendorForbiddenTerms) {
   if (vendorsIndex.includes(term)) problems.push(`vendors/index.html：推荐厂商页出现不允许的分类或背书表达“${term}”`);
+}
+
+const communityScope = homeIndex.match(/<section class="section wechat-section"[\s\S]*?<\/section>/i)?.[0] ?? "";
+const communityForbiddenTerms = ["企业资料入口", "广告群", "马上推销", "官方认证", "平台认证", "交易担保", "成交担保", "保证推荐", "严选入驻", "官方推荐", "最低价", "工厂直供承诺"];
+for (const term of communityForbiddenTerms) {
+  if (communityScope.includes(term)) problems.push(`index.html#wechat：咨询入口出现不允许的内部或风险表达“${term}”`);
+}
+for (const term of ["买柚木前", "有问题先问清楚", "扫码咨询", "柚木地板", "柚木整装", "推荐厂商"]) {
+  if (!communityScope.includes(term)) problems.push(`index.html#wechat：咨询入口缺少客户化表达“${term}”`);
 }
 
 for (const className of ["vendor-filter", "vendor-filter-chip", "vendor-grid", "vendor-card", "vendor-tags", "vendor-tag", "vendor-meta", "vendor-status"]) {
