@@ -152,12 +152,11 @@ for (const relativePath of publicFiles) {
   const lines = visibleText.split(/\r?\n/);
 
   lines.forEach((line, index) => {
-    const riskScanLine = line.replaceAll("不作交易担保", "");
     for (const term of publicForbiddenTerms) {
       if (relativePath === "vendors/index.html" && term === "待补" && (line.includes("资料待补充") || line.includes("待补充案例"))) {
         continue;
       }
-      if (riskScanLine.includes(term)) {
+      if (line.includes(term)) {
         problems.push(`${relativePath}:${index + 1}：发现公开旧口径或高风险表达“${term}”`);
       }
     }
@@ -212,11 +211,10 @@ for (const term of vendorForbiddenTerms) {
 
 const communityScope = homeIndex.match(/<section class="section wechat-section"[\s\S]*?<\/section>/i)?.[0] ?? "";
 const communityForbiddenTerms = ["企业资料入口", "广告群", "马上推销", "官方认证", "平台认证", "交易担保", "成交担保", "保证推荐", "严选入驻", "官方推荐", "最低价", "工厂直供承诺"];
-const communityRiskScanScope = communityScope.replaceAll("不作交易担保", "");
 for (const term of communityForbiddenTerms) {
-  if (communityRiskScanScope.includes(term)) problems.push(`index.html#wechat：咨询入口出现不允许的内部或风险表达“${term}”`);
+  if (communityScope.includes(term)) problems.push(`index.html#wechat：咨询入口出现不允许的内部或风险表达“${term}”`);
 }
-for (const term of ["看柚木", "先问清楚再决定", "扫码，先问一个柚木问题", "柚木地板", "柚木整装", "推荐厂商", "不作交易担保"]) {
+for (const term of ["看柚木", "先问清楚再决定", "扫码，先问一个柚木问题", "长按识别二维码", "买柚木前，先问清楚", "进社群和同好交流", "柚木地板", "柚木整装", "推荐厂商"]) {
   if (!communityScope.includes(term)) problems.push(`index.html#wechat：咨询入口缺少客户化表达“${term}”`);
 }
 
