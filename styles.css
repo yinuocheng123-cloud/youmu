@@ -6885,6 +6885,108 @@ h3,
   }
 }
 
+/* ========== V1.22.2：社群咨询区文案与首屏比例优化 ========== */
+.nav-cta {
+  min-height: 42px;
+  padding: 0 18px;
+  font-size: 15px;
+}
+
+.wechat-section {
+  scroll-margin-top: 132px;
+  grid-template-columns: minmax(0, 1.12fr) minmax(300px, 420px);
+  align-items: start;
+  gap: clamp(30px, 4.2vw, 54px);
+  padding: clamp(34px, 4.6vw, 48px);
+}
+
+.wechat-section h2 {
+  max-width: 760px;
+  font-size: clamp(42px, 4.6vw, 66px);
+  line-height: 1.12;
+}
+
+.wechat-hook {
+  margin-top: 14px !important;
+  font-size: clamp(20px, 2vw, 28px) !important;
+}
+
+.wechat-copy > p:not(.eyebrow):not(.wechat-hook) {
+  max-width: 760px;
+  font-size: 17px;
+  line-height: 1.86;
+}
+
+.benefits {
+  gap: 12px 18px;
+  margin-top: 24px;
+}
+
+.benefits li {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.qr-panel {
+  width: 100%;
+  max-width: 420px;
+  justify-self: end;
+  padding: clamp(22px, 2.6vw, 28px);
+}
+
+.qr-code-image {
+  width: clamp(240px, 21vw, 266px);
+  height: clamp(240px, 21vw, 266px);
+  margin-bottom: 14px;
+}
+
+.qr-panel h3 {
+  max-width: 320px;
+  font-size: clamp(21px, 2vw, 26px);
+  line-height: 1.28;
+}
+
+.qr-note {
+  max-width: 330px;
+  font-size: 14px;
+}
+
+.qr-panel p {
+  max-width: 350px;
+  font-size: 15px;
+}
+
+@media (max-width: 900px) {
+  .wechat-section {
+    grid-template-columns: 1fr;
+    padding: 30px 20px;
+  }
+
+  .qr-panel {
+    justify-self: stretch;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  .wechat-section {
+    scroll-margin-top: 96px;
+  }
+
+  .wechat-section h2 {
+    font-size: clamp(36px, 9.6vw, 44px);
+  }
+
+  .wechat-copy > p:not(.eyebrow):not(.wechat-hook) {
+    font-size: 16px;
+  }
+
+  .qr-code-image {
+    width: min(248px, 72vw);
+    height: min(248px, 72vw);
+  }
+}
+
 .cooperation-content-grid {
   margin-bottom: 18px;
 }

@@ -159,7 +159,7 @@
     const cta = document.createElement("a");
     cta.className = "mobile-menu-cta";
     cta.href = getWechatHref();
-    cta.textContent = "咨询柚木问题";
+    cta.textContent = "先问清楚";
 
     head.append(cloneBrandForMobile(header), closeButton);
     panel.append(head, buildMobileNavLinks(header), cta);
