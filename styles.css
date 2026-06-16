@@ -6164,6 +6164,7 @@ h3,
 }
 
 .good-category-note-card {
+  position: relative;
   padding: 24px;
   background: rgba(255, 250, 240, 0.78);
   border: 1px solid rgba(120, 96, 56, 0.18);
@@ -6177,6 +6178,33 @@ h3,
 
 .good-category-note-card p {
   line-height: 1.8;
+}
+
+.good-note-more {
+  align-self: flex-end;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin-top: auto;
+  padding: 10px 18px;
+  color: var(--coffee);
+  font-weight: 700;
+  text-decoration: none;
+  background: rgba(245, 239, 220, 0.8);
+  border: 1px solid rgba(120, 96, 56, 0.2);
+  border-radius: 999px;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.good-note-more:hover,
+.good-note-more:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(120, 96, 56, 0.32);
+  box-shadow: 0 10px 22px rgba(72, 46, 28, 0.08);
 }
 
 .goods-archive-list-link,
