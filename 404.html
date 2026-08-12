@@ -11,8 +11,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
     <title>页面没有找到｜柚喜饰界</title>
-    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     <style>
       :root {
         color-scheme: light;
@@ -34,7 +35,7 @@
         color: var(--coffee);
         background:
           linear-gradient(180deg, rgba(255, 250, 242, 0.94), rgba(247, 239, 226, 0.94)),
-          url("./assets/images/hero-teak-lifestyle.jpg") center / cover;
+          url("/assets/images/hero-teak-lifestyle.jpg") center / cover;
         font-family: "Microsoft YaHei", serif;
       }
 
@@ -82,13 +83,13 @@
     </style>
   </head>
   <body>
-    <!-- 404 页使用相对路径，是为了在 /youmu/ 项目页子路径下也能正常返回首页。 -->
+    <!-- 404 页使用生产根路径，确保任意深层错误 URL 下的资源和首页链接都能正确解析。 -->
     <main>
-      <img src="./assets/logo-yuxi-horizontal.svg" alt="柚喜饰界，柚木爱好者乐园" />
+      <img src="/assets/logo-yuxi-horizontal.svg" alt="柚喜饰界，柚木爱好者乐园" width="390" height="96" decoding="async" />
       <h1>页面没有找到</h1>
       <p>这个页面可能还没有发布，或链接已经调整。可以先回到首页继续预览。</p>
-      <a href="./index.html">返回首页</a>
+      <a href="/">返回首页</a>
     </main>
-    <script src="./script.js"></script>
+    <script src="/script.js"></script>
   </body>
 </html>

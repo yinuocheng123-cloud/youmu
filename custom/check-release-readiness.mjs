@@ -13,6 +13,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { assetFiles, publicDirectoryRules } from "./production-package-config.mjs";
 
 const currentFile = fileURLToPath(import.meta.url);
 const projectRoot = path.resolve(path.dirname(currentFile), "..");
@@ -183,6 +184,35 @@ const solutionsIndex = await read("solutions/index.html");
 const scriptJs = await read("script.js");
 const vendorsIndex = await read("vendors/index.html");
 const homeIndex = await read("index.html");
+const aboutIndex = await read("about/index.html");
+const stylesCss = await read("styles.css");
+const homeFooter = homeIndex.match(/<footer class="site-footer"[\s\S]*?<\/footer>/i)?.[0] ?? "";
+const footerRequiredLinks = ["柚木知识", "柚木好物", "查看推荐厂商", "社群交流", "空间阅读参考", "企业合作"];
+if (!homeFooter) problems.push("index.html：首页缺少 site-footer 页脚");
+for (const linkText of footerRequiredLinks) {
+  if (!homeFooter.includes(`>${linkText}</a>`)) problems.push(`index.html：首页 Footer 缺少底部导航链接 ${linkText}`);
+}
+if (homeFooter.includes('class="footer-link-group"')) {
+  problems.push("index.html：首页 Footer 不应再使用分组纵排链接，避免中文词组断行");
+}
+if (!homeFooter.includes('class="footer-qr"') || !homeFooter.includes("关注公众号")) {
+  problems.push("index.html：首页 Footer 缺少居中的公众号二维码入口");
+}
+if (!stylesCss.includes("V1.22.5：首页 Footer 横向紧凑布局修复")) {
+  problems.push("styles.css：缺少 V1.22.5 Footer 横向紧凑布局修复样式记录");
+}
+if (!/\.footer-link-groups\s*\{[\s\S]*?display:\s*flex;[\s\S]*?flex-wrap:\s*wrap;/.test(stylesCss)) {
+  problems.push("styles.css：Footer 导航必须使用横向 flex 并允许整词换行");
+}
+if (!/\.footer-link-groups a\s*\{[\s\S]*?white-space:\s*nowrap;[\s\S]*?word-break:\s*keep-all;/.test(stylesCss)) {
+  problems.push("styles.css：Footer 导航链接必须保持词组完整，不允许逐字断行");
+}
+if (!/\.footer-inner\s*\{[\s\S]*?grid-template-columns:[\s\S]*?minmax\([\s\S]*?minmax\([\s\S]*?minmax\([\s\S]*?minmax\(/.test(stylesCss)) {
+  problems.push("styles.css：Footer 桌面端必须保留四区横向布局");
+}
+if (!/\.footer-qr\s*\{[\s\S]*?justify-self:\s*end;[\s\S]*?text-align:\s*center;/.test(stylesCss)) {
+  problems.push("styles.css：Footer 二维码入口必须在最右卡位内居中对齐");
+}
 
 const vendorForbiddenTerms = [
   "官方认证",
@@ -269,6 +299,29 @@ for (const category of ["柚木家具", "柚木地板", "柚木整装", "柚木�
 
 for (const id of ["good-furniture", "good-flooring", "good-whole-decoration", "good-outdoor", "good-collection", "good-cultural"]) {
   if (!solutionsIndex.includes(`id="${id}"`)) problems.push(`solutions/index.html：缺少六类分区锚点 ${id}`);
+}
+
+// V1.22.4：全站 Header 顶部缝隙与 hash 锚点直达检查。
+if (!aboutIndex.includes('id="teak-culture"')) {
+  problems.push("about/index.html：缺少 #teak-culture 锚点");
+}
+if (!stylesCss.includes("V1.22.4：全站 Header 顶部缝隙与锚点直达修复")) {
+  problems.push("styles.css：缺少 V1.22.4 Header 顶部缝隙修复样式记录");
+}
+if (!/scroll-padding-top\s*:\s*1(?:2[0-9]|3[0-9]|4[0-9])px/.test(stylesCss)) {
+  problems.push("styles.css：缺少足够的全站 scroll-padding-top 锚点偏移");
+}
+if (!/scroll-margin-top\s*:\s*1(?:2[0-9]|3[0-9]|4[0-9])px/.test(stylesCss)) {
+  problems.push("styles.css：缺少足够的全站 scroll-margin-top 锚点偏移");
+}
+if (!/body::before\s*\{[\s\S]*?position:\s*fixed;[\s\S]*?z-index:\s*999;[\s\S]*?pointer-events:\s*none;/.test(stylesCss)) {
+  problems.push("styles.css：缺少覆盖 Header 上方内容透出的固定顶部遮罩");
+}
+if (!/\.site-header\s*\{[\s\S]*?top:\s*0;[\s\S]*?z-index:\s*1000;/.test(stylesCss)) {
+  problems.push("styles.css：site-header 缺少 top: 0 与足够层级");
+}
+if (!/\.site-header::before\s*\{[\s\S]*?top:\s*0;/.test(stylesCss)) {
+  problems.push("styles.css：site-header 背景承接层缺少 top: 0");
 }
 
 const goodsSectionRequirements = [
@@ -458,11 +511,210 @@ for (const relativePath of goodsFiles) {
   if (!sitemapXml.includes(relativePath)) problems.push(`sitemap.xml：缺少好物文章页 ${relativePath}`);
 }
 
-// ========== 第五部分：结果输出 ==========
+// ========== 第五部分：正式域名、SEO 与 404 生产配置检查 ==========
+const productionOrigin = "https://www.zhengmu.cn";
+const retiredPreviewOrigin = "https://yinuocheng123-cloud.github.io/youmu";
+const robotsTxt = await read("robots.txt");
+const notFoundHtml = await read("404.html");
+const pagesWorkflow = await read(".github/workflows/pages.yml");
+const indexableHtmlFiles = publicFiles.filter((relativePath) => relativePath.endsWith(".html")).sort();
+const canonicalUrls = [];
+const pageTitles = [];
+
+if (indexableHtmlFiles.length !== 126) {
+  problems.push(`公开可索引 HTML 数量为 ${indexableHtmlFiles.length}，应为 126 个`);
+}
+
+for (const relativePath of [...publicFiles, "404.html", "robots.txt", "sitemap.xml"]) {
+  const text = await read(relativePath);
+  if (text.includes(retiredPreviewOrigin)) problems.push(`${relativePath}：仍包含旧 GitHub Pages 生产地址`);
+}
+
+for (const relativePath of indexableHtmlFiles) {
+  const html = await read(relativePath);
+  const canonicalMatches = [...html.matchAll(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']\s*\/?\s*>/gi)];
+  const expectedUrl = relativePath === "index.html" ? `${productionOrigin}/` : `${productionOrigin}/${relativePath}`;
+  const titleMatches = [...html.matchAll(/<title>([\s\S]*?)<\/title>/gi)];
+  const descriptionMatches = [...html.matchAll(/<meta\s+name=["']description["']\s+content=["']([^"']+)["']\s*\/?\s*>/gi)];
+  const ogTypeMatches = [...html.matchAll(/<meta\s+property=["']og:type["']\s+content=["']([^"']+)["']\s*\/?\s*>/gi)];
+  const ogTitleMatches = [...html.matchAll(/<meta\s+property=["']og:title["']\s+content=["']([^"']+)["']\s*\/?\s*>/gi)];
+  const ogDescriptionMatches = [...html.matchAll(/<meta\s+property=["']og:description["']\s+content=["']([^"']+)["']\s*\/?\s*>/gi)];
+  const ogUrlMatches = [...html.matchAll(/<meta\s+property=["']og:url["']\s+content=["']([^"']+)["']\s*\/?\s*>/gi)];
+  const ogImageMatches = [...html.matchAll(/<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']\s*\/?\s*>/gi)];
+  const ogSiteNameMatches = [...html.matchAll(/<meta\s+property=["']og:site_name["']\s+content=["']([^"']+)["']\s*\/?\s*>/gi)];
+  const ogLocaleMatches = [...html.matchAll(/<meta\s+property=["']og:locale["']\s+content=["']([^"']+)["']\s*\/?\s*>/gi)];
+
+  if (titleMatches.length !== 1 || !titleMatches[0][1].trim()) {
+    problems.push(`${relativePath}：title 数量或内容不正确`);
+  } else {
+    const title = titleMatches[0][1].trim();
+    pageTitles.push({ relativePath, title });
+    if ([...title].length < 8 || [...title].length > 65) problems.push(`${relativePath}：title 长度不适合搜索结果展示`);
+  }
+  if (descriptionMatches.length !== 1) {
+    problems.push(`${relativePath}：description 数量为 ${descriptionMatches.length}，应为 1`);
+  } else if ([...descriptionMatches[0][1].trim()].length < 15 || [...descriptionMatches[0][1].trim()].length > 160) {
+    problems.push(`${relativePath}：description 长度不适合搜索结果展示`);
+  }
+  if (ogTypeMatches.length !== 1 || !/^(website|article)$/.test(ogTypeMatches[0]?.[1] ?? "")) {
+    problems.push(`${relativePath}：og:type 缺失或类型不正确`);
+  }
+  if (ogTitleMatches.length !== 1) problems.push(`${relativePath}：og:title 数量为 ${ogTitleMatches.length}，应为 1`);
+  if (ogDescriptionMatches.length !== 1) problems.push(`${relativePath}：og:description 数量为 ${ogDescriptionMatches.length}，应为 1`);
+  if (titleMatches.length === 1 && ogTitleMatches.length === 1 && ogTitleMatches[0][1] !== titleMatches[0][1].trim()) {
+    problems.push(`${relativePath}：og:title 与 title 不一致`);
+  }
+  if (descriptionMatches.length === 1 && ogDescriptionMatches.length === 1 && ogDescriptionMatches[0][1] !== descriptionMatches[0][1]) {
+    problems.push(`${relativePath}：og:description 与 description 不一致`);
+  }
+  if (ogUrlMatches.length !== 1 || ogUrlMatches[0]?.[1] !== expectedUrl) {
+    problems.push(`${relativePath}：og:url 应为 ${expectedUrl}`);
+  }
+  if (ogImageMatches.length !== 1 || !ogImageMatches[0]?.[1].startsWith(`${productionOrigin}/assets/`)) {
+    problems.push(`${relativePath}：og:image 缺失或未使用正式域名资源`);
+  }
+  if (ogSiteNameMatches.length !== 1 || ogSiteNameMatches[0]?.[1] !== "柚喜饰界") {
+    problems.push(`${relativePath}：og:site_name 缺失或不正确`);
+  }
+  if (ogLocaleMatches.length !== 1 || ogLocaleMatches[0]?.[1] !== "zh_CN") {
+    problems.push(`${relativePath}：og:locale 缺失或不正确`);
+  }
+
+  if (canonicalMatches.length !== 1) {
+    problems.push(`${relativePath}：canonical 数量为 ${canonicalMatches.length}，应为 1`);
+    continue;
+  }
+
+  const canonicalUrl = canonicalMatches[0][1];
+  canonicalUrls.push(canonicalUrl);
+  if (canonicalUrl !== expectedUrl) {
+    problems.push(`${relativePath}：canonical 应为 ${expectedUrl}，当前为 ${canonicalUrl}`);
+  }
+}
+
+const pageTitlesByValue = new Map();
+for (const pageTitle of pageTitles) {
+  const group = pageTitlesByValue.get(pageTitle.title) ?? [];
+  group.push(pageTitle);
+  pageTitlesByValue.set(pageTitle.title, group);
+}
+for (const group of pageTitlesByValue.values()) {
+  if (group.length > 1) problems.push(`公开页面：存在重复 title「${group[0].title}」：${group.map(({ relativePath }) => relativePath).join("、")}`);
+}
+
+if (!robotsTxt.includes("User-agent: *") || !robotsTxt.includes("Allow: /")) {
+  problems.push("robots.txt：未启用正式上线抓取策略");
+}
+if (/^\s*Disallow:\s*\/\s*$/im.test(robotsTxt)) {
+  problems.push("robots.txt：仍禁止全站抓取");
+}
+if (!robotsTxt.includes(`Sitemap: ${productionOrigin}/sitemap.xml`)) {
+  problems.push("robots.txt：Sitemap 地址未指向正式域名");
+}
+
+const sitemapUrls = [...sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+const sitemapLastmods = [...sitemapXml.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map((match) => match[1]);
+if (sitemapUrls.length !== 126) problems.push(`sitemap.xml：URL 数量为 ${sitemapUrls.length}，应为 126`);
+if (sitemapLastmods.length !== 126) problems.push(`sitemap.xml：lastmod 数量为 ${sitemapLastmods.length}，应为 126`);
+if (sitemapLastmods.some((date) => !/^\d{4}-\d{2}-\d{2}$/.test(date))) {
+  problems.push("sitemap.xml：存在格式错误的 lastmod");
+}
+for (const url of sitemapUrls) {
+  if (!url.startsWith(`${productionOrigin}/`)) problems.push(`sitemap.xml：存在非正式域名 URL ${url}`);
+}
+if (new Set(sitemapUrls).size !== sitemapUrls.length) problems.push("sitemap.xml：存在重复 URL");
+if (new Set(canonicalUrls).size !== canonicalUrls.length) problems.push("公开页面：存在重复 canonical URL");
+for (const canonicalUrl of canonicalUrls) {
+  if (!sitemapUrls.includes(canonicalUrl)) problems.push(`sitemap.xml：缺少 canonical URL ${canonicalUrl}`);
+}
+
+if (!/<meta\s+name=["']robots["']\s+content=["']noindex,\s*nofollow["']\s*\/?\s*>/i.test(notFoundHtml)) {
+  problems.push("404.html：缺少 noindex, nofollow");
+}
+for (const requiredPath of [
+  "/assets/favicon.svg",
+  "/assets/images/hero-teak-lifestyle.jpg",
+  "/assets/logo-yuxi-horizontal.svg",
+  "/script.js",
+  'href="/"',
+]) {
+  if (!notFoundHtml.includes(requiredPath)) problems.push(`404.html：缺少生产根路径 ${requiredPath}`);
+}
+if (notFoundHtml.includes("./assets/") || notFoundHtml.includes("./index.html") || notFoundHtml.includes("./script.js")) {
+  problems.push("404.html：仍包含深层错误 URL 下不安全的相对资源路径");
+}
+if (/rel=["']canonical["']/i.test(notFoundHtml)) problems.push("404.html：不应设置 canonical");
+if (!/<title>[^<]+<\/title>/i.test(notFoundHtml)) problems.push("404.html：缺少有效 title");
+if (!homeIndex.includes(`<meta property="og:url" content="${productionOrigin}/"`)) {
+  problems.push("index.html：og:url 未指向正式首页");
+}
+if (!homeIndex.includes(`<meta property="og:image" content="${productionOrigin}/assets/images/hero-teak-lifestyle.jpg"`)) {
+  problems.push("index.html：og:image 未指向正式绝对地址");
+}
+
+if (/cp\s+-R\s+assets\b/.test(pagesWorkflow)) {
+  problems.push("GitHub Pages workflow：仍会复制整个 assets 目录，可能公开开发说明和未使用素材");
+}
+for (const directory of publicDirectoryRules.keys()) {
+  if (!new RegExp(`\\b${directory}\\b`).test(pagesWorkflow)) {
+    problems.push(`GitHub Pages workflow：缺少公开目录 ${directory}`);
+  }
+}
+for (const assetFile of assetFiles) {
+  if (!pagesWorkflow.includes(assetFile)) problems.push(`GitHub Pages workflow：缺少生产资源 ${assetFile}`);
+}
+
+// ========== 第六部分：结果输出 ==========
+// V1.23.0-rc.1: image stability and brand UI safeguards.
+const performanceHtmlFiles = [...indexableHtmlFiles, "404.html"];
+let imageTagCount = 0;
+let lazyImageCount = 0;
+let priorityImageCount = 0;
+
+for (const relativePath of performanceHtmlFiles) {
+  const html = await read(relativePath);
+  const imageTags = [...html.matchAll(/<img\b[^>]*>/gi)].map((match) => match[0]);
+  imageTagCount += imageTags.length;
+
+  for (const imageTag of imageTags) {
+    if (!/\swidth=["']\d+["']/i.test(imageTag) || !/\sheight=["']\d+["']/i.test(imageTag)) {
+      problems.push(`${relativePath}: image is missing intrinsic width/height: ${imageTag}`);
+    }
+    if (!/\sdecoding=["']async["']/i.test(imageTag)) {
+      problems.push(`${relativePath}: image is missing decoding="async": ${imageTag}`);
+    }
+
+    const isHeroImage = /\bhero-image\b/i.test(imageTag);
+    const isHeaderBrand = /\bbrand-mark-image\b/i.test(imageTag);
+    const isCritical404Logo = relativePath === "404.html";
+    const isLazy = /\sloading=["']lazy["']/i.test(imageTag);
+    const isPriority = /\sfetchpriority=["']high["']/i.test(imageTag);
+
+    if (isLazy) lazyImageCount += 1;
+    if (isPriority) priorityImageCount += 1;
+    if (isHeroImage && (!isPriority || isLazy)) {
+      problems.push(`${relativePath}: hero image must be high priority and must not be lazy loaded`);
+    }
+    if (!isHeroImage && !isHeaderBrand && !isCritical404Logo && !isLazy) {
+      problems.push(`${relativePath}: non-critical content image must use loading="lazy": ${imageTag}`);
+    }
+  }
+}
+
+if (imageTagCount === 0) problems.push("public HTML: no image tags found during performance validation");
+if (lazyImageCount === 0) problems.push("public HTML: no lazy-loaded content images found");
+if (priorityImageCount !== 1) problems.push(`public HTML: expected exactly one high-priority image, found ${priorityImageCount}`);
+if (!stylesCss.includes("V1.23.0-rc.1：高端木作品牌 UI 体验冲刺")) {
+  problems.push("styles.css: missing V1.23.0-rc.1 brand UI layer");
+}
+if (!/@media\s*\(prefers-reduced-motion:\s*reduce\)/.test(stylesCss)) {
+  problems.push("styles.css: missing reduced-motion safeguards");
+}
+
 if (problems.length > 0) {
   console.error("正式发布预检未通过：");
   for (const problem of problems) console.error(`- ${problem}`);
   process.exit(1);
 }
 
-console.log("正式发布预检通过：公开旧口径、好物文章、延伸阅读、sitemap 和高风险表达均未发现阻塞问题。");
+console.log("正式发布预检通过：公开内容、正式域名、canonical、robots、sitemap、404 和高风险表达均未发现阻塞问题。");

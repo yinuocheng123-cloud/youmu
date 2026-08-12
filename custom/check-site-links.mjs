@@ -63,7 +63,7 @@ async function exists(absolutePath) {
 }
 
 // ========== 第二部分：公开页面链接目标检查 ==========
-const siteBaseUrl = "https://yinuocheng123-cloud.github.io/youmu/";
+const siteBaseUrl = "https://www.zhengmu.cn/";
 const htmlFiles = (await Promise.all(htmlEntries.map((entry) => collectFiles(entry, new Set([".html"])))))
   .flat()
   .sort();

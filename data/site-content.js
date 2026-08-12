@@ -90,8 +90,8 @@
         title: "柚喜饰界｜柚木爱好者乐园",
         description:
           "围绕柚木知识、柚木好物、柚木整装、柚木地板、推荐厂商资料页和爱好者社群建立的柚木生活方式入口。",
-        url: "https://yinuocheng123-cloud.github.io/youmu/",
-        image: "https://yinuocheng123-cloud.github.io/youmu/assets/images/hero-teak-lifestyle.jpg",
+        url: "https://www.zhengmu.cn/",
+        image: "https://www.zhengmu.cn/assets/images/hero-teak-lifestyle.jpg",
       },
       ...status.formalCopy,
     },
@@ -543,4 +543,3 @@
   // ========== 第五部分：浏览器全局导出 ==========
   window.YUXI_SITE_CONTENT = siteContent;
 })();
-

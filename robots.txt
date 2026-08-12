@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: /
+Allow: /
 
-Sitemap: https://yinuocheng123-cloud.github.io/youmu/sitemap.xml
+Sitemap: https://www.zhengmu.cn/sitemap.xml

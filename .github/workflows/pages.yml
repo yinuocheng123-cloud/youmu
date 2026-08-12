@@ -33,10 +33,17 @@ jobs:
         run: |
           set -euo pipefail
           rm -rf _site
-          mkdir -p _site
+          mkdir -p _site/assets/images
           cp index.html styles.css script.js 404.html robots.txt sitemap.xml .nojekyll _site/
-          cp -R assets data _site/
-          cp -R knowledge solutions vendors cases articles forms about _site/
+          cp assets/favicon.svg assets/logo-yuxi-horizontal.svg assets/logo-yuxi-mark.svg _site/assets/
+          cp assets/logo-yuxi-mark-dark.svg assets/logo-yuxi-mark-mono.svg _site/assets/
+          cp assets/wecom-qr.jpg assets/official-account-qr.jpg assets/qr-placeholder.svg _site/assets/
+          cp assets/images/hero-teak-lifestyle.jpg assets/images/knowledge-outdoor-wood.jpg _site/assets/images/
+          cp assets/images/knowledge-teak-grain.jpg assets/images/knowledge-teak-maintenance.jpg _site/assets/images/
+          cp assets/images/product-teak-chair.jpg assets/images/product-teak-table.jpg _site/assets/images/
+          cp assets/images/vendor-craft-sample.jpg assets/images/vendor-showroom-sample.jpg _site/assets/images/
+          cp assets/images/vendor-workshop-sample.jpg assets/images/wechat-section-bg.jpg _site/assets/images/
+          cp -R data knowledge solutions vendors cases articles forms about cooperation _site/
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v4

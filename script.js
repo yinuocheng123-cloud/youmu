@@ -214,6 +214,7 @@
   const mobileMenu = document.querySelector("[data-mobile-menu]");
   const mobileMenuClose = document.querySelector("[data-menu-close]");
   const mobileMenuBackdrop = document.querySelector("[data-menu-backdrop]");
+  const desktopNavigationQuery = window.matchMedia("(min-width: 901px)");
   const solutionTabs = document.querySelectorAll("[data-solution-tab]");
   const goodCategoryTabs = document.querySelectorAll("[data-good-category-tab]");
   const goodCategoryPanels = document.querySelectorAll(".good-category-panel");
@@ -222,15 +223,20 @@
   const vendorAllowedFilters = new Set(["全部", "柚木地板", "柚木家具", "柚木整装", "柚木户外", "柚木收藏", "柚木文创"]);
 
   // ========== 第三部分：移动端菜单与桌面下拉菜单 ==========
-  function closeMobileMenu() {
+  function closeMobileMenu(restoreFocus = true) {
     if (!mobileMenu || !menuToggle) {
       return;
     }
 
+    const wasOpen = mobileMenu.classList.contains("is-open");
     mobileMenu.classList.remove("is-open");
     mobileMenu.setAttribute("aria-hidden", "true");
     menuToggle.setAttribute("aria-expanded", "false");
     document.body.classList.remove("menu-open");
+
+    if (wasOpen && restoreFocus) {
+      menuToggle.focus({ preventScroll: true });
+    }
   }
 
   function openMobileMenu() {
@@ -242,6 +248,7 @@
     mobileMenu.setAttribute("aria-hidden", "false");
     menuToggle.setAttribute("aria-expanded", "true");
     document.body.classList.add("menu-open");
+    mobileMenuClose?.focus({ preventScroll: true });
   }
 
   function closeDropdown(dropdown) {
@@ -284,10 +291,36 @@
   mobileMenuBackdrop?.addEventListener("click", closeMobileMenu);
 
   mobileMenu?.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => closeMobileMenu());
+    link.addEventListener("click", () => closeMobileMenu(false));
   });
 
+  const closeMobileMenuAtDesktop = (event) => {
+    if (event.matches) closeMobileMenu(false);
+  };
+
+  if (typeof desktopNavigationQuery.addEventListener === "function") {
+    desktopNavigationQuery.addEventListener("change", closeMobileMenuAtDesktop);
+  } else {
+    desktopNavigationQuery.addListener(closeMobileMenuAtDesktop);
+  }
+
   document.addEventListener("keydown", (event) => {
+    if (event.key === "Tab" && mobileMenu?.classList.contains("is-open")) {
+      const focusableElements = Array.from(
+        mobileMenu.querySelectorAll('a[href], button:not([data-menu-backdrop]):not([disabled])'),
+      ).filter((element) => element.getClientRects().length > 0);
+      const firstFocusable = focusableElements[0];
+      const lastFocusable = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstFocusable) {
+        event.preventDefault();
+        lastFocusable?.focus();
+      } else if (!event.shiftKey && document.activeElement === lastFocusable) {
+        event.preventDefault();
+        firstFocusable?.focus();
+      }
+    }
+
     if (event.key === "Escape") {
       dropdowns.forEach(closeDropdown);
       closeMobileMenu();
@@ -298,7 +331,7 @@
   function closeMenuAndScroll(selector) {
     const wasOpen = mobileMenu?.classList.contains("is-open");
 
-    closeMobileMenu();
+    closeMobileMenu(false);
 
     if (!selector) {
       return false;
