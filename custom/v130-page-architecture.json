@@ -1,0 +1,888 @@
+{
+  "version": "v1.30-alpha.2-phase.4",
+  "pageCount": 126,
+  "pages": [
+    {
+      "path": "index.html",
+      "pageType": "homepage",
+      "section": "首页",
+      "template": "Homepage",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "about/index.html",
+      "pageType": "section-index",
+      "section": "about",
+      "template": "Section Index",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "articles/how-to-choose-teak-flooring.html",
+      "pageType": "supporting-article",
+      "section": "articles",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "articles/index.html",
+      "pageType": "section-index",
+      "section": "articles",
+      "template": "Section Index",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "articles/teak-outdoor-furniture-care.html",
+      "pageType": "supporting-article",
+      "section": "articles",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "articles/teak-vendor-selection.html",
+      "pageType": "supporting-article",
+      "section": "articles",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "articles/teak-vs-common-wood.html",
+      "pageType": "supporting-article",
+      "section": "articles",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "articles/teak-whole-decoration-guide.html",
+      "pageType": "supporting-article",
+      "section": "articles",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "articles/what-is-teak.html",
+      "pageType": "supporting-article",
+      "section": "articles",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "cases/courtyard-teak-sample.html",
+      "pageType": "candidate-detail",
+      "section": "柚木美学",
+      "template": "Spatial Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "cases/flooring-selection-sample.html",
+      "pageType": "candidate-detail",
+      "section": "柚木美学",
+      "template": "Spatial Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "cases/index.html",
+      "pageType": "section-index",
+      "section": "cases",
+      "template": "Section Index",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "cases/tea-room-teak-sample.html",
+      "pageType": "candidate-detail",
+      "section": "柚木美学",
+      "template": "Spatial Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "cooperation/index.html",
+      "pageType": "section-index",
+      "section": "cooperation",
+      "template": "Section Index",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "forms/consult.html",
+      "pageType": "form",
+      "section": "咨询／合作",
+      "template": "Utility",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "forms/vendor-apply.html",
+      "pageType": "form",
+      "section": "咨询／合作",
+      "template": "Utility",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "knowledge/index.html",
+      "pageType": "section-index",
+      "section": "knowledge",
+      "template": "Section Index",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "knowledge/teak-basics.html",
+      "pageType": "supporting-page",
+      "section": "knowledge",
+      "template": "Supporting Page",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "knowledge/teak-buying-guide.html",
+      "pageType": "supporting-page",
+      "section": "knowledge",
+      "template": "Supporting Page",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "knowledge/teak-care.html",
+      "pageType": "supporting-page",
+      "section": "knowledge",
+      "template": "Supporting Page",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "knowledge/teak-faq.html",
+      "pageType": "supporting-page",
+      "section": "knowledge",
+      "template": "Supporting Page",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "knowledge/teak-material-craft.html",
+      "pageType": "supporting-page",
+      "section": "knowledge",
+      "template": "Supporting Page",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "knowledge/teak-space-use.html",
+      "pageType": "supporting-page",
+      "section": "knowledge",
+      "template": "Supporting Page",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "knowledge/topics/avoid-cracking-warping.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/before-buying-teak-basics.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/brand-or-factory.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/clear-teak-description.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/flooring-fit-space.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/flooring-vs-furniture-craft.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/is-teak-always-expensive.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/not-only-color-photo.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/outdoor-teak-judgement.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/outdoor-teak-maintenance.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/questions-before-vendor.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/tea-room-teak-space.html",
+      "pageType": "candidate-detail",
+      "section": "柚木美学",
+      "template": "Spatial Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/teak-aging-color.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/teak-authenticity-basic.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/teak-bathroom-balcony.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/teak-buying-pitfalls.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/teak-color-change.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/teak-daily-cleaning.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/teak-drying-process.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/teak-flooring-daily-care.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/teak-home-spaces.html",
+      "pageType": "candidate-detail",
+      "section": "柚木美学",
+      "template": "Spatial Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/teak-joinery-surface.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/teak-kids-pets-home.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/teak-oil-stability.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/teak-origin-basic.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/teak-price-difference.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/teak-vs-common-wood-basic.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/teak-vs-walnut.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/what-is-teak.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/whole-decoration-fit-home.html",
+      "pageType": "candidate-detail",
+      "section": "柚木美学",
+      "template": "Spatial Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "knowledge/topics/why-teak-for-home.html",
+      "pageType": "candidate-detail",
+      "section": "探索柚木",
+      "template": "Knowledge Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/flooring.html",
+      "pageType": "candidate-detail",
+      "section": "柚木美学",
+      "template": "Spatial Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/furniture.html",
+      "pageType": "candidate-detail",
+      "section": "柚木美学",
+      "template": "Spatial Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/guides/flooring-before-install.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/flooring-care-guide.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/flooring-fit-spaces.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/flooring-how-to-choose.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/flooring-sample-structure.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/furniture-sample-structure.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/outdoor-furniture-choose.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/outdoor-maintenance-cycle.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/outdoor-sample-structure.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/outdoor-why-teak.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/tea-room-floor-cabinet.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/tea-room-sample-structure.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/tea-room-why-teak.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/teak-cabinet-storage.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/teak-reception-atmosphere.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/teak-side-coffee-table.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/teak-table-chair-choose.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/teak-tea-table-choose.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/teak-with-other-wood.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/terrace-balcony-teak.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/whole-decoration-fit-home.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/whole-decoration-matching.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/whole-decoration-material-check.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/whole-decoration-sample-structure.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/guides/whole-decoration-vs-custom.html",
+      "pageType": "supporting-article",
+      "section": "solutions",
+      "template": "Supporting Editorial",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/index.html",
+      "pageType": "section-index",
+      "section": "solutions",
+      "template": "Section Index",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "solutions/goods/teak-dining-table.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/teak-tea-table.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/teak-bookcase.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/teak-bench.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/teak-lounge-chair.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/aged-teak-flooring.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/sunroom-teak-floor.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/seaside-teak-floor.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/hotel-teak-floor.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/reclaimed-teak-flooring.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/teak-wall-panel.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/teak-study-room.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/teak-bedroom.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/teak-living-room.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/teak-villa-woodwork.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/teak-garden-dining.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/teak-outdoor-bench.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/teak-yacht-deck.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/teak-pool-deck.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/teak-patio-furniture.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/old-teak-door.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/old-teak-window.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/reclaimed-boat-teak.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/old-teak-carving.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/aged-teak-timber.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/teak-pen.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/teak-speaker.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/teak-phone-stand.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/teak-tray.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/goods/teak-incense-holder.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/outdoor.html",
+      "pageType": "candidate-detail",
+      "section": "柚木生活",
+      "template": "Lifestyle Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/tea-room.html",
+      "pageType": "candidate-detail",
+      "section": "柚木美学",
+      "template": "Spatial Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "solutions/whole-decoration.html",
+      "pageType": "candidate-detail",
+      "section": "柚木美学",
+      "template": "Spatial Editorial",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "vendors/candidates/index.html",
+      "pageType": "section-index",
+      "section": "vendors",
+      "template": "Section Index",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "vendors/flooring-sample.html",
+      "pageType": "supporting-page",
+      "section": "vendors",
+      "template": "Supporting Page",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "vendors/index.html",
+      "pageType": "section-index",
+      "section": "vendors",
+      "template": "Section Index",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "vendors/whole-decoration-sample.html",
+      "pageType": "supporting-page",
+      "section": "vendors",
+      "template": "Supporting Page",
+      "migrationStatus": "NOT_CANDIDATE"
+    },
+    {
+      "path": "vendors/workshop-sample.html",
+      "pageType": "candidate-detail",
+      "section": "生态合作／其他",
+      "template": "Brand Profile",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "vendors/wachen-teak.html",
+      "pageType": "candidate-detail",
+      "section": "特色品牌",
+      "template": "Brand Profile",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "vendors/shanghai-zhuangxin-teak.html",
+      "pageType": "candidate-detail",
+      "section": "特色品牌",
+      "template": "Brand Profile",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "vendors/zhenzang-teak-life.html",
+      "pageType": "candidate-detail",
+      "section": "特色品牌",
+      "template": "Brand Profile",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "vendors/yuebaijia-teak-flooring.html",
+      "pageType": "candidate-detail",
+      "section": "特色品牌",
+      "template": "Brand Profile",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "vendors/xuelianhua-teak-furniture.html",
+      "pageType": "candidate-detail",
+      "section": "特色品牌",
+      "template": "Brand Profile",
+      "migrationStatus": "MIGRATED"
+    },
+    {
+      "path": "vendors/yixin-teak.html",
+      "pageType": "candidate-detail",
+      "section": "特色品牌",
+      "template": "Brand Profile",
+      "migrationStatus": "MIGRATED"
+    }
+  ]
+}

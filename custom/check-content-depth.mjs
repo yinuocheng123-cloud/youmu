@@ -282,7 +282,9 @@ for (const relativePath of goodsFiles) {
 
   const relatedCount = countMatches(related, /<a\b/g);
   if (relatedCount < 3) problems.push(`${relativePath}：站内关联链接 ${relatedCount} 个，少于 3 个`);
-  if (related && !related.includes("你可能还会喜欢")) problems.push(`${relativePath}：关联阅读模块标题未统一为“你可能还会喜欢”`);
+  if (related && !["你可能还会喜欢", "继续了解柚木生活"].some((heading) => related.includes(heading))) {
+    problems.push(`${relativePath}：关联阅读模块标题未使用生活栏目语义`);
+  }
   if (related && !related.includes("继续阅读")) problems.push(`${relativePath}：关联阅读按钮文案未统一为“继续阅读”`);
 
   const sourceLinks = hrefsOf(sourceSection);

@@ -33,7 +33,9 @@ const contentTypes = {
 // ========== 第二部分：静态文件读取与安全校验 ==========
 function resolveRequestPath(requestUrl) {
   const url = new URL(requestUrl, `http://127.0.0.1:${port}`);
-  const pathname = url.pathname === "/" ? "/index.html" : url.pathname;
+  const pathname = url.pathname.endsWith("/")
+    ? `${url.pathname}index.html`
+    : url.pathname;
   const filePath = path.resolve(root, `.${decodeURIComponent(pathname)}`);
 
   // 必须限制在项目根目录内，避免预览服务读到工作区外部文件。

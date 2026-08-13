@@ -1,4 +1,5 @@
-export const packageName = "youxi-v1.23.0-rc.3-huawei-nginx";
+export const packageName = "v1.30-rc.1";
+export const packageDirectory = "release";
 
 export const rootFiles = [
   "index.html",

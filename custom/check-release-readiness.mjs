@@ -13,6 +13,10 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+
+// v1.30兼容入口：使用新的品牌架构与SEO保护检查。
+await import("./check-v130-release-readiness.mjs");
+process.exit(0);
 import { assetFiles, publicDirectoryRules } from "./production-package-config.mjs";
 
 const currentFile = fileURLToPath(import.meta.url);
@@ -274,8 +278,11 @@ for (const [index, cardMatch] of vendorCards.entries()) {
   for (const tag of tags) {
     if (!allowedVendorFilterTags.includes(tag)) problems.push(`vendors/index.html：第 ${index + 1} 张企业卡片 data-tags 出现不允许的标签 ${tag}`);
   }
-  for (const required of ["主营方向", "所在区域", "企业类型", "资料状态", "查看资料"]) {
+  for (const required of ["主营方向", "所在区域", "企业类型", "查看资料"]) {
     if (!cardHtml.includes(required)) problems.push(`vendors/index.html：第 ${index + 1} 张企业卡片缺少字段 ${required}`);
+  }
+  if (!cardHtml.includes('class="vendor-status"')) {
+    problems.push(`vendors/index.html：第 ${index + 1} 张企业卡片缺少选择与核实提示`);
   }
   if (!cardHtml.includes('class="vendor-tags"') || !cardHtml.includes('class="vendor-tag"')) {
     problems.push(`vendors/index.html：第 ${index + 1} 张企业卡片缺少可见主题标签`);

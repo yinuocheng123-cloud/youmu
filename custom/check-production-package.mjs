@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import {
   assetFiles,
   forbiddenPackageSegments,
+  packageDirectory,
   packageName,
   publicDirectoryRules,
   rootFiles,
@@ -13,7 +14,7 @@ const currentFile = fileURLToPath(import.meta.url);
 const projectRoot = path.resolve(path.dirname(currentFile), "..");
 const packageRoot = process.argv[2]
   ? path.resolve(projectRoot, process.argv[2])
-  : path.join(projectRoot, "_site", packageName);
+  : path.join(projectRoot, packageDirectory, packageName);
 const productionOrigin = "https://www.zhengmu.cn";
 const retiredOrigin = "https://yinuocheng123-cloud.github.io/youmu";
 const problems = [];

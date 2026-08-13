@@ -13,6 +13,10 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+// v1.30兼容入口：执行新五栏目导航检查，成功后不再运行旧版断言。
+await import("./check-v130-navigation.mjs");
+process.exit(0);
+
 const currentFile = fileURLToPath(import.meta.url);
 const projectRoot = path.resolve(path.dirname(currentFile), "..");
 const publicEntries = ["index.html", "data/site-content.js", "knowledge", "solutions", "vendors", "cooperation", "about", "articles", "cases", "forms"];

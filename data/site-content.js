@@ -16,13 +16,13 @@
     "此处为站内视觉素材，可按项目需要替换为更合适的授权图片。";
 
   const openStockImageNote =
-    "此处为开放授权图库素材，已记录来源页面、平台与授权说明。";
+    "图片来自已核对授权范围的公开图库，具体来源以素材记录为准。";
 
   const demoVendorNote =
-    "推荐厂商资料以企业公开资料或授权资料为准，未核到的内容不写成确定事实。";
+    "特色品牌资料以企业公开资料或授权资料为准，未核到的内容不写成确定事实。";
 
   const demoProductNote =
-    "此处为柚木好物方向资料，用于呈现家具、地板、茶室、户外、收藏和文创等生活方式内容。";
+    "从家具、地板、茶室、户外、收藏和文创等方向，发现柚木进入生活的不同方式。";
 
   const articleDirectionNote =
     "摘要可作为正式内容方向，适合继续扩展为更完整的文章内容。";
@@ -68,7 +68,7 @@
       isDemo: true,
       replaceBeforeLaunch: true,
       materialType: "contact",
-      replaceNote: "联系方式以社群交流和企业合作页承接。",
+      replaceNote: "联系方式以咨询柚喜和生态合作页承接。",
     },
     providedQrReview: {
       isDemo: false,
@@ -81,15 +81,15 @@
   // ========== 第二部分：站点基础信息 ==========
   const siteContent = {
     seo: {
-      title: "柚喜饰界｜柚木爱好者乐园",
+      title: "柚喜饰界｜发现柚木之美，感受长期生活的质感",
       description:
-        "柚喜饰界是围绕柚木知识、柚木好物、柚木整装、柚木地板、推荐厂商资料页和爱好者社群建立的柚木生活方式入口。",
+        "柚喜饰界围绕柚木的材料认知、空间美学、生活方式与特色品牌，记录柚木随时间变化的质感与长期生活价值。",
       keywords:
-        "柚喜饰界, 柚木爱好者, 柚木知识, 柚木好物, 柚木整装, 柚木地板, 推荐厂商资料, 柚木生活方式, 柚木咨询",
+        "柚喜饰界, 探索柚木, 柚木美学, 柚木生活, 特色品牌, 柚木空间, 柚木家具, 柚木地板, 柚木生活方式",
       openGraph: {
-        title: "柚喜饰界｜柚木爱好者乐园",
+        title: "柚喜饰界｜发现柚木之美，感受长期生活的质感",
         description:
-          "围绕柚木知识、柚木好物、柚木整装、柚木地板、推荐厂商资料页和爱好者社群建立的柚木生活方式入口。",
+          "柚喜饰界围绕柚木的材料认知、空间美学、生活方式与特色品牌，记录柚木随时间变化的质感与长期生活价值。",
         url: "https://www.zhengmu.cn/",
         image: "https://www.zhengmu.cn/assets/images/hero-teak-lifestyle.jpg",
       },
@@ -97,9 +97,9 @@
     },
     brand: {
       name: "柚喜饰界",
-      tagline: "柚木爱好者乐园",
+      tagline: "柚木生活方式",
       slogan: "让柚木的美好，被更多人看见。",
-      closing: "看懂柚木，连接好物，建立信任。",
+      closing: "探索柚木、美学与长期生活之间的关系。",
       logo: {
         src: "./assets/logo-yuxi-horizontal.svg",
         markSrc: "./assets/logo-yuxi-mark.svg",
@@ -115,11 +115,10 @@
       ...status.formalCopy,
     },
     nav: [
-      { id: "about", label: "认识柚喜", href: "#about", ...status.formalCopy },
       {
         id: "knowledge",
-        label: "柚木知识",
-        href: "#knowledge",
+        label: "探索柚木",
+        href: "./knowledge/index.html",
         children: [
           { label: "柚木入门", href: "#knowledge-intro" },
           { label: "选购避坑", href: "#knowledge-buying" },
@@ -131,48 +130,60 @@
         ...status.formalCopy,
       },
       {
-        id: "solutions",
-        label: "柚木好物",
-        href: "#solutions",
+        id: "aesthetics",
+        label: "柚木美学",
+        href: "./cases/index.html",
         children: [
-          { label: "柚木好物首页", href: "./solutions/index.html" },
-          { label: "柚木家具", href: "./solutions/index.html#good-furniture" },
-          { label: "柚木地板", href: "./solutions/index.html#good-flooring" },
-          { label: "柚木整装", href: "./solutions/index.html#good-whole-decoration" },
-          { label: "柚木户外", href: "./solutions/index.html#good-outdoor" },
-          { label: "柚木收藏", href: "./solutions/index.html#good-collection" },
-          { label: "柚木文创", href: "./solutions/index.html#good-cultural" },
+          { label: "茶空间", href: "./solutions/tea-room.html" },
+          { label: "客厅与家具", href: "./solutions/furniture.html" },
+          { label: "地面空间", href: "./solutions/flooring.html" },
+          { label: "庭院户外", href: "./solutions/outdoor.html" },
+          { label: "整体木作", href: "./solutions/whole-decoration.html" },
         ],
         ...status.formalCopy,
       },
-      { id: "vendors", label: "推荐厂商", href: "#vendors", ...status.formalCopy },
-      { id: "community", label: "社群交流", href: "#wechat", ...status.formalCopy },
+      {
+        id: "solutions",
+        label: "柚木生活",
+        href: "./solutions/index.html",
+        children: [
+          { label: "家具日常", href: "./solutions/index.html#good-furniture" },
+          { label: "地面生活", href: "./solutions/index.html#good-flooring" },
+          { label: "空间木作", href: "./solutions/index.html#good-whole-decoration" },
+          { label: "户外生活", href: "./solutions/index.html#good-outdoor" },
+          { label: "老木与收藏", href: "./solutions/index.html#good-collection" },
+          { label: "文创器物", href: "./solutions/index.html#good-cultural" },
+        ],
+        ...status.formalCopy,
+      },
+      { id: "vendors", label: "特色品牌", href: "./vendors/index.html", ...status.formalCopy },
+      { id: "cooperation", label: "生态合作", href: "./cooperation/index.html", ...status.formalCopy },
     ],
 
     // ========== 第三部分：首页主要模块内容 ==========
     hero: {
-      eyebrow: "Teak Lifestyle & Trust Platform",
-      title: "柚喜饰界，柚木爱好者乐园。",
-      hook: "买柚木前，先来这里看一看。",
+      eyebrow: "Teak Aesthetics & Lasting Living",
+      title: "发现柚木之美，享受时间留下的生活质感。",
+      hook: "从柚木出发，看见材料、空间与日常之间的长久关系。",
       description:
-        "从柚木知识、柚木好物、整装地板到相关企业资料，柚喜饰界陪你把材料、空间和选择边界看清楚。想买柚木，先看懂；想做柚木，先把资料讲清楚。",
+        "从纹理、触感与色泽变化开始，走进柚木在家具、器物与空间中的真实使用方式，也感受时间为生活留下的温度与分寸。",
       image: {
         src: "./assets/images/hero-teak-lifestyle.jpg",
         alt: "木质露台与庭院生活方式场景",
         ...status.openStockImage,
       },
       actions: [
-        { label: "先问清楚", target: "#wechat", ...status.formalCopy },
-        { label: "查看柚木好物", target: "#solutions", ...status.formalCopy },
-        { label: "了解柚木知识", target: "#knowledge", ...status.formalCopy },
+        { label: "探索柚木", target: "./knowledge/index.html", ...status.formalCopy },
+        { label: "柚木美学", target: "./cases/index.html", ...status.formalCopy },
+        { label: "咨询柚喜", target: "#wechat", ...status.formalCopy },
       ],
       ...status.formalCopy,
     },
     values: [
       {
-        title: "认识柚喜",
+        title: "为什么是柚木",
         description:
-        "柚喜饰界围绕柚木知识、柚木好物、推荐厂商和社群交流，帮助用户从认识材料开始，逐步发现柚木家具、柚木地板、柚木整装、柚木户外、柚木收藏和柚木文创内容。",
+        "柚木的魅力来自自然质感、稳定表现、时间变化与长期使用价值。",
         ...status.formalCopy,
       },
       {
@@ -195,9 +206,9 @@
       },
     ],
     knowledge: {
-      title: "柚木知识",
+      title: "探索柚木",
       subtitle:
-        "买柚木前，先把这些问题看明白。",
+        "从材料、工艺与使用出发，建立关于柚木的清晰判断。",
       leadMagnet: "先问清楚，领取《柚木选购避坑清单》。",
       categories: [
         {
@@ -249,7 +260,7 @@
           id: "faq",
           title: "常见问题",
           anchor: "#knowledge-faq",
-          summary: "用 FAQ 方式回答用户真实搜索问题，后续适合做 GEO 内容沉淀。",
+          summary: "围绕消费者常见问题，提供清晰、可直接使用的材质、选购与养护建议。",
           topics: ["柚木适合南方潮湿环境吗", "柚木地板和普通木地板怎么比", "整装空间是不是一定很贵"],
           ctaText: "带着问题交流",
           ...status.articleDirection,
@@ -300,8 +311,8 @@
       ...status.articleDirection,
     },
     goods: {
-      title: "柚木好物",
-      subtitle: "从柚木家具、柚木地板、柚木整装、柚木户外、柚木收藏到柚木文创，发现柚木进入生活后的不同样子。",
+      title: "柚木生活",
+      subtitle: "从家具、器物、老木、户外与收藏出发，阅读柚木与真实生活相处的不同方式。",
       items: [
         {
           id: "furniture",
@@ -403,10 +414,10 @@
       ...status.demoProduct,
     },
     vendors: {
-      title: "推荐厂商资料",
+      title: "特色品牌",
       subtitle:
-        "按柚木家具、柚木地板、柚木整装、柚木户外、柚木收藏和柚木文创，查看相关企业资料。",
-      sharedLabel: "推荐厂商资料",
+        "从家具、地板、整装与空间服务方向认识特色柚木品牌，并在进一步沟通前核实正式资料。",
+      sharedLabel: "选择参考",
       items: [
         {
           name: "佤臣柚木",
@@ -417,19 +428,19 @@
             alt: "柚木整装工艺与材料参考图",
             ...status.openStockImage,
           },
-          action: "进入资料页",
+          action: "查看选择参考",
           ...status.demoVendor,
         },
         {
           name: "上海庄信柚木",
-          badge: "资料线索",
-          description: "公开资料需进一步核对，先保留企业资料线索页。",
+          badge: "信息待核实",
+          description: "当前可确认的公开信息有限，进一步了解前请核实品牌、案例与服务范围。",
           image: {
             src: "./assets/images/vendor-showroom-sample.jpg",
             alt: "木作材料与空间展示参考图",
             ...status.openStockImage,
           },
-          action: "进入资料页",
+          action: "查看选择参考",
           ...status.demoVendor,
         },
         {
@@ -441,7 +452,7 @@
             alt: "柚木生活空间与木作场景参考图",
             ...status.openStockImage,
           },
-          action: "进入资料页",
+          action: "查看选择参考",
           ...status.demoVendor,
         },
         {
@@ -453,7 +464,7 @@
             alt: "柚木地板纹理与材料参考图",
             ...status.openStockImage,
           },
-          action: "进入资料页",
+          action: "查看选择参考",
           ...status.demoVendor,
         },
         {
@@ -465,7 +476,7 @@
             alt: "柚木家具与工坊参考图",
             ...status.openStockImage,
           },
-          action: "进入资料页",
+          action: "查看选择参考",
           ...status.demoVendor,
         },
         {
@@ -477,32 +488,32 @@
             alt: "柚木户外场景参考图",
             ...status.openStockImage,
           },
-          action: "进入资料页",
+          action: "查看选择参考",
           ...status.demoVendor,
         },
       ],
       ...status.demoVendor,
     },
     standards: {
-      title: "用户如何看好物分类企业资料页？",
+      title: "选择柚木企业时可以关注什么？",
       items: [
-        { title: "分类匹配清楚", description: "先看企业资料页是否能说明自己偏向柚木家具、柚木地板、柚木整装、柚木户外、柚木收藏或柚木文创中的哪一类。", icon: "01", ...status.formalCopy },
-        { title: "基础资料完整", description: "是否能提供可公开的企业介绍、产品说明、服务区域、工艺过程和联系信息。", icon: "02", ...status.formalCopy },
-        { title: "愿意公开信息", description: "图片、文字和案例材料是否说明来源与图片来源，避免把参考资料误解成真实成交内容。", icon: "03", ...status.formalCopy },
+        { title: "主营方向清楚", description: "先确认企业更侧重柚木家具、地板、整装、户外、收藏还是文创，并判断是否匹配自己的需求。", icon: "01", ...status.formalCopy },
+        { title: "关键信息完整", description: "核对企业介绍、产品说明、服务区域、工艺过程和联系方式是否清楚。", icon: "02", ...status.formalCopy },
+        { title: "图片案例可核实", description: "确认图片、文字和案例材料的来源，避免把灵感参考误解成真实成交内容。", icon: "03", ...status.formalCopy },
         { title: "重视交付售后", description: "能否说明沟通、生产、交付、安装、维护和售后说明，减少后续理解偏差。", icon: "04", ...status.formalCopy },
-        { title: "展示顺序清晰", description: "展示顺序会综合参考信息完整度、分类匹配度、内容更新和服务区域。", icon: "05", ...status.formalCopy },
-        { title: "参与内容共创", description: "愿意把材料、工艺、空间应用和用户问题讲清楚，长期沉淀可查询的公开资料。", icon: "06", ...status.formalCopy },
+        { title: "比较维度一致", description: "把信息完整度、需求匹配度、服务区域和更新情况放在一起比较。", icon: "05", ...status.formalCopy },
+        { title: "专业说明易懂", description: "材料、工艺、空间应用和常见问题讲得越清楚，越有助于长期判断。", icon: "06", ...status.formalCopy },
       ],
       ...status.formalCopy,
     },
 
     // ========== 第四部分：承接入口与页脚信息 ==========
     wechat: {
-      title: "看柚木，先问清楚再决定",
-      subtitle: "先了解，再选择。",
+      title: "咨询柚喜，从一个柚木问题开始",
+      subtitle: "先理解材料与空间，再做适合自己的选择。",
       description:
         "柚木地板、柚木整装、柚木家具、户外应用，不同空间适合的材料和做法并不一样。先把材料、用途、预算和厂商情况问明白，再做选择，会少走很多弯路。",
-      benefits: ["了解柚木材料和真假差异", "看看地板、整装、家具怎么选", "判断自己的空间适不适合用柚木", "了解推荐厂商和企业资料", "先避坑，再决定是否深入沟通"],
+      benefits: ["了解柚木材料和真假差异", "看看地板、整装、家具怎么选", "判断自己的空间适不适合用柚木", "了解特色品牌和公开资料", "先避坑，再决定是否深入沟通"],
       qr: {
         src: "./assets/wecom-qr.jpg",
         alt: "扫码提问柚木问题二维码",
@@ -518,16 +529,16 @@
     footer: {
       contact: {
         phone: { label: "普通用户", value: "可先通过咨询入口沟通柚木问题", ...status.formalCopy },
-        email: { label: "品牌 / 企业", value: "可通过企业合作页整理资料", ...status.formalCopy },
+        email: { label: "品牌 / 企业", value: "可通过生态合作页整理资料", ...status.formalCopy },
         address: {
           label: "联系方式",
-          value: "想了解柚木知识、好物应用或推荐厂商资料，可先扫码咨询。",
+          value: "想了解柚木、空间应用或特色品牌，可先扫码咨询。",
           ...status.formalCopy,
         },
       },
       copyright: "© 2024 柚喜饰界 版权所有",
       filing: {
-        value: "站点以 GitHub Pages 公开页面为主。",
+        value: "访问柚喜饰界官网：www.zhengmu.cn",
         ...status.formalCopy,
       },
       officialAccountQr: {

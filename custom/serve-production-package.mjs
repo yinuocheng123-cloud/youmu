@@ -2,11 +2,11 @@ import fs from "node:fs/promises";
 import http from "node:http";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { packageName } from "./production-package-config.mjs";
+import { packageDirectory, packageName } from "./production-package-config.mjs";
 
 const currentFile = fileURLToPath(import.meta.url);
 const projectRoot = path.resolve(path.dirname(currentFile), "..");
-const packageRoot = path.join(projectRoot, "_site", packageName);
+const packageRoot = path.join(projectRoot, packageDirectory, packageName);
 const port = Number.parseInt(process.argv[2] ?? "4173", 10);
 const mimeTypes = new Map([
   [".html", "text/html; charset=utf-8"],
@@ -23,6 +23,17 @@ const mimeTypes = new Map([
 
 async function existingFile(requestPath) {
   const cleanPath = decodeURIComponent(requestPath).replace(/^\/+/, "");
+  const segments = cleanPath.split("/").filter(Boolean);
+  let exactParent = packageRoot;
+  for (const segment of segments) {
+    try {
+      const entries = await fs.readdir(exactParent);
+      if (!entries.includes(segment)) return null;
+      exactParent = path.join(exactParent, segment);
+    } catch {
+      return null;
+    }
+  }
   let candidate = path.resolve(packageRoot, cleanPath || "index.html");
   if (candidate !== packageRoot && !candidate.startsWith(`${packageRoot}${path.sep}`)) return null;
 

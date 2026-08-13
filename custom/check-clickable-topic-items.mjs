@@ -38,11 +38,32 @@ function extractHref(block) {
 }
 
 const homeHtml = await fs.readFile(homePath, "utf8");
-const knowledgeSection = homeHtml.match(/<section class="section" id="knowledge"[\s\S]*?<\/section>/i)?.[0] ?? "";
+const knowledgeSection = homeHtml.match(/<nav class="value-next-links"[\s\S]*?<\/nav>/i)?.[0] ?? "";
 
 if (!knowledgeSection) {
-  problems.push("index.html：未找到首页柚木知识模块");
+  problems.push("index.html：未找到‘为什么是柚木’阶段的继续探索入口");
 } else {
+  const entryLinks = [...knowledgeSection.matchAll(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)];
+
+  if (entryLinks.length < 4) {
+    problems.push(`index.html：继续探索入口不足，当前仅 ${entryLinks.length} 个`);
+  }
+
+  for (const entryLink of entryLinks) {
+    const href = entryLink[1];
+    const label = entryLink[2].replace(/<[^>]+>/g, "").trim();
+
+    if (!href.startsWith("./knowledge/")) {
+      problems.push(`index.html：入口“${label}”未指向 knowledge 目录：${href}`);
+      continue;
+    }
+
+    const targetPath = path.resolve(projectRoot, href.split("#")[0].replace(/^\.\//, ""));
+    if (!targetPath.startsWith(projectRoot) || !(await pathExists(targetPath))) {
+      problems.push(`index.html：入口“${label}”指向不存在页面：${href}`);
+    }
+  }
+
   const cardMatches = [...knowledgeSection.matchAll(/<article class="knowledge-topic-card[\s\S]*?<\/article>/gi)];
 
   for (const [cardIndex, cardMatch] of cardMatches.entries()) {
@@ -115,4 +136,4 @@ if (problems.length > 0) {
   process.exit(1);
 }
 
-console.log("知识条目可点击检查通过：首页知识卡片条目均已链接到真实页面。");
+console.log("首页探索入口检查通过：4个精简入口均指向真实知识页面。");

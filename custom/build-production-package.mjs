@@ -2,13 +2,13 @@ import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { assetFiles, packageName, publicDirectoryRules, rootFiles } from "./production-package-config.mjs";
+import { assetFiles, packageDirectory, packageName, publicDirectoryRules, rootFiles } from "./production-package-config.mjs";
 
 const currentFile = fileURLToPath(import.meta.url);
 const projectRoot = path.resolve(path.dirname(currentFile), "..");
-const siteRoot = path.join(projectRoot, "_site");
-const packageRoot = path.join(siteRoot, packageName);
-const manifestPath = path.join(siteRoot, `${packageName}-manifest.txt`);
+const releaseRoot = path.join(projectRoot, packageDirectory);
+const packageRoot = path.join(releaseRoot, packageName);
+const manifestPath = path.join(projectRoot, "custom", "v130-release-package-file-hashes.txt");
 
 function toPosix(relativePath) {
   return relativePath.replaceAll(path.sep, "/");
@@ -35,8 +35,8 @@ async function sha256(filePath) {
   return hash.digest("hex");
 }
 
-const expectedSitePrefix = `${path.resolve(siteRoot)}${path.sep}`;
-if (!path.resolve(packageRoot).startsWith(expectedSitePrefix)) throw new Error("Unsafe package output path");
+const expectedReleasePrefix = `${path.resolve(releaseRoot)}${path.sep}`;
+if (!path.resolve(packageRoot).startsWith(expectedReleasePrefix)) throw new Error("Unsafe package output path");
 
 const runtimeFiles = [...rootFiles];
 for (const [directory, extensions] of publicDirectoryRules) {

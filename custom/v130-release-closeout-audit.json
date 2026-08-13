@@ -1,0 +1,1686 @@
+{
+  "generatedAt": "2026-08-13T13:47:43.143Z",
+  "repositoryPath": "D:\\ceshi\\youxi",
+  "architecture": {
+    "declaredCount": 126,
+    "actualCount": 126,
+    "sitemapCount": 126,
+    "duplicatePaths": [],
+    "missingFields": [],
+    "missingFiles": [],
+    "sitemapMissingFromArchitecture": [],
+    "architectureMissingFromSitemap": [],
+    "sectionCounts": {
+      "首页": 1,
+      "about": 1,
+      "articles": 7,
+      "柚木美学": 10,
+      "cases": 1,
+      "cooperation": 1,
+      "咨询／合作": 2,
+      "knowledge": 7,
+      "探索柚木": 28,
+      "solutions": 26,
+      "柚木生活": 31,
+      "vendors": 4,
+      "生态合作／其他": 1,
+      "特色品牌": 6
+    },
+    "templateCounts": {
+      "Homepage": 1,
+      "Section Index": 8,
+      "Supporting Editorial": 31,
+      "Spatial Editorial": 10,
+      "Utility": 2,
+      "Supporting Page": 8,
+      "Knowledge Editorial": 28,
+      "Lifestyle Editorial": 31,
+      "Brand Profile": 7
+    }
+  },
+  "migration": {
+    "recordCount": 76,
+    "migratedCount": 76,
+    "nonMigrated": []
+  },
+  "seo": {
+    "pageCount": 126,
+    "issues": [],
+    "duplicateTitles": [],
+    "duplicateDescriptions": [],
+    "canonicalHosts": [
+      "www.zhengmu.cn"
+    ],
+    "ogUrlHosts": [
+      "www.zhengmu.cn"
+    ],
+    "sitemapHosts": [
+      "www.zhengmu.cn"
+    ]
+  },
+  "links": {
+    "checked": 7197,
+    "issues": []
+  },
+  "images": {
+    "referencedCount": 460,
+    "uniqueReferencedCount": 14,
+    "imageTagCount": 287,
+    "imageMissingDimensions": 0,
+    "lazyImageCount": 34,
+    "issues": [],
+    "productionAssetCount": 31,
+    "over1Mb": [],
+    "over2Mb": [],
+    "over5Mb": [],
+    "largest": [
+      {
+        "path": "assets/images/product-teak-table.jpg",
+        "bytes": 669325
+      },
+      {
+        "path": "assets/images/hero-teak-lifestyle.jpg",
+        "bytes": 646115
+      },
+      {
+        "path": "assets/images/knowledge-outdoor-wood.jpg",
+        "bytes": 585136
+      },
+      {
+        "path": "assets/images/product-teak-chair.jpg",
+        "bytes": 454704
+      },
+      {
+        "path": "assets/images/vendor-workshop-sample.jpg",
+        "bytes": 382601
+      },
+      {
+        "path": "assets/images/knowledge-teak-grain.jpg",
+        "bytes": 319197
+      },
+      {
+        "path": "assets/images/vendor-showroom-sample.jpg",
+        "bytes": 278356
+      },
+      {
+        "path": "assets/images/knowledge-teak-maintenance.jpg",
+        "bytes": 243922
+      },
+      {
+        "path": "assets/images/wechat-section-bg.jpg",
+        "bytes": 181524
+      },
+      {
+        "path": "assets/images/product-teak-cabinet.jpg",
+        "bytes": 181200
+      }
+    ]
+  },
+  "performance": {
+    "htmlBytes": 1708267,
+    "largestHtml": [
+      {
+        "path": "solutions/index.html",
+        "bytes": 36318
+      },
+      {
+        "path": "vendors/candidates/index.html",
+        "bytes": 24455
+      },
+      {
+        "path": "index.html",
+        "bytes": 20455
+      },
+      {
+        "path": "knowledge/index.html",
+        "bytes": 18515
+      },
+      {
+        "path": "vendors/index.html",
+        "bytes": 17266
+      },
+      {
+        "path": "forms/vendor-apply.html",
+        "bytes": 15756
+      },
+      {
+        "path": "knowledge/topics/flooring-fit-space.html",
+        "bytes": 15326
+      },
+      {
+        "path": "solutions/goods/teak-tea-table.html",
+        "bytes": 15325
+      },
+      {
+        "path": "solutions/goods/aged-teak-flooring.html",
+        "bytes": 15264
+      },
+      {
+        "path": "solutions/goods/old-teak-door.html",
+        "bytes": 15264
+      }
+    ],
+    "cssBytes": 212376,
+    "scriptBytes": 16222,
+    "imageBytes": 4192417,
+    "imageTagCount": 287,
+    "imageMissingDimensions": 0,
+    "lazyImageCount": 34
+  },
+  "accessibility": {
+    "issues": [],
+    "focusStylePresent": true
+  },
+  "legal": {
+    "operator": "杭州创始记科技发展有限公司",
+    "icpNumber": "浙ICP备2021004169号-2",
+    "issues": []
+  },
+  "semantics": {
+    "legacyMatches": [
+      {
+        "path": "index.html",
+        "term": "交易担保",
+        "context": "品牌选择方法 品牌资料来自公开信息，仅供了解与沟通参考，不代表认证、推荐、质量保证或交易担保。 Long-term Connection 生态连接 如果你也长期关注柚木，这里是用户、设计师、品牌与行业伙伴建立联系"
+      },
+      {
+        "path": "knowledge/topics/questions-before-vendor.html",
+        "term": "交易担保",
+        "context": "为准。 判断边界 页面用于整理核对问题，不构成对任何品牌、商家或服务方的推荐、认证与交易担保；具体信息仍应以可核验资料和合同为准。 咨询一个柚木问题 继续探索柚木 柚喜饰界 - 选择柚木品牌或服务方前要确认什么"
+      },
+      {
+        "path": "vendors/index.html",
+        "term": "交易担保",
+        "context": "带入家具、地板、整装与户外生活。 品牌资料仅供了解，不代表柚喜饰界认证、推荐、保证或交易担保；具体合作仍需结合品牌正式资料、产品说明、合同、交付和售后说明综合判断。 柚喜饰界 - 特色品牌 品牌资料仅供参考，具体"
+      },
+      {
+        "path": "vendors/workshop-sample.html",
+        "term": "交易担保",
+        "context": "份。 用户如何理解本页 本页展示的是资料组织方式，不是品牌推荐、官方认证、质量保证或交易担保，也不暗示存在对应企业。 咨询一个柚木问题 了解生态合作 柚喜饰界｜品牌资料展示样板 本页不对应真实品牌或企业。 运营主"
+      }
+    ],
+    "positioningMatches": []
+  },
+  "facts": {
+    "matches": [
+      {
+        "path": "index.html",
+        "term": "认证",
+        "context": "。 进入特色品牌 阅读品牌选择方法 品牌资料来自公开信息，仅供了解与沟通参考，不代表认证、推荐、质量保证或交易担保。 Long-term Connection 生态连接 如果你也长期关注柚木，这里是用户、设计"
+      },
+      {
+        "path": "articles/how-to-choose-teak-flooring.html",
+        "term": "完全",
+        "context": "会影响地板长期使用的表现。 同一款地板铺在客厅、卧室、茶室和靠近阳台的位置，体验并不完全一样。客厅更考验耐磨和整体协调，卧室更看重脚感和温润度，茶室则需要和家具、灯光、墙面一起看。 规格和结构不能省略 地板报"
+      },
+      {
+        "path": "articles/how-to-choose-teak-flooring.html",
+        "term": "检测",
+        "context": "础质量，安装维护决定长期体验。 本文为基础阅读，不替代具体产品说明、合同条款或第三方检测材料。 相关内容 柚木地板怎么选？ 柚木地板 同样叫柚木，报价为什么会差很多？ 咨询柚木问题 返回探索柚木 柚喜饰界｜延"
+      },
+      {
+        "path": "articles/teak-outdoor-furniture-care.html",
+        "term": "完全",
+        "context": "比室内更具体。 户外环境会改变木材状态 柚木常被用于户外家具，但这并不代表放到户外就完全不用管。阳光会让颜色逐渐变化，雨水和灰尘会影响表面洁净度，长期积水也会增加结构和五金的压力。 如果你喜欢银灰色的自然氧化"
+      },
+      {
+        "path": "articles/teak-outdoor-furniture-care.html",
+        "term": "检测",
+        "context": "化，比强行保持新木状态更现实。 本文为基础阅读，不替代具体产品说明、合同条款或第三方检测材料。 相关内容 柚木户外 户外柚木怎么维护？ 庭院柚木空间参考 咨询柚木问题 返回探索柚木 柚喜饰界｜延伸阅读 更多资"
+      },
+      {
+        "path": "articles/teak-vendor-selection.html",
+        "term": "完全",
+        "context": "谁能把产品、服务和边界讲清楚。 先看主营方向是否匹配 同样做柚木，不同企业的重点可能完全不同。有的偏地板，有的偏户外家具，有的偏整装木作，也有的只做单品家具。选择前先看主营方向，能避免把不匹配的企业硬拉到自己"
+      },
+      {
+        "path": "articles/teak-vendor-selection.html",
+        "term": "检测",
+        "context": "。热闹表达不如可核查信息可靠。 本文为基础阅读，不替代具体产品说明、合同条款或第三方检测材料。 相关内容 特色品牌 品牌索引 企业合作 咨询柚木问题 返回探索柚木 柚喜饰界｜延伸阅读 更多资料会随内容持续完善"
+      },
+      {
+        "path": "articles/teak-vs-common-wood.html",
+        "term": "最高级",
+        "context": "化也很明显。 这些木材并不是柚木的低配替代，而是各有性格。真正的选择不应是“哪种木材最高级”，而是“哪种木材和我的空间、预算、维护习惯更匹配”。 比较时看这几项 比较木材时，可以看来源说明、规格稳定性、含水率控"
+      },
+      {
+        "path": "articles/teak-vs-common-wood.html",
+        "term": "唯一",
+        "context": "法和服务说明。真正有用的信息，通常藏在参数、细节图和交付说明里。 简短小结 柚木不是唯一答案。它适合重视触感、稳定和时间质感的人，但选材仍应回到用途、预算、工艺和维护。 本文为基础阅读，不替代具体产品说明、合"
+      },
+      {
+        "path": "articles/teak-vs-common-wood.html",
+        "term": "完全",
+        "context": "离用途谈优劣，很容易变成空泛排名。地板、餐桌、柜体、户外家具和茶室木作，对木材的要求完全不同。 如果用于地板，稳定性、耐磨、安装和维护会被放大；如果用于家具，触感、纹理、结构和工艺更重要；如果用于户外，耐候、"
+      },
+      {
+        "path": "articles/teak-vs-common-wood.html",
+        "term": "永远",
+        "context": "柚木的优势在哪里 柚木的优势通常体现在油性感、稳定性和长期使用后的质感。它的颜色不会永远停留在新木状态，而是会随着光照、清洁和使用逐渐变化。喜欢天然木材的人，往往会把这种变化看作时间感。 但优势并不等于适合所"
+      },
+      {
+        "path": "articles/teak-vs-common-wood.html",
+        "term": "检测",
+        "context": "应回到用途、预算、工艺和维护。 本文为基础阅读，不替代具体产品说明、合同条款或第三方检测材料。 相关内容 什么是柚木 柚木和普通木材有什么区别？ 柚木生活 咨询柚木问题 返回探索柚木 柚喜饰界｜延伸阅读 更多"
+      },
+      {
+        "path": "articles/teak-vs-common-wood.html",
+        "term": "等级",
+        "context": "还要看耐候处理和排水设计。 不要让单张图片决定选择。图片能展示氛围，却很难告诉你木材等级、结构做法和服务说明。真正有用的信息，通常藏在参数、细节图和交付说明里。 简短小结 柚木不是唯一答案。它适合重视触感、稳"
+      },
+      {
+        "path": "articles/teak-whole-decoration-guide.html",
+        "term": "检测",
+        "context": "尺度、光线和服务说明一起成立。 本文为基础阅读，不替代具体产品说明、合同条款或第三方检测材料。 相关内容 柚木整装 整屋空间想用柚木，先看什么？ 柚木生活场景 咨询柚木问题 返回探索柚木 柚喜饰界｜延伸阅读"
+      },
+      {
+        "path": "articles/what-is-teak.html",
+        "term": "检测",
+        "context": "品、具体空间和具体服务里判断。 本文为基础阅读，不替代具体产品说明、合同条款或第三方检测材料。 相关内容 同样叫柚木，报价为什么会差很多？ 柚木与常见木材 柚木生活场景 咨询柚木问题 返回探索柚木 柚喜饰界｜"
+      },
+      {
+        "path": "cooperation/index.html",
+        "term": "旧料",
+        "context": "适合展示户外环境、结构五金、耐候表现、维护周期和长期使用建议。 柚木收藏 适合展示旧料来源、老木作整理、器物修复线索和公开内容线索。 柚木文创 适合展示小件木作、器物周边、工艺细节和高频使用场景。 让专业被"
+      },
+      {
+        "path": "forms/vendor-apply.html",
+        "term": "老料",
+        "context": "企业 适合能说明户外环境、结构、五金、耐候和维护边界的企业。 柚木收藏方向 适合围绕老料、旧构件、再生材料和收藏类内容做资料展示的企业。 柚木文创方向 适合展示托盘、文具、小件木作、桌面器物和生活方式内容的企"
+      },
+      {
+        "path": "knowledge/index.html",
+        "term": "唯一",
+        "context": "。 真假柚木怎么初步判断 先看材料说明、纹理状态、气味触感和信息完整度，不把颜色当成唯一答案。 同样叫柚木，报价为什么会差很多？ 把报价放回原料、规格、工艺和服务里看。 买柚木最容易踩的坑 别让颜色、图片和口"
+      },
+      {
+        "path": "knowledge/index.html",
+        "term": "完全",
+        "context": "价为什么会差很多？ 同样写着柚木，背后的原料、规格、干燥处理、表面工艺和服务说明可能完全不同。先看清这些，再谈值不值。 03 买柚木最容易踩的坑 只看颜色、只看图片、只听一句宣传语，都容易把复杂的材料判断简化"
+      },
+      {
+        "path": "knowledge/index.html",
+        "term": "完全",
+        "context": "习惯和服务责任都要一起看。 05 柚木日常怎么保养？ 柚木维护不需要神秘化，但也不能完全不管。先分清室内、户外、地板和家具，再决定清洁和养护方式。 按探索路径查找 从材料认知、买前判断到日常使用，顺着自己的问"
+      },
+      {
+        "path": "knowledge/teak-basics.html",
+        "term": "检测",
+        "context": "答类要能回应真实疑问。 如果需要更具体判断，可以结合公开木材资料、品牌正式说明和产品检测材料一起看。知识文章的作用，是帮助读者把材料、空间和使用方式理解清楚。 保留这些静态阅读页，是为了让用户进入站点后能直接"
+      },
+      {
+        "path": "knowledge/teak-buying-guide.html",
+        "term": "检测",
+        "context": "答类要能回应真实疑问。 如果需要更具体判断，可以结合公开木材资料、品牌正式说明和产品检测材料一起看。知识文章的作用，是帮助读者把材料、空间和使用方式理解清楚。 保留这些静态阅读页，是为了让用户进入站点后能直接"
+      },
+      {
+        "path": "knowledge/teak-care.html",
+        "term": "检测",
+        "context": "答类要能回应真实疑问。 如果需要更具体判断，可以结合公开木材资料、品牌正式说明和产品检测材料一起看。知识文章的作用，是帮助读者把材料、空间和使用方式理解清楚。 知识页的价值不在于一次性给出所有答案，而是让用户"
+      },
+      {
+        "path": "knowledge/teak-faq.html",
+        "term": "检测",
+        "context": "答类要能回应真实疑问。 如果需要更具体判断，可以结合公开木材资料、品牌正式说明和产品检测材料一起看。知识文章的作用，是帮助读者把材料、空间和使用方式理解清楚。 保留这些静态阅读页，是为了让用户进入站点后能直接"
+      },
+      {
+        "path": "knowledge/teak-material-craft.html",
+        "term": "检测",
+        "context": "答类要能回应真实疑问。 如果需要更具体判断，可以结合公开木材资料、品牌正式说明和产品检测材料一起看。知识文章的作用，是帮助读者把材料、空间和使用方式理解清楚。 知识页的价值不在于一次性给出所有答案，而是让用户"
+      },
+      {
+        "path": "knowledge/teak-space-use.html",
+        "term": "检测",
+        "context": "答类要能回应真实疑问。 如果需要更具体判断，可以结合公开木材资料、品牌正式说明和产品检测材料一起看。知识文章的作用，是帮助读者把材料、空间和使用方式理解清楚。 保留这些静态阅读页，是为了让用户进入站点后能直接"
+      },
+      {
+        "path": "knowledge/topics/avoid-cracking-warping.html",
+        "term": "完全",
+        "context": "重点放在使用环境、材料说明和服务说明上，不只看单张图片或一句口号。 木家具稳定不代表完全不会受环境影响。 这类问题看起来很基础，但它会影响后面几乎所有判断：看知识文章时会影响你关注哪些概念，看柚木生活内容时会"
+      },
+      {
+        "path": "knowledge/topics/avoid-cracking-warping.html",
+        "term": "永远",
+        "context": "判断边界 木材会受环境、结构与使用方式影响；本页只能帮助降低风险，不能承诺开裂或变形永远不会发生。 咨询一个柚木问题 继续探索柚木 柚喜饰界 - 如何降低柚木家具开裂与变形风险 具体产品仍需结合材料说明、合同"
+      },
+      {
+        "path": "knowledge/topics/avoid-cracking-warping.html",
+        "term": "检测",
+        "context": "格、合同与售后责任仍需向商家确认。 本文仅作为柚木爱好者的阅读参考，不作为入手建议、检测结论或服务承诺；涉及具体产品时，仍需以品牌说明、材料文件、合同和售后服务为准。 判断边界 木材会受环境、结构与使用方式影"
+      },
+      {
+        "path": "knowledge/topics/avoid-cracking-warping.html",
+        "term": "等级",
+        "context": "论。比如只看颜色，就可能忽略树种、干燥、结构和表面处理；只看产地，就可能忽略实际材料等级和加工方式；只看宣传语，又可能忽略后续维护和服务范围。更适合放在具体场景里判断，是把“材料是什么、适合哪里、怎么维护、谁"
+      },
+      {
+        "path": "knowledge/topics/before-buying-teak-basics.html",
+        "term": "检测",
+        "context": "格、合同与售后责任仍需向商家确认。 本文仅作为柚木爱好者的阅读参考，不作为入手建议、检测结论或服务承诺；涉及具体产品时，仍需以品牌说明、材料文件、合同和售后服务为准。 判断边界 购买前的基础问题用于建立核对顺"
+      },
+      {
+        "path": "knowledge/topics/before-buying-teak-basics.html",
+        "term": "等级",
+        "context": "论。比如只看颜色，就可能忽略树种、干燥、结构和表面处理；只看产地，就可能忽略实际材料等级和加工方式；只看宣传语，又可能忽略后续维护和服务范围。更适合放在具体场景里判断，是把“材料是什么、适合哪里、怎么维护、谁"
+      },
+      {
+        "path": "knowledge/topics/before-buying-teak-basics.html",
+        "term": "价格",
+        "context": "合同和售后服务为准。 判断边界 购买前的基础问题用于建立核对顺序，不构成材料、品牌、价格或适用性的直接结论；具体选择仍需回到产品资料与使用条件。 咨询一个柚木问题 继续探索柚木 柚喜饰界 - 买柚木前应该先弄"
+      },
+      {
+        "path": "knowledge/topics/clear-teak-description.html",
+        "term": "检测",
+        "context": "格、合同与售后责任仍需向商家确认。 本文仅作为柚木爱好者的阅读参考，不作为入手建议、检测结论或服务承诺；涉及具体产品时，仍需以品牌说明、材料文件、合同和售后服务为准。 判断边界 表达是否清楚只能帮助判断资料完"
+      },
+      {
+        "path": "knowledge/topics/clear-teak-description.html",
+        "term": "等级",
+        "context": "论。比如只看颜色，就可能忽略树种、干燥、结构和表面处理；只看产地，就可能忽略实际材料等级和加工方式；只看宣传语，又可能忽略后续维护和服务范围。更适合放在具体场景里判断，是把“材料是什么、适合哪里、怎么维护、谁"
+      },
+      {
+        "path": "knowledge/topics/clear-teak-description.html",
+        "term": "等级",
+        "context": "和售后服务为准。 判断边界 表达是否清楚只能帮助判断资料完整度，不能替代对材料真伪、等级、性能、来源及合同责任的进一步核验。 咨询一个柚木问题 继续探索柚木 柚喜饰界 - 怎么看柚木是不是表达清楚 具体产品仍"
+      },
+      {
+        "path": "knowledge/topics/flooring-fit-space.html",
+        "term": "永远",
+        "context": "你很介意颜色变化和使用痕迹，就要提前了解表面处理和保养方式。地板是生活的一部分，不是永远静止的展示面。 服务说明比一句承诺更重要 地板不是只买材料。运输、安装、损耗、辅料、收边、维护建议和售后责任，都可能影响"
+      },
+      {
+        "path": "knowledge/topics/flooring-vs-furniture-craft.html",
+        "term": "完全",
+        "context": "境、材料说明和服务说明上，不只看单张图片或一句口号。 地板和家具都叫柚木，但使用条件完全不同，不能用同一套问题判断。 这类问题看起来很基础，但它会影响后面几乎所有判断：看知识文章时会影响你关注哪些概念，看柚木"
+      },
+      {
+        "path": "knowledge/topics/flooring-vs-furniture-craft.html",
+        "term": "检测",
+        "context": "格、合同与售后责任仍需向商家确认。 本文仅作为柚木爱好者的阅读参考，不作为入手建议、检测结论或服务承诺；涉及具体产品时，仍需以品牌说明、材料文件、合同和售后服务为准。 判断边界 地板与家具的工艺关注点不同；本"
+      },
+      {
+        "path": "knowledge/topics/flooring-vs-furniture-craft.html",
+        "term": "等级",
+        "context": "论。比如只看颜色，就可能忽略树种、干燥、结构和表面处理；只看产地，就可能忽略实际材料等级和加工方式；只看宣传语，又可能忽略后续维护和服务范围。更适合放在具体场景里判断，是把“材料是什么、适合哪里、怎么维护、谁"
+      },
+      {
+        "path": "knowledge/topics/is-teak-always-expensive.html",
+        "term": "检测",
+        "context": "格、合同与售后责任仍需向商家确认。 本文仅作为柚木爱好者的阅读参考，不作为入手建议、检测结论或服务承诺；涉及具体产品时，仍需以品牌说明、材料文件、合同和售后服务为准。 判断边界 价格受材料来源、规格、结构、工"
+      },
+      {
+        "path": "knowledge/topics/is-teak-always-expensive.html",
+        "term": "等级",
+        "context": "论。比如只看颜色，就可能忽略树种、干燥、结构和表面处理；只看产地，就可能忽略实际材料等级和加工方式；只看宣传语，又可能忽略后续维护和服务范围。更适合放在具体场景里判断，是把“材料是什么、适合哪里、怎么维护、谁"
+      },
+      {
+        "path": "knowledge/topics/is-teak-always-expensive.html",
+        "term": "价格",
+        "context": "服务承诺；涉及具体产品时，仍需以品牌说明、材料文件、合同和售后服务为准。 判断边界 价格受材料来源、规格、结构、工艺与服务共同影响；本页不提供市场报价，也不以价格高低直接判断真伪或品质。 咨询一个柚木问题 继"
+      },
+      {
+        "path": "knowledge/topics/is-teak-always-expensive.html",
+        "term": "价格",
+        "context": "判断边界 价格受材料来源、规格、结构、工艺与服务共同影响；本页不提供市场报价，也不以价格高低直接判断真伪或品质。 咨询一个柚木问题 继续探索柚木 柚喜饰界 - 柚木一定贵吗 具体产品仍需结合材料说明、合同和售"
+      },
+      {
+        "path": "knowledge/topics/not-only-color-photo.html",
+        "term": "检测",
+        "context": "格、合同与售后责任仍需向商家确认。 本文仅作为柚木爱好者的阅读参考，不作为入手建议、检测结论或服务承诺；涉及具体产品时，仍需以品牌说明、材料文件、合同和售后服务为准。 判断边界 颜色和图片会受光线、拍摄与表面"
+      },
+      {
+        "path": "knowledge/topics/not-only-color-photo.html",
+        "term": "等级",
+        "context": "论。比如只看颜色，就可能忽略树种、干燥、结构和表面处理；只看产地，就可能忽略实际材料等级和加工方式；只看宣传语，又可能忽略后续维护和服务范围。更适合放在具体场景里判断，是把“材料是什么、适合哪里、怎么维护、谁"
+      },
+      {
+        "path": "knowledge/topics/not-only-color-photo.html",
+        "term": "等级",
+        "context": "务为准。 判断边界 颜色和图片会受光线、拍摄与表面处理影响，不能单独证明树种、产地、等级、年代或材料状态。 咨询一个柚木问题 继续探索柚木 柚喜饰界 - 为什么不能只看颜色和图片 具体产品仍需结合材料说明、合"
+      },
+      {
+        "path": "knowledge/topics/outdoor-teak-judgement.html",
+        "term": "检测",
+        "context": "格、合同与售后责任仍需向商家确认。 本文仅作为柚木爱好者的阅读参考，不作为入手建议、检测结论或服务承诺；涉及具体产品时，仍需以品牌说明、材料文件、合同和售后服务为准。 判断边界 适合户外使用仍不代表可以忽略水"
+      },
+      {
+        "path": "knowledge/topics/outdoor-teak-judgement.html",
+        "term": "等级",
+        "context": "论。比如只看颜色，就可能忽略树种、干燥、结构和表面处理；只看产地，就可能忽略实际材料等级和加工方式；只看宣传语，又可能忽略后续维护和服务范围。更适合放在具体场景里判断，是把“材料是什么、适合哪里、怎么维护、谁"
+      },
+      {
+        "path": "knowledge/topics/questions-before-vendor.html",
+        "term": "认证",
+        "context": "后服务为准。 判断边界 页面用于整理核对问题，不构成对任何品牌、商家或服务方的推荐、认证与交易担保；具体信息仍应以可核验资料和合同为准。 咨询一个柚木问题 继续探索柚木 柚喜饰界 - 选择柚木品牌或服务方前要"
+      },
+      {
+        "path": "knowledge/topics/questions-before-vendor.html",
+        "term": "检测",
+        "context": "与售后责任仍需向品牌或服务方确认。 本文仅作为柚木爱好者的阅读参考，不作为入手建议、检测结论或服务承诺；涉及具体产品时，仍需以品牌说明、材料文件、合同和售后服务为准。 判断边界 页面用于整理核对问题，不构成对"
+      },
+      {
+        "path": "knowledge/topics/questions-before-vendor.html",
+        "term": "等级",
+        "context": "论。比如只看颜色，就可能忽略树种、干燥、结构和表面处理；只看产地，就可能忽略实际材料等级和加工方式；只看宣传语，又可能忽略后续维护和服务范围。更适合放在具体场景里判断，是把“材料是什么、适合哪里、怎么维护、谁"
+      },
+      {
+        "path": "knowledge/topics/tea-room-teak-space.html",
+        "term": "检测",
+        "context": "格、合同与售后责任仍需向商家确认。 本文仅作为柚木爱好者的阅读参考，不作为入手建议、检测结论或服务承诺；涉及具体产品时，仍需以品牌说明、材料文件、合同和售后服务为准。 内容边界 本页为常见空间条件与设计关系的"
+      },
+      {
+        "path": "knowledge/topics/tea-room-teak-space.html",
+        "term": "等级",
+        "context": "论。比如只看颜色，就可能忽略树种、干燥、结构和表面处理；只看产地，就可能忽略实际材料等级和加工方式；只看宣传语，又可能忽略后续维护和服务范围。更适合放在具体场景里判断，是把“材料是什么、适合哪里、怎么维护、谁"
+      },
+      {
+        "path": "knowledge/topics/teak-authenticity-basic.html",
+        "term": "等级",
+        "context": "色和触感。摸起来顺滑不一定代表材料本身含油，也可能来自表面处理；颜色统一也不一定代表等级高，可能只是工艺效果。 第四步看资料是否完整。能讲清来源、规格、干燥、适用空间、维护方式和服务范围的资料，更便于用户判断"
+      },
+      {
+        "path": "knowledge/topics/teak-bathroom-balcony.html",
+        "term": "检测",
+        "context": "与售后责任仍需向品牌或服务方确认。 本文仅作为柚木爱好者的阅读参考，不作为入手建议、检测结论或服务承诺；涉及具体产品时，仍需以品牌说明、材料文件、合同和售后服务为准。 判断边界 材料名称不能替代卫生间或阳台的"
+      },
+      {
+        "path": "knowledge/topics/teak-bathroom-balcony.html",
+        "term": "等级",
+        "context": "论。比如只看颜色，就可能忽略树种、干燥、结构和表面处理；只看产地，就可能忽略实际材料等级和加工方式；只看宣传语，又可能忽略后续维护和服务范围。更适合放在具体场景里判断，是把“材料是什么、适合哪里、怎么维护、谁"
+      },
+      {
+        "path": "knowledge/topics/teak-buying-pitfalls.html",
+        "term": "完全",
+        "context": "易踩的坑 Buying Guide 买柚木最容易踩的坑 买柚木最容易踩坑的地方，不是完全看不懂，而是被颜色、图片和话术提前带走了判断节奏。 很多柚木内容看起来很有吸引力：照片温暖，木纹漂亮，空间氛围也足够高级"
+      },
+      {
+        "path": "knowledge/topics/teak-buying-pitfalls.html",
+        "term": "等级",
+        "context": "，不能只停在好看上。颜色会受光线、氧化、表面处理和拍摄方式影响，图片也很难告诉你材料等级、结构工艺和服务范围。 第一个常见误区，是把颜色当成材料结论。深一点不一定更好，浅一点也不一定差，关键要看它的来源、规格"
+      },
+      {
+        "path": "knowledge/topics/teak-buying-pitfalls.html",
+        "term": "价格",
+        "context": "后的变量。 为什么不能只看颜色和图片 继续拆解视觉误区。 判断边界 单一颜色、产地、价格或宣传语都不能独立形成材料与品质结论；必要时应结合文件、结构、工艺与服务说明核验。 具体产品仍需结合材料说明、合同和服务"
+      },
+      {
+        "path": "knowledge/topics/teak-daily-cleaning.html",
+        "term": "完全",
+        "context": "最重要的前提，是先弄清它用在哪里。室内家具、地板、茶桌、整装木作和户外家具面对的环境完全不同。室内更关注灰尘、水渍、热物、局部磨损和触感；户外更关注日晒、雨水、通风、积水、五金和结构变化。 日常清洁可以从最温"
+      },
+      {
+        "path": "knowledge/topics/teak-daily-cleaning.html",
+        "term": "永远",
+        "context": "服务范围，因为它们不是单件小物，后续处理往往涉及现场条件。 柚木保养的重点，不是追求永远不变，而是知道它会怎样变化，自己能接受什么变化，以及商家是否把材料、表面处理和后续维护讲清楚。理解这些，再遇到颜色变化、"
+      },
+      {
+        "path": "knowledge/topics/teak-drying-process.html",
+        "term": "检测",
+        "context": "格、合同与售后责任仍需向商家确认。 本文仅作为柚木爱好者的阅读参考，不作为入手建议、检测结论或服务承诺；涉及具体产品时，仍需以品牌说明、材料文件、合同和售后服务为准。 判断边界 干燥处理会影响后续表现，但不能"
+      },
+      {
+        "path": "knowledge/topics/teak-drying-process.html",
+        "term": "等级",
+        "context": "论。比如只看颜色，就可能忽略树种、干燥、结构和表面处理；只看产地，就可能忽略实际材料等级和加工方式；只看宣传语，又可能忽略后续维护和服务范围。更适合放在具体场景里判断，是把“材料是什么、适合哪里、怎么维护、谁"
+      },
+      {
+        "path": "knowledge/topics/teak-home-spaces.html",
+        "term": "检测",
+        "context": "格、合同与售后责任仍需向商家确认。 本文仅作为柚木爱好者的阅读参考，不作为入手建议、检测结论或服务承诺；涉及具体产品时，仍需以品牌说明、材料文件、合同和售后服务为准。 内容边界 本页为常见空间条件与设计关系的"
+      },
+      {
+        "path": "knowledge/topics/teak-home-spaces.html",
+        "term": "等级",
+        "context": "论。比如只看颜色，就可能忽略树种、干燥、结构和表面处理；只看产地，就可能忽略实际材料等级和加工方式；只看宣传语，又可能忽略后续维护和服务范围。更适合放在具体场景里判断，是把“材料是什么、适合哪里、怎么维护、谁"
+      },
+      {
+        "path": "knowledge/topics/teak-joinery-surface.html",
+        "term": "检测",
+        "context": "格、合同与售后责任仍需向商家确认。 本文仅作为柚木爱好者的阅读参考，不作为入手建议、检测结论或服务承诺；涉及具体产品时，仍需以品牌说明、材料文件、合同和售后服务为准。 判断边界 拼接、结构和表面处理只能结合实"
+      },
+      {
+        "path": "knowledge/topics/teak-joinery-surface.html",
+        "term": "等级",
+        "context": "论。比如只看颜色，就可能忽略树种、干燥、结构和表面处理；只看产地，就可能忽略实际材料等级和加工方式；只看宣传语，又可能忽略后续维护和服务范围。更适合放在具体场景里判断，是把“材料是什么、适合哪里、怎么维护、谁"
+      },
+      {
+        "path": "knowledge/topics/teak-kids-pets-home.html",
+        "term": "检测",
+        "context": "与售后责任仍需向品牌或服务方确认。 本文仅作为柚木爱好者的阅读参考，不作为入手建议、检测结论或服务承诺；涉及具体产品时，仍需以品牌说明、材料文件、合同和售后服务为准。 判断边界 有孩子或宠物的家庭还需分别考虑"
+      },
+      {
+        "path": "knowledge/topics/teak-kids-pets-home.html",
+        "term": "等级",
+        "context": "论。比如只看颜色，就可能忽略树种、干燥、结构和表面处理；只看产地，就可能忽略实际材料等级和加工方式；只看宣传语，又可能忽略后续维护和服务范围。更适合放在具体场景里判断，是把“材料是什么、适合哪里、怎么维护、谁"
+      },
+      {
+        "path": "knowledge/topics/teak-oil-stability.html",
+        "term": "检测",
+        "context": "格、合同与售后责任仍需向商家确认。 本文仅作为柚木爱好者的阅读参考，不作为入手建议、检测结论或服务承诺；涉及具体产品时，仍需以品牌说明、材料文件、合同和售后服务为准。 判断边界 含油性只是材料特征之一，不能替"
+      },
+      {
+        "path": "knowledge/topics/teak-oil-stability.html",
+        "term": "等级",
+        "context": "论。比如只看颜色，就可能忽略树种、干燥、结构和表面处理；只看产地，就可能忽略实际材料等级和加工方式；只看宣传语，又可能忽略后续维护和服务范围。更适合放在具体场景里判断，是把“材料是什么、适合哪里、怎么维护、谁"
+      },
+      {
+        "path": "knowledge/topics/teak-origin-basic.html",
+        "term": "天然林",
+        "context": "流通路径，所以会被商家和用户反复比较。需要谨慎的是，这些地名不能简单排成绝对高低。 天然林和人工林也是常见讨论。天然林常让人联想到更长的生长周期和更成熟的材性，人工林则可能对应更明确的种植管理和供应体系。两者都"
+      },
+      {
+        "path": "knowledge/topics/teak-origin-basic.html",
+        "term": "天然林",
+        "context": "反复比较。需要谨慎的是，这些地名不能简单排成绝对高低。 天然林和人工林也是常见讨论。天然林常让人联想到更长的生长周期和更成熟的材性，人工林则可能对应更明确的种植管理和供应体系。两者都不能单独决定最终体验。材料是"
+      },
+      {
+        "path": "knowledge/topics/teak-origin-basic.html",
+        "term": "老料",
+        "context": "不能单独决定最终体验。材料是否适合使用，还要看树龄、等级、规格、干燥、加工和用途。 老料、新料、再生料也需要放回具体场景。老料可能有时间痕迹和稳定感，但也要看开裂、虫眼、修补和结构状态；新料可能更适合稳定供应"
+      },
+      {
+        "path": "knowledge/topics/teak-origin-basic.html",
+        "term": "老料",
+        "context": "，还要看树龄、等级、规格、干燥、加工和用途。 老料、新料、再生料也需要放回具体场景。老料可能有时间痕迹和稳定感，但也要看开裂、虫眼、修补和结构状态；新料可能更适合稳定供应和规格控制，但也要看干燥处理和表面工艺"
+      },
+      {
+        "path": "knowledge/topics/teak-origin-basic.html",
+        "term": "等级",
+        "context": "地是一条线索，能帮助你追问材料来源、种植方式、流通背景和加工状态，但它不能替代具体的等级、规格、干燥和表面处理。 常见资料里，柚木来源会出现缅甸、泰国、印尼、印度、非洲、南美等说法。不同地区背后可能对应不同的"
+      },
+      {
+        "path": "knowledge/topics/teak-origin-basic.html",
+        "term": "等级",
+        "context": "明确的种植管理和供应体系。两者都不能单独决定最终体验。材料是否适合使用，还要看树龄、等级、规格、干燥、加工和用途。 老料、新料、再生料也需要放回具体场景。老料可能有时间痕迹和稳定感，但也要看开裂、虫眼、修补和"
+      },
+      {
+        "path": "knowledge/topics/teak-origin-basic.html",
+        "term": "等级",
+        "context": "接、表面处理和日常触感。 买之前，可以把产地信息和几类资料放在一起看：材料来源说明、等级或规格、干燥处理、表面处理、适用空间、服务范围和合同约定。只说某地柚木，却不讲这些细节，判断仍然不完整。 所以，产地重要"
+      },
+      {
+        "path": "knowledge/topics/teak-origin-basic.html",
+        "term": "等级",
+        "context": "些细节，判断仍然不完整。 所以，产地重要，但它只是开始。真正决定使用体验的，是来源、等级、规格、干燥、结构、表面处理和服务说明共同形成的结果。把产地当线索，而不是答案，才更容易看清一块柚木是否适合自己的空间。"
+      },
+      {
+        "path": "knowledge/topics/teak-origin-basic.html",
+        "term": "等级",
+        "context": "。 具体产品仍需结合材料说明、合同和服务说明确认。 判断边界 产地是来源线索，不等于等级、真伪或最终品质结论；仍需核对材料名称、文件、规格与加工信息。 咨询一个柚木问题 继续探索柚木 柚喜饰界 - 柚木常见产"
+      },
+      {
+        "path": "knowledge/topics/teak-price-difference.html",
+        "term": "等级",
+        "context": "不适合只用贵或便宜来判断，关键是要看背后包含了哪些内容。 原料本身会带来差异。来源、等级、径级、纹理、色差、节疤和可用尺寸不同，都会影响材料表现。用于地板、家具、户外和整装板材时，材料状态也不一样。只写一个名"
+      },
+      {
+        "path": "knowledge/topics/teak-price-difference.html",
+        "term": "等级",
+        "context": "。 判断边界 报价差异只能作为继续核对的线索；本页不提供价格结论，也不把高价等同于高等级或真实来源。 如果你正在核对具体材料或使用条件，可以把资料和疑问整理后发给柚喜。 咨询一个柚木问题 柚喜饰界 - 柚木报"
+      },
+      {
+        "path": "knowledge/topics/teak-price-difference.html",
+        "term": "价格",
+        "context": "材料说明、合同和服务说明确认。 判断边界 报价差异只能作为继续核对的线索；本页不提供价格结论，也不把高价等同于高等级或真实来源。 如果你正在核对具体材料或使用条件，可以把资料和疑问整理后发给柚喜。 咨询一个柚"
+      },
+      {
+        "path": "knowledge/topics/teak-vs-common-wood-basic.html",
+        "term": "检测",
+        "context": "格、合同与售后责任仍需向商家确认。 本文仅作为柚木爱好者的阅读参考，不作为入手建议、检测结论或服务承诺；涉及具体产品时，仍需以品牌说明、材料文件、合同和售后服务为准。 判断边界 不同木材各有适用条件；本页只提"
+      },
+      {
+        "path": "knowledge/topics/teak-vs-common-wood-basic.html",
+        "term": "等级",
+        "context": "论。比如只看颜色，就可能忽略树种、干燥、结构和表面处理；只看产地，就可能忽略实际材料等级和加工方式；只看宣传语，又可能忽略后续维护和服务范围。更适合放在具体场景里判断，是把“材料是什么、适合哪里、怎么维护、谁"
+      },
+      {
+        "path": "knowledge/topics/teak-vs-walnut.html",
+        "term": "检测",
+        "context": "格、合同与售后责任仍需向商家确认。 本文仅作为柚木爱好者的阅读参考，不作为入手建议、检测结论或服务承诺；涉及具体产品时，仍需以品牌说明、材料文件、合同和售后服务为准。 判断边界 柚木与黑胡桃木没有脱离场景的统"
+      },
+      {
+        "path": "knowledge/topics/teak-vs-walnut.html",
+        "term": "等级",
+        "context": "论。比如只看颜色，就可能忽略树种、干燥、结构和表面处理；只看产地，就可能忽略实际材料等级和加工方式；只看宣传语，又可能忽略后续维护和服务范围。更适合放在具体场景里判断，是把“材料是什么、适合哪里、怎么维护、谁"
+      },
+      {
+        "path": "knowledge/topics/what-is-teak.html",
+        "term": "老料",
+        "context": "理，都会让实际表现出现差别。 入门时最容易犯的错误，是把一个词当成答案。产地、颜色、老料、油性、纯实木，这些词都有参考价值，但都不能单独下结论。更稳妥的方式，是把材料说明、规格厚度、结构工艺、表面处理、适用环"
+      },
+      {
+        "path": "knowledge/topics/what-is-teak.html",
+        "term": "等级",
+        "context": "关。它可以很适合长期使用的生活空间，但这不代表只要写着柚木就一定合适。不同来源、不同等级、不同干燥方式、不同表面处理，都会让实际表现出现差别。 入门时最容易犯的错误，是把一个词当成答案。产地、颜色、老料、油性"
+      },
+      {
+        "path": "knowledge/topics/whole-decoration-fit-home.html",
+        "term": "检测",
+        "context": "格、合同与售后责任仍需向商家确认。 本文仅作为柚木爱好者的阅读参考，不作为入手建议、检测结论或服务承诺；涉及具体产品时，仍需以品牌说明、材料文件、合同和售后服务为准。 内容边界 本页为常见空间条件与设计关系的"
+      },
+      {
+        "path": "knowledge/topics/whole-decoration-fit-home.html",
+        "term": "等级",
+        "context": "论。比如只看颜色，就可能忽略树种、干燥、结构和表面处理；只看产地，就可能忽略实际材料等级和加工方式；只看宣传语，又可能忽略后续维护和服务范围。更适合放在具体场景里判断，是把“材料是什么、适合哪里、怎么维护、谁"
+      },
+      {
+        "path": "knowledge/topics/why-teak-for-home.html",
+        "term": "检测",
+        "context": "与售后责任仍需向品牌或服务方确认。 本文仅作为柚木爱好者的阅读参考，不作为入手建议、检测结论或服务承诺；涉及具体产品时，仍需以品牌说明、材料文件、合同和售后服务为准。 判断边界 柚木是否适合家居空间取决于用途"
+      },
+      {
+        "path": "knowledge/topics/why-teak-for-home.html",
+        "term": "等级",
+        "context": "论。比如只看颜色，就可能忽略树种、干燥、结构和表面处理；只看产地，就可能忽略实际材料等级和加工方式；只看宣传语，又可能忽略后续维护和服务范围。更适合放在具体场景里判断，是把“材料是什么、适合哪里、怎么维护、谁"
+      },
+      {
+        "path": "solutions/furniture.html",
+        "term": "完全",
+        "context": "看单品放在哪里、怎么用 桌椅、柜体、边几、茶几、收纳小件，看起来都是家具，但使用方式完全不同。餐桌要看坐感和清洁，柜体要看收纳和开合，边几要看移动和稳定。 单品再好看，也要和家里的木色、墙面、地板、布艺、金属"
+      },
+      {
+        "path": "solutions/index.html",
+        "term": "旧料",
+        "context": "空间中的耐用性、维护周期和脚下界面的完整性。 继续阅读 柚木地板 老柚木再生地板 看旧料气质、再生材料和环保叙事如何一起形成故事感。 继续阅读 柚木地板 从住宅地板到露台平台，看脚感、色泽、稳定性和岁月留下的"
+      },
+      {
+        "path": "solutions/index.html",
+        "term": "旧料",
+        "context": "相关参考 柚木户外柚木怎么判断 柚木户外使用怎么维护 户外柚木家具维护 柚木收藏 看旧料、旧器物和旧构件如何在今天继续被使用、被陈列、被理解，而不是只把它们当作旧木头。 代表文章 柚木收藏 老柚木门 看老物件"
+      },
+      {
+        "path": "solutions/index.html",
+        "term": "旧料",
+        "context": "被阅读。 继续阅读 柚木收藏 从老门板、老窗到船木桌面，看时间痕迹、纹理、修补方式与旧料故事。 更多内容 更多内容 柚木变色是不是问题 庭院柚木空间参考 为什么不能只看颜色和图片 怎么看柚木是不是表达清楚 相"
+      },
+      {
+        "path": "solutions/goods/aged-teak-flooring.html",
+        "term": "完全",
+        "context": "。 在不少空间里，使用多年的柚木会从明亮的金棕色逐渐沉下来。光泽不再锋利，颜色也不再完全一致，但只要变化自然，反而会让房间显得更真实。 真正需要留意的是整体秩序。单块木板好看，不代表整屋舒服；色差太跳、拼缝太"
+      },
+      {
+        "path": "solutions/goods/aged-teak-flooring.html",
+        "term": "永远",
+        "context": "的地板人人都会喜欢。真正有意思的是，十年之后的样子。 一间住了很久的房子里，地板不会永远像刚铺好时那样均匀。窗边被阳光晒得浅一点，沙发下方保留更深的木色，餐桌周围有椅脚移动留下的轻微印记，这些都让空间不再像展"
+      },
+      {
+        "path": "solutions/goods/reclaimed-teak-flooring.html",
+        "term": "完全",
+        "context": "和存在感，避免让木色变成压迫感。 旧料会带有深浅变化、钉眼和修整痕迹，需要接受它的不完全一致。如果纹理太碎，容易显得忙乱；如果颜色过于深重，又会削弱柚木原本的轻暖气质。更耐看的做法，是让木纹成为背景，让日常使"
+      },
+      {
+        "path": "solutions/goods/reclaimed-teak-flooring.html",
+        "term": "旧料",
+        "context": "的地方可以让线条更舒展，空间小的地方则需要控制厚度和存在感，避免让木色变成压迫感。 旧料会带有深浅变化、钉眼和修整痕迹，需要接受它的不完全一致。如果纹理太碎，容易显得忙乱；如果颜色过于深重，又会削弱柚木原本的"
+      },
+      {
+        "path": "solutions/goods/reclaimed-teak-flooring.html",
+        "term": "旧料",
+        "context": "棉麻、石材、藤编放在一起，也可以和更克制的金属、玻璃形成平衡。 再生地板的质感取决于旧料分选和重新加工是否稳定。铺装前要核对含水率、尺寸误差、企口状态与基层条件，并预留局部更换方案，让旧料的层次感不以安装和维"
+      },
+      {
+        "path": "solutions/goods/reclaimed-teak-flooring.html",
+        "term": "旧料",
+        "context": "工是否稳定。铺装前要核对含水率、尺寸误差、企口状态与基层条件，并预留局部更换方案，让旧料的层次感不以安装和维护风险为代价。 日常使用中，柚木需要接受光照、湿度和清洁习惯带来的变化。轻微色差、表面光泽变化和使用"
+      },
+      {
+        "path": "solutions/goods/reclaimed-teak-flooring.html",
+        "term": "旧料",
+        "context": "惯、空间湿度和脚感一起看，再判断它是否适合长期使用。 资料边界 “再生柚木”需要核对旧料来源、树种、分选与再加工信息；本页不对具体材料年代或历史出处作确认。 References 继续了解 这些资料适合和「老"
+      },
+      {
+        "path": "solutions/goods/teak-wall-panel.html",
+        "term": "等级",
+        "context": "界 本页讨论护墙板与空间比例、灯光和材料搭配，不对应真实完工项目，也不对材料稀缺性、等级或价值作判断。 References 继续了解 大面积木作需要同时理解材料、环境和来源边界。下面这些页面适合补充柚木属性"
+      },
+      {
+        "path": "solutions/goods/teak-bedroom.html",
+        "term": "等级",
+        "context": "使用边界 本页讨论卧室中的材料比例与日常使用，不对应特定产品或真实项目，也不对材料等级、稀缺性或价值作判断。 References 继续了解 读到「卧室里使用柚木要轻一点」这类大面积木作时，下面这些链接可以"
+      },
+      {
+        "path": "solutions/goods/teak-pool-deck.html",
+        "term": "检测",
+        "context": "料边界 本页为泳池边场景的判断参考，不对应真实完工案例，也不构成防滑、防水或耐久性能检测结论。 References 继续了解 这些资料能给「泳池边的柚木平台」补上材料背景。户外使用不只看颜色，也要理解含油性"
+      },
+      {
+        "path": "solutions/goods/old-teak-door.html",
+        "term": "唯一",
+        "context": "以把来源线索、结构状态、修复尺度和摆放位置一起看。不急着把时间磨平，也不把旧痕迹当成唯一价值。 资料边界 页面中的时间感是空间与修复判断，不构成对具体年代、历史出处、稀缺性或收藏价值的确认。 Referenc"
+      },
+      {
+        "path": "solutions/goods/old-teak-door.html",
+        "term": "完全",
+        "context": "最动人的地方，往往不是它看起来旧，而是它曾经被反复推开、合上、触摸和修补。时间没有被完全抹掉，而是留在门框、边角、五金孔位和深浅不一的木色里。 在一个玄关里，一扇老门未必真的承担每天开合的功能。它也可以成为墙"
+      },
+      {
+        "path": "solutions/goods/old-teak-door.html",
+        "term": "完全",
+        "context": "该保留多少原貌。 修复尺度很关键。全部打磨到像新的一样，可能会抹掉旧物最珍贵的部分；完全不处理，又可能影响卫生、结构和日常接触。有分寸的修复，是让旧痕迹留下，同时让它适合今天使用。 老柚木门的手工感也值得看。"
+      },
+      {
+        "path": "solutions/goods/old-teak-door.html",
+        "term": "老料",
+        "context": "间。即使我们不知道那段历史，也能从痕迹里读到时间经过。 来源责任不能被浪漫叙事遮住。老料、旧门和再生构件都需要清楚的来源线索，以及合理的再利用方式。时间感可以被欣赏，但不应该被用来替代基本判断。 一扇好的老柚"
+      },
+      {
+        "path": "solutions/goods/old-teak-door.html",
+        "term": "老料",
+        "context": "ine：Tectona grandis 先核对柚木的学名、分类与分布基础信息，再讨论老料与旧构件。 木材属性 The Wood Database：Teak 了解柚木的纹理、耐久性和常见用途，帮助区分材料属性与"
+      },
+      {
+        "path": "solutions/goods/old-teak-door.html",
+        "term": "旧料",
+        "context": "形，结构是否完整，裂缝是否稳定，虫蛀是否处理清楚，都会影响它能不能继续进入当代空间。旧料最怕只讲故事，不看状态。 老门放进新空间，也需要留白。太重的门放在小空间里会显得压迫，太繁复的雕花放在现代背景里又可能像"
+      },
+      {
+        "path": "solutions/goods/old-teak-door.html",
+        "term": "旧料",
+        "context": "旧物叙事。 责任来源 FSC：Forest Stewardship Council 旧料和再生利用也需要关注来源责任，不把时间痕迹简单等同于价值背书。 Related 继续了解柚木生活 柚木收藏 老柚木窗的光"
+      },
+      {
+        "path": "solutions/goods/old-teak-window.html",
+        "term": "老料",
+        "context": "ine：Tectona grandis 先核对柚木的学名、分类与分布基础信息，再讨论老料与旧构件。 木材属性 The Wood Database：Teak 了解柚木的纹理、耐久性和常见用途，帮助区分材料属性与"
+      },
+      {
+        "path": "solutions/goods/old-teak-window.html",
+        "term": "旧料",
+        "context": "起发生关系，所以它更像一个长期相处的物件，而不是短暂吸引视线的摆设。 收藏类内容关注旧料、老构件和时间痕迹。它们不该被简单包装成稀缺符号，更适合从来源、结构、修复尺度和可持续利用的角度慢慢看。 把它放在隔断、"
+      },
+      {
+        "path": "solutions/goods/old-teak-window.html",
+        "term": "旧料",
+        "context": "、自然，并且符合空间想要的生活感。 让空间有一点旧物气息，却不变成复古布景。真正落到旧料与老物件时，可以把来源线索、结构状态、修复尺度和再利用方式一起看，不急着把时间痕迹磨平。 资料边界 “老柚木窗”需要来源"
+      },
+      {
+        "path": "solutions/goods/old-teak-window.html",
+        "term": "旧料",
+        "context": "不急着把时间痕迹磨平。 资料边界 “老柚木窗”需要来源和结构证据支持；资料不足时应按旧料风格与再利用方向理解，不推定具体年代。 References 继续了解 「老柚木窗的光影边界」常常和时间痕迹、旧料再利用"
+      },
+      {
+        "path": "solutions/goods/old-teak-window.html",
+        "term": "旧料",
+        "context": "定具体年代。 References 继续了解 「老柚木窗的光影边界」常常和时间痕迹、旧料再利用有关。这里的资料更适合帮助读者认识物种背景、材料边界和责任来源。 物种认知 Kew Plants of the W"
+      },
+      {
+        "path": "solutions/goods/old-teak-window.html",
+        "term": "旧料",
+        "context": "旧物叙事。 责任来源 FSC：Forest Stewardship Council 旧料和再生利用也需要关注来源责任，不把时间痕迹简单等同于价值背书。 Related 继续了解柚木生活 柚木收藏 老柚木门的时"
+      },
+      {
+        "path": "solutions/goods/reclaimed-boat-teak.html",
+        "term": "老料",
+        "context": "ine：Tectona grandis 先核对柚木的学名、分类与分布基础信息，再讨论老料与旧构件。 木材属性 The Wood Database：Teak 了解柚木的纹理、耐久性和常见用途，帮助区分材料属性与"
+      },
+      {
+        "path": "solutions/goods/reclaimed-boat-teak.html",
+        "term": "旧料",
+        "context": "起发生关系，所以它更像一个长期相处的物件，而不是短暂吸引视线的摆设。 收藏类内容关注旧料、老构件和时间痕迹。它们不该被简单包装成稀缺符号，更适合从来源、结构、修复尺度和可持续利用的角度慢慢看。 把它放在餐桌、"
+      },
+      {
+        "path": "solutions/goods/reclaimed-boat-teak.html",
+        "term": "旧料",
+        "context": "然，并且符合空间想要的生活感。 让旧材料重新进入生活，而不是只作为粗犷装饰。真正落到旧料与老物件时，可以把来源线索、结构状态、修复尺度和再利用方式一起看，不急着把时间痕迹磨平。 资料边界 “老船木”名称不能替"
+      },
+      {
+        "path": "solutions/goods/reclaimed-boat-teak.html",
+        "term": "旧料",
+        "context": "进一步核实。 References 继续了解 「老船木柚木的再利用」常常和时间痕迹、旧料再利用有关。这里的资料更适合帮助读者认识物种背景、材料边界和责任来源。 物种认知 Kew Plants of the W"
+      },
+      {
+        "path": "solutions/goods/reclaimed-boat-teak.html",
+        "term": "旧料",
+        "context": "旧物叙事。 责任来源 FSC：Forest Stewardship Council 旧料和再生利用也需要关注来源责任，不把时间痕迹简单等同于价值背书。 Related 继续了解柚木生活 柚木收藏 年代柚木木料"
+      },
+      {
+        "path": "solutions/goods/old-teak-carving.html",
+        "term": "老料",
+        "context": "ine：Tectona grandis 先核对柚木的学名、分类与分布基础信息，再讨论老料与旧构件。 木材属性 The Wood Database：Teak 了解柚木的纹理、耐久性和常见用途，帮助区分材料属性与"
+      },
+      {
+        "path": "solutions/goods/old-teak-carving.html",
+        "term": "旧料",
+        "context": "起发生关系，所以它更像一个长期相处的物件，而不是短暂吸引视线的摆设。 收藏类内容关注旧料、老构件和时间痕迹。它们不该被简单包装成稀缺符号，更适合从来源、结构、修复尺度和可持续利用的角度慢慢看。 把它放在玄关端"
+      },
+      {
+        "path": "solutions/goods/old-teak-carving.html",
+        "term": "旧料",
+        "context": "然，并且符合空间想要的生活感。 让旧物成为空间的一处注视点，而不是堆砌符号。真正落到旧料与老物件时，可以把来源线索、结构状态、修复尺度和再利用方式一起看，不急着把时间痕迹磨平。 资料边界 “老柚木”不自动代表"
+      },
+      {
+        "path": "solutions/goods/old-teak-carving.html",
+        "term": "旧料",
+        "context": "分别核实。 References 继续了解 「老柚木雕刻的克制摆放」常常和时间痕迹、旧料再利用有关。这里的资料更适合帮助读者认识物种背景、材料边界和责任来源。 物种认知 Kew Plants of the W"
+      },
+      {
+        "path": "solutions/goods/old-teak-carving.html",
+        "term": "旧料",
+        "context": "旧物叙事。 责任来源 FSC：Forest Stewardship Council 旧料和再生利用也需要关注来源责任，不把时间痕迹简单等同于价值背书。 Related 继续了解柚木生活 柚木收藏 老柚木门的时"
+      },
+      {
+        "path": "solutions/goods/aged-teak-timber.html",
+        "term": "老料",
+        "context": "ine：Tectona grandis 先核对柚木的学名、分类与分布基础信息，再讨论老料与旧构件。 木材属性 The Wood Database：Teak 了解柚木的纹理、耐久性和常见用途，帮助区分材料属性与"
+      },
+      {
+        "path": "solutions/goods/aged-teak-timber.html",
+        "term": "旧料",
+        "context": "起发生关系，所以它更像一个长期相处的物件，而不是短暂吸引视线的摆设。 收藏类内容关注旧料、老构件和时间痕迹。它们不该被简单包装成稀缺符号，更适合从来源、结构、修复尺度和可持续利用的角度慢慢看。 把它放在定制家"
+      },
+      {
+        "path": "solutions/goods/aged-teak-timber.html",
+        "term": "旧料",
+        "context": "合空间想要的生活感。 把材料的旧意转化为可用的新生活，而不是停在收藏标签上。真正落到旧料与老物件时，可以把来源线索、结构状态、修复尺度和再利用方式一起看，不急着把时间痕迹磨平。 资料边界 “年代木料”是需要证"
+      },
+      {
+        "path": "solutions/goods/aged-teak-timber.html",
+        "term": "旧料",
+        "context": "“年代木料”是需要证据支持的来源描述；没有来源文件、年份线索与结构核验时，只能作为旧料风格与再利用资料参考。 References 继续了解 「年代柚木木料的再判断」常常和时间痕迹、旧料再利用有关。这里的资"
+      },
+      {
+        "path": "solutions/goods/aged-teak-timber.html",
+        "term": "旧料",
+        "context": "资料参考。 References 继续了解 「年代柚木木料的再判断」常常和时间痕迹、旧料再利用有关。这里的资料更适合帮助读者认识物种背景、材料边界和责任来源。 物种认知 Kew Plants of the W"
+      },
+      {
+        "path": "solutions/goods/aged-teak-timber.html",
+        "term": "旧料",
+        "context": "旧物叙事。 责任来源 FSC：Forest Stewardship Council 旧料和再生利用也需要关注来源责任，不把时间痕迹简单等同于价值背书。 Related 继续了解柚木生活 柚木收藏 老船木柚木的"
+      },
+      {
+        "path": "solutions/outdoor.html",
+        "term": "完全",
+        "context": "灰、清洁、油养和季节检查，都需要用户能接受。 常见误区 最容易误解的是把户外柚木当成完全不用维护。即使材料适合户外，也会经历日晒、雨水和颜色变化。 第二个误区，是只看家具外观，不看结构和五金。户外家具如果结构"
+      },
+      {
+        "path": "vendors/candidates/index.html",
+        "term": "官方",
+        "context": "和售后的独立判断。 柚喜饰界 - 品牌索引 比较材料、产品与空间方向，具体信息以品牌官方说明为准。 运营主体：杭州创始记科技发展有限公司 浙ICP备2021004169号-2"
+      },
+      {
+        "path": "vendors/index.html",
+        "term": "认证",
+        "context": "不同品牌如何把柚木带入家具、地板、整装与户外生活。 品牌资料仅供了解，不代表柚喜饰界认证、推荐、保证或交易担保；具体合作仍需结合品牌正式资料、产品说明、合同、交付和售后说明综合判断。 柚喜饰界 - 特色品牌"
+      },
+      {
+        "path": "vendors/workshop-sample.html",
+        "term": "认证",
+        "context": "应继续保持样板身份。 用户如何理解本页 本页展示的是资料组织方式，不是品牌推荐、官方认证、质量保证或交易担保，也不暗示存在对应企业。 咨询一个柚木问题 了解生态合作 柚喜饰界｜品牌资料展示样板 本页不对应真实"
+      },
+      {
+        "path": "vendors/workshop-sample.html",
+        "term": "官方",
+        "context": "时，应继续保持样板身份。 用户如何理解本页 本页展示的是资料组织方式，不是品牌推荐、官方认证、质量保证或交易担保，也不暗示存在对应企业。 咨询一个柚木问题 了解生态合作 柚喜饰界｜品牌资料展示样板 本页不对应"
+      },
+      {
+        "path": "vendors/wachen-teak.html",
+        "term": "官方",
+        "context": "臣柚木，可重点核对其整装范围、材料说明、空间经验与交付边界。当前尚未获得可稳定核验的官方介绍，因此不对企业历史、规模、案例、联系方式或服务区域作确定表述。 适合关注 柚木整装 关注整屋空间、木作配合、地面墙面"
+      },
+      {
+        "path": "vendors/shanghai-zhuangxin-teak.html",
+        "term": "官方",
+        "context": "明 关注后续是否能补充服务区域、联系方式、交付和售后说明。 进一步了解时可以关注 在官方信息尚不充分时，不宜仅凭名称判断主营方向。建议向品牌确认其更侧重柚木地板、整装、家具还是其他服务，并索取对应的产品与案例"
+      },
+      {
+        "path": "vendors/zhenzang-teak-life.html",
+        "term": "官方",
+        "context": "藏柚木生活，可重点核对材料、空间、产品和使用场景之间的关系。当前尚未获得可稳定核验的官方介绍，因此不对企业历史、案例、联系方式或服务范围作确定表述。 适合关注 柚木整装 关注地面、柜体、墙面、家具和空间氛围能"
+      },
+      {
+        "path": "vendors/yuebaijia-teak-flooring.html",
+        "term": "官方",
+        "context": "柚木地板，可重点核对地板材料、产品规格、铺装条件和长期维护。当前尚未获得可稳定核验的官方介绍，因此不对企业历史、案例、联系方式或服务范围作确定表述。 适合关注 地板材质 关注板材结构、厚度、宽度、含水率和表面"
+      },
+      {
+        "path": "vendors/yuebaijia-teak-flooring.html",
+        "term": "等级",
+        "context": "资料是否完整。 进一步了解时可以关注 地板会长期承受日常使用，不应只看颜色图片；材料等级、规格、安装方式、维护习惯和售后说明需要放在一起核对。 进一步了解前建议确认 企业介绍、产品规格、铺装说明、授权图片、真"
+      },
+      {
+        "path": "vendors/xuelianhua-teak-furniture.html",
+        "term": "官方",
+        "context": "柚木家具，可重点核对家具品类、材质工艺、空间搭配和日常维护。当前尚未获得可稳定核验的官方介绍，因此不对企业历史、案例、联系方式或服务范围作确定表述。 适合关注 家具品类 关注桌椅、柜体、边几、收纳和小件家具的"
+      },
+      {
+        "path": "vendors/yixin-teak.html",
+        "term": "官方",
+        "context": "壹信柚木，可重点核对主营产品、材料说明、空间应用和服务边界。当前尚未获得可稳定核验的官方介绍，因此不对企业历史、案例、联系方式或服务范围作确定表述。 适合关注 主营方向 关注品牌重点落在哪些柚木产品或空间方向"
+      },
+      {
+        "path": "vendors/yixin-teak.html",
+        "term": "等级",
+        "context": "主营方向 关注品牌重点落在哪些柚木产品或空间方向。 材料表达 关注是否说明木材来源、等级、规格、干燥、结构和表面处理。 服务说明 关注服务区域、交付方式、安装维护和售后资料是否具体。 进一步了解时可以关注 综"
+      }
+    ]
+  },
+  "demoAndCases": {
+    "matches": [
+      {
+        "path": "articles/teak-vendor-selection.html",
+        "term": "案例",
+        "context": "。 如果你关心地板，就要看规格、安装和维护；如果关心整装，就要看设计配合、木作能力和案例材料；如果关心户外，就要看结构、五金、耐候和服务区域。 资料越具体，判断越容易 好的企业资料不一定写得很长，但应该具体。"
+      },
+      {
+        "path": "articles/teak-vendor-selection.html",
+        "term": "案例",
+        "context": "、图片来源和具体说明确认。 看厂商时，最值得留意的是一致性：官网、社交平台、产品图、案例材料和报价说明是否互相支撑。如果信息之间经常冲突，就需要放慢判断。 简短小结 选择厂商时，先看方向是否匹配，再看资料是否"
+      },
+      {
+        "path": "cases/courtyard-teak-sample.html",
+        "term": "概念",
+        "context": "做成室内，而是在阳光、雨水和日常使用之间找到耐看、好清洁、能长期相处的平衡。 以下为概念场景，不对应具体落地项目；可用于梳理户外材料、结构与维护需求。 相关内容 柚木户外 户外柚木家具维护 户外柚木怎么维护？"
+      },
+      {
+        "path": "cases/courtyard-teak-sample.html",
+        "term": "概念",
+        "context": "户外柚木家具维护 户外柚木怎么维护？ 咨询一个柚木空间问题 柚喜饰界｜庭院空间灵感 概念场景提供设计参考，不作为实际项目记录。 运营主体：杭州创始记科技发展有限公司 浙ICP备2021004169号-2"
+      },
+      {
+        "path": "cases/courtyard-teak-sample.html",
+        "term": "灵感",
+        "context": "作 咨询柚喜 首页 柚木空间参考 庭院柚木空间参考 Courtyard 庭院柚木空间灵感 从露台、休闲桌椅和户外维护出发，想象柚木如何融入自己的庭院生活。 空间背景 这个庭院参考设定在半开放露台：白天有直接日"
+      },
+      {
+        "path": "cases/courtyard-teak-sample.html",
+        "term": "灵感",
+        "context": "户外 户外柚木家具维护 户外柚木怎么维护？ 咨询一个柚木空间问题 柚喜饰界｜庭院空间灵感 概念场景提供设计参考，不作为实际项目记录。 运营主体：杭州创始记科技发展有限公司 浙ICP备2021004169号-2"
+      },
+      {
+        "path": "cases/flooring-selection-sample.html",
+        "term": "概念",
+        "context": "自整体空间，耐用来自规格、安装和维护。把这几件事放在一起看，选择会清楚很多。 以下为概念场景，不对应具体落地项目；可用于梳理地面条件、安装与长期维护需求。 更多柚木美学 柚木地板 如何选择柚木地板 柚木地板怎"
+      },
+      {
+        "path": "cases/flooring-selection-sample.html",
+        "term": "概念",
+        "context": "护仍需按具体空间核对。 咨询一个柚木空间问题 更多柚木美学 柚喜饰界｜地板选择灵感 概念场景提供选择参考，不作为实际项目记录。 运营主体：杭州创始记科技发展有限公司 浙ICP备2021004169号-2"
+      },
+      {
+        "path": "cases/flooring-selection-sample.html",
+        "term": "灵感",
+        "context": "生态合作 咨询柚喜 首页 柚木美学 地板选择空间参考 Flooring 柚木地板选择灵感 从客厅地面、基层条件和安装维护出发，判断柚木地板是否适合自己的空间。 空间背景 这个地板参考设定在常见家庭客厅：采光中"
+      },
+      {
+        "path": "cases/flooring-selection-sample.html",
+        "term": "灵感",
+        "context": "装和维护仍需按具体空间核对。 咨询一个柚木空间问题 更多柚木美学 柚喜饰界｜地板选择灵感 概念场景提供选择参考，不作为实际项目记录。 运营主体：杭州创始记科技发展有限公司 浙ICP备2021004169号-2"
+      },
+      {
+        "path": "cases/index.html",
+        "term": "概念",
+        "context": "work 整体木作 用材料比例、结构细节与留白建立完整空间秩序。 空间灵感参考 以下概念场景用于帮助理解材质位置与生活需求，不作为真实落地项目记录。 柚木户外 庭院柚木空间参考 围绕露台桌椅、阳光雨水、结构五"
+      },
+      {
+        "path": "cases/index.html",
+        "term": "概念",
+        "context": "生活动线、日常清洁和长期维护三个角度观察，再继续探索柚木生活或特色品牌资料。 以下为概念场景，不对应具体落地项目；可用于梳理材质位置、生活动线与长期维护需求。 走进柚木生活 咨询柚喜 柚喜饰界｜柚木美学 概念"
+      },
+      {
+        "path": "cases/index.html",
+        "term": "概念",
+        "context": "梳理材质位置、生活动线与长期维护需求。 走进柚木生活 咨询柚喜 柚喜饰界｜柚木美学 概念场景提供设计参考，不作为实际项目记录。 运营主体：杭州创始记科技发展有限公司 浙ICP备2021004169号-2"
+      },
+      {
+        "path": "cases/index.html",
+        "term": "灵感",
+        "context": "le Woodwork 整体木作 用材料比例、结构细节与留白建立完整空间秩序。 空间灵感参考 以下概念场景用于帮助理解材质位置与生活需求，不作为真实落地项目记录。 柚木户外 庭院柚木空间参考 围绕露台桌椅、阳"
+      },
+      {
+        "path": "cases/tea-room-teak-sample.html",
+        "term": "概念",
+        "context": "度、触感和安静的秩序。木材只是起点，真正打动人的是空间能不能让人愿意坐下来。 以下为概念场景，不对应具体落地项目；可用于梳理尺度、材质搭配与日常使用需求。 相关内容 柚木茶室空间 茶室为什么适合柚木？ 茶室柚"
+      },
+      {
+        "path": "cases/tea-room-teak-sample.html",
+        "term": "概念",
+        "context": "茶室为什么适合柚木？ 茶室柚木空间 咨询一个柚木空间问题 柚喜饰界｜茶室空间灵感 概念场景提供设计参考，不作为实际项目记录。 运营主体：杭州创始记科技发展有限公司 浙ICP备2021004169号-2"
+      },
+      {
+        "path": "cases/tea-room-teak-sample.html",
+        "term": "灵感",
+        "context": "合作 咨询柚喜 首页 柚木空间参考 茶室柚木空间参考 Tea Room 茶室柚木空间灵感 从茶桌、地面、柜体和灯光氛围出发，想象一处安静、舒适的柚木会客空间。 空间背景 这个茶室参考设定为小型会客空间：人数不"
+      },
+      {
+        "path": "cases/tea-room-teak-sample.html",
+        "term": "灵感",
+        "context": "室空间 茶室为什么适合柚木？ 茶室柚木空间 咨询一个柚木空间问题 柚喜饰界｜茶室空间灵感 概念场景提供设计参考，不作为实际项目记录。 运营主体：杭州创始记科技发展有限公司 浙ICP备2021004169号-2"
+      },
+      {
+        "path": "cooperation/index.html",
+        "term": "灵感",
+        "context": "工艺说明 使用故事 器物观察 用户可以从探索柚木建立判断、从柚木美学和柚木生活寻找灵感，再从特色品牌了解公开资料。合作伙伴提供的材料知识、器物特点和空间经验，也能被更准确地理解和持续阅读。 选择你的合作入口"
+      },
+      {
+        "path": "cooperation/index.html",
+        "term": "案例",
+        "context": "用空间、维护建议和服务区域。 柚木整装 适合展示护墙板、柜体、木门、楼梯、空间木作、案例材料和交付说明。 柚木户外 适合展示户外环境、结构五金、耐候表现、维护周期和长期使用建议。 柚木收藏 适合展示旧料来源、"
+      },
+      {
+        "path": "cooperation/index.html",
+        "term": "案例",
+        "context": "什么内容 欢迎品牌、设计师与内容伙伴提供可公开或已获授权的产品图、空间图、使用故事和案例材料，让用户从真实材料、器物和空间里理解柚木。 器物图 空间图 案例资料 工艺说明 使用故事 器物观察 用户可以从探索柚"
+      },
+      {
+        "path": "cooperation/index.html",
+        "term": "案例",
+        "context": "间图、使用故事和案例材料，让用户从真实材料、器物和空间里理解柚木。 器物图 空间图 案例资料 工艺说明 使用故事 器物观察 用户可以从探索柚木建立判断、从柚木美学和柚木生活寻找灵感，再从特色品牌了解公开资料。"
+      },
+      {
+        "path": "forms/vendor-apply.html",
+        "term": "案例",
+        "context": "绍。 图片来源 确认哪些图片可以公开展示，哪些仍需补充授权，避免后续展示说明不清。 案例材料 如有案例材料，需要确认文字、图片、客户信息和可公开范围。没有案例也可以先说明资料状态。 联系方式和服务说明 说明谁"
+      },
+      {
+        "path": "forms/vendor-apply.html",
+        "term": "案例",
+        "context": "确认哪些图片可以公开展示，哪些仍需补充授权，避免后续展示说明不清。 案例材料 如有案例材料，需要确认文字、图片、客户信息和可公开范围。没有案例也可以先说明资料状态。 联系方式和服务说明 说明谁负责沟通、覆盖"
+      },
+      {
+        "path": "forms/vendor-apply.html",
+        "term": "案例",
+        "context": "示说明不清。 案例材料 如有案例材料，需要确认文字、图片、客户信息和可公开范围。没有案例也可以先说明资料状态。 联系方式和服务说明 说明谁负责沟通、覆盖哪些区域、能提供哪些服务，以及哪些内容需要另行确认。 填"
+      },
+      {
+        "path": "forms/vendor-apply.html",
+        "term": "案例",
+        "context": "资料与授权 图片来源情况 已有可公开图片来源 有图片但需确认授权 暂时没有图片材料 案例材料情况 已有案例材料 有案例但需补充授权 暂时没有案例材料 联系人 联系方式 企业资料简述 生成申请摘要 生成后请复制"
+      },
+      {
+        "path": "forms/vendor-apply.html",
+        "term": "案例",
+        "context": "源情况 已有可公开图片来源 有图片但需确认授权 暂时没有图片材料 案例材料情况 已有案例材料 有案例但需补充授权 暂时没有案例材料 联系人 联系方式 企业资料简述 生成申请摘要 生成后请复制摘要，并通过首页咨"
+      },
+      {
+        "path": "forms/vendor-apply.html",
+        "term": "案例",
+        "context": "可公开图片来源 有图片但需确认授权 暂时没有图片材料 案例材料情况 已有案例材料 有案例但需补充授权 暂时没有案例材料 联系人 联系方式 企业资料简述 生成申请摘要 生成后请复制摘要，并通过首页咨询入口联系柚"
+      },
+      {
+        "path": "forms/vendor-apply.html",
+        "term": "案例",
+        "context": "确认授权 暂时没有图片材料 案例材料情况 已有案例材料 有案例但需补充授权 暂时没有案例材料 联系人 联系方式 企业资料简述 生成申请摘要 生成后请复制摘要，并通过首页咨询入口联系柚喜顾问。信息不会自动提交，"
+      },
+      {
+        "path": "forms/vendor-apply.html",
+        "term": "案例",
+        "context": "通过首页咨询入口沟通柚木问题继续沟通。沟通内容可以围绕企业资料、图片来源、联系方式、案例材料和服务范围展开。 返回首页咨询沟通 边界说明 填写信息不代表展示保证或合作承诺；是否进入特色品牌栏目，仍需结合品牌信"
+      },
+      {
+        "path": "knowledge/teak-basics.html",
+        "term": "概念",
+        "context": "有五个链接，还要看每个链接是否能帮助用户形成一个更清楚的问题。比如入门类要能解释基本概念，选购类要能提醒风险，工艺类要能说明判断维度，空间类要能回到使用场景，维护类要能给出日常注意，问答类要能回应真实疑问。"
+      },
+      {
+        "path": "knowledge/teak-basics.html",
+        "term": "案例",
+        "context": "入细分阅读，再回到柚木生活页，把知识放进具体空间和品类中继续判断。 看品牌资料或空间案例时，可以先把注意力放在材料、空间、维护和服务四件事上。材料是否讲清树种、结构和表面处理，空间是否适合地板、整装、户外、茶"
+      },
+      {
+        "path": "knowledge/teak-buying-guide.html",
+        "term": "概念",
+        "context": "有五个链接，还要看每个链接是否能帮助用户形成一个更清楚的问题。比如入门类要能解释基本概念，选购类要能提醒风险，工艺类要能说明判断维度，空间类要能回到使用场景，维护类要能给出日常注意，问答类要能回应真实疑问。"
+      },
+      {
+        "path": "knowledge/teak-buying-guide.html",
+        "term": "案例",
+        "context": "入细分阅读，再回到柚木生活页，把知识放进具体空间和品类中继续判断。 看品牌资料或空间案例时，可以先把注意力放在材料、空间、维护和服务四件事上。材料是否讲清树种、结构和表面处理，空间是否适合地板、整装、户外、茶"
+      },
+      {
+        "path": "knowledge/teak-care.html",
+        "term": "概念",
+        "context": "有五个链接，还要看每个链接是否能帮助用户形成一个更清楚的问题。比如入门类要能解释基本概念，选购类要能提醒风险，工艺类要能说明判断维度，空间类要能回到使用场景，维护类要能给出日常注意，问答类要能回应真实疑问。"
+      },
+      {
+        "path": "knowledge/teak-care.html",
+        "term": "案例",
+        "context": "入细分阅读，再回到柚木生活页，把知识放进具体空间和品类中继续判断。 看品牌资料或空间案例时，可以先把注意力放在材料、空间、维护和服务四件事上。材料是否讲清树种、结构和表面处理，空间是否适合地板、整装、户外、茶"
+      },
+      {
+        "path": "knowledge/teak-faq.html",
+        "term": "概念",
+        "context": "有五个链接，还要看每个链接是否能帮助用户形成一个更清楚的问题。比如入门类要能解释基本概念，选购类要能提醒风险，工艺类要能说明判断维度，空间类要能回到使用场景，维护类要能给出日常注意，问答类要能回应真实疑问。"
+      },
+      {
+        "path": "knowledge/teak-faq.html",
+        "term": "案例",
+        "context": "入细分阅读，再回到柚木生活页，把知识放进具体空间和品类中继续判断。 看品牌资料或空间案例时，可以先把注意力放在材料、空间、维护和服务四件事上。材料是否讲清树种、结构和表面处理，空间是否适合地板、整装、户外、茶"
+      },
+      {
+        "path": "knowledge/teak-material-craft.html",
+        "term": "概念",
+        "context": "有五个链接，还要看每个链接是否能帮助用户形成一个更清楚的问题。比如入门类要能解释基本概念，选购类要能提醒风险，工艺类要能说明判断维度，空间类要能回到使用场景，维护类要能给出日常注意，问答类要能回应真实疑问。"
+      },
+      {
+        "path": "knowledge/teak-material-craft.html",
+        "term": "概念",
+        "context": "需要企业补充，哪些内容要以合同、安装和售后说明为准。 材质和工艺的判断也不适合只停在概念层。真正进入入手或定制时，用户需要看到规格、厚度、结构、表面处理、服务范围和维护建议。如果这些内容没有被讲清，页面再好看"
+      },
+      {
+        "path": "knowledge/teak-material-craft.html",
+        "term": "案例",
+        "context": "入细分阅读，再回到柚木生活页，把知识放进具体空间和品类中继续判断。 看品牌资料或空间案例时，可以先把注意力放在材料、空间、维护和服务四件事上。材料是否讲清树种、结构和表面处理，空间是否适合地板、整装、户外、茶"
+      },
+      {
+        "path": "knowledge/teak-space-use.html",
+        "term": "概念",
+        "context": "有五个链接，还要看每个链接是否能帮助用户形成一个更清楚的问题。比如入门类要能解释基本概念，选购类要能提醒风险，工艺类要能说明判断维度，空间类要能回到使用场景，维护类要能给出日常注意，问答类要能回应真实疑问。"
+      },
+      {
+        "path": "knowledge/teak-space-use.html",
+        "term": "案例",
+        "context": "入细分阅读，再回到柚木生活页，把知识放进具体空间和品类中继续判断。 看品牌资料或空间案例时，可以先把注意力放在材料、空间、维护和服务四件事上。材料是否讲清树种、结构和表面处理，空间是否适合地板、整装、户外、茶"
+      },
+      {
+        "path": "knowledge/topics/avoid-cracking-warping.html",
+        "term": "概念",
+        "context": "响。 这类问题看起来很基础，但它会影响后面几乎所有判断：看知识文章时会影响你关注哪些概念，看柚木生活内容时会影响你如何理解适用空间，看特色品牌资料时会影响你是否能分辨“资料展示”和“服务承诺”的边界。 可以重"
+      },
+      {
+        "path": "knowledge/topics/avoid-cracking-warping.html",
+        "term": "概念",
+        "context": "理解。 参考资料与说明 本文结合公开木材知识和常见使用场景整理，帮助读者理解柚木相关概念。具体产品仍需结合品牌说明、材料文件、合同和售后服务确认。 把材料表现、使用场景和商家说明放在一起核对：公开信息可以帮助"
+      },
+      {
+        "path": "knowledge/topics/before-buying-teak-basics.html",
+        "term": "概念",
+        "context": "楚。 这类问题看起来很基础，但它会影响后面几乎所有判断：看知识文章时会影响你关注哪些概念，看柚木生活内容时会影响你如何理解适用空间，看品牌资料时会影响你是否能分辨“资料展示”和“服务承诺”的边界。 可以重点看"
+      },
+      {
+        "path": "knowledge/topics/before-buying-teak-basics.html",
+        "term": "概念",
+        "context": "理解。 参考资料与说明 本文结合公开木材知识和常见使用场景整理，帮助读者理解柚木相关概念。具体产品仍需结合品牌说明、材料文件、合同和售后服务确认。 把材料表现、使用场景和商家说明放在一起核对：公开信息可以帮助"
+      },
+      {
+        "path": "knowledge/topics/brand-or-factory.html",
+        "term": "概念",
+        "context": "把已经明确的产品说明、仍需补充的规格信息和自己拿不准的问题分开记录。这样阅读不会停在概念本身，也能让后续交流更聚焦。 如果后续要对比多个页面，也建议用相近问题比较，不要一页看颜色，另一页看报价，最后反而失去比"
+      },
+      {
+        "path": "knowledge/topics/brand-or-factory.html",
+        "term": "案例",
+        "context": "。 但品牌名称本身不等于所有问题都解决。仍然要看材料说明、规格、表面处理、授权图片、案例材料和售后说明是否清楚。 工厂的优势是材料和加工细节 工厂可能更接近材料、工艺和定制细节，能讲清加工方式、规格变化和生产"
+      },
+      {
+        "path": "knowledge/topics/brand-or-factory.html",
+        "term": "案例",
+        "context": "是继续比较的基础。 联系方式和图片来源不能忽略 真实展示需要确认联系方式、图片来源、案例材料和企业资料。没有授权的图片和未经确认的案例，不应该被当成合作背书。 如果你是在看公开信息参考库，更要理解它只是公开信"
+      },
+      {
+        "path": "knowledge/topics/brand-or-factory.html",
+        "term": "案例",
+        "context": "真实展示需要确认联系方式、图片来源、案例材料和企业资料。没有授权的图片和未经确认的案例，不应该被当成合作背书。 如果你是在看公开信息参考库，更要理解它只是公开信息整理。是否合作、是否展示、是否能提供服务，都"
+      },
+      {
+        "path": "knowledge/topics/brand-or-factory.html",
+        "term": "案例",
+        "context": "。 判断品牌或工厂前可以问什么 企业资料是否完整？ 材料和工艺说明是否清楚？ 图片和案例是否有授权？ 联系方式是否能确认？ 服务范围和售后说明怎么写？ 相关主题 买柚木最容易踩的坑 先避开常见判断误区。 同样"
+      },
+      {
+        "path": "knowledge/topics/clear-teak-description.html",
+        "term": "概念",
+        "context": "么。 这类问题看起来很基础，但它会影响后面几乎所有判断：看知识文章时会影响你关注哪些概念，看柚木生活内容时会影响你如何理解适用空间，看品牌资料时会影响你是否能分辨“资料展示”和“服务承诺”的边界。 可以重点看"
+      },
+      {
+        "path": "knowledge/topics/clear-teak-description.html",
+        "term": "概念",
+        "context": "理解。 参考资料与说明 本文结合公开木材知识和常见使用场景整理，帮助读者理解柚木相关概念。具体产品仍需结合品牌说明、材料文件、合同和售后服务确认。 把材料表现、使用场景和商家说明放在一起核对：公开信息可以帮助"
+      },
+      {
+        "path": "knowledge/topics/flooring-fit-space.html",
+        "term": "概念",
+        "context": "把已经明确的产品说明、仍需补充的规格信息和自己拿不准的问题分开记录。这样阅读不会停在概念本身，也能让后续交流更聚焦。 如果后续要对比多个页面，也建议用相近问题比较，不要一页看颜色，另一页看报价，最后反而失去比"
+      },
+      {
+        "path": "knowledge/topics/flooring-vs-furniture-craft.html",
+        "term": "概念",
+        "context": "断。 这类问题看起来很基础，但它会影响后面几乎所有判断：看知识文章时会影响你关注哪些概念，看柚木生活内容时会影响你如何理解适用空间，看品牌资料时会影响你是否能分辨“资料展示”和“服务承诺”的边界。 可以重点看"
+      },
+      {
+        "path": "knowledge/topics/flooring-vs-furniture-craft.html",
+        "term": "概念",
+        "context": "理解。 参考资料与说明 本文结合公开木材知识和常见使用场景整理，帮助读者理解柚木相关概念。具体产品仍需结合品牌说明、材料文件、合同和售后服务确认。 把材料表现、使用场景和商家说明放在一起核对：公开信息可以帮助"
+      },
+      {
+        "path": "knowledge/topics/is-teak-always-expensive.html",
+        "term": "概念",
+        "context": "较。 这类问题看起来很基础，但它会影响后面几乎所有判断：看知识文章时会影响你关注哪些概念，看柚木生活内容时会影响你如何理解适用空间，看特色品牌资料时会影响你是否能分辨“资料展示”和“服务承诺”的边界。 可以重"
+      },
+      {
+        "path": "knowledge/topics/is-teak-always-expensive.html",
+        "term": "概念",
+        "context": "理解。 参考资料与说明 本文结合公开木材知识和常见使用场景整理，帮助读者理解柚木相关概念。具体产品仍需结合品牌说明、材料文件、合同和售后服务确认。 把材料表现、使用场景和商家说明放在一起核对：公开信息可以帮助"
+      },
+      {
+        "path": "knowledge/topics/not-only-color-photo.html",
+        "term": "概念",
+        "context": "明。 这类问题看起来很基础，但它会影响后面几乎所有判断：看知识文章时会影响你关注哪些概念，看柚木生活内容时会影响你如何理解适用空间，看品牌资料时会影响你是否能分辨“资料展示”和“服务承诺”的边界。 可以重点看"
+      },
+      {
+        "path": "knowledge/topics/not-only-color-photo.html",
+        "term": "概念",
+        "context": "理解。 参考资料与说明 本文结合公开木材知识和常见使用场景整理，帮助读者理解柚木相关概念。具体产品仍需结合品牌说明、材料文件、合同和售后服务确认。 把材料表现、使用场景和商家说明放在一起核对：公开信息可以帮助"
+      },
+      {
+        "path": "knowledge/topics/outdoor-teak-judgement.html",
+        "term": "概念",
+        "context": "护。 这类问题看起来很基础，但它会影响后面几乎所有判断：看知识文章时会影响你关注哪些概念，看柚木生活内容时会影响你如何理解适用空间，看特色品牌资料时会影响你是否能分辨“资料展示”和“服务承诺”的边界。 可以重"
+      },
+      {
+        "path": "knowledge/topics/outdoor-teak-judgement.html",
+        "term": "概念",
+        "context": "理解。 参考资料与说明 本文结合公开木材知识和常见使用场景整理，帮助读者理解柚木相关概念。具体产品仍需结合品牌说明、材料文件、合同和售后服务确认。 把材料表现、使用场景和商家说明放在一起核对：公开信息可以帮助"
+      },
+      {
+        "path": "knowledge/topics/questions-before-vendor.html",
+        "term": "概念",
+        "context": "段。 这类问题看起来很基础，但它会影响后面几乎所有判断：看知识文章时会影响你关注哪些概念，看柚木生活内容时会影响你如何理解适用空间，看品牌资料时会影响你是否能分辨“资料展示”和“服务承诺”的边界。 可以重点看"
+      },
+      {
+        "path": "knowledge/topics/questions-before-vendor.html",
+        "term": "概念",
+        "context": "理解。 参考资料与说明 本文结合公开木材知识和常见使用场景整理，帮助读者理解柚木相关概念。具体产品仍需结合品牌说明、材料文件、合同和售后服务确认。 把材料表现、使用场景和品牌与服务方说明放在一起核对：公开信息"
+      },
+      {
+        "path": "knowledge/topics/tea-room-teak-space.html",
+        "term": "概念",
+        "context": "线。 这类问题看起来很基础，但它会影响后面几乎所有判断：看知识文章时会影响你关注哪些概念，看柚木生活内容时会影响你如何理解适用空间，看特色品牌资料时会影响你是否能分辨“资料展示”和“服务承诺”的边界。 可以重"
+      },
+      {
+        "path": "knowledge/topics/tea-room-teak-space.html",
+        "term": "概念",
+        "context": "理解。 参考资料与说明 本文结合公开木材知识和常见使用场景整理，帮助读者理解柚木相关概念。具体产品仍需结合品牌说明、材料文件、合同和售后服务确认。 把材料表现、使用场景和商家说明放在一起核对：公开信息可以帮助"
+      },
+      {
+        "path": "knowledge/topics/teak-bathroom-balcony.html",
+        "term": "概念",
+        "context": "式。 这类问题看起来很基础，但它会影响后面几乎所有判断：看知识文章时会影响你关注哪些概念，看柚木生活内容时会影响你如何理解适用空间，看品牌资料时会影响你是否能分辨“资料展示”和“服务承诺”的边界。 可以重点看"
+      },
+      {
+        "path": "knowledge/topics/teak-bathroom-balcony.html",
+        "term": "概念",
+        "context": "理解。 参考资料与说明 本文结合公开木材知识和常见使用场景整理，帮助读者理解柚木相关概念。具体产品仍需结合品牌说明、材料文件、合同和售后服务确认。 把材料表现、使用场景和品牌与服务方说明放在一起核对：公开信息"
+      },
+      {
+        "path": "knowledge/topics/teak-drying-process.html",
+        "term": "概念",
+        "context": "现。 这类问题看起来很基础，但它会影响后面几乎所有判断：看知识文章时会影响你关注哪些概念，看柚木生活内容时会影响你如何理解适用空间，看特色品牌资料时会影响你是否能分辨“资料展示”和“服务承诺”的边界。 可以重"
+      },
+      {
+        "path": "knowledge/topics/teak-drying-process.html",
+        "term": "概念",
+        "context": "理解。 参考资料与说明 本文结合公开木材知识和常见使用场景整理，帮助读者理解柚木相关概念。具体产品仍需结合品牌说明、材料文件、合同和售后服务确认。 把材料表现、使用场景和商家说明放在一起核对：公开信息可以帮助"
+      },
+      {
+        "path": "knowledge/topics/teak-home-spaces.html",
+        "term": "概念",
+        "context": "配。 这类问题看起来很基础，但它会影响后面几乎所有判断：看知识文章时会影响你关注哪些概念，看柚木生活内容时会影响你如何理解适用空间，看特色品牌资料时会影响你是否能分辨“资料展示”和“服务承诺”的边界。 可以重"
+      },
+      {
+        "path": "knowledge/topics/teak-home-spaces.html",
+        "term": "概念",
+        "context": "理解。 参考资料与说明 本文结合公开木材知识和常见使用场景整理，帮助读者理解柚木相关概念。具体产品仍需结合品牌说明、材料文件、合同和售后服务确认。 把材料表现、使用场景和商家说明放在一起核对：公开信息可以帮助"
+      },
+      {
+        "path": "knowledge/topics/teak-joinery-surface.html",
+        "term": "概念",
+        "context": "式。 这类问题看起来很基础，但它会影响后面几乎所有判断：看知识文章时会影响你关注哪些概念，看柚木生活内容时会影响你如何理解适用空间，看品牌资料时会影响你是否能分辨“资料展示”和“服务承诺”的边界。 可以重点看"
+      },
+      {
+        "path": "knowledge/topics/teak-joinery-surface.html",
+        "term": "概念",
+        "context": "理解。 参考资料与说明 本文结合公开木材知识和常见使用场景整理，帮助读者理解柚木相关概念。具体产品仍需结合品牌说明、材料文件、合同和售后服务确认。 把材料表现、使用场景和商家说明放在一起核对：公开信息可以帮助"
+      },
+      {
+        "path": "knowledge/topics/teak-kids-pets-home.html",
+        "term": "概念",
+        "context": "式。 这类问题看起来很基础，但它会影响后面几乎所有判断：看知识文章时会影响你关注哪些概念，看柚木生活内容时会影响你如何理解适用空间，看品牌资料时会影响你是否能分辨“资料展示”和“服务承诺”的边界。 可以重点看"
+      },
+      {
+        "path": "knowledge/topics/teak-kids-pets-home.html",
+        "term": "概念",
+        "context": "理解。 参考资料与说明 本文结合公开木材知识和常见使用场景整理，帮助读者理解柚木相关概念。具体产品仍需结合品牌说明、材料文件、合同和售后服务确认。 把材料表现、使用场景和品牌与服务方说明放在一起核对：公开信息"
+      },
+      {
+        "path": "knowledge/topics/teak-oil-stability.html",
+        "term": "概念",
+        "context": "由。 这类问题看起来很基础，但它会影响后面几乎所有判断：看知识文章时会影响你关注哪些概念，看柚木生活内容时会影响你如何理解适用空间，看特色品牌资料时会影响你是否能分辨“资料展示”和“服务承诺”的边界。 可以重"
+      },
+      {
+        "path": "knowledge/topics/teak-oil-stability.html",
+        "term": "概念",
+        "context": "理解。 参考资料与说明 本文结合公开木材知识和常见使用场景整理，帮助读者理解柚木相关概念。具体产品仍需结合品牌说明、材料文件、合同和售后服务确认。 把材料表现、使用场景和商家说明放在一起核对：公开信息可以帮助"
+      },
+      {
+        "path": "knowledge/topics/teak-vs-common-wood-basic.html",
+        "term": "概念",
+        "context": "式。 这类问题看起来很基础，但它会影响后面几乎所有判断：看知识文章时会影响你关注哪些概念，看柚木生活内容时会影响你如何理解适用空间，看特色品牌资料时会影响你是否能分辨“资料展示”和“服务承诺”的边界。 可以重"
+      },
+      {
+        "path": "knowledge/topics/teak-vs-common-wood-basic.html",
+        "term": "概念",
+        "context": "理解。 参考资料与说明 本文结合公开木材知识和常见使用场景整理，帮助读者理解柚木相关概念。具体产品仍需结合品牌说明、材料文件、合同和售后服务确认。 把材料表现、使用场景和商家说明放在一起核对：公开信息可以帮助"
+      },
+      {
+        "path": "knowledge/topics/teak-vs-walnut.html",
+        "term": "概念",
+        "context": "间。 这类问题看起来很基础，但它会影响后面几乎所有判断：看知识文章时会影响你关注哪些概念，看柚木生活内容时会影响你如何理解适用空间，看特色品牌资料时会影响你是否能分辨“资料展示”和“服务承诺”的边界。 可以重"
+      },
+      {
+        "path": "knowledge/topics/teak-vs-walnut.html",
+        "term": "概念",
+        "context": "理解。 参考资料与说明 本文结合公开木材知识和常见使用场景整理，帮助读者理解柚木相关概念。具体产品仍需结合品牌说明、材料文件、合同和售后服务确认。 把材料表现、使用场景和商家说明放在一起核对：公开信息可以帮助"
+      },
+      {
+        "path": "knowledge/topics/whole-decoration-fit-home.html",
+        "term": "概念",
+        "context": "虑。 这类问题看起来很基础，但它会影响后面几乎所有判断：看知识文章时会影响你关注哪些概念，看柚木生活内容时会影响你如何理解适用空间，看特色品牌资料时会影响你是否能分辨“资料展示”和“服务承诺”的边界。 可以重"
+      },
+      {
+        "path": "knowledge/topics/whole-decoration-fit-home.html",
+        "term": "概念",
+        "context": "理解。 参考资料与说明 本文结合公开木材知识和常见使用场景整理，帮助读者理解柚木相关概念。具体产品仍需结合品牌说明、材料文件、合同和售后服务确认。 把材料表现、使用场景和商家说明放在一起核对：公开信息可以帮助"
+      },
+      {
+        "path": "knowledge/topics/why-teak-for-home.html",
+        "term": "概念",
+        "context": "好。 这类问题看起来很基础，但它会影响后面几乎所有判断：看知识文章时会影响你关注哪些概念，看柚木生活内容时会影响你如何理解适用空间，看品牌资料时会影响你是否能分辨“资料展示”和“服务承诺”的边界。 可以重点看"
+      },
+      {
+        "path": "knowledge/topics/why-teak-for-home.html",
+        "term": "概念",
+        "context": "理解。 参考资料与说明 本文结合公开木材知识和常见使用场景整理，帮助读者理解柚木相关概念。具体产品仍需结合品牌说明、材料文件、合同和售后服务确认。 把材料表现、使用场景和品牌与服务方说明放在一起核对：公开信息"
+      },
+      {
+        "path": "solutions/flooring.html",
+        "term": "灵感",
+        "context": "料做法、交付范围和维护责任比较回答质量。只停留在风格形容和图片展示的内容，更适合作为灵感参考。 内容边界 本页从地面与空间的关系出发，不构成材料性能、安装效果或服务能力承诺；具体选择仍需核对现场和产品资料。"
+      },
+      {
+        "path": "solutions/flooring.html",
+        "term": "案例",
+        "context": "果相关企业资料还不够完整，可以先回到具体场景里判断，把需要补充的产品说明、联系方式、案例材料和售后内容留到沟通时确认。 具体沟通前，可以先准备几张现场照片、简单尺寸、使用习惯和最担心的问题。对柚木地板来说，审"
+      },
+      {
+        "path": "solutions/furniture.html",
+        "term": "灵感",
+        "context": "料做法、交付范围和维护责任比较回答质量。只停留在风格形容和图片展示的内容，更适合作为灵感参考。 内容边界 本页用于理解家具与空间尺度、动线和日常使用的关系，不对应特定产品或品牌，也不构成品质与交付承诺。 咨询"
+      },
+      {
+        "path": "solutions/furniture.html",
+        "term": "案例",
+        "context": "把它作为风格参考。 家具方向后续如转为真实展示，还需要企业资料、图片来源、联系方式、案例材料和服务说明逐项确认。 更多柚木美学 如果已经有大致方向，可以先把自己的空间条件写下来：放在哪个房间或区域，平时谁在用"
+      },
+      {
+        "path": "solutions/furniture.html",
+        "term": "案例",
+        "context": "果相关企业资料还不够完整，可以先回到具体场景里判断，把需要补充的产品说明、联系方式、案例材料和售后内容留到沟通时确认。 具体沟通前，可以先准备几张现场照片、简单尺寸、使用习惯和最担心的问题。对柚木家具来说，审"
+      },
+      {
+        "path": "solutions/index.html",
+        "term": "案例",
+        "context": "故事、公开阅读线索和品牌提供的授权内容，从材质、器物与空间中理解长期生活。 真实空间案例会逐步进入对应好物分类。 发现特色品牌 生态合作 柚喜饰界 - 柚木生活 发现柚木家具、地板、整装、户外、收藏和文创好物"
+      },
+      {
+        "path": "solutions/goods/seaside-teak-floor.html",
+        "term": "案例",
+        "context": "，再判断它是否适合长期使用。 资料边界 本页为滨海居住环境的判断参考，不对应真实完工案例；防潮、铺装和长期表现需按具体项目条件核实。 References 继续了解 这些资料适合和「海边住宅里的柚木地板」一起"
+      },
+      {
+        "path": "solutions/goods/teak-pool-deck.html",
+        "term": "案例",
+        "context": "材料变化保持在可接受的范围里。 资料边界 本页为泳池边场景的判断参考，不对应真实完工案例，也不构成防滑、防水或耐久性能检测结论。 References 继续了解 这些资料能给「泳池边的柚木平台」补上材料背景。"
+      },
+      {
+        "path": "solutions/goods/old-teak-door.html",
+        "term": "模拟",
+        "context": "带来的不是崭新感，而是一种被时间磨过的安定。 许多人喜欢老柚木门，是因为新的材料很难模拟这种层次。边角被磨圆，表面有轻微凹凸，某些位置颜色更深，某些地方还能看见修补的痕迹。这些细节让一扇门不再只是构件。 旧并"
+      },
+      {
+        "path": "solutions/outdoor.html",
+        "term": "灵感",
+        "context": "料做法、交付范围和维护责任比较回答质量。只停留在风格形容和图片展示的内容，更适合作为灵感参考。 本页为柚木户外方向的基础阅读，不代表服务承诺；具体合作需完成资料和服务说明确认。 把具体问题发给柚喜 继续了解户"
+      },
+      {
+        "path": "solutions/outdoor.html",
+        "term": "案例",
+        "context": "果相关企业资料还不够完整，可以先回到具体场景里判断，把需要补充的产品说明、联系方式、案例材料和售后内容留到沟通时确认。 具体沟通前，可以先准备几张现场照片、简单尺寸、使用习惯和最担心的问题。对柚木户外来说，审"
+      },
+      {
+        "path": "solutions/tea-room.html",
+        "term": "灵感",
+        "context": "料做法、交付范围和维护责任比较回答质量。只停留在风格形容和图片展示的内容，更适合作为灵感参考。 内容边界 本页为茶空间中的材料、比例与使用关系参考，不对应真实完工项目；实际空间仍需结合尺寸、光线与使用方式判断"
+      },
+      {
+        "path": "solutions/tea-room.html",
+        "term": "案例",
+        "context": "果相关企业资料还不够完整，可以先回到具体场景里判断，把需要补充的产品说明、联系方式、案例材料和售后内容留到沟通时确认。主入口里，这类内容会分别并入柚木整装、柚木家具或柚木文创。 具体沟通前，可以先准备几张现场"
+      },
+      {
+        "path": "solutions/whole-decoration.html",
+        "term": "灵感",
+        "context": "和图片来源。 如果资料里只有风格词，没有空间条件、服务说明和联系方式确认，可以先作为灵感参考，不要直接当成完整整装能力。 后续进入观察资料页时，可以重点看整装木作、墙面材料和同一材料多位置应用的公开资料，再把"
+      },
+      {
+        "path": "solutions/whole-decoration.html",
+        "term": "灵感",
+        "context": "料做法、交付范围和维护责任比较回答质量。只停留在风格形容和图片展示的内容，更适合作为灵感参考。 本页为柚木整装方向的基础阅读，不代表任何企业已完成资料确认；具体合作仍需结合企业资料、图片来源材料、合同和服务说"
+      },
+      {
+        "path": "solutions/whole-decoration.html",
+        "term": "案例",
+        "context": "方要留白，该用其他材质过渡的地方也不必勉强统一。 第二个误区，是只看效果图，不看真实案例材料。整装如果没有空间条件、材料清单、施工边界和后续维护说明，用户很难判断它是否能落地。 第三个误区，是忽略服务说明。整"
+      },
+      {
+        "path": "solutions/whole-decoration.html",
+        "term": "案例",
+        "context": "不要只看它是否展示了漂亮空间图。更重要的是它能不能说明材料来源、木作范围、服务区域、案例材料和图片来源。 如果资料里只有风格词，没有空间条件、服务说明和联系方式确认，可以先作为灵感参考，不要直接当成完整整装能"
+      },
+      {
+        "path": "solutions/whole-decoration.html",
+        "term": "案例",
+        "context": "果相关企业资料还不够完整，可以先回到具体场景里判断，把需要补充的产品说明、联系方式、案例材料和售后内容留到沟通时确认。 具体沟通前，可以先准备几张现场照片、简单尺寸、使用习惯和最担心的问题。对柚木整装来说，审"
+      },
+      {
+        "path": "vendors/candidates/index.html",
+        "term": "案例",
+        "context": "整装方向适合先看墙面、柜体、木作和空间表面材料。不要只看效果图，要看材料、服务范围和案例材料是否能对上。 柚木户外 户外方向适合先看日晒雨淋、结构连接、五金、耐候和维护周期。图片好看只是第一步，结构和维护说明"
+      },
+      {
+        "path": "vendors/candidates/index.html",
+        "term": "案例",
+        "context": "整装方向适合先看墙面、柜体、木作和空间表面材料。不要只看效果图，要看材料、服务范围和案例材料是否能对上。 柚木整装 Noblewood Reclaimed Teak 公开资料中有再生柚木墙板、饰面板和空间材料"
+      },
+      {
+        "path": "vendors/flooring-sample.html",
+        "term": "案例",
+        "context": "条件向服务商逐项确认。 值得确认的信息 企业介绍、主营方向、产品图片、服务区域、真实案例、工艺说明和联系方式越清楚，你越容易判断是否值得进一步沟通。 图片、案例、联系人和服务范围都应表达清楚。用户仍然需要结合"
+      },
+      {
+        "path": "vendors/flooring-sample.html",
+        "term": "案例",
+        "context": "务区域、真实案例、工艺说明和联系方式越清楚，你越容易判断是否值得进一步沟通。 图片、案例、联系人和服务范围都应表达清楚。用户仍然需要结合合同、产品说明、交付安排和售后服务自行判断。 比较服务商时怎么判断 不要"
+      },
+      {
+        "path": "vendors/flooring-sample.html",
+        "term": "案例",
+        "context": "和售后责任的确认。 把未说明的内容问清楚 重点核对品牌介绍、主营方向、图片来源、真实案例、服务区域、联系方式和服务说明；没有讲清楚的内容，不宜直接理解成承诺。 把这些问题逐项确认，可以更清楚地比较产品范围、安"
+      },
+      {
+        "path": "vendors/index.html",
+        "term": "案例",
+        "context": "选择参考 上海庄信柚木 当前可确认的公开信息有限，进一步了解前请核实主营方向、真实案例与服务范围。 主营方向 公开信息持续完善中 所在区域 公开信息持续完善中 品牌背景 公开信息持续完善中 柚木整装 建议进"
+      },
+      {
+        "path": "vendors/index.html",
+        "term": "案例",
+        "context": "信息持续完善中 品牌背景 公开信息持续完善中 柚木整装 建议进一步核实品牌资料与真实案例 了解品牌 选择参考 臻藏柚木生活 可重点了解其整装、家具、收纳木作与生活空间方向，具体能力以品牌正式说明为准。 主营方"
+      },
+      {
+        "path": "vendors/whole-decoration-sample.html",
+        "term": "案例",
+        "context": "案与服务边界 了解整装服务时，应同时查看空间方案、选材能力、木作配合、服务区域、真实案例和沟通方式，并确认对方更擅长庭院、茶室、会客区、私宅还是民宿空间。 空间效果、材料比例、施工安排、维护方式和售后责任都需"
+      },
+      {
+        "path": "vendors/whole-decoration-sample.html",
+        "term": "案例",
+        "context": "、施工合同或服务协议。 值得确认的信息 企业介绍、主营方向、产品图片、服务区域、真实案例、工艺说明和联系方式越清楚，你越容易判断是否值得进一步沟通。 图片、案例、联系人和服务范围都应表达清楚。用户仍然需要结合"
+      },
+      {
+        "path": "vendors/whole-decoration-sample.html",
+        "term": "案例",
+        "context": "务区域、真实案例、工艺说明和联系方式越清楚，你越容易判断是否值得进一步沟通。 图片、案例、联系人和服务范围都应表达清楚。用户仍然需要结合合同、产品说明、交付安排和售后服务自行判断。 比较服务商时怎么判断 不要"
+      },
+      {
+        "path": "vendors/whole-decoration-sample.html",
+        "term": "案例",
+        "context": "和售后责任的确认。 把未说明的内容问清楚 重点核对品牌介绍、主营方向、图片来源、真实案例、服务区域、联系方式和服务说明；没有讲清楚的内容，不宜直接理解成承诺。 把这些问题逐项确认，可以更清楚地比较方案范围、交"
+      },
+      {
+        "path": "vendors/workshop-sample.html",
+        "term": "样板",
+        "context": "品牌资料展示样板｜柚喜饰界 柚喜饰界 柚木生活方式 首页 探索柚木 探索柚木首页 初识柚木 材质与工艺 选购与判断 使用与养护 柚木美学"
+      },
+      {
+        "path": "vendors/workshop-sample.html",
+        "term": "样板",
+        "context": "活 老木与收藏 文创器物 特色品牌 生态合作 咨询柚喜 首页 生态合作 品牌资料展示样板 Brand Profile Sample 品牌资料展示样板 用克制、可核验的结构说明品牌方向、资料来源和用户仍需确认的"
+      },
+      {
+        "path": "vendors/workshop-sample.html",
+        "term": "样板",
+        "context": "生态合作 品牌资料展示样板 Brand Profile Sample 品牌资料展示样板 用克制、可核验的结构说明品牌方向、资料来源和用户仍需确认的边界。 样板边界 本页为品牌资料展示样板，不对应真实品牌或企"
+      },
+      {
+        "path": "vendors/workshop-sample.html",
+        "term": "样板",
+        "context": "品牌资料展示样板 用克制、可核验的结构说明品牌方向、资料来源和用户仍需确认的边界。 样板边界 本页为品牌资料展示样板，不对应真实品牌或企业。页面不包含虚构公司名称、地址、联系方式、产品、历史或服务能力。 品牌"
+      },
+      {
+        "path": "vendors/workshop-sample.html",
+        "term": "样板",
+        "context": "核验的结构说明品牌方向、资料来源和用户仍需确认的边界。 样板边界 本页为品牌资料展示样板，不对应真实品牌或企业。页面不包含虚构公司名称、地址、联系方式、产品、历史或服务能力。 品牌资料页应先回答什么 正式品牌"
+      },
+      {
+        "path": "vendors/workshop-sample.html",
+        "term": "样板",
+        "context": "片、可核验的产品或工艺资料、服务区域、联系方式和资料更新时间。资料不足时，应继续保持样板身份。 用户如何理解本页 本页展示的是资料组织方式，不是品牌推荐、官方认证、质量保证或交易担保，也不暗示存在对应企业。"
+      },
+      {
+        "path": "vendors/workshop-sample.html",
+        "term": "样板",
+        "context": "担保，也不暗示存在对应企业。 咨询一个柚木问题 了解生态合作 柚喜饰界｜品牌资料展示样板 本页不对应真实品牌或企业。 运营主体：杭州创始记科技发展有限公司 浙ICP备2021004169号-2"
+      },
+      {
+        "path": "vendors/workshop-sample.html",
+        "term": "虚构",
+        "context": "仍需确认的边界。 样板边界 本页为品牌资料展示样板，不对应真实品牌或企业。页面不包含虚构公司名称、地址、联系方式、产品、历史或服务能力。 品牌资料页应先回答什么 正式品牌页应先说明品牌名称、与柚木相关的公开方"
+      },
+      {
+        "path": "vendors/wachen-teak.html",
+        "term": "案例",
+        "context": "说明、空间经验与交付边界。当前尚未获得可稳定核验的官方介绍，因此不对企业历史、规模、案例、联系方式或服务区域作确定表述。 适合关注 柚木整装 关注整屋空间、木作配合、地面墙面关系和家具搭配。 全房定制 关注柜"
+      },
+      {
+        "path": "vendors/wachen-teak.html",
+        "term": "案例",
+        "context": "、交付与维护放在一起确认。 进一步了解前建议确认 企业介绍、产品说明、授权图片、真实案例、服务区域、联系方式和合作边界，均应以企业正式发布或授权的信息为准。 信息边界 当前未获得可稳定核验的企业官网、公众号公"
+      },
+      {
+        "path": "vendors/wachen-teak.html",
+        "term": "案例",
+        "context": "网、公众号公开页或正式品牌介绍，因此本页只提供选择时的关注方向，不对企业历史、规模、案例、联系方式或服务范围作确认。 把具体问题发给柚喜 查看更多品牌资料 柚喜饰界 - 佤臣柚木 特色品牌资料仅供了解，具体合"
+      },
+      {
+        "path": "vendors/shanghai-zhuangxin-teak.html",
+        "term": "案例",
+        "context": "rofile 上海庄信柚木 当前可确认的公开信息有限，进一步了解前请核实品牌、产品、案例与服务范围。 了解品牌时可以先看 如果你正在了解上海庄信柚木，可先确认主营产品、材料说明、真实案例、服务区域和联系方式。"
+      },
+      {
+        "path": "vendors/shanghai-zhuangxin-teak.html",
+        "term": "案例",
+        "context": "。 了解品牌时可以先看 如果你正在了解上海庄信柚木，可先确认主营产品、材料说明、真实案例、服务区域和联系方式。以上内容需要以企业正式发布或授权的信息为准。 适合关注 企业资料 关注后续是否能补充企业介绍、公开"
+      },
+      {
+        "path": "vendors/shanghai-zhuangxin-teak.html",
+        "term": "案例",
+        "context": "主营方向。建议向品牌确认其更侧重柚木地板、整装、家具还是其他服务，并索取对应的产品与案例说明。 进一步了解前建议确认 企业介绍、产品说明、授权图片、真实案例、服务区域、联系方式和合作边界，均应以企业正式发布或"
+      },
+      {
+        "path": "vendors/shanghai-zhuangxin-teak.html",
+        "term": "案例",
+        "context": "索取对应的产品与案例说明。 进一步了解前建议确认 企业介绍、产品说明、授权图片、真实案例、服务区域、联系方式和合作边界，均应以企业正式发布或授权的信息为准。 信息边界 当前未获得可稳定核验的企业官网、公众号公"
+      },
+      {
+        "path": "vendors/shanghai-zhuangxin-teak.html",
+        "term": "案例",
+        "context": "、公众号公开页或正式品牌介绍，因此本页只提供核对方向，不对主营业务、企业历史、规模、案例、联系方式或服务范围作确认。 把具体问题发给柚喜 查看更多品牌资料 柚喜饰界 - 上海庄信柚木 特色品牌资料仅供了解，具"
+      },
+      {
+        "path": "vendors/zhenzang-teak-life.html",
+        "term": "案例",
+        "context": "空间、产品和使用场景之间的关系。当前尚未获得可稳定核验的官方介绍，因此不对企业历史、案例、联系方式或服务范围作确定表述。 适合关注 柚木整装 关注地面、柜体、墙面、家具和空间氛围能否形成清晰表达。 柚木茶室空"
+      },
+      {
+        "path": "vendors/zhenzang-teak-life.html",
+        "term": "案例",
+        "context": "们是否适合自己的使用方式。 进一步了解前建议确认 企业介绍、产品说明、授权图片、真实案例、服务区域、联系方式和合作边界，均应以企业正式发布或授权的信息为准。 信息边界 当前未获得可稳定核验的企业官网、公众号公"
+      },
+      {
+        "path": "vendors/zhenzang-teak-life.html",
+        "term": "案例",
+        "context": "网、公众号公开页或正式品牌介绍，因此本页只提供选择时的关注方向，不对企业历史、规模、案例、联系方式或服务范围作确认。 把具体问题发给柚喜 查看更多品牌资料 柚喜饰界 - 臻藏柚木生活 特色品牌资料仅供了解，具"
+      },
+      {
+        "path": "vendors/yuebaijia-teak-flooring.html",
+        "term": "案例",
+        "context": "、产品规格、铺装条件和长期维护。当前尚未获得可稳定核验的官方介绍，因此不对企业历史、案例、联系方式或服务范围作确定表述。 适合关注 地板材质 关注板材结构、厚度、宽度、含水率和表面处理是否有清晰说明。 安装维"
+      },
+      {
+        "path": "vendors/yuebaijia-teak-flooring.html",
+        "term": "案例",
+        "context": "要放在一起核对。 进一步了解前建议确认 企业介绍、产品规格、铺装说明、授权图片、真实案例、服务区域、联系方式和合作边界，均应以企业正式发布或授权的信息为准。 信息边界 当前未获得可稳定核验的企业官网、公众号公"
+      },
+      {
+        "path": "vendors/yuebaijia-teak-flooring.html",
+        "term": "案例",
+        "context": "网、公众号公开页或正式品牌介绍，因此本页只提供选择时的关注方向，不对企业历史、规模、案例、联系方式或服务范围作确认。 把具体问题发给柚喜 查看更多品牌资料 柚喜饰界 - 悦百家柚木地板 特色品牌资料仅供了解，"
+      },
+      {
+        "path": "vendors/xuelianhua-teak-furniture.html",
+        "term": "案例",
+        "context": "、材质工艺、空间搭配和日常维护。当前尚未获得可稳定核验的官方介绍，因此不对企业历史、案例、联系方式或服务范围作确定表述。 适合关注 家具品类 关注桌椅、柜体、边几、收纳和小件家具的产品范围。 工艺细节 关注选"
+      },
+      {
+        "path": "vendors/xuelianhua-teak-furniture.html",
+        "term": "案例",
+        "context": "处理和搭配关系都值得核对。 进一步了解前建议确认 企业介绍、产品说明、授权图片、真实案例、服务区域、联系方式和合作边界，均应以企业正式发布或授权的信息为准。 信息边界 当前未获得可稳定核验的企业官网、公众号公"
+      },
+      {
+        "path": "vendors/xuelianhua-teak-furniture.html",
+        "term": "案例",
+        "context": "网、公众号公开页或正式品牌介绍，因此本页只提供选择时的关注方向，不对企业历史、规模、案例、联系方式或服务范围作确认。 把具体问题发给柚喜 查看更多品牌资料 柚喜饰界 - 雪莲花柚木家具 特色品牌资料仅供了解，"
+      },
+      {
+        "path": "vendors/yixin-teak.html",
+        "term": "案例",
+        "context": "、材料说明、空间应用和服务边界。当前尚未获得可稳定核验的官方介绍，因此不对企业历史、案例、联系方式或服务范围作确定表述。 适合关注 主营方向 关注品牌重点落在哪些柚木产品或空间方向。 材料表达 关注是否说明木"
+      },
+      {
+        "path": "vendors/yixin-teak.html",
+        "term": "案例",
+        "context": "说明和服务流程都值得核对。 进一步了解前建议确认 企业介绍、产品说明、授权图片、真实案例、服务区域、联系方式和合作边界，均应以企业正式发布或授权的信息为准。 信息边界 当前未获得可稳定核验的企业官网、公众号公"
+      },
+      {
+        "path": "vendors/yixin-teak.html",
+        "term": "案例",
+        "context": "网、公众号公开页或正式品牌介绍，因此本页只提供选择时的关注方向，不对企业历史、规模、案例、联系方式或服务范围作确认。 把具体问题发给柚喜 查看更多品牌资料 柚喜饰界 - 壹信柚木 特色品牌资料仅供了解，具体合"
+      }
+    ]
+  },
+  "robots": {
+    "content": "User-agent: *\nAllow: /\n\nSitemap: https://www.zhengmu.cn/sitemap.xml\n",
+    "productionAllowsIndexing": true
+  }
+}

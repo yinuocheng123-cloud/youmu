@@ -1,6 +1,6 @@
 <!--
-文件说明：该文件实现 GitHub Pages 预览阶段的 404 错误页。
-功能说明：在访问不存在页面时展示品牌提示，并提供返回首页的相对路径入口。
+文件说明：该文件实现正式网站的 404 错误页。
+功能说明：在访问不存在页面时展示品牌提示，并提供返回首页的安全入口。
 
 结构概览：
   第一部分：页面元信息与基础样式
@@ -80,6 +80,23 @@
         border-radius: 6px;
         text-decoration: none;
       }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px 16px;
+        margin-top: 20px;
+      }
+
+      nav a {
+        min-height: 32px;
+        margin: 0;
+        padding: 0;
+        color: #6d5f50;
+        background: transparent;
+        font-size: 14px;
+      }
     </style>
   </head>
   <body>
@@ -88,7 +105,15 @@
       <img src="/assets/logo-yuxi-horizontal.svg" alt="柚喜饰界，柚木爱好者乐园" width="390" height="96" decoding="async" />
       <h1>页面没有找到</h1>
       <p>这个页面可能还没有发布，或链接已经调整。可以先回到首页继续预览。</p>
+      <nav aria-label="品牌导航">
+        <a href="/knowledge/index.html">探索柚木</a>
+        <a href="/cases/index.html">柚木美学</a>
+        <a href="/solutions/index.html">柚木生活</a>
+        <a href="/vendors/index.html">特色品牌</a>
+        <a href="/cooperation/index.html">生态合作</a>
+      </nav>
       <a href="/">返回首页</a>
+      <a href="/#wechat">咨询柚喜</a>
     </main>
     <script src="/script.js"></script>
   </body>

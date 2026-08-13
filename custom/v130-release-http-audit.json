@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "localOrigin": "http://127.0.0.1:8090",
+  "sitemapPages": 126,
+  "sitemapPagesPassed": 126,
+  "assetsChecked": 10,
+  "assetsPassed": 10,
+  "normalDirectoriesChecked": 5,
+  "normalDirectoriesPassed": 5,
+  "real404PathsChecked": 5,
+  "real404Passed": 5,
+  "errors": []
+}
