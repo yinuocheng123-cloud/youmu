@@ -163,8 +163,8 @@
     // ========== 第三部分：首页主要模块内容 ==========
     hero: {
       eyebrow: "Teak Lovers & Timeless Living",
-      title: "柚木知识、家具与空间应用",
-      hook: "本站整理柚木知识、家具与空间案例，也收录品牌资料和使用养护内容。",
+      title: "柚木知识、家具、空间和品牌，都在这里。",
+      hook: "我们整理柚木的材质知识、家具和空间案例，也收录品牌资料、使用和养护内容。",
       description:
         "内容包括柚木的纹理、触感和颜色变化，以及家具、器物和空间应用中的具体问题。",
       image: {
@@ -481,8 +481,8 @@
         },
         {
           name: "壹信柚木",
-          badge: "综合方向",
-          description: "关注材料、产品方向、空间应用和服务说明。",
+          badge: "柚木综合应用",
+          description: "关注材料、家具、地板、空间应用和服务说明。",
           image: {
             src: "./assets/images/product-teak-chair.jpg",
             alt: "柚木户外场景参考图",
@@ -528,7 +528,7 @@
     },
     footer: {
       contact: {
-        phone: { label: "普通用户", value: "可先通过咨询入口沟通柚木问题", ...status.formalCopy },
+        phone: { label: "普通用户", value: "可咨询柚喜，沟通柚木问题", ...status.formalCopy },
         email: { label: "品牌 / 企业", value: "可通过生态合作页整理资料", ...status.formalCopy },
         address: {
           label: "联系方式",
