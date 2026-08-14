@@ -1,4 +1,4 @@
-/* v1.30-alpha.1 品牌架构与SEO保护检查。 */
+/* v1.31 品牌架构、公开页面与 SEO 保护检查。 */
 import fs from "node:fs/promises";
 import path from "node:path";
 
@@ -53,17 +53,17 @@ for (const file of htmlFiles) {
 }
 
 const expectedIdentity = new Map([
-  ["index.html", ["柚木知识、", "为什么是柚木", "特色品牌与生态合作"]],
+  ["index.html", ["发现柚木之美", "为什么是柚木", "特色品牌与生态合作"]],
   ["knowledge/index.html", ["探索柚木", "按主题查找"]],
   ["cases/index.html", ["柚木美学", "空间灵感参考"]],
   ["solutions/index.html", ["柚木生活", "家具日常", "老木与收藏"]],
   ["vendors/index.html", ["特色品牌", "不代表柚喜饰界认证、推荐、保证或交易担保"]],
-  ["cooperation/index.html", ["生态合作", "用户咨询", "品牌合作", "内容合作", "行业合作"]],
+  ["cooperation/index.html", ["生态合作", "品牌与企业", "设计师", "内容创作者"]],
 ]);
 
 for (const [relative, required] of expectedIdentity) {
   const html = await fs.readFile(path.join(root, relative), "utf8");
-  for (const text of required) if (!html.includes(text)) problems.push(`${relative}：缺少v1.30定位表达“${text}”`);
+  for (const text of required) if (!html.includes(text)) problems.push(`${relative}：缺少v1.31定位表达“${text}”`);
 }
 
 const sitemap = await fs.readFile(path.join(root, "sitemap.xml"), "utf8");
@@ -80,9 +80,9 @@ if (indexable !== 126) problems.push(`可索引页面应为126个，实际${inde
 if (canonicals.size !== 126) problems.push(`唯一canonical应为126个，实际${canonicals.size}个`);
 
 if (problems.length) {
-  console.error("v1.30正式发布预检未通过：");
+  console.error("v1.31正式发布预检未通过：");
   for (const problem of problems) console.error(`- ${problem}`);
   process.exit(1);
 }
 
-console.log("v1.30正式发布预检通过：127个HTML、126个SEO页面、五栏目定位及保护项均符合alpha.1要求。");
+console.log("v1.31正式发布预检通过：127个HTML、126个SEO页面、五栏目定位及保护项均符合要求。");

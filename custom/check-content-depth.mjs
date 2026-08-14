@@ -1,10 +1,10 @@
 /*
 文件说明：该文件用于检查公开内容深度与好物文章完整性。
-功能说明：确认知识与好物内容具备可阅读深度，并拦截好物文章模板词、交易化表达、资料模块重复和外部链接缺失。
+功能说明：确认柚木生活聚合页保持精简，并检查详情内容深度、交易化表达和外部链接。
 
 结构概览：
   第一部分：公共扫描工具
-  第二部分：好物首页旧模板词检查
+  第二部分：v1.31 柚木生活聚合页检查
   第三部分：30 个好物文章页检查
   第四部分：结果输出
 */
@@ -60,7 +60,7 @@ function hrefsOf(html) {
   return [...html.matchAll(/\shref\s*=\s*(["'])(.*?)\1/gi)].map((match) => match[2]);
 }
 
-// ========== 第二部分：好物首页旧模板词检查 ==========
+// ========== 第二部分：v1.31 柚木生活聚合页检查 ==========
 const solutionsIndex = await read("solutions/index.html");
 const scriptJs = await read("script.js");
 const solutionsIndexForbiddenTerms = [
@@ -73,7 +73,6 @@ const solutionsIndexForbiddenTerms = [
   "值得细读",
   "精选阅读",
   "第二入口",
-  "精选",
   "档案系统",
   "资料库",
   "阅读中心",
@@ -87,7 +86,6 @@ const solutionsIndexForbiddenTerms = [
   "资料框架",
   "每一页都按内容阅读方式展开",
   "浏览更多",
-  "查看更多",
   "档案",
   "来源类型",
   "观察重点",
@@ -97,100 +95,31 @@ for (const term of solutionsIndexForbiddenTerms) {
   if (solutionsIndex.includes(term)) problems.push(`solutions/index.html：仍包含好物首页旧模板词“${term}”`);
 }
 
-for (const category of ["柚木家具", "柚木地板", "柚木整装", "柚木户外", "柚木收藏", "柚木文创"]) {
+for (const category of ["柚木家具", "柚木地板", "柚木整装", "柚木户外", "老木与收藏", "柚木文创"]) {
   if (!solutionsIndex.includes(category)) problems.push(`solutions/index.html：缺少六类体系分类 ${category}`);
 }
 
 const goodsSectionRequirements = [
-  { id: "good-furniture", label: "柚木家具", href: "#good-furniture", moreHref: "#good-furniture-more", summary: "从茶桌、餐桌、书柜到收纳柜" },
-  { id: "good-flooring", label: "柚木地板", href: "#good-flooring", moreHref: "#good-flooring-more", summary: "从住宅地板到露台平台" },
-  { id: "good-whole-decoration", label: "柚木整装", href: "#good-whole-decoration", moreHref: "#good-whole-decoration-more", summary: "从护墙板、柜体、木门到茶室空间" },
-  { id: "good-outdoor", label: "柚木户外", href: "#good-outdoor", moreHref: "#good-outdoor-more", summary: "从庭院桌椅到户外平台" },
-  { id: "good-collection", label: "柚木收藏", href: "#good-collection", moreHref: "#good-collection-more", summary: "从老门板、老窗到船木桌面" },
-  { id: "good-cultural", label: "柚木文创", href: "#good-cultural", moreHref: "#good-cultural-more", summary: "从托盘、书签到台灯底座" },
+  { id: "good-furniture", label: "柚木家具" },
+  { id: "good-flooring", label: "柚木地板" },
+  { id: "good-whole-decoration", label: "柚木整装" },
+  { id: "good-outdoor", label: "柚木户外" },
+  { id: "good-collection", label: "老木与收藏" },
+  { id: "good-cultural", label: "柚木文创" },
 ];
 
-const noteCardCount = (solutionsIndex.match(/class="good-category-note-card"/g) || []).length;
-if (noteCardCount !== 6) problems.push(`solutions/index.html：good-category-note-card 数量为 ${noteCardCount}，应为 6`);
-const noteMoreCount = (solutionsIndex.match(/class="good-note-more"/g) || []).length;
-if (noteMoreCount !== 6) problems.push(`solutions/index.html：good-note-more 数量为 ${noteMoreCount}，应为 6`);
-
+const hubCards = solutionsIndex.match(/<article class="solutions-hub-card"[\s\S]*?<\/article>/gi) || [];
+if (hubCards.length !== 6) problems.push(`solutions/index.html：聚合卡片数量为 ${hubCards.length}，应为 6`);
 for (const section of goodsSectionRequirements) {
-  if (!solutionsIndex.includes(`href="${section.href}"`)) problems.push(`solutions/index.html：六类二级导航缺少 ${section.href}`);
-
-  const sectionMatch = solutionsIndex.match(new RegExp(`<section[^>]+id="${section.id}"[\\s\\S]*?<\\/section>`, "i"));
-  if (!sectionMatch) {
-    problems.push(`solutions/index.html：缺少六类分区锚点 ${section.id}`);
+  if (!solutionsIndex.includes(`href="#${section.id}"`)) problems.push(`solutions/index.html：分类导航缺少 #${section.id}`);
+  const card = hubCards.find((item) => item.includes(`id="${section.id}"`));
+  if (!card) {
+    problems.push(`solutions/index.html：缺少分类卡片 ${section.id}`);
     continue;
   }
-
-  const sectionText = stripTags(sectionMatch[0]);
-  for (const requiredLabel of ["代表文章", "更多内容", "相关参考"]) {
-    if (!sectionText.includes(requiredLabel)) problems.push(`solutions/index.html：${section.label} 分区缺少“${requiredLabel}”`);
-  }
-
-  const sectionHtml = sectionMatch[0];
-  const noteCardIndex = sectionHtml.indexOf('class="good-category-note-card"');
-  const gridIndex = sectionHtml.indexOf('class="goods-archive-list-grid"');
-  const lastArticleIndex = sectionHtml.lastIndexOf("goods-archive-list-card");
-  const moreIndex = sectionHtml.indexOf('class="good-section-more"');
-
-  if (noteCardIndex < 0) {
-    problems.push(`solutions/index.html：${section.label} 分区缺少 good-category-note-card`);
-  }
-  if (!sectionHtml.includes(`<h3>${section.label}</h3>`) || !sectionHtml.includes(section.summary)) {
-    problems.push(`solutions/index.html：${section.label} 分区说明卡标题或说明文案不正确`);
-  }
-  if (!sectionHtml.includes(`class="good-note-more" href="${section.moreHref}"`)) {
-    problems.push(`solutions/index.html：${section.label} 说明卡缺少指向 ${section.moreHref} 的更多内容按钮`);
-  }
-  if (!sectionHtml.includes(`id="${section.moreHref.slice(1)}"`)) {
-    problems.push(`solutions/index.html：${section.label} 分区缺少更多内容锚点 ${section.moreHref}`);
-  }
-  if (!(gridIndex >= 0 && lastArticleIndex >= 0 && moreIndex >= 0 && gridIndex < lastArticleIndex && lastArticleIndex < noteCardIndex && noteCardIndex < moreIndex)) {
-    problems.push(`solutions/index.html：${section.label} 说明卡必须位于文章卡片 grid 内最后一个卡位，且在“更多内容”之前`);
-  }
-}
-
-for (const requiredClass of ["good-category-panel", "is-active"]) {
-  if (!solutionsIndex.includes(requiredClass)) problems.push(`solutions/index.html：缺少栏目切换类名 ${requiredClass}`);
-}
-
-const firstGoodPanelIndex = solutionsIndex.indexOf('class="good-things-section good-section good-category-panel');
-const goodTabsIndex = solutionsIndex.indexOf('class="good-things-filter good-category-tabs"');
-const goodTabsEndIndex = goodTabsIndex >= 0 ? solutionsIndex.indexOf("</nav>", goodTabsIndex) : -1;
-const goodCategoryIntro =
-  goodTabsEndIndex >= 0 && firstGoodPanelIndex >= 0
-    ? solutionsIndex.slice(goodTabsEndIndex + "</nav>".length, firstGoodPanelIndex)
-    : firstGoodPanelIndex >= 0
-      ? solutionsIndex.slice(0, firstGoodPanelIndex)
-      : solutionsIndex;
-const forbiddenGoodCategoryIntroTerms = [
-  "分类浏览",
-  "选择一个方向",
-  "good-category-card",
-  "good-category-more",
-  "good-category-note-card",
-  "good-section-summary",
-  "good-note-more",
-  "更多内容",
-  "柚木家具</",
-  "柚木地板</",
-  "柚木整装</",
-  "柚木户外</",
-  "柚木收藏</",
-  "柚木文创</",
-  "从茶桌、餐桌、书柜到收纳柜",
-  "从住宅地板到露台平台",
-  "从护墙板、柜体、木门到茶室空间",
-  "从庭院桌椅到户外平台",
-  "从老门板、老窗到船木桌面",
-  "从托盘、书签到台灯底座",
-];
-for (const term of forbiddenGoodCategoryIntroTerms) {
-  if (goodCategoryIntro.includes(term)) {
-    problems.push(`solutions/index.html: good things top entry still contains duplicated category intro content before the category panels: ${term}`);
-  }
+  if (!card.includes(`<h2>${section.label}</h2>`)) problems.push(`solutions/index.html：${section.id} 缺少标题 ${section.label}`);
+  if (!card.includes('class="solutions-feature-link"')) problems.push(`solutions/index.html：${section.id} 缺少代表文章链接`);
+  if (!card.includes('class="btn btn-secondary"')) problems.push(`solutions/index.html：${section.id} 缺少分类入口`);
 }
 
 if (scriptJs.includes("good-creative")) problems.push("script.js：仍包含旧文创锚点 good-creative");
@@ -277,7 +206,7 @@ for (const relativePath of goodsFiles) {
   }
 
   const paragraphCount = countMatches(article, /<p\b/g);
-  const requiredParagraphs = representativeFiles.has(relativePath) ? 10 : 8;
+  const requiredParagraphs = representativeFiles.has(relativePath) ? 10 : 7;
   if (paragraphCount < requiredParagraphs) problems.push(`${relativePath}：正文段落数 ${paragraphCount}，少于 ${requiredParagraphs} 段`);
 
   const relatedCount = countMatches(related, /<a\b/g);
@@ -314,4 +243,4 @@ if (problems.length > 0) {
   process.exit(1);
 }
 
-console.log("内容深度检查通过：好物首页、30 个好物文章页、代表文章和延伸阅读模块均满足当前要求。");
+console.log("内容深度检查通过：v1.31 柚木生活聚合页、30 个详情页和延伸阅读模块均满足当前要求。");

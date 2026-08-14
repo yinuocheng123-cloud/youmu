@@ -10828,3 +10828,285 @@ main#top > .home-aesthetics-section {
     gap: 14px 22px;
   }
 }
+
+/* ========== v1.31：内容瘦身、频道区分与移动节奏 ========== */
+.solutions-hub,
+.aesthetics-gallery-page,
+.cooperation-page {
+  width: min(1180px, calc(100% - 64px));
+}
+
+.solutions-hub > .content-hero-panel,
+.aesthetics-gallery-page > .content-hero-panel,
+.cooperation-page > .page-hero {
+  min-height: 280px;
+}
+
+.solutions-hub-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 14px;
+  margin: 22px 0;
+  padding: 14px 18px;
+  border: 1px solid rgba(86, 61, 39, 0.11);
+  border-radius: 16px;
+  background: rgba(255, 251, 245, 0.72);
+}
+
+.solutions-hub-nav a {
+  min-height: 40px;
+  padding: 9px 14px;
+  color: var(--coffee);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.solutions-hub-nav a:hover,
+.solutions-hub-nav a:focus-visible {
+  color: var(--olive-dark);
+  background: rgba(101, 112, 71, 0.11);
+}
+
+.solutions-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 2.4vw, 28px);
+}
+
+.solutions-hub-card {
+  scroll-margin-top: 128px;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 230px 1fr;
+  min-width: 0;
+  border: 1px solid rgba(86, 61, 39, 0.12);
+  border-radius: 20px 6px 20px 6px;
+  background: rgba(255, 251, 245, 0.88);
+  box-shadow: 0 16px 42px rgba(53, 36, 22, 0.06);
+}
+
+.solutions-hub-card > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.solutions-hub-card > div {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: clamp(22px, 3vw, 30px);
+}
+
+.solutions-hub-card > div > span {
+  color: var(--brand-teak);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.solutions-hub-card h2,
+.solutions-hub-card p {
+  margin: 0;
+}
+
+.solutions-hub-card h2 {
+  color: var(--coffee);
+  font-family: var(--brand-font-display);
+  font-size: clamp(28px, 3vw, 38px);
+  line-height: 1.16;
+}
+
+.solutions-hub-card p {
+  color: var(--muted);
+  line-height: 1.78;
+}
+
+.solutions-feature-link {
+  color: var(--coffee-soft);
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.solutions-hub-card .btn {
+  justify-self: start;
+  margin-top: 4px;
+}
+
+.solutions-source-note {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-top: 22px;
+  padding: 18px 22px;
+  color: var(--muted);
+  border-left: 3px solid rgba(101, 112, 71, 0.48);
+  background: rgba(255, 251, 245, 0.62);
+}
+
+.solutions-source-note strong {
+  flex: 0 0 auto;
+  color: var(--coffee);
+}
+
+.solutions-source-note p {
+  margin: 0;
+}
+
+.aesthetics-gallery-page .case-concept-heading {
+  margin-top: clamp(42px, 6vw, 72px);
+}
+
+.concept-scene-grid .case-card {
+  min-height: 300px;
+  align-content: end;
+  color: #fffaf2;
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 22px 54px rgba(42, 29, 18, 0.15);
+}
+
+.concept-scene-grid .case-card:nth-child(1) {
+  background-image: linear-gradient(180deg, rgba(22, 17, 12, 0.08), rgba(24, 17, 12, 0.88)), url("./assets/images/knowledge-outdoor-wood.jpg");
+}
+
+.concept-scene-grid .case-card:nth-child(2) {
+  background-image: linear-gradient(180deg, rgba(22, 17, 12, 0.08), rgba(24, 17, 12, 0.88)), url("./assets/images/product-teak-table.jpg");
+}
+
+.concept-scene-grid .case-card:nth-child(3) {
+  background-image: linear-gradient(180deg, rgba(22, 17, 12, 0.08), rgba(24, 17, 12, 0.88)), url("./assets/images/knowledge-teak-grain.jpg");
+}
+
+.concept-scene-grid .case-card span,
+.concept-scene-grid .case-card h2,
+.concept-scene-grid .case-card p {
+  color: inherit;
+}
+
+.concept-scene-grid .case-card span {
+  background: rgba(255, 250, 242, 0.15);
+  border-color: rgba(255, 250, 242, 0.2);
+}
+
+.aesthetics-gallery-page .case-boundary {
+  margin-top: 22px;
+  padding: 18px 22px;
+  box-shadow: none;
+}
+
+.cooperation-page .cooperation-section {
+  margin-top: 22px;
+  padding: clamp(24px, 3.5vw, 36px);
+}
+
+.cooperation-audience-grid,
+.cooperation-process-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cooperation-page .cooperation-final {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+}
+
+.cooperation-page .cooperation-final .content-cta {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.knowledge-channel-cta {
+  justify-content: flex-start;
+  padding: 20px 24px;
+}
+
+.vendor-directory-section .vendor-card {
+  min-height: 0;
+}
+
+@media (max-width: 900px) {
+  .solutions-hub,
+  .aesthetics-gallery-page,
+  .cooperation-page {
+    width: min(100% - 40px, 760px);
+  }
+
+  .solutions-hub-grid,
+  .cooperation-audience-grid,
+  .cooperation-process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .solutions-hub-card {
+    grid-template-columns: minmax(180px, 0.72fr) minmax(0, 1.28fr);
+    grid-template-rows: none;
+  }
+
+  .cooperation-page .cooperation-final {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .solutions-hub,
+  .aesthetics-gallery-page,
+  .cooperation-page {
+    width: min(100% - 28px, 560px);
+  }
+
+  .solutions-hub > .content-hero-panel,
+  .aesthetics-gallery-page > .content-hero-panel,
+  .cooperation-page > .page-hero {
+    min-height: 250px;
+  }
+
+  .solutions-hub-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    margin: 16px 0;
+    padding: 12px;
+    scrollbar-width: none;
+  }
+
+  .solutions-hub-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: 210px auto;
+  }
+
+  .solutions-hub-card > div {
+    padding: 22px 18px;
+  }
+
+  .solutions-hub-card .btn {
+    justify-self: stretch;
+  }
+
+  .solutions-source-note {
+    display: block;
+    padding: 16px 18px;
+  }
+
+  .solutions-source-note p {
+    margin-top: 6px;
+  }
+
+  .concept-scene-grid .case-card {
+    min-height: 240px;
+  }
+
+  .cooperation-page .cooperation-section {
+    padding: 22px 18px;
+  }
+
+  .knowledge-channel-cta {
+    padding: 18px;
+  }
+}

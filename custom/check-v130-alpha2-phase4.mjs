@@ -101,9 +101,13 @@ for (const relativePath of trackedHtml) {
   if (extract(current, /<meta\s+property="og:url"\s+content="([^"]+)"/i) !== extract(baseline, /<meta\s+property="og:url"\s+content="([^"]+)"/i)) ogUrlChangeCount++;
 }
 const sameAsHead = (p) => read(p) === execFileSync("git", ["show", `HEAD:${p}`], { cwd: root, encoding: "utf8" });
-const sitemapChanged = !sameAsHead("sitemap.xml");
+const sitemapContentChanged = !sameAsHead("sitemap.xml");
 const robotsChanged = !sameAsHead("robots.txt");
-const sitemapUrlCount = [...read("sitemap.xml").matchAll(/<loc>/g)].length;
+const sitemapUrls = [...read("sitemap.xml").matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+const baselineSitemap = execFileSync("git", ["show", "HEAD:sitemap.xml"], { cwd: root, encoding: "utf8" });
+const baselineSitemapUrls = [...baselineSitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+const sitemapChanged = sitemapUrls.length !== baselineSitemapUrls.length || sitemapUrls.some((url, index) => url !== baselineSitemapUrls[index]);
+const sitemapUrlCount = sitemapUrls.length;
 const baselineTrackedHtml = execFileSync("git", ["ls-tree", "-r", "--name-only", "HEAD"], { cwd: root, encoding: "utf8" }).split(/\r?\n/).filter((p) => p.endsWith(".html"));
 const urlChangeCount = trackedHtml.length === baselineTrackedHtml.length && trackedHtml.every((p) => baselineTrackedHtml.includes(p)) ? 0 : Math.abs(trackedHtml.length - baselineTrackedHtml.length) || 1;
 if (urlChangeCount) errors.push(`URL set changed: ${urlChangeCount}`);
@@ -134,6 +138,7 @@ const result = {
   canonicalChangeCount,
   ogUrlChangeCount,
   sitemapChanged,
+  sitemapContentChanged,
   robotsChanged,
   sitemapUrlCount,
   errors,

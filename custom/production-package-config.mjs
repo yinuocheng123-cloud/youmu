@@ -1,4 +1,4 @@
-export const packageName = "v1.30-rc.1";
+export const packageName = "v1.31.0";
 export const packageDirectory = "release";
 
 export const rootFiles = [
