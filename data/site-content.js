@@ -98,8 +98,8 @@
     brand: {
       name: "柚喜饰界",
       tagline: "柚木爱好者乐园",
-      slogan: "让柚木的美好，被更多人看见。",
-      closing: "探索柚木、美学与长期生活之间的关系。",
+      slogan: "喜欢柚木，就来这里多了解一点。",
+      closing: "查阅柚木知识、空间案例、生活内容和品牌资料。",
       logo: {
         src: "./assets/logo-yuxi-horizontal.svg",
         markSrc: "./assets/logo-yuxi-mark.svg",
@@ -163,10 +163,10 @@
     // ========== 第三部分：首页主要模块内容 ==========
     hero: {
       eyebrow: "Teak Lovers & Timeless Living",
-      title: "发现柚木之美，找到属于你的柚木生活。",
-      hook: "懂柚木、赏柚木、用柚木，发现更多值得喜欢的柚木生活。",
+      title: "发现柚木之美，看看它怎样走进生活。",
+      hook: "懂柚木、赏柚木、用柚木，看看柚木怎样融入日常生活。",
       description:
-        "从纹理、触感与色泽变化开始，走进柚木在家具、器物与空间中的真实使用方式，也感受时间为生活留下的温度与分寸。",
+        "看懂柚木的纹理、触感和颜色变化，也了解它用在家具、器物和空间里是什么样。",
       image: {
         src: "./assets/images/hero-teak-lifestyle.jpg",
         alt: "木质露台与庭院生活方式场景",
@@ -183,24 +183,24 @@
       {
         title: "为什么是柚木",
         description:
-        "柚木的魅力来自自然质感、稳定表现、时间变化与长期使用价值。",
+        "柚木有自然纹理、温润触感和较稳定的材性，使用后也会逐渐变化。",
         ...status.formalCopy,
       },
       {
-        title: "懂柚木的人，在这里交流",
-        description: "围绕木纹、油性、结构、养护和空间搭配交流真实经验，让喜欢柚木的人有一个可以慢慢沉淀的地方。",
+        title: "喜欢研究柚木，可以交流经验",
+        description: "可以交流木纹、油性、结构、养护和空间搭配等具体问题。",
         icon: "users",
         ...status.formalCopy,
       },
       {
-        title: "想买柚木的人，在这里少踩坑",
-        description: "把常见坑点、材质判断、使用场景和交流要点提前讲清楚，让选购从冲动变成有依据的判断。",
+        title: "准备选购，可以先看常见问题",
+        description: "先了解材料、使用场景和需要向商家确认的事项，再比较具体产品。",
         icon: "shield",
         ...status.formalCopy,
       },
       {
-        title: "做柚木的人，在这里建立信任",
-        description: "通过内容共创、工艺说明和清晰资料表达建立信任，让用户更容易理解产品、空间和服务说明。",
+        title: "品牌与从业者，可以提交资料",
+        description: "可提供工艺、产品、空间案例和服务范围等可公开、可核实的资料。",
         icon: "trust",
         ...status.formalCopy,
       },
@@ -208,8 +208,8 @@
     knowledge: {
       title: "探索柚木",
       subtitle:
-        "从材料、工艺与使用出发，建立关于柚木的清晰判断。",
-      leadMagnet: "先问清楚，领取《柚木选购避坑清单》。",
+        "从材料、工艺和实际使用入手，了解柚木该怎么看、怎么选。",
+      leadMagnet: "有具体问题，可以先整理空间、用途和预算。",
       categories: [
         {
           id: "starter",
@@ -268,8 +268,8 @@
       ],
       items: [
         {
-          title: "什么是真正的柚木？",
-          description: "从纹理走向、油性感、色泽变化和常见混淆点入手，先建立基础判断框架，再去看产品和报价。",
+          title: "了解柚木可以先看什么？",
+          description: "先看材料名称、纹理、油性感、颜色变化和常见混淆点，再比较具体产品和报价。",
           image: {
             src: "./assets/images/knowledge-teak-grain.jpg",
             alt: "木材纹理与材质细节",
@@ -289,7 +289,7 @@
         },
         {
           title: "柚木家具日常保养方法",
-          description: "延长使用寿命的关键，不是频繁处理，而是理解清洁、打磨、上油和自然风化之间的边界。",
+          description: "根据使用环境和木材状态安排清洁、打磨与上油，也要了解自然风化会带来哪些变化。",
           image: {
             src: "./assets/images/knowledge-teak-maintenance.jpg",
             alt: "木作打磨与日常保养细节",
@@ -299,7 +299,7 @@
         },
         {
           title: "户外柚木为什么受欢迎？",
-          description: "耐候、耐用和自然老化是户外木作的核心关键词，真正适合与否还要结合雨水、日晒和维护习惯。",
+          description: "户外使用要看耐候、排水、日晒条件、结构和日常维护习惯。",
           image: {
             src: "./assets/images/knowledge-outdoor-wood.jpg",
             alt: "户外木作与耐候使用场景",
@@ -312,7 +312,7 @@
     },
     goods: {
       title: "柚木生活",
-      subtitle: "从家具、器物、老木、户外与收藏出发，阅读柚木与真实生活相处的不同方式。",
+      subtitle: "这里有柚木家具、器物、老木、户外用品和收藏相关内容。",
       items: [
         {
           id: "furniture",

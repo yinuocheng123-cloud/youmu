@@ -10795,3 +10795,36 @@ dd {
     padding-inline: 16px;
   }
 }
+
+/* ========== v1.30.0 首页内容区横向间距收口 ========== */
+main#top > .value-section,
+main#top > .home-aesthetics-section {
+  width: min(1120px, calc(100% - 96px));
+}
+
+.value-next-links {
+  gap: 28px;
+}
+
+.value-next-links > span:first-child,
+.value-next-links a {
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  main#top > .value-section,
+  main#top > .home-aesthetics-section {
+    width: calc(100% - 64px);
+  }
+}
+
+@media (max-width: 640px) {
+  main#top > .value-section,
+  main#top > .home-aesthetics-section {
+    width: calc(100% - 40px);
+  }
+
+  .value-next-links {
+    gap: 14px 22px;
+  }
+}
