@@ -53,8 +53,8 @@ for (const file of htmlFiles) {
 }
 
 const expectedIdentity = new Map([
-  ["index.html", ["发现柚木之美", "为什么是柚木", "特色品牌与生态合作"]],
-  ["knowledge/index.html", ["探索柚木", "按探索路径查找"]],
+  ["index.html", ["柚木知识、", "为什么是柚木", "特色品牌与生态合作"]],
+  ["knowledge/index.html", ["探索柚木", "按主题查找"]],
   ["cases/index.html", ["柚木美学", "空间灵感参考"]],
   ["solutions/index.html", ["柚木生活", "家具日常", "老木与收藏"]],
   ["vendors/index.html", ["特色品牌", "不代表柚喜饰界认证、推荐、保证或交易担保"]],
