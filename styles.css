@@ -126,9 +126,11 @@ button {
   transition: transform 160ms ease, background 160ms ease;
 }
 
-.lead-magnet:hover {
-  transform: translateY(-1px);
-  background: rgba(101, 112, 71, 0.14);
+@media (hover: hover) and (pointer: fine) {
+  .lead-magnet:hover {
+    transform: translateY(-1px);
+    background: rgba(101, 112, 71, 0.14);
+  }
 }
 
 /* ========== 第二部分：导航与 Hero ========== */
@@ -234,9 +236,11 @@ button {
   transition: color 160ms ease;
 }
 
-.main-nav a:hover,
-.nav-link:hover {
-  color: var(--apricot);
+@media (hover: hover) and (pointer: fine) {
+  .main-nav a:hover,
+  .nav-link:hover {
+    color: var(--apricot);
+  }
 }
 
 .nav-dropdown {
@@ -259,9 +263,14 @@ button {
 }
 
 .nav-dropdown.is-open .nav-dropdown-trigger::after,
-.nav-dropdown:hover .nav-dropdown-trigger::after,
 .nav-dropdown:focus-within .nav-dropdown-trigger::after {
   transform: rotate(180deg);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav-dropdown:hover .nav-dropdown-trigger::after {
+    transform: rotate(180deg);
+  }
 }
 
 .nav-dropdown-menu {
@@ -293,19 +302,31 @@ button {
   line-height: 1.4;
 }
 
-.nav-dropdown-menu a:hover,
 .nav-dropdown-menu a:focus {
   color: var(--coffee);
   background: rgba(200, 153, 98, 0.16);
   outline: 0;
 }
 
-.nav-dropdown:hover .nav-dropdown-menu,
 .nav-dropdown:focus-within .nav-dropdown-menu,
 .nav-dropdown.is-open .nav-dropdown-menu {
   opacity: 1;
   pointer-events: auto;
   transform: translate(-50%, 0);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav-dropdown-menu a:hover {
+    color: var(--coffee);
+    background: rgba(200, 153, 98, 0.16);
+    outline: 0;
+  }
+
+  .nav-dropdown:hover .nav-dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
 }
 
 .nav-cta,
@@ -325,11 +346,13 @@ button {
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.2);
 }
 
-.nav-cta:hover,
-.btn:hover,
-.pill-button:hover,
-.merchant-link:hover {
-  transform: translateY(-1px);
+@media (hover: hover) and (pointer: fine) {
+  .nav-cta:hover,
+  .btn:hover,
+  .pill-button:hover,
+  .merchant-link:hover {
+    transform: translateY(-1px);
+  }
 }
 
 .hero {
@@ -675,10 +698,17 @@ button {
     text-decoration-color 180ms ease;
 }
 
-.knowledge-topic-card .topic-link-list a:hover,
 .knowledge-topic-card .topic-link-list a:focus-visible {
   color: var(--olive-dark);
   text-decoration: underline;
+  transition: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .knowledge-topic-card .topic-link-list a:hover {
+    color: var(--olive-dark);
+    text-decoration: underline;
+  }
 }
 
 .text-link {
@@ -727,9 +757,11 @@ button {
   transition: transform 240ms var(--brand-ease-out);
 }
 
-.knowledge-card:hover .card-image img,
-.goods-card:hover .goods-image img {
-  transform: scale(1.035);
+@media (hover: hover) and (pointer: fine) {
+  .knowledge-card:hover .card-image img,
+  .goods-card:hover .goods-image img {
+    transform: scale(1.035);
+  }
 }
 
 .card-body,
@@ -939,8 +971,10 @@ button {
   transition: transform 240ms var(--brand-ease-out);
 }
 
-.merchant-card:hover > img {
-  transform: scale(1.04);
+@media (hover: hover) and (pointer: fine) {
+  .merchant-card:hover > img {
+    transform: scale(1.04);
+  }
 }
 
 .merchant-overlay {
@@ -1206,8 +1240,10 @@ button {
   font-size: 14px;
 }
 
-.footer-link-group a:hover {
-  color: #ffffff;
+@media (hover: hover) and (pointer: fine) {
+  .footer-link-group a:hover {
+    color: #ffffff;
+  }
 }
 
 .footer-qr {
@@ -1361,42 +1397,6 @@ button {
     width: 100%;
     gap: 8px 14px;
     font-size: 12px;
-  }
-
-  .nav-dropdown {
-    align-items: flex-start;
-  }
-
-  .nav-dropdown-menu {
-    position: static;
-    width: 100%;
-    max-height: 0;
-    padding: 0;
-    overflow: hidden;
-    opacity: 0;
-    pointer-events: none;
-    transform: none;
-    box-shadow: none;
-    transition: max-height 180ms ease, opacity 160ms ease, padding 160ms ease;
-  }
-
-  .nav-dropdown:hover .nav-dropdown-menu,
-  .nav-dropdown:focus-within .nav-dropdown-menu {
-    max-height: 0;
-    padding: 0;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .nav-dropdown.is-open .nav-dropdown-menu {
-    max-height: 260px;
-    padding: 8px;
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .nav-dropdown.is-open {
-    flex-basis: 100%;
   }
 
   .hero {
@@ -1732,12 +1732,20 @@ body.menu-open {
   transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
 }
 
-.solution-tab:hover,
 .solution-tab.is-active {
   color: #fffaf2;
   background: var(--teak);
   border-color: rgba(154, 103, 54, 0.4);
   transform: translateY(-1px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .solution-tab:hover {
+    color: #fffaf2;
+    background: var(--teak);
+    border-color: rgba(154, 103, 54, 0.4);
+    transform: translateY(-1px);
+  }
 }
 
 .solution-card {
@@ -1874,7 +1882,7 @@ body.menu-open {
     border-radius: 8px;
     box-shadow: 0 24px 72px rgba(18, 10, 6, 0.28);
     transform: translateX(20px);
-    transition: transform 180ms ease;
+    transition: transform 180ms var(--brand-ease-out);
   }
 
   .mobile-menu-shell.is-open .mobile-menu-panel {
@@ -2337,10 +2345,12 @@ body {
   font-size: 14px;
 }
 
-.content-nav a:hover,
-.breadcrumb a:hover,
-.related-links a:hover {
-  color: var(--teak);
+@media (hover: hover) and (pointer: fine) {
+  .content-nav a:hover,
+  .breadcrumb a:hover,
+  .related-links a:hover {
+    color: var(--teak);
+  }
 }
 
 .content-main {
@@ -2702,15 +2712,6 @@ body {
   min-height: 220px;
   flex-direction: column;
   padding: 22px;
-  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
-}
-
-.content-card:hover,
-.brand-card:hover,
-.path-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(154, 103, 54, 0.28);
-  box-shadow: 0 18px 44px rgba(67, 45, 23, 0.12);
 }
 
 .compact-card {
@@ -4375,23 +4376,6 @@ body {
 }
 
 /* ========== V1.14.1：公网验收细节修补 ========== */
-.project-showcase-panel,
-.vendor-direction-card,
-.apply-info-card {
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    border-color 180ms ease;
-}
-
-.project-showcase-panel:hover,
-.vendor-direction-card:hover,
-.apply-info-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(154, 103, 54, 0.28);
-  box-shadow: 0 22px 58px rgba(67, 45, 23, 0.1);
-}
-
 .merchant-link,
 .natural-link,
 .text-link {
@@ -4809,13 +4793,6 @@ h3,
   border-radius: 18px;
   box-shadow: 0 16px 42px rgba(67, 45, 23, 0.07);
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-}
-
-.article-card:hover,
-.case-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(154, 103, 54, 0.28);
-  box-shadow: 0 22px 58px rgba(67, 45, 23, 0.1);
 }
 
 .article-card span,
@@ -5262,9 +5239,11 @@ h3,
   border-radius: 999px;
 }
 
-.article-toc a:hover {
-  color: var(--accent);
-  border-color: rgba(185, 110, 54, 0.28);
+@media (hover: hover) and (pointer: fine) {
+  .article-toc a:hover {
+    color: var(--accent);
+    border-color: rgba(185, 110, 54, 0.28);
+  }
 }
 
 .auxiliary-topic-main .content-body {
@@ -5649,12 +5628,24 @@ h3,
   padding: clamp(18px, 2.4vw, 24px);
 }
 
-.good-category-card:hover,
-.good-category-card:focus-visible,
 .good-category-card.is-active {
   transform: translateY(-3px);
   border-color: rgba(154, 103, 54, 0.24);
   box-shadow: 0 22px 42px rgba(67, 45, 23, 0.1);
+}
+
+.good-category-card:focus-visible {
+  border-color: rgba(154, 103, 54, 0.24);
+  box-shadow: 0 22px 42px rgba(67, 45, 23, 0.1);
+  transition: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .good-category-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(154, 103, 54, 0.24);
+    box-shadow: 0 22px 42px rgba(67, 45, 23, 0.1);
+  }
 }
 
 .good-category-more {
@@ -5734,13 +5725,27 @@ h3,
     box-shadow 0.2s ease;
 }
 
-.good-things-filter-chip:hover,
-.good-things-filter-chip:focus-visible,
 .good-category-tab.is-active {
   transform: translateY(-2px);
   background: rgba(244, 233, 214, 0.92);
   border-color: rgba(154, 103, 54, 0.24);
   box-shadow: 0 14px 26px rgba(67, 45, 23, 0.09);
+}
+
+.good-things-filter-chip:focus-visible {
+  background: rgba(244, 233, 214, 0.92);
+  border-color: rgba(154, 103, 54, 0.24);
+  box-shadow: 0 14px 26px rgba(67, 45, 23, 0.09);
+  transition: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .good-things-filter-chip:hover {
+    transform: translateY(-2px);
+    background: rgba(244, 233, 214, 0.92);
+    border-color: rgba(154, 103, 54, 0.24);
+    box-shadow: 0 14px 26px rgba(67, 45, 23, 0.09);
+  }
 }
 
 .good-things-overview {
@@ -5799,17 +5804,6 @@ h3,
   border: 1px solid rgba(91, 63, 35, 0.12);
   border-radius: 20px;
   box-shadow: 0 16px 38px rgba(67, 45, 23, 0.06);
-  transition:
-    transform 0.24s ease,
-    box-shadow 0.24s ease,
-    border-color 0.24s ease;
-}
-
-.good-item-card:hover,
-.good-item-card:focus-within {
-  transform: translateY(-4px);
-  border-color: rgba(154, 103, 54, 0.24);
-  box-shadow: 0 24px 44px rgba(67, 45, 23, 0.11);
 }
 
 .good-item-visual {
@@ -6005,11 +5999,18 @@ h3,
     box-shadow 0.18s ease;
 }
 
-.good-reference-list a:hover,
 .good-reference-list a:focus-visible {
-  transform: translateY(-1px);
   border-color: rgba(72, 46, 28, 0.24);
   box-shadow: 0 10px 22px rgba(72, 46, 28, 0.1);
+  transition: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .good-reference-list a:hover {
+    transform: translateY(-1px);
+    border-color: rgba(72, 46, 28, 0.24);
+    box-shadow: 0 10px 22px rgba(72, 46, 28, 0.1);
+  }
 }
 
 .tone-furniture {
@@ -6082,15 +6083,22 @@ h3,
     box-shadow 0.18s ease;
 }
 
-.goods-archive-entry-link:hover,
 .goods-archive-entry-link:focus-visible,
-.goods-archive-list-link:hover,
 .goods-archive-list-link:focus-visible,
-.goods-archive-related-link:hover,
 .goods-archive-related-link:focus-visible {
-  transform: translateY(-1px);
   border-color: rgba(72, 46, 28, 0.28);
   box-shadow: 0 12px 24px rgba(72, 46, 28, 0.12);
+  transition: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .goods-archive-entry-link:hover,
+  .goods-archive-list-link:hover,
+  .goods-archive-related-link:hover {
+    transform: translateY(-1px);
+    border-color: rgba(72, 46, 28, 0.28);
+    box-shadow: 0 12px 24px rgba(72, 46, 28, 0.12);
+  }
 }
 
 .goods-archive-batch-groups {
@@ -6206,11 +6214,18 @@ h3,
     box-shadow 0.18s ease;
 }
 
-.good-note-more:hover,
 .good-note-more:focus-visible {
-  transform: translateY(-1px);
   border-color: rgba(120, 96, 56, 0.32);
   box-shadow: 0 10px 22px rgba(72, 46, 28, 0.08);
+  transition: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .good-note-more:hover {
+    transform: translateY(-1px);
+    border-color: rgba(120, 96, 56, 0.32);
+    box-shadow: 0 10px 22px rgba(72, 46, 28, 0.08);
+  }
 }
 
 .goods-archive-list-link,
@@ -6471,10 +6486,17 @@ h3,
   line-height: 1.6;
 }
 
-.goods-source-card:hover,
 .goods-source-card:focus-visible {
   color: var(--coffee);
   background: rgba(244, 233, 214, 0.44);
+  transition: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .goods-source-card:hover {
+    color: var(--coffee);
+    background: rgba(244, 233, 214, 0.44);
+  }
 }
 
 .goods-related-section h2 {
@@ -6522,11 +6544,18 @@ h3,
   font-weight: 700;
 }
 
-.goods-related-card:hover,
 .goods-related-card:focus-visible {
-  transform: translateY(-2px);
   border-color: rgba(154, 103, 54, 0.22);
   box-shadow: 0 18px 36px rgba(72, 46, 28, 0.08);
+  transition: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .goods-related-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(154, 103, 54, 0.22);
+    box-shadow: 0 18px 36px rgba(72, 46, 28, 0.08);
+  }
 }
 
 .good-things-case-note {
@@ -6579,10 +6608,16 @@ h3,
     transform 0.2s ease;
 }
 
-.vendor-filter-chip:hover,
 .vendor-filter-chip:focus-visible {
-  transform: translateY(-1px);
   border-color: rgba(101, 112, 71, 0.32);
+  transition: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .vendor-filter-chip:hover {
+    transform: translateY(-1px);
+    border-color: rgba(101, 112, 71, 0.32);
+  }
 }
 
 .vendor-filter-chip.is-active {
@@ -6710,11 +6745,18 @@ h3,
     background 0.2s ease;
 }
 
-.vendor-card-link:hover,
 .vendor-card-link:focus-visible {
-  transform: translateY(-1px);
   border-color: rgba(101, 112, 71, 0.3);
   background: rgba(238, 231, 207, 0.96);
+  transition: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .vendor-card-link:hover {
+    transform: translateY(-1px);
+    border-color: rgba(101, 112, 71, 0.3);
+    background: rgba(238, 231, 207, 0.96);
+  }
 }
 
 /* ========== V1.21.1：推荐厂商标签精简与紧凑版式 ========== */
@@ -7312,8 +7354,10 @@ body::before {
   overflow-wrap: normal;
 }
 
-.footer-link-groups a:hover {
-  color: #ffffff;
+@media (hover: hover) and (pointer: fine) {
+  .footer-link-groups a:hover {
+    color: #ffffff;
+  }
 }
 
 .footer-qr {
@@ -7357,8 +7401,10 @@ body::before {
   text-underline-offset: 3px;
 }
 
-.footer-legal a:hover {
-  color: #fff8ed;
+@media (hover: hover) and (pointer: fine) {
+  .footer-legal a:hover {
+    color: #fff8ed;
+  }
 }
 
 @media (max-width: 1180px) and (min-width: 901px) {
@@ -7681,13 +7727,15 @@ dd {
 .main-nav > a::before,
 .main-nav > .nav-dropdown > .nav-link::before {
   position: absolute;
-  right: 50%;
+  right: 0;
   bottom: 4px;
-  left: 50%;
+  left: 0;
   height: 1px;
   content: "";
   background: rgba(231, 199, 153, 0.9);
-  transition: right 180ms var(--brand-ease-out), left 180ms var(--brand-ease-out);
+  transform: scaleX(0);
+  transform-origin: 50% 50%;
+  transition: transform 180ms var(--brand-ease-out);
 }
 
 .nav-dropdown-menu {
@@ -7702,10 +7750,14 @@ dd {
   transition: opacity 180ms var(--brand-ease-out), transform 180ms var(--brand-ease-out);
 }
 
-.nav-dropdown:hover .nav-dropdown-menu,
 .nav-dropdown:focus-within .nav-dropdown-menu,
 .nav-dropdown.is-open .nav-dropdown-menu {
   transform: translate(-50%, 0) scale(1);
+}
+
+.nav-dropdown:focus-within .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-trigger::after {
+  transition-duration: 0s;
 }
 
 .nav-cta {
@@ -7817,10 +7869,6 @@ dd {
   border-radius: 18px 4px 18px 4px;
 }
 
-.hero-media .hero-image {
-  transition: transform 260ms var(--brand-ease-out), filter 220ms ease;
-}
-
 .hero-media figcaption {
   right: 30px;
   bottom: 25px;
@@ -7855,7 +7903,6 @@ dd {
   border: 1px solid var(--brand-line);
   border-radius: var(--brand-radius);
   box-shadow: var(--brand-shadow-soft);
-  transition: transform 220ms var(--brand-ease-out), border-color 220ms ease, box-shadow 220ms ease;
 }
 
 .value-card:last-child {
@@ -7866,19 +7913,8 @@ dd {
   box-shadow: inset 0 0 0 1px rgba(255, 250, 242, 0.22), 0 12px 28px rgba(57, 40, 25, 0.12);
 }
 
-.knowledge-topic-card,
-.goods-archive-home-card,
-.vendor-direction-card,
-.candidate-library-card,
-.apply-info-card,
 .article-card,
-.case-card,
-.knowledge-feature-card,
-.knowledge-topic-group,
-.knowledge-faq-item,
-.goods-archive-list-card,
-.vendor-card,
-.yuxi-visual-card {
+.case-card {
   border-color: var(--brand-line);
   border-radius: var(--brand-radius);
   box-shadow: 0 12px 38px rgba(53, 36, 22, 0.065);
@@ -8419,8 +8455,7 @@ dd {
   .main-nav > a:hover::before,
   .main-nav > .nav-dropdown > .nav-link:hover::before,
   .main-nav > .nav-dropdown:hover > .nav-link::before {
-    right: 0;
-    left: 0;
+    transform: scaleX(1);
   }
 
   .btn:hover,
@@ -8434,16 +8469,8 @@ dd {
     box-shadow: 0 18px 38px rgba(59, 70, 40, 0.28);
   }
 
-  .value-card:hover,
-  .knowledge-topic-card:hover,
-  .goods-archive-home-card:hover,
   .article-card:hover,
-  .case-card:hover,
-  .knowledge-feature-card:hover,
-  .knowledge-topic-link:hover,
-  .goods-archive-list-card:hover,
-  .vendor-card:hover,
-  .yuxi-visual-card:hover {
+  .case-card:hover {
     transform: translateY(-4px);
     border-color: rgba(165, 111, 63, 0.28);
     box-shadow: var(--brand-shadow-lift);
@@ -8454,8 +8481,7 @@ dd {
     box-shadow: 0 28px 72px rgba(39, 25, 15, 0.23);
   }
 
-  .merchant-card:hover img,
-  .hero-media:hover .hero-image {
+  .merchant-card:hover img {
     transform: scale(1.025);
   }
 
@@ -8468,31 +8494,6 @@ dd {
   .merchant-link:hover,
   .footer-link-groups a:hover {
     transform: translateX(2px);
-  }
-}
-
-@media (hover: none) {
-  .value-card:hover,
-  .knowledge-card:hover,
-  .knowledge-topic-card:hover,
-  .goods-card:hover,
-  .goods-archive-home-card:hover,
-  .merchant-card:hover,
-  .article-card:hover,
-  .case-card:hover,
-  .knowledge-feature-card:hover,
-  .knowledge-topic-link:hover,
-  .goods-archive-list-card:hover,
-  .vendor-card:hover,
-  .yuxi-visual-card:hover {
-    transform: none;
-  }
-
-  .knowledge-card:hover .card-image img,
-  .goods-card:hover .goods-image img,
-  .merchant-card:hover > img,
-  .hero-media:hover .hero-image {
-    transform: none;
   }
 }
 
@@ -9171,10 +9172,15 @@ dd {
   color: var(--brand-muted);
 }
 
-.value-next-links a:hover,
 .value-next-links a:focus-visible,
 .value-next-links .value-next-all {
   color: var(--brand-ink);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .value-next-links a:hover {
+    color: var(--brand-ink);
+  }
 }
 
 .value-next-links .value-next-all {
@@ -9306,10 +9312,16 @@ dd {
   border-bottom: 1px solid transparent;
 }
 
-.living-secondary-links a:hover,
 .living-secondary-links a:focus-visible {
   color: var(--brand-ink);
   border-bottom-color: rgba(91, 63, 35, 0.3);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .living-secondary-links a:hover {
+    color: var(--brand-ink);
+    border-bottom-color: rgba(91, 63, 35, 0.3);
+  }
 }
 
 /* 品牌发现与生态连接承担不同角色，避免再次出现三张同构白卡。 */
@@ -9482,8 +9494,7 @@ dd {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .living-story:hover,
-  .living-story:focus-visible {
+  .living-story:hover {
     transform: translateY(-3px);
     box-shadow: 0 30px 66px rgba(42, 29, 18, 0.2);
   }
@@ -10862,10 +10873,16 @@ main#top > .home-aesthetics-section {
   white-space: nowrap;
 }
 
-.solutions-hub-nav a:hover,
 .solutions-hub-nav a:focus-visible {
   color: var(--olive-dark);
   background: rgba(101, 112, 71, 0.11);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .solutions-hub-nav a:hover {
+    color: var(--olive-dark);
+    background: rgba(101, 112, 71, 0.11);
+  }
 }
 
 .solutions-hub-grid {
