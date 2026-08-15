@@ -11127,3 +11127,33 @@ main#top > .home-aesthetics-section {
     padding: 18px;
   }
 }
+
+/* ========== v1.31.2：首页一级栏目纵向节奏收口 ========== */
+:root {
+  --home-section-space-block: 48px;
+  --home-section-heading-space: 48px;
+}
+
+main#top > .hero {
+  padding-bottom: var(--home-section-space-block);
+}
+
+main#top > .section {
+  padding-block: var(--home-section-space-block);
+}
+
+main#top > .wechat-section {
+  margin-top: 0;
+}
+
+main#top > .section .section-heading,
+main#top > .value-section .about-intro {
+  margin-bottom: var(--home-section-heading-space);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --home-section-space-block: 28px;
+    --home-section-heading-space: 36px;
+  }
+}
