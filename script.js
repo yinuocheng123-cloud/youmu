@@ -103,9 +103,20 @@
       return mobileNav;
     }
 
-    sourceNav.querySelectorAll(":scope > a, :scope .nav-dropdown-menu a").forEach((link) => {
-      const clonedLink = link.cloneNode(true);
-      mobileNav.appendChild(clonedLink);
+    Array.from(sourceNav.children).forEach((item) => {
+      if (item.matches("a")) {
+        mobileNav.appendChild(item.cloneNode(true));
+        return;
+      }
+
+      const trigger = item.querySelector(":scope > [data-dropdown-trigger]");
+      const landingLink = item.querySelector(":scope > [data-dropdown-menu] a");
+
+      if (trigger && landingLink) {
+        const clonedLink = landingLink.cloneNode(true);
+        clonedLink.textContent = trigger.textContent.trim();
+        mobileNav.appendChild(clonedLink);
+      }
     });
 
     return mobileNav;
@@ -169,6 +180,14 @@
   }
 
   ensureContentMobileMenu();
+
+  document.querySelectorAll(".site-header, .content-site-header").forEach((header) => {
+    const currentMobileNav = header.querySelector(".mobile-nav");
+
+    if (currentMobileNav) {
+      currentMobileNav.replaceWith(buildMobileNavLinks(header));
+    }
+  });
 
   function syncGoodThingsMenus() {
     document.querySelectorAll("[data-dropdown]").forEach((dropdown) => {
