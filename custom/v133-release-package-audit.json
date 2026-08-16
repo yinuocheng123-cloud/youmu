@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "package": "release/v1.33.0",
+  "fileCount": 158,
+  "htmlCount": 127,
+  "indexableHtmlCount": 126,
+  "imageCount": 25,
+  "cssCount": 1,
+  "jsCount": 3,
+  "linksChecked": 8013,
+  "brokenLinkCount": 0,
+  "missingAssetCount": 0,
+  "forbiddenReferenceCount": 0,
+  "seoIssueCount": 0,
+  "canonicalHosts": [
+    "www.zhengmu.cn"
+  ],
+  "ogHosts": [
+    "www.zhengmu.cn"
+  ],
+  "sitemapHosts": [
+    "www.zhengmu.cn"
+  ],
+  "sitemapUrlCount": 126,
+  "robotsAllowsIndexing": true,
+  "hashes": {
+    "index": "72b99165e177785aa9221dca72f3e784be340d223f2573729e8967bd4e9f26c3",
+    "styles": "6e888a0dd18a557c029a462a149c59ccc8e4cbefaf0198b9f1af9458e5df6493",
+    "robots": "8c09f2fecc103ef0407f3e26971b8e894d1e0b6c42dec048c8a1a2d16bc8fb2c",
+    "sitemap": "4dd05e56acf138913331be05af45f8480f4d7c2fb9611f254aeff265772cc199",
+    "siteContent": "6606f82cc2a8a012bb6506925800cfb31975e815665f02d900374c0dd2d5443c"
+  },
+  "errors": []
+}

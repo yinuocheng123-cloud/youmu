@@ -11804,3 +11804,89 @@ main#top > .value-section .about-intro {
     transition: none;
   }
 }
+
+
+/* v1.33 article image coverage */
+.article-cover {
+  width: min(100%, 1080px);
+  margin: clamp(24px, 3vw, 40px) auto clamp(40px, 5vw, 64px);
+}
+
+.article-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border: 1px solid rgba(75, 53, 36, 0.12);
+  border-radius: clamp(18px, 2vw, 28px);
+  box-shadow: 0 24px 64px rgba(49, 35, 24, 0.12);
+}
+
+.article-cover figcaption {
+  max-width: 760px;
+  margin: 12px auto 0;
+  color: var(--brand-muted);
+  font-size: 13px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.article-layout .article-cover {
+  width: auto;
+  margin-inline: clamp(20px, 5vw, 64px);
+}
+
+.article-image-context {
+  width: fit-content;
+  margin-top: 18px !important;
+  padding: 7px 11px;
+  color: rgba(255, 250, 242, 0.86) !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+  background: rgba(28, 20, 14, 0.44);
+  border: 1px solid rgba(255, 250, 242, 0.24);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+
+.article-visual-material-study { --article-cover-image: url("./assets/images/article-teak-material-study.jpg"); }
+.article-visual-joinery-craft { --article-cover-image: url("./assets/images/article-teak-joinery-craft.jpg"); }
+.article-visual-flooring { --article-cover-image: url("./assets/images/article-teak-flooring-selection.jpg"); }
+.article-visual-small-objects { --article-cover-image: url("./assets/images/article-teak-small-objects.jpg"); }
+.article-visual-outdoor-care { --article-cover-image: url("./assets/images/article-teak-outdoor-care.jpg"); }
+.article-visual-aging-care { --article-cover-image: url("./assets/images/article-teak-aging-tones.jpg"); }
+.article-visual-cabinet-woodwork { --article-cover-image: url("./assets/images/product-teak-cabinet.jpg"); }
+.article-visual-seating { --article-cover-image: url("./assets/images/product-teak-chair.jpg"); }
+.article-visual-table-space { --article-cover-image: url("./assets/images/product-teak-table.jpg"); }
+.article-visual-interior-space { --article-cover-image: url("./assets/images/hero-teak-lifestyle.jpg"); }
+
+.detail-lifestyle-object[class*="article-visual-"] .goods-article-hero {
+  background-image: linear-gradient(90deg, rgba(36, 25, 17, 0.86) 0%, rgba(36, 25, 17, 0.62) 48%, rgba(36, 25, 17, 0.12) 76%), var(--article-cover-image);
+}
+
+.detail-lifestyle-archive[class*="article-visual-"] .goods-article-hero {
+  background-image: linear-gradient(110deg, rgba(38, 27, 18, 0.94), rgba(38, 27, 18, 0.58) 58%, rgba(38, 27, 18, 0.24)), var(--article-cover-image);
+}
+
+@media (max-width: 720px) {
+  .article-cover,
+  .article-layout .article-cover {
+    width: auto;
+    margin: 18px 0 36px;
+  }
+
+  .article-cover img {
+    border-radius: 18px;
+  }
+
+  .article-cover figcaption {
+    padding-inline: 8px;
+    font-size: 12px;
+  }
+
+  .detail-lifestyle-object[class*="article-visual-"] .goods-article-hero,
+  .detail-lifestyle-archive[class*="article-visual-"] .goods-article-hero {
+    background-image: linear-gradient(180deg, rgba(38, 27, 18, 0.22), rgba(38, 27, 18, 0.88)), var(--article-cover-image);
+  }
+}

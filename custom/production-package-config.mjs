@@ -1,4 +1,4 @@
-export const packageName = "v1.32.0";
+export const packageName = "v1.33.0";
 export const packageDirectory = "release";
 
 export const rootFiles = [
@@ -32,6 +32,12 @@ export const assetFiles = [
   "assets/official-account-qr.jpg",
   "assets/qr-placeholder.svg",
   "assets/images/hero-teak-lifestyle.jpg",
+  "assets/images/article-teak-aging-tones.jpg",
+  "assets/images/article-teak-flooring-selection.jpg",
+  "assets/images/article-teak-joinery-craft.jpg",
+  "assets/images/article-teak-material-study.jpg",
+  "assets/images/article-teak-outdoor-care.jpg",
+  "assets/images/article-teak-small-objects.jpg",
   "assets/images/knowledge-outdoor-wood.jpg",
   "assets/images/knowledge-teak-grain.jpg",
   "assets/images/knowledge-teak-maintenance.jpg",

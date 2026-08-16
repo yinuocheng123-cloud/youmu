@@ -2,7 +2,7 @@ import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { packageDirectory, packageName } from "./production-package-config.mjs";
+import { assetFiles, packageDirectory, packageName, publicDirectoryRules, rootFiles } from "./production-package-config.mjs";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const packageRoot = path.join(projectRoot, packageDirectory, packageName);
@@ -58,6 +58,12 @@ async function sha256(relative) {
 }
 
 const files = (await collectFiles(packageRoot)).sort();
+const configuredFiles = [...rootFiles, ...assetFiles];
+for (const [directory, extensions] of publicDirectoryRules) {
+  const directoryFiles = await collectFiles(path.join(projectRoot, directory), directory);
+  configuredFiles.push(...directoryFiles.filter((file) => extensions.has(path.extname(file).toLowerCase())));
+}
+const expectedFileCount = new Set(configuredFiles).size;
 const fileSet = new Set(files);
 const htmlFiles = files.filter((file) => file.endsWith(".html"));
 const indexableHtml = htmlFiles.filter((file) => file !== "404.html");
@@ -153,7 +159,7 @@ for (const file of indexableHtml) {
   if (og) ogHosts.add(new URL(og).hostname);
 }
 const sitemapHosts = new Set(sitemapUrls.map((url) => new URL(url).hostname));
-if (files.length !== 151) errors.push(`file count ${files.length}, expected 151`);
+if (files.length !== expectedFileCount) errors.push(`file count ${files.length}, expected ${expectedFileCount}`);
 if (htmlFiles.length !== 127 || indexableHtml.length !== 126) errors.push(`HTML count ${htmlFiles.length}/${indexableHtml.length}, expected 127/126`);
 if (sitemapUrls.length !== 126 || new Set(sitemapUrls).size !== 126) errors.push("sitemap must contain 126 unique URLs");
 if (!robotsAllowsIndexing || !robots.includes(`${productionOrigin}/sitemap.xml`)) errors.push("robots production indexing policy mismatch");
@@ -189,7 +195,7 @@ const result = {
 };
 
 if (process.argv.includes("--write-json")) {
-  await fs.writeFile(path.join(projectRoot, "custom", "v130-release-package-audit.json"), `${JSON.stringify(result, null, 2)}\n`, "utf8");
+  await fs.writeFile(path.join(projectRoot, "custom", "v133-release-package-audit.json"), `${JSON.stringify(result, null, 2)}\n`, "utf8");
 }
 
 console.log(JSON.stringify(result, null, 2));

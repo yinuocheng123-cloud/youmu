@@ -2,7 +2,7 @@ import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { packageDirectory, packageName } from "./production-package-config.mjs";
+import { assetFiles, packageDirectory, packageName } from "./production-package-config.mjs";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const packageRoot = path.join(projectRoot, packageDirectory, packageName);
@@ -31,7 +31,7 @@ for (const productionUrl of productionUrls) {
   sitemapPagesPassed += 1;
 }
 
-const assets = [
+const assets = [...new Set([
   "/styles.css",
   "/script.js",
   "/data/site-content.js",
@@ -42,7 +42,8 @@ const assets = [
   "/assets/images/hero-teak-lifestyle.jpg",
   "/robots.txt",
   "/sitemap.xml",
-];
+  ...assetFiles.map((file) => `/${file}`),
+])];
 let assetsPassed = 0;
 for (const pathname of assets) {
   const response = await fetch(`${localOrigin}${pathname}`);
@@ -89,7 +90,7 @@ const result = {
 };
 
 if (process.argv.includes("--write-json")) {
-  await fs.writeFile(path.join(projectRoot, "custom", "v130-release-http-audit.json"), `${JSON.stringify(result, null, 2)}\n`, "utf8");
+  await fs.writeFile(path.join(projectRoot, "custom", "v133-release-http-audit.json"), `${JSON.stringify(result, null, 2)}\n`, "utf8");
 }
 console.log(JSON.stringify(result, null, 2));
 if (errors.length) process.exit(1);
