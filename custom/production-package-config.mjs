@@ -1,4 +1,4 @@
-export const packageName = "v1.31.0";
+export const packageName = "v1.32.0";
 export const packageDirectory = "release";
 
 export const rootFiles = [
@@ -35,6 +35,7 @@ export const assetFiles = [
   "assets/images/knowledge-outdoor-wood.jpg",
   "assets/images/knowledge-teak-grain.jpg",
   "assets/images/knowledge-teak-maintenance.jpg",
+  "assets/images/product-teak-cabinet.jpg",
   "assets/images/product-teak-chair.jpg",
   "assets/images/product-teak-table.jpg",
   "assets/images/vendor-craft-sample.jpg",
