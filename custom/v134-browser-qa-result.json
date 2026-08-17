@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "origin": "http://127.0.0.1:8097",
+  "totalArticlePagesChecked": 115,
+  "themeRepresentativeCount": 12,
+  "viewportResults": {
+    "mobile390": {
+      "checked": 12,
+      "passed": 12
+    },
+    "tablet768": {
+      "checked": 12,
+      "passed": 12
+    },
+    "desktop1440": {
+      "checked": 12,
+      "passed": 12
+    }
+  },
+  "brokenImageCount": 0,
+  "consoleErrorCount": 0,
+  "pageErrorCount": 0,
+  "failedRequestCount": 0,
+  "horizontalOverflowCount": 0,
+  "maxCls": 0,
+  "failures": []
+}

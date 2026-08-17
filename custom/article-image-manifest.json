@@ -1,0 +1,995 @@
+{
+  "version": "v1.34.0",
+  "imageSearchUsed": false,
+  "generatedImageMode": "OpenAI built-in image generation",
+  "generatedImageCount": 25,
+  "imageCount": 42,
+  "images": [
+    {
+      "imagePath": "assets/images/article-teak-material-study.jpg",
+      "sourceType": "generated_editorial_v133",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "articles/what-is-teak.html",
+        "knowledge/topics/what-is-teak.html",
+        "knowledge/teak-basics.html"
+      ],
+      "semanticTopic": "material-basics",
+      "createdFor": [
+        "articles/what-is-teak.html",
+        "knowledge/topics/what-is-teak.html",
+        "knowledge/teak-basics.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "柚木板材、木纹与叶片的材料观察示意",
+      "sha256": "262128f8034444b108475f9e1e2f8e2ccea5adbee9caadb394202dba02784316",
+      "fileBytes": 342766,
+      "notes": "站内既有资产，经本轮语义与复用上限复核后保留。"
+    },
+    {
+      "imagePath": "assets/images/knowledge-teak-grain.jpg",
+      "sourceType": "existing_site_asset",
+      "assetOrigin": "existing",
+      "articlePaths": [
+        "articles/teak-vs-common-wood.html",
+        "knowledge/topics/teak-vs-common-wood-basic.html",
+        "knowledge/topics/clear-teak-description.html"
+      ],
+      "semanticTopic": "material-comparison",
+      "createdFor": [
+        "articles/teak-vs-common-wood.html",
+        "knowledge/topics/teak-vs-common-wood-basic.html",
+        "knowledge/topics/clear-teak-description.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "不同木材纹理与端面特征的比较示意",
+      "sha256": "e8e1936443775e30befef31b247b9228e99701d68b427c65910456f19dd8862f",
+      "fileBytes": 319197,
+      "notes": "站内既有资产，经本轮语义与复用上限复核后保留。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-aging-tones.jpg",
+      "sourceType": "generated_editorial_v133",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "knowledge/topics/teak-aging-color.html",
+        "knowledge/topics/teak-color-change.html",
+        "solutions/goods/aged-teak-timber.html"
+      ],
+      "semanticTopic": "color-aging",
+      "createdFor": [
+        "knowledge/topics/teak-aging-color.html",
+        "knowledge/topics/teak-color-change.html",
+        "solutions/goods/aged-teak-timber.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "不同色调柚木表面用于观察颜色变化的示意",
+      "sha256": "ca432a5df827389924e3677f31ecb0c200f43497cbadd6dd190ade30aada471a",
+      "fileBytes": 291195,
+      "notes": "站内既有资产，经本轮语义与复用上限复核后保留。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-joinery-craft.jpg",
+      "sourceType": "generated_editorial_v133",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "knowledge/topics/teak-joinery-surface.html",
+        "knowledge/teak-material-craft.html",
+        "solutions/whole-decoration.html"
+      ],
+      "semanticTopic": "craft-joinery",
+      "createdFor": [
+        "knowledge/topics/teak-joinery-surface.html",
+        "knowledge/teak-material-craft.html",
+        "solutions/whole-decoration.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "柚木榫卯结构与表面工艺观察示意",
+      "sha256": "42a667e8e76840cb96c4a8f56ac6f1d3233b7718321c8fd90e3badc2c731db87",
+      "fileBytes": 259433,
+      "notes": "站内既有资产，经本轮语义与复用上限复核后保留。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-flooring-selection.jpg",
+      "sourceType": "generated_editorial_v133",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "articles/how-to-choose-teak-flooring.html",
+        "solutions/guides/flooring-how-to-choose.html",
+        "solutions/guides/flooring-fit-spaces.html"
+      ],
+      "semanticTopic": "flooring-selection",
+      "createdFor": [
+        "articles/how-to-choose-teak-flooring.html",
+        "solutions/guides/flooring-how-to-choose.html",
+        "solutions/guides/flooring-fit-spaces.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "自然光下比较木地板样板的选材示意",
+      "sha256": "2080bc1e94a4d9c34c91c590e0e9b5feed72966f8873b39e1d5445078bafb17a",
+      "fileBytes": 273432,
+      "notes": "站内既有资产，经本轮语义与复用上限复核后保留。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-outdoor-care.jpg",
+      "sourceType": "generated_editorial_v133",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "articles/teak-outdoor-furniture-care.html",
+        "knowledge/topics/outdoor-teak-maintenance.html",
+        "solutions/guides/outdoor-maintenance-cycle.html"
+      ],
+      "semanticTopic": "outdoor-care",
+      "createdFor": [
+        "articles/teak-outdoor-furniture-care.html",
+        "knowledge/topics/outdoor-teak-maintenance.html",
+        "solutions/guides/outdoor-maintenance-cycle.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "雨后户外木质座椅与日常维护工具示意",
+      "sha256": "d6da9157e2bf11a5fdd7fceec9dafe4d657a49601fd6aee659d56211ca3808ad",
+      "fileBytes": 302808,
+      "notes": "站内既有资产，经本轮语义与复用上限复核后保留。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-small-objects.jpg",
+      "sourceType": "generated_editorial_v133",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "solutions/goods/teak-pen.html",
+        "solutions/goods/teak-phone-stand.html",
+        "solutions/goods/teak-tray.html"
+      ],
+      "semanticTopic": "small-objects",
+      "createdFor": [
+        "solutions/goods/teak-pen.html",
+        "solutions/goods/teak-phone-stand.html",
+        "solutions/goods/teak-tray.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "柚木托盘、笔和小型木器的日常使用示意",
+      "sha256": "c0f1f513b55131916e846fdd0afcf2ea2b9b160ef5f523fafb3cb17c78e064ed",
+      "fileBytes": 184087,
+      "notes": "站内既有资产，经本轮语义与复用上限复核后保留。"
+    },
+    {
+      "imagePath": "assets/images/hero-teak-lifestyle.jpg",
+      "sourceType": "existing_site_asset",
+      "assetOrigin": "existing",
+      "articlePaths": [
+        "articles/teak-whole-decoration-guide.html",
+        "knowledge/topics/whole-decoration-fit-home.html",
+        "solutions/guides/whole-decoration-fit-home.html"
+      ],
+      "semanticTopic": "whole-interior",
+      "createdFor": [
+        "articles/teak-whole-decoration-guide.html",
+        "knowledge/topics/whole-decoration-fit-home.html",
+        "solutions/guides/whole-decoration-fit-home.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "木质家具与自然光室内空间参考",
+      "sha256": "d47ba98d42500365d49870fe7d20b18339b2ffad737bf0bdbcec69318cb1f6fa",
+      "fileBytes": 646115,
+      "notes": "站内既有资产，经本轮语义与复用上限复核后保留。"
+    },
+    {
+      "imagePath": "assets/images/knowledge-outdoor-wood.jpg",
+      "sourceType": "existing_site_asset",
+      "assetOrigin": "existing",
+      "articlePaths": [
+        "cases/courtyard-teak-sample.html",
+        "solutions/outdoor.html",
+        "solutions/guides/outdoor-why-teak.html"
+      ],
+      "semanticTopic": "outdoor-material",
+      "createdFor": [
+        "cases/courtyard-teak-sample.html",
+        "solutions/outdoor.html",
+        "solutions/guides/outdoor-why-teak.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "户外木材在自然环境中的使用参考",
+      "sha256": "1360e7b020e616a0962a4afbae23eb64b9172fcc06559e577b95076afe3f0aef",
+      "fileBytes": 585136,
+      "notes": "站内既有资产，经本轮语义与复用上限复核后保留。"
+    },
+    {
+      "imagePath": "assets/images/knowledge-teak-maintenance.jpg",
+      "sourceType": "existing_site_asset",
+      "assetOrigin": "existing",
+      "articlePaths": [
+        "knowledge/topics/teak-daily-cleaning.html",
+        "knowledge/teak-care.html",
+        "solutions/guides/flooring-care-guide.html"
+      ],
+      "semanticTopic": "maintenance-cleaning",
+      "createdFor": [
+        "knowledge/topics/teak-daily-cleaning.html",
+        "knowledge/teak-care.html",
+        "solutions/guides/flooring-care-guide.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "柚木表面的清洁与维护参考",
+      "sha256": "2a1e219ffb523468930c4937009de51d7d24502f3979b5d458d5ba0f4ae63fdb",
+      "fileBytes": 243922,
+      "notes": "站内既有资产，经本轮语义与复用上限复核后保留。"
+    },
+    {
+      "imagePath": "assets/images/product-teak-cabinet.jpg",
+      "sourceType": "existing_site_asset",
+      "assetOrigin": "existing",
+      "articlePaths": [
+        "solutions/goods/teak-bookcase.html",
+        "solutions/guides/teak-cabinet-storage.html",
+        "solutions/goods/teak-wall-panel.html"
+      ],
+      "semanticTopic": "furniture-storage",
+      "createdFor": [
+        "solutions/goods/teak-bookcase.html",
+        "solutions/guides/teak-cabinet-storage.html",
+        "solutions/goods/teak-wall-panel.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "木质柜体与收纳空间参考",
+      "sha256": "d9127b91168975be7b8b0aa0b2aae76f8b7a9b296d81af896e42b64309a999e7",
+      "fileBytes": 181200,
+      "notes": "站内既有资产，经本轮语义与复用上限复核后保留。"
+    },
+    {
+      "imagePath": "assets/images/product-teak-chair.jpg",
+      "sourceType": "existing_site_asset",
+      "assetOrigin": "existing",
+      "articlePaths": [
+        "solutions/goods/teak-bench.html",
+        "solutions/goods/teak-lounge-chair.html",
+        "solutions/guides/teak-table-chair-choose.html"
+      ],
+      "semanticTopic": "furniture-seating",
+      "createdFor": [
+        "solutions/goods/teak-bench.html",
+        "solutions/goods/teak-lounge-chair.html",
+        "solutions/guides/teak-table-chair-choose.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "木质座椅的结构与使用场景参考",
+      "sha256": "b48997bfb0352c211f9128130977e8abc99709add77a6abb52a2ee8966aedf57",
+      "fileBytes": 454704,
+      "notes": "站内既有资产，经本轮语义与复用上限复核后保留。"
+    },
+    {
+      "imagePath": "assets/images/product-teak-table.jpg",
+      "sourceType": "existing_site_asset",
+      "assetOrigin": "existing",
+      "articlePaths": [
+        "solutions/goods/teak-dining-table.html",
+        "solutions/goods/teak-tea-table.html",
+        "solutions/guides/teak-tea-table-choose.html"
+      ],
+      "semanticTopic": "furniture-tables",
+      "createdFor": [
+        "solutions/goods/teak-dining-table.html",
+        "solutions/goods/teak-tea-table.html",
+        "solutions/guides/teak-tea-table-choose.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "木质桌具在室内空间中的使用参考",
+      "sha256": "a8f5c83bce18b0cf0f886c1531dde1e795d81834e0ee1c29a5f2e625e15edfdc",
+      "fileBytes": 669325,
+      "notes": "站内既有资产，经本轮语义与复用上限复核后保留。"
+    },
+    {
+      "imagePath": "assets/images/vendor-showroom-sample.jpg",
+      "sourceType": "existing_neutral_brand_context",
+      "assetOrigin": "existing",
+      "articlePaths": [
+        "cases/flooring-selection-sample.html",
+        "solutions/flooring.html",
+        "vendors/flooring-sample.html"
+      ],
+      "semanticTopic": "flooring-and-brand-context",
+      "createdFor": [
+        "cases/flooring-selection-sample.html",
+        "solutions/flooring.html",
+        "vendors/flooring-sample.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "中性展厅与材料陈列环境示意",
+      "sha256": "07ef9ddb697879fe23620cd5d4efaddd94e23b2c6ea710310bfb5219b8080a7e",
+      "fileBytes": 278356,
+      "notes": "站内既有中性品牌语境素材；页面保留示意边界，不对应具体企业实景。"
+    },
+    {
+      "imagePath": "assets/images/vendor-craft-sample.jpg",
+      "sourceType": "existing_neutral_brand_context",
+      "assetOrigin": "existing",
+      "articlePaths": [
+        "vendors/whole-decoration-sample.html",
+        "vendors/workshop-sample.html",
+        "vendors/xuelianhua-teak-furniture.html"
+      ],
+      "semanticTopic": "brand-information",
+      "createdFor": [
+        "vendors/whole-decoration-sample.html",
+        "vendors/workshop-sample.html",
+        "vendors/xuelianhua-teak-furniture.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "中性木作工艺与样板环境示意",
+      "sha256": "8c2bfcfda64793239dc8cf747b40f396172c1895b2ed3ad1f7bc90c0e1e3b41b",
+      "fileBytes": 126752,
+      "notes": "站内既有中性品牌语境素材；页面保留示意边界，不对应具体企业实景。"
+    },
+    {
+      "imagePath": "assets/images/vendor-workshop-sample.jpg",
+      "sourceType": "existing_neutral_brand_context",
+      "assetOrigin": "existing",
+      "articlePaths": [
+        "vendors/yixin-teak.html",
+        "vendors/yuebaijia-teak-flooring.html",
+        "vendors/zhenzang-teak-life.html"
+      ],
+      "semanticTopic": "brand-information",
+      "createdFor": [
+        "vendors/yixin-teak.html",
+        "vendors/yuebaijia-teak-flooring.html",
+        "vendors/zhenzang-teak-life.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "中性木作空间与材料环境示意",
+      "sha256": "3e0584ac078bcd7a8fe8c31c8f29b1f71b79d912f3fc24c07ccc208824cc3d6c",
+      "fileBytes": 382601,
+      "notes": "站内既有中性品牌语境素材；页面保留示意边界，不对应具体企业实景。"
+    },
+    {
+      "imagePath": "assets/vendor-workshop.svg",
+      "sourceType": "existing_neutral_brand_context",
+      "assetOrigin": "existing",
+      "articlePaths": [
+        "vendors/shanghai-zhuangxin-teak.html",
+        "vendors/wachen-teak.html"
+      ],
+      "semanticTopic": "brand-information",
+      "createdFor": [
+        "vendors/shanghai-zhuangxin-teak.html",
+        "vendors/wachen-teak.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 2,
+      "altText": "中性木作空间插画示意",
+      "sha256": "fc4de74a030ecbba378b4c4e77669ba98dba948b0fb11c98a5580c1bc5f2a5c8",
+      "fileBytes": 634,
+      "notes": "站内既有中性品牌语境素材；页面保留示意边界，不对应具体企业实景。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-vendor-evaluation.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "articles/teak-vendor-selection.html",
+        "knowledge/topics/brand-or-factory.html",
+        "knowledge/topics/questions-before-vendor.html"
+      ],
+      "semanticTopic": "vendor-evaluation",
+      "createdFor": [
+        "articles/teak-vendor-selection.html",
+        "knowledge/topics/brand-or-factory.html",
+        "knowledge/topics/questions-before-vendor.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "木作样板、接合细节和空白核对清单的服务方评估示意",
+      "sha256": "6941a06d2545df0d7e1350aa728c207610ed1e98b3a8620616b1d5abab52105b",
+      "fileBytes": 293529,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-buying-inspection.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "knowledge/teak-buying-guide.html",
+        "knowledge/topics/before-buying-teak-basics.html",
+        "knowledge/topics/teak-buying-pitfalls.html"
+      ],
+      "semanticTopic": "buying-inspection",
+      "createdFor": [
+        "knowledge/teak-buying-guide.html",
+        "knowledge/topics/before-buying-teak-basics.html",
+        "knowledge/topics/teak-buying-pitfalls.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "柚木板材样本、卡尺和空白记录本的选购检查示意",
+      "sha256": "ef7b431efb67e4a59194adf1ce5ca54c2c84af78bb770ec4c47c6f8bade9fbea",
+      "fileBytes": 331782,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-authenticity-comparison.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "knowledge/teak-faq.html",
+        "knowledge/topics/teak-authenticity-basic.html",
+        "knowledge/topics/not-only-color-photo.html"
+      ],
+      "semanticTopic": "authenticity-comparison",
+      "createdFor": [
+        "knowledge/teak-faq.html",
+        "knowledge/topics/teak-authenticity-basic.html",
+        "knowledge/topics/not-only-color-photo.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "不同木材表面与端面并排观察的初步识别示意",
+      "sha256": "55484eec311967ed7650c5ac37b6cd9827014108f75fca2693a7cf21d22c0dc8",
+      "fileBytes": 295585,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-origin-botanical.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "knowledge/topics/teak-origin-basic.html"
+      ],
+      "semanticTopic": "material-origin",
+      "createdFor": [
+        "knowledge/topics/teak-origin-basic.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 1,
+      "altText": "柚木叶片、树皮与板材样本组成的树种来源认知示意",
+      "sha256": "e2e3bfa72e914d5bcf06fadad9e5b2b012da8b9129013120c63b444fa9e2b89f",
+      "fileBytes": 301951,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-stability-inspection.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "knowledge/topics/avoid-cracking-warping.html",
+        "knowledge/topics/teak-oil-stability.html"
+      ],
+      "semanticTopic": "material-stability",
+      "createdFor": [
+        "knowledge/topics/avoid-cracking-warping.html",
+        "knowledge/topics/teak-oil-stability.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 2,
+      "altText": "木板端面、含水率检测和细微形变观察的稳定性示意",
+      "sha256": "cf7a384548ed7372d8f74709dec73f80057766604deebb74442b83477b09c053",
+      "fileBytes": 231298,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-value-comparison.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "knowledge/topics/is-teak-always-expensive.html",
+        "knowledge/topics/teak-price-difference.html",
+        "knowledge/topics/teak-vs-walnut.html"
+      ],
+      "semanticTopic": "selection-value-comparison",
+      "createdFor": [
+        "knowledge/topics/is-teak-always-expensive.html",
+        "knowledge/topics/teak-price-difference.html",
+        "knowledge/topics/teak-vs-walnut.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "不同规格与纹理木材样本并排比较的价值判断示意",
+      "sha256": "1ec891b132a0bc28e54f40c46ce65989af2ae9e0f90bb25d31c5eba84af6443e",
+      "fileBytes": 263319,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-flooring-installation.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "knowledge/topics/flooring-vs-furniture-craft.html",
+        "solutions/guides/flooring-before-install.html",
+        "solutions/guides/flooring-sample-structure.html"
+      ],
+      "semanticTopic": "flooring-installation",
+      "createdFor": [
+        "knowledge/topics/flooring-vs-furniture-craft.html",
+        "solutions/guides/flooring-before-install.html",
+        "solutions/guides/flooring-sample-structure.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "地板样板、基层剖面和测量工具的安装前检查示意",
+      "sha256": "ce4b18ef710de5dd69a9a6bc880761b4f58c5efd284124793e3769b60139dda0",
+      "fileBytes": 277286,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-flooring-wear-care.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "knowledge/topics/teak-flooring-daily-care.html",
+        "solutions/goods/aged-teak-flooring.html",
+        "solutions/goods/reclaimed-teak-flooring.html"
+      ],
+      "semanticTopic": "flooring-wear-care",
+      "createdFor": [
+        "knowledge/topics/teak-flooring-daily-care.html",
+        "solutions/goods/aged-teak-flooring.html",
+        "solutions/goods/reclaimed-teak-flooring.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "不同使用状态的木地板表面与软布养护示意",
+      "sha256": "144e925f8d2cbf24af6975d51710348d9872bde880baf5057aae31f9963ac7dd",
+      "fileBytes": 265079,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-flooring-space-selection.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "knowledge/topics/flooring-fit-space.html",
+        "solutions/goods/hotel-teak-floor.html",
+        "solutions/goods/sunroom-teak-floor.html"
+      ],
+      "semanticTopic": "flooring-space-selection",
+      "createdFor": [
+        "knowledge/topics/flooring-fit-space.html",
+        "solutions/goods/hotel-teak-floor.html",
+        "solutions/goods/sunroom-teak-floor.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "自然光下结合空间材料比较木地板样板的选材示意",
+      "sha256": "eae2adc25a3e30fc04f24f3a56e9851a75abada72db1d520350e4f036fb8cb93",
+      "fileBytes": 320958,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-floor-cabinet-transition.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "solutions/guides/tea-room-floor-cabinet.html"
+      ],
+      "semanticTopic": "floor-cabinet-transition",
+      "createdFor": [
+        "solutions/guides/tea-room-floor-cabinet.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 1,
+      "altText": "木地板与柜体收口关系的室内材料示意",
+      "sha256": "5baaf96c116999c7913f6995408c7ff4a6016b132df464c888f793256ab3223c",
+      "fileBytes": 283051,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-flooring-sun-moisture.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "knowledge/topics/teak-bathroom-balcony.html",
+        "solutions/goods/seaside-teak-floor.html",
+        "solutions/guides/terrace-balcony-teak.html"
+      ],
+      "semanticTopic": "flooring-sun-moisture",
+      "createdFor": [
+        "knowledge/topics/teak-bathroom-balcony.html",
+        "solutions/goods/seaside-teak-floor.html",
+        "solutions/guides/terrace-balcony-teak.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "靠近自然光与湿区边界的木地板材料状态示意",
+      "sha256": "5f0ab50229c794a738bc258b07e72378f895d0ab2ed45a0a7c457c6fdb3f9678",
+      "fileBytes": 205647,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-outdoor-seating-selection.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "knowledge/topics/outdoor-teak-judgement.html",
+        "solutions/goods/teak-outdoor-bench.html",
+        "solutions/guides/outdoor-furniture-choose.html"
+      ],
+      "semanticTopic": "outdoor-seating",
+      "createdFor": [
+        "knowledge/topics/outdoor-teak-judgement.html",
+        "solutions/goods/teak-outdoor-bench.html",
+        "solutions/guides/outdoor-furniture-choose.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "庭院中木质长椅与座椅的户外使用示意",
+      "sha256": "62fa8ad5da472fe039fabaa93f013ac8cca1041d152ef9b373e893f94f54c1a7",
+      "fileBytes": 439167,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-patio-dining.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "solutions/goods/teak-garden-dining.html",
+        "solutions/goods/teak-patio-furniture.html",
+        "solutions/guides/outdoor-sample-structure.html"
+      ],
+      "semanticTopic": "patio-dining",
+      "createdFor": [
+        "solutions/goods/teak-garden-dining.html",
+        "solutions/goods/teak-patio-furniture.html",
+        "solutions/guides/outdoor-sample-structure.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "住宅露台上的木质餐桌与座椅使用示意",
+      "sha256": "0d3ddb276accacea801093310706b1e88bf05fb083f213020e96364b56983d49",
+      "fileBytes": 331600,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-deck-water-exposure.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "solutions/goods/teak-pool-deck.html",
+        "solutions/goods/teak-yacht-deck.html"
+      ],
+      "semanticTopic": "deck-water-exposure",
+      "createdFor": [
+        "solutions/goods/teak-pool-deck.html",
+        "solutions/goods/teak-yacht-deck.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 2,
+      "altText": "带水滴与日晒痕迹的木质平台板材近景示意",
+      "sha256": "a45baee5469de65affb5361c0f22621965c00843ca75baef1e37cd3008dc8b3c",
+      "fileBytes": 390558,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-tea-room-materials.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "cases/tea-room-teak-sample.html",
+        "knowledge/topics/tea-room-teak-space.html",
+        "solutions/tea-room.html"
+      ],
+      "semanticTopic": "tea-room-materials",
+      "createdFor": [
+        "cases/tea-room-teak-sample.html",
+        "knowledge/topics/tea-room-teak-space.html",
+        "solutions/tea-room.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "茶桌、坐席与木质材料关系的茶空间参考示意",
+      "sha256": "77fb93aff60cf4c2b1a916446366fed8490fbc665a19469ac6a4f437c71b24bd",
+      "fileBytes": 285354,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-conversation-space.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "solutions/guides/tea-room-sample-structure.html",
+        "solutions/guides/tea-room-why-teak.html",
+        "solutions/guides/teak-reception-atmosphere.html"
+      ],
+      "semanticTopic": "conversation-space",
+      "createdFor": [
+        "solutions/guides/tea-room-sample-structure.html",
+        "solutions/guides/tea-room-why-teak.html",
+        "solutions/guides/teak-reception-atmosphere.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "围绕木质桌具布置的克制会客空间示意",
+      "sha256": "fbf082eca39e27b6c4998f9da4757adf98a44bb8feaa5b0c74a633a8d930bb63",
+      "fileBytes": 193836,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-family-bedroom.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "knowledge/topics/teak-kids-pets-home.html",
+        "knowledge/topics/why-teak-for-home.html",
+        "solutions/goods/teak-bedroom.html"
+      ],
+      "semanticTopic": "family-bedroom",
+      "createdFor": [
+        "knowledge/topics/teak-kids-pets-home.html",
+        "knowledge/topics/why-teak-for-home.html",
+        "solutions/goods/teak-bedroom.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "自然光卧室中的木质家具与家庭日常使用示意",
+      "sha256": "be7470d6a4868ca06b1470b5866502c8f7c1ed1f9c8b4010204cd0e2cfc5562e",
+      "fileBytes": 295819,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-living-study.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "knowledge/topics/teak-home-spaces.html",
+        "solutions/goods/teak-living-room.html",
+        "solutions/goods/teak-study-room.html"
+      ],
+      "semanticTopic": "living-study-space",
+      "createdFor": [
+        "knowledge/topics/teak-home-spaces.html",
+        "solutions/goods/teak-living-room.html",
+        "solutions/goods/teak-study-room.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "客厅与书房过渡区域中的木质家具尺度示意",
+      "sha256": "8a7332e5d66e8a2b62ec9b7015a41808e8cfb81839169b81681eee54da0c2b2a",
+      "fileBytes": 219000,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-furniture-material-mix.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "solutions/furniture.html",
+        "solutions/guides/furniture-sample-structure.html",
+        "solutions/guides/teak-with-other-wood.html"
+      ],
+      "semanticTopic": "furniture-material-mix",
+      "createdFor": [
+        "solutions/furniture.html",
+        "solutions/guides/furniture-sample-structure.html",
+        "solutions/guides/teak-with-other-wood.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "不同木色家具样板与织物并置的空间搭配示意",
+      "sha256": "d14a5c0bd5f97c1c593c2ec179b6d7b176a64f367ab918a33dae013df82514db",
+      "fileBytes": 315331,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-whole-house-woodwork.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "solutions/goods/teak-villa-woodwork.html",
+        "solutions/guides/whole-decoration-matching.html",
+        "solutions/guides/whole-decoration-sample-structure.html"
+      ],
+      "semanticTopic": "whole-house-woodwork",
+      "createdFor": [
+        "solutions/goods/teak-villa-woodwork.html",
+        "solutions/guides/whole-decoration-matching.html",
+        "solutions/guides/whole-decoration-sample-structure.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "柜体、墙板与门套连续关系的整体木作示意",
+      "sha256": "de972b6dc50f3930b9a4eb9288e14fca2602403442fbd2d396666237c1301d24",
+      "fileBytes": 215617,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-woodwork-material-check.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "knowledge/teak-space-use.html",
+        "solutions/guides/whole-decoration-material-check.html",
+        "solutions/guides/whole-decoration-vs-custom.html"
+      ],
+      "semanticTopic": "woodwork-material-check",
+      "createdFor": [
+        "knowledge/teak-space-use.html",
+        "solutions/guides/whole-decoration-material-check.html",
+        "solutions/guides/whole-decoration-vs-custom.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "板材样本、五金与收口节点的整体木作检查示意",
+      "sha256": "d9a9b8e37cb2e8c93a20bb1fc826fc5b5c7f19b0a7452d17da556a2c723078f4",
+      "fileBytes": 358195,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-side-table-scale.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "solutions/guides/teak-side-coffee-table.html"
+      ],
+      "semanticTopic": "side-table-scale",
+      "createdFor": [
+        "solutions/guides/teak-side-coffee-table.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 1,
+      "altText": "不同高度与尺度的木质边几和茶几并置示意",
+      "sha256": "370fb64d07b0f27310c97419067bbea97bd20981b93ffc7420abe31ac5ced40c",
+      "fileBytes": 268157,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-small-object-details.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "solutions/goods/old-teak-carving.html",
+        "solutions/goods/teak-incense-holder.html",
+        "solutions/goods/teak-speaker.html"
+      ],
+      "semanticTopic": "small-object-details",
+      "createdFor": [
+        "solutions/goods/old-teak-carving.html",
+        "solutions/goods/teak-incense-holder.html",
+        "solutions/goods/teak-speaker.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "木质香插、雕刻小件与音箱外壳细节示意",
+      "sha256": "ba3fc7c33fa2bc95d02a8a2c051d1705211459243196f6811f768735cd6877e7",
+      "fileBytes": 164652,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-reclaimed-openings.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "solutions/goods/old-teak-door.html",
+        "solutions/goods/old-teak-window.html",
+        "solutions/goods/reclaimed-boat-teak.html"
+      ],
+      "semanticTopic": "reclaimed-openings",
+      "createdFor": [
+        "solutions/goods/old-teak-door.html",
+        "solutions/goods/old-teak-window.html",
+        "solutions/goods/reclaimed-boat-teak.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 3,
+      "altText": "旧木门窗构件与再利用木料的纹理细节示意",
+      "sha256": "f4fb0149f2b60e8cd7f9a8d0d0ef0a0ad24ddf553e522660c1ff6c261551c5e8",
+      "fileBytes": 236750,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    },
+    {
+      "imagePath": "assets/images/article-teak-drying-process.jpg",
+      "sourceType": "generated_editorial_v134",
+      "assetOrigin": "generated",
+      "articlePaths": [
+        "knowledge/topics/teak-drying-process.html"
+      ],
+      "semanticTopic": "craft-drying",
+      "createdFor": [
+        "knowledge/topics/teak-drying-process.html"
+      ],
+      "isDocumentary": false,
+      "isConceptual": true,
+      "brandAssociation": null,
+      "reuseCount": 1,
+      "altText": "留有通风间隔的木板堆与含水率检测过程示意",
+      "sha256": "9aa1e7998481deb812f5b016e515aa7c0fe1cc8d4c9c662ee471a824a7ae6a1d",
+      "fileBytes": 196515,
+      "notes": "中性编辑配图；不得解读为真实品牌、企业、人物、客户案例、工程项目或工厂现场。"
+    }
+  ]
+}

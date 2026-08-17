@@ -8,7 +8,7 @@ const currentFile = fileURLToPath(import.meta.url);
 const projectRoot = path.resolve(path.dirname(currentFile), "..");
 const releaseRoot = path.join(projectRoot, packageDirectory);
 const packageRoot = path.join(releaseRoot, packageName);
-const manifestPath = path.join(projectRoot, "custom", "v133-release-package-file-hashes.txt");
+const manifestPath = path.join(projectRoot, "custom", "v134-release-package-file-hashes.txt");
 
 function toPosix(relativePath) {
   return relativePath.replaceAll(path.sep, "/");

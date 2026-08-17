@@ -11890,3 +11890,79 @@ main#top > .value-section .about-intro {
     background-image: linear-gradient(180deg, rgba(38, 27, 18, 0.22), rgba(38, 27, 18, 0.88)), var(--article-cover-image);
   }
 }
+
+
+/* v1.34 article image semantic pools */
+.article-image-existing-material-basics { --article-cover-image: url("./assets/images/article-teak-material-study.jpg"); }
+.article-image-existing-material-comparison { --article-cover-image: url("./assets/images/knowledge-teak-grain.jpg"); }
+.article-image-existing-color-aging { --article-cover-image: url("./assets/images/article-teak-aging-tones.jpg"); }
+.article-image-existing-joinery { --article-cover-image: url("./assets/images/article-teak-joinery-craft.jpg"); }
+.article-image-existing-floor-selection { --article-cover-image: url("./assets/images/article-teak-flooring-selection.jpg"); }
+.article-image-existing-outdoor-care { --article-cover-image: url("./assets/images/article-teak-outdoor-care.jpg"); }
+.article-image-existing-small-objects { --article-cover-image: url("./assets/images/article-teak-small-objects.jpg"); }
+.article-image-existing-whole-interior { --article-cover-image: url("./assets/images/hero-teak-lifestyle.jpg"); }
+.article-image-existing-outdoor-material { --article-cover-image: url("./assets/images/knowledge-outdoor-wood.jpg"); }
+.article-image-existing-surface-cleaning { --article-cover-image: url("./assets/images/knowledge-teak-maintenance.jpg"); }
+.article-image-existing-storage { --article-cover-image: url("./assets/images/product-teak-cabinet.jpg"); }
+.article-image-existing-seating { --article-cover-image: url("./assets/images/product-teak-chair.jpg"); }
+.article-image-existing-tables { --article-cover-image: url("./assets/images/product-teak-table.jpg"); }
+.article-image-existing-brand-showroom { --article-cover-image: url("./assets/images/vendor-showroom-sample.jpg"); }
+.article-image-existing-brand-craft { --article-cover-image: url("./assets/images/vendor-craft-sample.jpg"); }
+.article-image-existing-brand-workshop { --article-cover-image: url("./assets/images/vendor-workshop-sample.jpg"); }
+.article-image-existing-brand-workshop-illustration { --article-cover-image: url("./assets/vendor-workshop.svg"); }
+.article-image-v134-vendor-evaluation { --article-cover-image: url("./assets/images/article-teak-vendor-evaluation.jpg"); }
+.article-image-v134-buying-inspection { --article-cover-image: url("./assets/images/article-teak-buying-inspection.jpg"); }
+.article-image-v134-authenticity-comparison { --article-cover-image: url("./assets/images/article-teak-authenticity-comparison.jpg"); }
+.article-image-v134-origin-botanical { --article-cover-image: url("./assets/images/article-teak-origin-botanical.jpg"); }
+.article-image-v134-stability-inspection { --article-cover-image: url("./assets/images/article-teak-stability-inspection.jpg"); }
+.article-image-v134-value-comparison { --article-cover-image: url("./assets/images/article-teak-value-comparison.jpg"); }
+.article-image-v134-flooring-installation { --article-cover-image: url("./assets/images/article-teak-flooring-installation.jpg"); }
+.article-image-v134-flooring-wear-care { --article-cover-image: url("./assets/images/article-teak-flooring-wear-care.jpg"); }
+.article-image-v134-flooring-space-selection { --article-cover-image: url("./assets/images/article-teak-flooring-space-selection.jpg"); }
+.article-image-v134-floor-cabinet-transition { --article-cover-image: url("./assets/images/article-teak-floor-cabinet-transition.jpg"); }
+.article-image-v134-flooring-sun-moisture { --article-cover-image: url("./assets/images/article-teak-flooring-sun-moisture.jpg"); }
+.article-image-v134-outdoor-seating-selection { --article-cover-image: url("./assets/images/article-teak-outdoor-seating-selection.jpg"); }
+.article-image-v134-patio-dining { --article-cover-image: url("./assets/images/article-teak-patio-dining.jpg"); }
+.article-image-v134-deck-water-exposure { --article-cover-image: url("./assets/images/article-teak-deck-water-exposure.jpg"); }
+.article-image-v134-tea-room-materials { --article-cover-image: url("./assets/images/article-teak-tea-room-materials.jpg"); }
+.article-image-v134-conversation-space { --article-cover-image: url("./assets/images/article-teak-conversation-space.jpg"); }
+.article-image-v134-family-bedroom { --article-cover-image: url("./assets/images/article-teak-family-bedroom.jpg"); }
+.article-image-v134-living-study { --article-cover-image: url("./assets/images/article-teak-living-study.jpg"); }
+.article-image-v134-furniture-material-mix { --article-cover-image: url("./assets/images/article-teak-furniture-material-mix.jpg"); }
+.article-image-v134-whole-house-woodwork { --article-cover-image: url("./assets/images/article-teak-whole-house-woodwork.jpg"); }
+.article-image-v134-woodwork-material-check { --article-cover-image: url("./assets/images/article-teak-woodwork-material-check.jpg"); }
+.article-image-v134-side-table-scale { --article-cover-image: url("./assets/images/article-teak-side-table-scale.jpg"); }
+.article-image-v134-small-object-details { --article-cover-image: url("./assets/images/article-teak-small-object-details.jpg"); }
+.article-image-v134-reclaimed-openings { --article-cover-image: url("./assets/images/article-teak-reclaimed-openings.jpg"); }
+.article-image-v134-drying-process { --article-cover-image: url("./assets/images/article-teak-drying-process.jpg"); }
+
+.detail-lifestyle-object[class*="article-image-"] .goods-article-hero {
+  background-image: linear-gradient(90deg, rgba(36, 25, 17, 0.86) 0%, rgba(36, 25, 17, 0.62) 48%, rgba(36, 25, 17, 0.12) 76%), var(--article-cover-image);
+}
+
+.detail-lifestyle-archive[class*="article-image-"] .goods-article-hero {
+  background-image: linear-gradient(110deg, rgba(38, 27, 18, 0.94), rgba(38, 27, 18, 0.58) 58%, rgba(38, 27, 18, 0.24)), var(--article-cover-image);
+}
+
+.detail-aesthetic[class*="article-image-"] .case-hero,
+.detail-aesthetic-essay[class*="article-image-"] .content-hero-panel,
+.detail-aesthetic-solution[class*="article-image-"] .solution-topic-hero,
+.detail-lifestyle-outdoor[class*="article-image-"] .solution-topic-hero {
+  background-image: linear-gradient(180deg, rgba(27, 19, 13, 0.06), rgba(27, 19, 13, 0.82)), var(--article-cover-image);
+}
+
+.detail-brand[class*="article-image-"] .vendor-profile-hero {
+  background-image: linear-gradient(90deg, rgba(30, 22, 16, 0.9), rgba(30, 22, 16, 0.58)), var(--article-cover-image);
+}
+
+@media (max-width: 720px) {
+  .detail-lifestyle-object[class*="article-image-"] .goods-article-hero,
+  .detail-lifestyle-archive[class*="article-image-"] .goods-article-hero,
+  .detail-aesthetic[class*="article-image-"] .case-hero,
+  .detail-aesthetic-essay[class*="article-image-"] .content-hero-panel,
+  .detail-aesthetic-solution[class*="article-image-"] .solution-topic-hero,
+  .detail-lifestyle-outdoor[class*="article-image-"] .solution-topic-hero,
+  .detail-brand[class*="article-image-"] .vendor-profile-hero {
+    background-image: linear-gradient(180deg, rgba(38, 27, 18, 0.2), rgba(38, 27, 18, 0.88)), var(--article-cover-image);
+  }
+}
